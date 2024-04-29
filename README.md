@@ -30,3 +30,70 @@ It will have a nicely displayed look and feel with a user Profile were everythin
 ![Webstorm](https://img.shields.io/badge/WebStorm-000000?style=for-the-badge&logo=WebStorm&logoColor=white)
 
 ---
+
+## Table of Content
+
+- [Planning](#planning)
+  - [Wireframes](#wireframes)
+  - [User Stories using MOSCOW Prioritization techniques](#user-stories-using-moscow-prioritization-techniques)
+  - [Proper Description of the Technologies used in the Project](#proper-description-of-the-technologies-used-in-the-project)
+- [Features](#features)
+  - [State Store](#state-store)
+- [Testing](#testing)
+- [Bugs](#bugs)
+- [Credits](#credits)
+---
+
+### [Planning](#table-of-content)
+
+#### [Wireframes](#table-of-content)
+
+#### [User Stories using MOSCOW Prioritization techniques](#table-of-content)
+
+#### [Proper Description of the Technologies used in the Project](#table-of-content)
+
+---
+
+### [Features](#table-of-content)
+
+#### [State Store](#table-of-content)
+
+---
+
+### [Testing](#table-of-content)
+
+---
+
+### [Bugs](#table-of-content)
+
+---
+
+### [Credits](#table-of-content)
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
