@@ -62,6 +62,11 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 
 #### [State Store](#table-of-content)
 
+- I have written a state store for this Project
+- Using useMemo, useContext and useReducer
+- To improve the performance of this app
+- If you are wanting to see how it was done, click [here](https://docs.google.com/document/d/1IHX350WfSIrXJzxKs8IBurmX-wX1dtBG1-rPXqmIB6c/edit#heading=h.1tzm0g2fdwbe)
+
 ---
 
 ### [Testing](#table-of-content)
@@ -73,6 +78,9 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 ---
 
 ### [Credits](#table-of-content)
+
+- Iteration over function with the state store [here](https://stackoverflow.com/questions/59200785/react-usereducer-how-to-combine-multiple-reducers)
+- Assisted in helping me get the state store correct [here](https://ricostacruz.com/til/state-management-with-react-hooks)
 
 ---
 
