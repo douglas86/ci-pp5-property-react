@@ -13,6 +13,10 @@ This forms part of the front end for my fifth project with code institute.
 This application is used to give a nice look and feel for the properties that are being looked at.
 It will have a nicely displayed look and feel with a user Profile were everything can be displayed in one place.
 
+![img.png](src/assets/docs/img.png)
+
+Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
+
 ---
 
 [//]: # (Badges)
