@@ -1,10 +1,12 @@
 import { createContext, useMemo, useReducer } from "react";
 import { rootReducers } from "./rootReducers";
+import { stateReducers } from "./reducers";
 
 const initialState = {
   userReducers: "None",
   dataReducers: {},
   formsReducers: {},
+  stateReducers: {},
 };
 
 export const Context = createContext(initialState);
@@ -16,6 +18,7 @@ const init = (initialState) => {
     userReducers,
     dataReducers,
     formsReducers,
+    stateReducers,
   };
 };
 
