@@ -2,9 +2,6 @@
 import HeaderTemplate from "./HeaderTemplate";
 import FooterTemplate from "./FooterTemplate";
 
-// styling
-import styles from "../../styles/LayoutTemplate.module.css";
-
 /**
  * This template will be used to render Header, Footer and all content in between
  * @param children
@@ -13,11 +10,11 @@ import styles from "../../styles/LayoutTemplate.module.css";
  */
 const LayoutTemplate = ({ children }) => {
   return (
-    <div className={styles.body}>
+    <>
       <HeaderTemplate />
       <main>{children}</main>
       <FooterTemplate />
-    </div>
+    </>
   );
 };
 
