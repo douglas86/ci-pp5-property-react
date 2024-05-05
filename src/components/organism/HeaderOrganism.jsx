@@ -18,7 +18,7 @@ const HeaderOrganism = () => {
   useEffect(() => {
     width >= 768 &&
       dispatch({ type: "UPDATE HAMBURGER TOGGLE", payload: false });
-  }, [width]);
+  }, [width, dispatch]);
 
   return (
     <header>
