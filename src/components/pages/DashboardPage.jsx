@@ -1,4 +1,4 @@
-const ProfilePage = () => {
+const DashboardPage = () => {
   return (
     <div>
       <h1>Explore Page</h1>
@@ -6,4 +6,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default DashboardPage;
