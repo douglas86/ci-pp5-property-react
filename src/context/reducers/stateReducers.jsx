@@ -9,7 +9,9 @@ export const stateReducers = (state, action) => {
 
   switch (type) {
     case "UPDATE HAMBURGER TOGGLE":
-      return { ...state, Menu: payload };
+      return { ...state, MenuOpen: payload };
+    case "SET WINDOW WIDTH":
+      return { ...state, width: payload };
     default:
       return state;
   }

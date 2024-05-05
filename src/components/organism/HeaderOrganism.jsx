@@ -10,19 +10,21 @@ import styles from "../../styles/organism/HeaderOrganism.module.css";
 const HeaderOrganism = () => {
   const { state, dispatch } = useAppContext();
   const { stateReducers } = state;
-  const { Menu } = stateReducers;
+  const { MenuOpen, width } = stateReducers;
+
+  console.log("width", width);
 
   return (
     <header>
       <div className={styles.hamburger}>
         <button
           onClick={() =>
-            dispatch({ type: "UPDATE HAMBURGER TOGGLE", payload: !Menu })
+            dispatch({ type: "UPDATE HAMBURGER TOGGLE", payload: !MenuOpen })
           }
         >
-          {menuToggle(Menu)}
+          {menuToggle(MenuOpen)}
         </button>
-        {Menu && <h1>Show</h1>}
+        {MenuOpen && <h1>Show</h1>}
       </div>
     </header>
   );

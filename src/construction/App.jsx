@@ -4,10 +4,15 @@ import { Routes, Route } from "react-router-dom";
 // components
 import LayoutTemplate from "../components/templates/LayoutTemplate";
 
+// custom hooks
+import useResize from "../hooks/useResize";
+
 // utilities
 import { router } from "../utils/router";
 
 const App = () => {
+  useResize();
+
   return (
     <LayoutTemplate>
       <Routes>

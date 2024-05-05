@@ -6,7 +6,8 @@ const initialState = {
   dataReducers: {},
   formsReducers: {},
   stateReducers: {
-    Menu: false,
+    MenuOpen: false,
+    width: window.innerWidth,
   },
 };
 

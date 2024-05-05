@@ -1,6 +1,4 @@
-export const menuToggle = (menuState) =>
-  menuState ? (
-    <i className="fa-solid fa-xmark"></i>
-  ) : (
-    <i className="fa-solid fa-bars"></i>
-  );
+import { barsIcon } from "../components/atom/Icons/barsIcon";
+import { xMarkIcon } from "../components/atom/Icons/xmarkIcon";
+
+export const menuToggle = (menuState) => (menuState ? xMarkIcon : barsIcon);
