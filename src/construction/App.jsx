@@ -1,28 +1,32 @@
+// 3rd party npm packages
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// components
 import LayoutTemplate from "../components/templates/LayoutTemplate";
 
+// utilities
 import { router } from "../utils/router";
-import HomePage from "../components/pages/HomePage";
 
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
-        <Routes>
-          <>
-            {router.map((items, index) => (
-              <>
-                <Route
-                  key={index}
-                  path={items.path}
-                  element={items.component}
-                />
-              </>
-            ))}
-          </>
-        </Routes>
-      </BrowserRouter>
+      <LayoutTemplate>
+        <BrowserRouter>
+          <Routes>
+            <>
+              {router.map((items, index) => (
+                <>
+                  <Route
+                    key={index}
+                    path={items.path}
+                    element={items.component}
+                  />
+                </>
+              ))}
+            </>
+          </Routes>
+        </BrowserRouter>
+      </LayoutTemplate>
     </div>
   );
 };
