@@ -6,13 +6,19 @@ import useAppContext from "../../hooks/useAppContext";
 
 // styling
 import styles from "../../styles/organism/HeaderOrganism.module.css";
+import { useEffect } from "react";
 
 const HeaderOrganism = () => {
   const { state, dispatch } = useAppContext();
   const { stateReducers } = state;
   const { MenuOpen, width } = stateReducers;
 
-  console.log("width", width);
+  // set the MenuOpen to false if not on a mobile device,
+  // this will update dynamically
+  useEffect(() => {
+    width >= 768 &&
+      dispatch({ type: "UPDATE HAMBURGER TOGGLE", payload: false });
+  }, [width]);
 
   return (
     <header>
