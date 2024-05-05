@@ -1,6 +1,6 @@
 // components
-import HeaderTemplate from "./HeaderTemplate";
-import FooterTemplate from "./FooterTemplate";
+import HeaderOrganism from "../organism/HeaderOrganism";
+import FooterOrganism from "../organism/FooterOrganism";
 
 /**
  * This template will be used to render Header, Footer and all content in between
@@ -11,9 +11,9 @@ import FooterTemplate from "./FooterTemplate";
 const LayoutTemplate = ({ children }) => {
   return (
     <>
-      <HeaderTemplate />
+      <HeaderOrganism />
       <main>{children}</main>
-      <FooterTemplate />
+      <FooterOrganism />
     </>
   );
 };

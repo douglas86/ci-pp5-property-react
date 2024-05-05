@@ -9,7 +9,7 @@ export const stateReducers = (state, action) => {
 
   switch (type) {
     case "UPDATE HAMBURGER TOGGLE":
-      return { ...state, user: payload };
+      return { ...state, Menu: payload };
     default:
       return state;
   }
