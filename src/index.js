@@ -7,12 +7,15 @@ import reportWebVitals from "./construction/reportWebVitals";
 import { Provider } from "./context/store";
 
 import "./styles/index.css";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
 );
