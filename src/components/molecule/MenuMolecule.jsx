@@ -1,14 +1,17 @@
 import { menuToggle } from "../../utils";
 import useAppContext from "../../hooks/useAppContext";
 
+import styles from "../../styles/molecule/Menu.module.css";
+
 const MenuMolecule = () => {
   const { state, dispatch } = useAppContext();
   const { stateReducers } = state;
   const { MenuOpen } = stateReducers;
 
   return (
-    <div>
+    <div className={styles.menu}>
       <button
+        className={styles.button}
         onClick={() =>
           dispatch({ type: "UPDATE HAMBURGER TOGGLE", payload: !MenuOpen })
         }
