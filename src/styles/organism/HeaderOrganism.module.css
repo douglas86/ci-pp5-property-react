@@ -1,9 +1,8 @@
 .navbar {
   display: flex;
-  flex-direction: row;
   background-color: #8b8c75;
   margin: 0;
-  padding: 1em;
+  padding: 0;
   height: 5em;
   justify-content: space-between;
 }
@@ -12,9 +11,28 @@
   width: 5em;
   height: auto;
   border-radius: 50%;
+  padding: 0.5em;
 }
 
-@media screen and (min-width: 768px) {
+.title {
+  width: 100%;
+  text-align: center;
+}
+
+.linksContainer {
+  display: flex;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.links {
+  padding: 1em;
+  font-size: 1.1em;
+}
+
+@media screen and (min-width: 1024px) {
   .hamburger {
     display: none;
   }

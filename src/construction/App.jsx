@@ -8,7 +8,7 @@ import LayoutTemplate from "../components/templates/LayoutTemplate";
 import useResize from "../hooks/useResize";
 
 // utilities
-import { router } from "../utils/router";
+import { router } from "../utils";
 
 const App = () => {
   useResize();

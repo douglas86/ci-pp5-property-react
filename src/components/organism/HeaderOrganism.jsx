@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 
 // utilities
-import { menuToggle } from "../../utils/menuToggle";
+import { menuToggle, router } from "../../utils";
 
 // context
 import useAppContext from "../../hooks/useAppContext";
@@ -21,16 +21,27 @@ const HeaderOrganism = () => {
   // set the MenuOpen to false if not on a mobile device,
   // this will update dynamically
   useEffect(() => {
-    width >= 768 &&
+    width >= 1024 &&
       dispatch({ type: "UPDATE HAMBURGER TOGGLE", payload: false });
   }, [width, dispatch]);
 
   return (
     <>
-      {width > 768 ? (
+      {width > 1024 ? (
         <div className={styles.navbar}>
           <img className={styles.logo} src={`${logo}`} alt="logo" />
-          <h1>London Properties</h1>
+          <h1 className={styles.title}>London Properties</h1>
+          <div className={styles.linksContainer}>
+            {router.map(({ title, path }, index) => (
+              <div key={index}>
+                {title !== "None" && (
+                  <a href={path} className={styles.links}>
+                    {title}
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       ) : (
         <div className={styles.hamburger}>
