@@ -1,4 +1,3 @@
-import { barsIcon } from "../components/atom/Icons/barsIcon";
-import { xMarkIcon } from "../components/atom/Icons/xmarkIcon";
+import { barsIcon, xMarkIcon } from "../components/atom/Icons";
 
 export const menuToggle = (menuState) => (menuState ? xMarkIcon : barsIcon);
