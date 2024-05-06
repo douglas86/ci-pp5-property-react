@@ -1,3 +1,6 @@
+// components
+import { assetIcon } from "../atom/Icons";
+
 // utilities
 import { router } from "../../utils";
 
@@ -8,7 +11,7 @@ const LinksMolecule = () => {
   return (
     <ul className={styles.ul}>
       {router.map(
-        ({ title, path }) =>
+        ({ title, path, icon }) =>
           title !== "None" && (
             <li key={title} className={styles.li}>
               <a href={path} className={styles.a}>

@@ -1,21 +1,21 @@
-/*menu button styling*/
-.menu {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-}
+/*!*menu button styling*!*/
+/*.menu {*/
+/*  align-items: center;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  margin: auto;*/
+/*}*/
 
-.button {
-  background-color: transparent;
-  border: none;
-  font-size: 1.5em;
-  margin: auto;
-}
+/*.button {*/
+/*  background-color: transparent;*/
+/*  border: none;*/
+/*  font-size: 1.5em;*/
+/*  margin: auto;*/
+/*}*/
 
-/*show menu styling*/
-.showMenu {
-  background-color: #bfbfa7;
-  font-size: 1.5em;
-  text-align: center;
-}
+/*!*show menu styling*!*/
+/*.showMenu {*/
+/*  background-color: #bfbfa7;*/
+/*  font-size: 1.5em;*/
+/*  text-align: center;*/
+/*}*/

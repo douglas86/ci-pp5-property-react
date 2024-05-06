@@ -1,24 +1,24 @@
-/*li elements*/
-.li {
-  list-style: none;
-}
+/*!*li elements*!*/
+/*.li {*/
+/*  list-style: none;*/
+/*}*/
 
-.links {
-  padding: 1em;
-  font-size: 1.1em;
-  text-decoration: none;
-  color: #2f301d;
-  font-weight: bold;
-}
+/*.links {*/
+/*  padding: 1em;*/
+/*  font-size: 1.1em;*/
+/*  text-decoration: none;*/
+/*  color: #2f301d;*/
+/*  font-weight: bold;*/
+/*}*/
 
-.images {
-  width: 1.5em;
-  height: 1.5em;
-}
+/*.images {*/
+/*  width: 1.5em;*/
+/*  height: 1.5em;*/
+/*}*/
 
-@media screen and (max-width: 768px) {
-  .images {
-    width: 1em;
-    height: 1em;
-  }
-}
+/*@media screen and (max-width: 768px) {*/
+/*  .images {*/
+/*    width: 1em;*/
+/*    height: 1em;*/
+/*  }*/
+/*}*/

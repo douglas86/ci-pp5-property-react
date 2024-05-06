@@ -1,36 +1,72 @@
 /*header*/
-.header {
-  display: flex;
-  background-color: #bfbfa7;
-  justify-content: space-between;
-}
+/*.header {*/
+/*  display: flex;*/
+/*  background-color: #bfbfa7;*/
+/*  width: 100%;*/
+/*}*/
 
-/*logo*/
-.logo {
-  width: 20%;
-  padding: 0.5em;
-}
+/*.nav {*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*}*/
 
-.image {
-  width: 5em;
-  height: auto;
-  border: 0.2em solid white;
-  border-radius: 50%;
-}
+/*!*logo*!*/
+/*.logo {*/
+/*  width: 10%;*/
+/*}*/
 
-/*title*/
-.title {
-  width: 40%;
-  margin: auto;
-  text-align: center;
-}
+/*.image {*/
+/*  width: 5em;*/
+/*  height: auto;*/
+/*  border: 0.2em solid white;*/
+/*  border-radius: 50%;*/
+/*}*/
 
-/*menu*/
-.menu {
-  margin: auto;
-  width: 40%;
-  padding: 1em;
-}
+/*!*title*!*/
+/*.title {*/
+/*  width: 40%;*/
+/*  margin: auto;*/
+/*  text-align: center;*/
+/*}*/
+
+/*!*menu*!*/
+/*.menu {*/
+/*  margin: auto;*/
+/*  width: 40%;*/
+/*  padding: 1em;*/
+/*}*/
+
+/*@media screen and (max-width: 768px) {*/
+/*  !*logo*!*/
+/*  .logo {*/
+/*    width: 15%;*/
+/*    padding: 0.4em;*/
+/*  }*/
+
+/*  !*title*!*/
+/*  .title {*/
+/*    width: 70%;*/
+/*  }*/
+
+/*  !*menu*!*/
+/*  .menu {*/
+/*    width: 15%;*/
+/*  }*/
+/*}*/
+
+/*@media screen and (max-width: 400px) {*/
+/*  !*logo*!*/
+/*  .image {*/
+/*    width: 3em;*/
+/*    margin: auto;*/
+/*    padding: 0;*/
+/*  }*/
+
+/*  !*title*!*/
+/*  .title {*/
+/*    font-size: 0.8em;*/
+/*  }*/
+/*}*/
 
 /*.navbar {*/
 /*  display: flex;*/

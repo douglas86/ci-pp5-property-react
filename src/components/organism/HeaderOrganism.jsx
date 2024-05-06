@@ -12,11 +12,12 @@ import logo from "../../assets/images/house.png";
 
 // styling
 import styles from "../../styles/organism/HeaderOrganism.module.css";
+import ButtonMenuMolecule from "../molecule/ButtonMenuMolecule";
 
 const HeaderOrganism = () => {
   const { state, dispatch } = useAppContext();
   const { stateReducers } = state;
-  const { width } = stateReducers;
+  const { MenuOpen, width } = stateReducers;
 
   useEffect(() => {
     width >= 768 &&
@@ -25,15 +26,7 @@ const HeaderOrganism = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
-        <img src={`${logo}`} alt="logo" className={styles.image} />
-      </div>
-      <div className={styles.title}>
-        <h1>London Properties</h1>
-      </div>
-      <div className={styles.menu}>
-        {width > 768 ? <LinksMolecule /> : <p>Show</p>}
-      </div>
+      <h1>Logo</h1>
     </header>
   );
 };
