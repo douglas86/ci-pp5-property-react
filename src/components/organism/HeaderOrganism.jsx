@@ -1,3 +1,6 @@
+// 3rd party libraries
+import { useEffect } from "react";
+
 // utilities
 import { menuToggle } from "../../utils/menuToggle";
 
@@ -6,7 +9,6 @@ import useAppContext from "../../hooks/useAppContext";
 
 // styling
 import styles from "../../styles/organism/HeaderOrganism.module.css";
-import { useEffect } from "react";
 
 const HeaderOrganism = () => {
   const { state, dispatch } = useAppContext();
