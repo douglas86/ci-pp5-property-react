@@ -7,6 +7,9 @@ import { menuToggle } from "../../utils/menuToggle";
 // context
 import useAppContext from "../../hooks/useAppContext";
 
+// assets
+import logo from "../../assets/images/house.png";
+
 // styling
 import styles from "../../styles/organism/HeaderOrganism.module.css";
 
@@ -26,7 +29,8 @@ const HeaderOrganism = () => {
     <>
       {width > 768 ? (
         <div className={styles.navbar}>
-          <h1>Navbar</h1>
+          <img className={styles.logo} src={`${logo}`} alt="logo" />
+          <h1>London Properties</h1>
         </div>
       ) : (
         <div className={styles.hamburger}>
