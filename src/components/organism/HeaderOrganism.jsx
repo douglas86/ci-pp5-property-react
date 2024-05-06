@@ -1,5 +1,5 @@
-// utilities
-import { router } from "../../utils";
+// components
+import LinksMolecule from "../molecule/LinksMolecule";
 
 // assets
 import logo from "../../assets/images/house.png";
@@ -17,18 +17,7 @@ const HeaderOrganism = () => {
         <h1>London Properties</h1>
       </div>
       <div className={styles.menu}>
-        <ul className={styles.ul}>
-          {router.map(
-            ({ title, path }) =>
-              title !== "None" && (
-                <li key={title} className={styles.li}>
-                  <a href={path} className={styles.a}>
-                    {title}
-                  </a>
-                </li>
-              ),
-          )}
-        </ul>
+        <LinksMolecule />
       </div>
     </header>
   );

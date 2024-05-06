@@ -32,23 +32,6 @@
   padding: 1em;
 }
 
-.ul {
-  display: flex;
-  justify-content: space-between;
-}
-
-.li {
-  list-style: none;
-}
-
-.a {
-  text-decoration: none;
-  text-align: center;
-  justify-content: center;
-  color: #2f301d;
-  font-weight: bold;
-}
-
 /*.navbar {*/
 /*  display: flex;*/
 /*  background-color: #bfbfa7;*/
