@@ -18,22 +18,3 @@
   width: 100%;
   text-align: center;
 }
-
-.linksContainer {
-  display: flex;
-  margin: auto;
-  width: 100%;
-  text-align: center;
-  justify-content: center;
-}
-
-.links {
-  padding: 1em;
-  font-size: 1.1em;
-}
-
-@media screen and (min-width: 1024px) {
-  .hamburger {
-    display: none;
-  }
-}
