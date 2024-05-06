@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 // components
 import LinksMolecule from "../molecule/LinksMolecule";
-import MenuMolecule from "../molecule/MenuMolecule";
+import MenuButtonMolecule from "../molecule/MenuButtonMolecule";
 
 // context
 import useAppContext from "../../hooks/useAppContext";
@@ -17,7 +17,7 @@ import styles from "../../styles/organism/HeaderOrganism.module.css";
 const HeaderOrganism = () => {
   const { state, dispatch } = useAppContext();
   const { stateReducers } = state;
-  const { width } = stateReducers;
+  const { MenuOpen, width } = stateReducers;
 
   // set the MenuOpen to false if not on a mobile device,
   // this will update dynamically
@@ -31,8 +31,9 @@ const HeaderOrganism = () => {
       <div className={styles.navbar}>
         <img className={styles.logo} src={`${logo}`} alt="logo" />
         <h1 className={styles.title}>London Properties</h1>
-        {width > 768 ? <LinksMolecule /> : <MenuMolecule />}
+        {width > 768 ? <LinksMolecule /> : <MenuButtonMolecule />}
       </div>
+      {MenuOpen && <h1>Show</h1>}
     </>
   );
 };
