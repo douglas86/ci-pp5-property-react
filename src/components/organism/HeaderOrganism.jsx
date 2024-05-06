@@ -22,21 +22,17 @@ const HeaderOrganism = () => {
   // set the MenuOpen to false if not on a mobile device,
   // this will update dynamically
   useEffect(() => {
-    width >= 1024 &&
+    width >= 768 &&
       dispatch({ type: "UPDATE HAMBURGER TOGGLE", payload: false });
   }, [width, dispatch]);
 
   return (
     <>
-      {width > 1024 ? (
-        <div className={styles.navbar}>
-          <img className={styles.logo} src={`${logo}`} alt="logo" />
-          <h1 className={styles.title}>London Properties</h1>
-          <LinksMolecule />
-        </div>
-      ) : (
-        <MenuMolecule />
-      )}
+      <div className={styles.navbar}>
+        <img className={styles.logo} src={`${logo}`} alt="logo" />
+        <h1 className={styles.title}>London Properties</h1>
+        {width > 768 ? <LinksMolecule /> : <MenuMolecule />}
+      </div>
     </>
   );
 };
