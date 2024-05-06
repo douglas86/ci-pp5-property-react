@@ -23,18 +23,24 @@ const HeaderOrganism = () => {
   }, [width, dispatch]);
 
   return (
-    <header>
-      <div className={styles.hamburger}>
-        <button
-          onClick={() =>
-            dispatch({ type: "UPDATE HAMBURGER TOGGLE", payload: !MenuOpen })
-          }
-        >
-          {menuToggle(MenuOpen)}
-        </button>
-        {MenuOpen && <h1>Show</h1>}
-      </div>
-    </header>
+    <>
+      {width > 768 ? (
+        <div className={styles.navbar}>
+          <h1>Navbar</h1>
+        </div>
+      ) : (
+        <div className={styles.hamburger}>
+          <button
+            onClick={() =>
+              dispatch({ type: "UPDATE HAMBURGER TOGGLE", payload: !MenuOpen })
+            }
+          >
+            {menuToggle(MenuOpen)}
+          </button>
+          {MenuOpen && <h1>Show</h1>}
+        </div>
+      )}
+    </>
   );
 };
 
