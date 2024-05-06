@@ -1,6 +1,7 @@
 import { router } from "../../utils";
 
 import styles from "../../styles/molecule/Links.module.css";
+import li from "../../styles/general/general.module.css";
 
 const LinksMolecule = () => {
   return (
@@ -8,8 +9,8 @@ const LinksMolecule = () => {
       {router.map(({ title, path }, index) => (
         <div key={index}>
           {title !== "None" && (
-            <li className={styles.li}>
-              <a href={path} className={styles.links}>
+            <li className={li.li}>
+              <a href={path} className={li.links}>
                 {title}
               </a>
             </li>

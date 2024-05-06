@@ -1,3 +1,4 @@
+/*menu button styling*/
 .menu {
   align-items: center;
   display: flex;
@@ -10,4 +11,9 @@
   border: none;
   font-size: 1.5em;
   margin: auto;
+}
+
+/*show menu styling*/
+.showMenu {
+  background-color: #bfbfa7;
 }
