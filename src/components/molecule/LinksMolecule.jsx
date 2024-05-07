@@ -9,7 +9,7 @@ import styles from "../../styles/molecule/Links.module.css";
 
 const LinksMolecule = () => {
   return (
-    <ul>
+    <ul className={styles.ul}>
       {router.map(
         ({ title, path, icon }) =>
           title !== "None" && (

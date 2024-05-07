@@ -32,7 +32,9 @@ const HeaderOrganism = () => {
           <img className={styles.images} src={`${logo}`} alt="logo" />
           <h1>London Properties</h1>
         </div>
-        {width ? <LinksMolecule /> : <ButtonMenuMolecule />}
+        <div className={styles.links}>
+          {width ? <LinksMolecule /> : <ButtonMenuMolecule />}
+        </div>
       </nav>
     </header>
   );
