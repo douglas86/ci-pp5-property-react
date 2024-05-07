@@ -1,3 +1,6 @@
-import { barsIcon, xMarkIcon } from "../components/atom/Icons";
+import { fontawesomeIcon } from "../components/atom/Icons";
 
-export const menuToggle = (menuState) => (menuState ? xMarkIcon : barsIcon);
+export const menuToggle = (menuState) =>
+  menuState
+    ? fontawesomeIcon("fa-solid fa-xmark")
+    : fontawesomeIcon("fa-solid fa-bars");

@@ -1,3 +1,2 @@
 export * from "./assetIcon";
-export * from "./barsIcon";
-export * from "./xmarkIcon";
+export * from "./fontawesomeIcon";
