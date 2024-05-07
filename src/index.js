@@ -10,7 +10,6 @@ import reportWebVitals from "./construction/reportWebVitals";
 // context
 import { Provider } from "./context/store";
 
-// styling
 import "./styles/general/index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

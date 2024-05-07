@@ -9,7 +9,7 @@ import styles from "../../styles/molecule/Links.module.css";
 
 const LinksMolecule = () => {
   return (
-    <ul className={styles.ul}>
+    <ul>
       {router.map(
         ({ title, path, icon }) =>
           title !== "None" && (
@@ -29,7 +29,6 @@ export default LinksMolecule;
 // import { router } from "../../utils";
 //
 // import styles from "../../styles/molecule/Links.module.css";
-// import li from "../../styles/general/general.module.css";
 //
 // const LinksMolecule = () => {
 //   return (
