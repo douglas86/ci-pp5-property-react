@@ -33,7 +33,7 @@ const HeaderOrganism = () => {
           <h1>London Properties</h1>
         </div>
         <div className={styles.links}>
-          {width ? <LinksMolecule /> : <ButtonMenuMolecule />}
+          <LinksMolecule />
         </div>
       </nav>
     </header>

@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: auto;
-  padding: 1em;
+  /*margin: auto;*/
+  /*padding: 1em;*/
 }
 
 .li {
@@ -25,10 +25,10 @@
   }
 }
 
-.linksContainer {
-  display: flex;
-  margin: auto;
-  width: 100%;
-  text-align: center;
-  justify-content: center;
-}
+/*.linksContainer {*/
+/*  display: flex;*/
+/*  margin: auto;*/
+/*  width: 100%;*/
+/*  text-align: center;*/
+/*  justify-content: center;*/
+/*}*/
