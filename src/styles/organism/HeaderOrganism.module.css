@@ -1,8 +1,28 @@
-/*.header {*/
-/*  display: flex;*/
-/*  background-color: #bfbfa7;*/
-/*  max-width: 100vw;*/
-/*}*/
+.header {
+  display: flex;
+  background-color: #bfbfa7;
+  max-width: 100vw;
+}
+
+.nav {
+  display: flex;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  margin: 0.1em;
+  padding: 0.5rem;
+}
+
+.images {
+  width: 3em;
+  height: 3em;
+  border: 0.2em solid white;
+  border-radius: 50%;
+}
 
 /*.nav {*/
 /*  display: flex;*/

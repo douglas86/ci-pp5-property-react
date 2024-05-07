@@ -13,6 +13,7 @@ import logo from "../../assets/images/house.png";
 // styling
 import styles from "../../styles/organism/HeaderOrganism.module.css";
 import ButtonMenuMolecule from "../molecule/ButtonMenuMolecule";
+import { assetIcon } from "../atom/Icons";
 
 const HeaderOrganism = () => {
   const { state, dispatch } = useAppContext();
@@ -26,7 +27,13 @@ const HeaderOrganism = () => {
 
   return (
     <header className={styles.header}>
-      <h1>Logo</h1>
+      <nav className={styles.nav}>
+        <div className={styles.title}>
+          <img className={styles.images} src={`${logo}`} alt="logo" />
+          <h1>London Properties</h1>
+        </div>
+        {width ? <LinksMolecule /> : <ButtonMenuMolecule />}
+      </nav>
     </header>
   );
 };
