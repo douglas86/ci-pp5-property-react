@@ -31,7 +31,14 @@
   margin: auto;
 }
 
+.menu {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
+  .header {
+    display: block;
+  }
   .title {
     width: 80%;
     margin: auto;
@@ -41,88 +48,8 @@
     margin: auto;
     justify-content: center;
   }
+  .menu {
+    display: block;
+    width: 100%;
+  }
 }
-
-/*.nav {*/
-/*  display: flex;*/
-/*  justify-content: space-between;*/
-/*}*/
-
-/*!*logo*!*/
-/*.logo {*/
-/*  width: 10%;*/
-/*}*/
-
-/*.image {*/
-/*  width: 5em;*/
-/*  height: auto;*/
-/*  border: 0.2em solid white;*/
-/*  border-radius: 50%;*/
-/*}*/
-
-/*!*title*!*/
-/*.title {*/
-/*  width: 40%;*/
-/*  margin: auto;*/
-/*  text-align: center;*/
-/*}*/
-
-/*!*menu*!*/
-/*.menu {*/
-/*  margin: auto;*/
-/*  width: 40%;*/
-/*  padding: 1em;*/
-/*}*/
-
-/*@media screen and (max-width: 768px) {*/
-/*  !*logo*!*/
-/*  .logo {*/
-/*    width: 15%;*/
-/*    padding: 0.4em;*/
-/*  }*/
-
-/*  !*title*!*/
-/*  .title {*/
-/*    width: 70%;*/
-/*  }*/
-
-/*  !*menu*!*/
-/*  .menu {*/
-/*    width: 15%;*/
-/*  }*/
-/*}*/
-
-/*@media screen and (max-width: 400px) {*/
-/*  !*logo*!*/
-/*  .image {*/
-/*    width: 3em;*/
-/*    margin: auto;*/
-/*    padding: 0;*/
-/*  }*/
-
-/*  !*title*!*/
-/*  .title {*/
-/*    font-size: 0.8em;*/
-/*  }*/
-/*}*/
-
-/*.navbar {*/
-/*  display: flex;*/
-/*  background-color: #bfbfa7;*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*  height: 5em;*/
-/*  justify-content: space-between;*/
-/*}*/
-
-/*.logo {*/
-/*  width: 5em;*/
-/*  height: auto;*/
-/*  border-radius: 50%;*/
-/*  padding: 0.5em;*/
-/*}*/
-
-/*.title {*/
-/*  width: 10em;*/
-/*  text-align: center;*/
-/*}*/

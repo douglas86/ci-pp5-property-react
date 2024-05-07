@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 // components
 import LinksMolecule from "../molecule/LinksMolecule";
+import MenuMolecule from "../molecule/MenuMolecule";
 
 // custom hooks
 import useAppContext from "../../hooks/useAppContext";
@@ -12,8 +13,6 @@ import logo from "../../assets/images/house.png";
 
 // styling
 import styles from "../../styles/organism/HeaderOrganism.module.css";
-import MenuMolecule from "../molecule/MenuMolecule";
-import { assetIcon } from "../atom/Icons";
 
 const HeaderOrganism = () => {
   const { state, dispatch } = useAppContext();
@@ -36,51 +35,9 @@ const HeaderOrganism = () => {
           {width > 768 ? <LinksMolecule /> : <MenuMolecule />}
         </div>
       </nav>
+      <div className={styles.menu}>{MenuOpen && <LinksMolecule />}</div>
     </header>
   );
 };
 
 export default HeaderOrganism;
-
-// // 3rd party libraries
-// import { useEffect } from "react";
-//
-// // components
-// import LinksMolecule from "../molecule/LinksMolecule";
-// import MenuMolecule from "../molecule/MenuMolecule";
-//
-// // context
-// import useAppContext from "../../hooks/useAppContext";
-//
-// // assets
-// import logo from "../../assets/images/house.png";
-//
-// // styling
-// import styles from "../../styles/organism/HeaderOrganism.module.css";
-// import ShowMenuMolecule from "../molecule/ShowMenuMolecule";
-//
-// const HeaderOrganism = () => {
-//   const { state, dispatch } = useAppContext();
-//   const { stateReducers } = state;
-//   const { MenuOpen, width } = stateReducers;
-//
-//   // set the MenuOpen to false if not on a mobile device,
-//   // this will update dynamically
-//   useEffect(() => {
-//     width >= 768 &&
-//       dispatch({ type: "UPDATE HAMBURGER TOGGLE", payload: false });
-//   }, [width, dispatch]);
-//
-//   return (
-//     <>
-//       <div className={styles.navbar}>
-//         <img className={styles.logo} src={`${logo}`} alt="logo" />
-//         <h1 className={styles.title}>London Properties</h1>
-//         {width > 768 ? <LinksMolecule /> : <MenuMolecule />}
-//       </div>
-//       {MenuOpen && <ShowMenuMolecule />}
-//     </>
-//   );
-// };
-//
-// export default HeaderOrganism;

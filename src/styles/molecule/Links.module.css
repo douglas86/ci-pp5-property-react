@@ -1,9 +1,7 @@
 .ul {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  /*margin: auto;*/
-  /*padding: 1em;*/
+  padding: 1em;
 }
 
 .li {
@@ -13,22 +11,27 @@
 .a {
   text-decoration: none;
   text-align: center;
-  justify-content: center;
   color: #2f301d;
   font-weight: bold;
 }
 
+/*set the width of ul element when width greater than tablet*/
+@media screen and (min-width: 768px) {
+  .ul {
+    width: 100%;
+  }
+}
+
+/*media query for tablet and greater sizes*/
 @media screen and (max-width: 768px) {
   .ul {
     display: block;
     text-align: center;
   }
-}
 
-/*.linksContainer {*/
-/*  display: flex;*/
-/*  margin: auto;*/
-/*  width: 100%;*/
-/*  text-align: center;*/
-/*  justify-content: center;*/
-/*}*/
+  .li {
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+  }
+}

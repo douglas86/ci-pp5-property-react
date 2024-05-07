@@ -1,4 +1,4 @@
-/*!*menu button styling*!*/
+/*hamburger menu button*/
 .menu {
   align-items: center;
   display: flex;
@@ -12,10 +12,3 @@
   font-size: 1.5em;
   margin: auto;
 }
-
-/*!*show menu styling*!*/
-/*.showMenu {*/
-/*  background-color: #bfbfa7;*/
-/*  font-size: 1.5em;*/
-/*  text-align: center;*/
-/*}*/
