@@ -31,6 +31,18 @@
   margin: auto;
 }
 
+@media screen and (max-width: 768px) {
+  .title {
+    width: 80%;
+    margin: auto;
+  }
+  .links {
+    width: 20%;
+    margin: auto;
+    justify-content: center;
+  }
+}
+
 /*.nav {*/
 /*  display: flex;*/
 /*  justify-content: space-between;*/
