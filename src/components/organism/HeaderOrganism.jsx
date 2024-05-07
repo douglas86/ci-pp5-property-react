@@ -12,7 +12,7 @@ import logo from "../../assets/images/house.png";
 
 // styling
 import styles from "../../styles/organism/HeaderOrganism.module.css";
-import ButtonMenuMolecule from "../molecule/ButtonMenuMolecule";
+import MenuMolecule from "../molecule/MenuMolecule";
 import { assetIcon } from "../atom/Icons";
 
 const HeaderOrganism = () => {
@@ -33,7 +33,7 @@ const HeaderOrganism = () => {
           <h1>London Properties</h1>
         </div>
         <div className={styles.links}>
-          {width > 768 ? <LinksMolecule /> : <ButtonMenuMolecule />}
+          {width > 768 ? <LinksMolecule /> : <MenuMolecule />}
         </div>
       </nav>
     </header>
@@ -47,7 +47,7 @@ export default HeaderOrganism;
 //
 // // components
 // import LinksMolecule from "../molecule/LinksMolecule";
-// import ButtonMenuMolecule from "../molecule/ButtonMenuMolecule";
+// import MenuMolecule from "../molecule/MenuMolecule";
 //
 // // context
 // import useAppContext from "../../hooks/useAppContext";
@@ -76,7 +76,7 @@ export default HeaderOrganism;
 //       <div className={styles.navbar}>
 //         <img className={styles.logo} src={`${logo}`} alt="logo" />
 //         <h1 className={styles.title}>London Properties</h1>
-//         {width > 768 ? <LinksMolecule /> : <ButtonMenuMolecule />}
+//         {width > 768 ? <LinksMolecule /> : <MenuMolecule />}
 //       </div>
 //       {MenuOpen && <ShowMenuMolecule />}
 //     </>

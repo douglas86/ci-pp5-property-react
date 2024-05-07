@@ -7,7 +7,7 @@ import useAppContext from "../../hooks/useAppContext";
 // styling
 import styles from "../../styles/molecule/Menu.module.css";
 
-const ButtonMenuMolecule = () => {
+const MenuMolecule = () => {
   const { state, dispatch } = useAppContext();
   const { stateReducers } = state;
   const { MenuOpen } = stateReducers;
@@ -28,4 +28,4 @@ const ButtonMenuMolecule = () => {
   );
 };
 
-export default ButtonMenuMolecule;
+export default MenuMolecule;
