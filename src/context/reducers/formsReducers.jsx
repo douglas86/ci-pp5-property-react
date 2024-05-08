@@ -10,9 +10,12 @@ export const formsReducers = (state, action) => {
   switch (type) {
     case "UPDATE FORMS":
       return { ...state, forms: payload };
+    case "POPULATE REGISTER PAGE":
+      return { ...state, formLoading: "register", formData: payload };
     case "POPULATE SIGN IN PAGE":
       return {
         ...state,
+        formLoading: "sign in",
         formData: payload,
       };
     case "UPDATE FORM STATE":

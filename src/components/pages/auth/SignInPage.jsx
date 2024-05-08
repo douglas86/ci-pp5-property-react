@@ -10,7 +10,7 @@ import useAppContext from "../../../hooks/useAppContext";
 const SignInPage = () => {
   const { state, dispatch } = useAppContext();
   const { formsReducers } = state;
-  const { formData } = formsReducers;
+  const { formLoading, formData } = formsReducers;
 
   useEffect(() => {
     const payload = [
@@ -26,9 +26,9 @@ const SignInPage = () => {
       },
     ];
 
-    formData === undefined &&
+    formLoading !== "sign in" &&
       dispatch({ type: "POPULATE SIGN IN PAGE", payload });
-  }, [formData, dispatch]);
+  }, [formLoading, dispatch]);
 
   return (
     <>
