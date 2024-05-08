@@ -15,6 +15,8 @@ export const formsReducers = (state, action) => {
         ...state,
         formData: payload,
       };
+    case "UPDATE FORM STATE":
+      return { ...state, forms: { ...state.forms, ...payload } };
     default:
       return state;
   }

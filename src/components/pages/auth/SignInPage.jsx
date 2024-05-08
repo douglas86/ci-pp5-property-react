@@ -30,7 +30,12 @@ const SignInPage = () => {
       dispatch({ type: "POPULATE SIGN IN PAGE", payload });
   }, [formData, dispatch]);
 
-  return <>{formData && <FormOrganism />}</>;
+  return (
+    <>
+      <h1>Sign In Form</h1>
+      {formData && <FormOrganism />}
+    </>
+  );
 };
 
 export default SignInPage;
