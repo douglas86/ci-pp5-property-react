@@ -33,6 +33,10 @@ const SignInPage = () => {
   return (
     <>
       <h1>Sign In Form</h1>
+      <p>
+        If you don't have an account click <a href="/register">here</a> to
+        register
+      </p>
       {formData && <FormOrganism />}
     </>
   );

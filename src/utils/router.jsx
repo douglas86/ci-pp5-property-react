@@ -13,6 +13,7 @@ import Home from "../assets/images/Home.png";
 import Dashboard from "../assets/images/Dashboard.png";
 import Info from "../assets/images/Info.png";
 import Enter from "../assets/images/Enter.png";
+import RegisterPage from "../components/pages/auth/RegisterPage";
 
 export const router = [
   {
@@ -38,6 +39,12 @@ export const router = [
     icon: fontawesomeIcon(Enter),
     component: <SignInPage />,
     path: "/sign-in",
+  },
+  {
+    title: "None",
+    icon: "",
+    component: <RegisterPage />,
+    path: "/register",
   },
   {
     title: "None",
