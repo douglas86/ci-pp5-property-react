@@ -25,11 +25,13 @@ const SignInPage = () => {
         label: "Username",
         type: "text",
         placeholder: "Enter your username",
+        name: "username",
       },
       {
         label: "Password",
         type: "password",
         placeholder: "Please provide a valid password",
+        name: "password",
       },
     ];
 

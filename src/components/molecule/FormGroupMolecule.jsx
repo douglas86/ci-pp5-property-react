@@ -4,10 +4,13 @@ import Form from "react-bootstrap/Form";
 // custom hooks
 import useAppContext from "../../hooks/useAppContext";
 
+// styling
+import styles from "../../styles/molecule/FormGroup.module.css";
+
 const FormGroupMolecule = () => {
   const { state, dispatch } = useAppContext();
   const { formsReducers } = state;
-  const { formData } = formsReducers;
+  const { formData, errors } = formsReducers;
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -22,7 +25,7 @@ const FormGroupMolecule = () => {
 
   return (
     <>
-      {formData.map(({ label, type, placeholder }, index) => (
+      {formData.map(({ label, type, placeholder, name }, index) => (
         <Form.Group
           key={index}
           className="mb-3"
@@ -32,9 +35,15 @@ const FormGroupMolecule = () => {
           <Form.Control
             type={type}
             placeholder={placeholder}
-            name={label}
+            name={name}
             onChange={handleChange}
           />
+          {errors !== undefined &&
+            Object.entries(errors).map(([key, value], index) => (
+              <div key={index}>
+                {key === name && <p className={styles.p}>{value}</p>}
+              </div>
+            ))}
         </Form.Group>
       ))}
     </>

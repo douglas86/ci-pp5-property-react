@@ -20,16 +20,19 @@ const RegisterPage = () => {
         label: "Username",
         type: "text",
         placeholder: "Enter your username",
+        name: "username",
       },
       {
         label: "Password",
         type: "password",
         placeholder: "Please provide a valid password",
+        name: "password1",
       },
       {
         label: "Check Password",
         type: "password",
         placeholder: "Please re enter your password",
+        name: "password2",
       },
     ];
 

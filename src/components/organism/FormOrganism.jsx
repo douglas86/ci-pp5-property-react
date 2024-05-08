@@ -10,7 +10,7 @@ import { axiosRes } from "../../utils/axiosDefaults";
 const FormOrganism = () => {
   const { state, dispatch } = useAppContext();
   const { formsReducers } = state;
-  const { formData, url } = formsReducers;
+  const { url, forms } = formsReducers;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -18,7 +18,7 @@ const FormOrganism = () => {
     // TODO: data ready for API
 
     try {
-      const { data } = await axiosRes.post(url, formData);
+      const { data } = await axiosRes.post(url, forms);
 
       console.log("data", data);
     } catch (e) {
