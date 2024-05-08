@@ -2,6 +2,9 @@
 import HeaderOrganism from "../organism/HeaderOrganism";
 import FooterOrganism from "../organism/FooterOrganism";
 
+// styling
+import styles from "../../styles/templates/Layout.module.css";
+
 /**
  * This template will be used to render Header, Footer and all content in between
  * @param children
@@ -12,7 +15,7 @@ const LayoutTemplate = ({ children }) => {
   return (
     <>
       <HeaderOrganism />
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
       <FooterOrganism />
     </>
   );
