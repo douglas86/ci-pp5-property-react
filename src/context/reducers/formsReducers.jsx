@@ -10,6 +10,11 @@ export const formsReducers = (state, action) => {
   switch (type) {
     case "UPDATE FORMS":
       return { ...state, forms: payload };
+    case "POPULATE SIGN IN PAGE":
+      return {
+        ...state,
+        formData: payload,
+      };
     default:
       return state;
   }
