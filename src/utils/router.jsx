@@ -5,6 +5,9 @@ import DashboardPage from "../components/pages/DashboardPage";
 import SignInPage from "../components/pages/auth/SignInPage";
 import NotFoundPage from "../components/pages/NotFoundPage";
 
+// components
+import { fontawesomeIcon } from "../components/atom/Icons";
+
 // assets
 import Home from "../assets/images/Home.png";
 import Dashboard from "../assets/images/Dashboard.png";
@@ -14,25 +17,25 @@ import Enter from "../assets/images/Enter.png";
 export const router = [
   {
     title: "Home",
-    icon: Home,
+    icon: fontawesomeIcon(Home),
     component: <HomePage />,
     path: "/",
   },
   {
     title: "Dashboard",
-    icon: Dashboard,
+    icon: fontawesomeIcon(Dashboard),
     component: <DashboardPage />,
     path: "/dashboard",
   },
   {
     title: "About",
-    icon: Info,
+    icon: fontawesomeIcon(Info),
     component: <AboutPage />,
     path: "/about",
   },
   {
     title: "Sign In",
-    icon: Enter,
+    icon: fontawesomeIcon(Enter),
     component: <SignInPage />,
     path: "/sign-in",
   },

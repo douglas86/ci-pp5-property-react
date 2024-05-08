@@ -2,8 +2,8 @@
 .menu {
   align-items: center;
   display: flex;
-  justify-content: center;
-  margin: auto;
+  /*justify-content: center;*/
+  /*margin: auto;*/
 }
 
 .button {
