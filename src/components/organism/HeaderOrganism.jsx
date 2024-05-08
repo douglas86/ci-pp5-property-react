@@ -29,8 +29,8 @@ const HeaderOrganism = () => {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <div className={styles.title}>
-          {logoIcon(logo)}
-          <h1>London Properties</h1>
+          <div className={styles.logo}>{logoIcon(logo)}</div>
+          <h1 className={styles.h1}>London Properties</h1>
         </div>
         <div className={styles.links}>
           {width > 768 ? <LinksMolecule /> : <MenuMolecule />}

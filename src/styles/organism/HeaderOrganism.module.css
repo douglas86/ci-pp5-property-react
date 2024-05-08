@@ -17,11 +17,13 @@
   padding: 0.5rem;
 }
 
-.images {
-  width: 3em;
-  height: 3em;
-  border: 0.2em solid white;
-  border-radius: 50%;
+.logo {
+  width: 20%;
+}
+
+.h1 {
+  width: 80%;
+  text-align: center;
 }
 
 .links {
