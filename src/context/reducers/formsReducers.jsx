@@ -24,6 +24,7 @@ export const formsReducers = (state, action) => {
         formLoading: "register",
         formData: payload,
         url: "/dj-rest-auth/registration/",
+        redirectURL: "/sign-in",
       };
     // Populate the form fields on the sign-in page
     case "POPULATE SIGN IN PAGE":

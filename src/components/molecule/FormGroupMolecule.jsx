@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import useAppContext from "../../hooks/useAppContext";
 
 // styling
-import styles from "../../styles/molecule/FormGroup.module.css";
+import { displayErrors } from "../atom/elements";
 
 const FormGroupMolecule = () => {
   const { state, dispatch } = useAppContext();
@@ -38,12 +38,7 @@ const FormGroupMolecule = () => {
             name={name}
             onChange={handleChange}
           />
-          {errors !== undefined &&
-            Object.entries(errors).map(([key, value], index) => (
-              <div key={index}>
-                {key === name && <p className={styles.p}>{value}</p>}
-              </div>
-            ))}
+          {displayErrors(errors, name)}
         </Form.Group>
       ))}
     </>
