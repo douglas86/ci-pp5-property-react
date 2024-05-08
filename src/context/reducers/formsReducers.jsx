@@ -43,6 +43,8 @@ export const formsReducers = (state, action) => {
     // Update the state of the forms from the text that was entered
     case "UPDATE FORM STATE":
       return { ...state, forms: { ...state.forms, ...payload } };
+    case "FORM VALIDATION ERRORS":
+      return { ...state, errors: payload };
     // return the state if no case has been met
     default:
       return state;
