@@ -10,6 +10,9 @@ import useResize from "../hooks/useResize";
 // utilities
 import { router } from "../utils";
 
+// styling
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const App = () => {
   useResize();
 
