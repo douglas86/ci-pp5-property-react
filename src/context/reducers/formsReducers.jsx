@@ -14,17 +14,31 @@ export const formsReducers = (state, action) => {
   // this flag will stop useEffect from updating unnecessarily
   // formData: this is used for what fields you want in the form
   // this is so that I can update form dynamically from the state store
+  // url: this is were the data will be sent to
 
   switch (type) {
     // Populate the form fields on the register page
     case "POPULATE REGISTER PAGE":
-      return { ...state, formLoading: "register", formData: payload };
+      return {
+        ...state,
+        formLoading: "register",
+        formData: payload,
+        url: "/dj-rest-auth/registration/",
+      };
     // Populate the form fields on the sign-in page
     case "POPULATE SIGN IN PAGE":
       return {
         ...state,
         formLoading: "sign in",
         formData: payload,
+        url: "dj-rest-auth/login/",
+      };
+    case "POPULATE SIGN OUT PAGE":
+      return {
+        ...state,
+        formLoading: "sign out",
+        formData: payload,
+        url: "/dj-rest-auth/logout/",
       };
     // Update the state of the forms from the text that was entered
     case "UPDATE FORM STATE":
