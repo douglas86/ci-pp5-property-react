@@ -13,6 +13,7 @@ import logo from "../../assets/images/house.png";
 
 // styling
 import styles from "../../styles/organism/HeaderOrganism.module.css";
+import { logoIcon } from "../atom/Icons/logoIcon";
 
 const HeaderOrganism = () => {
   const { state, dispatch } = useAppContext();
@@ -28,7 +29,7 @@ const HeaderOrganism = () => {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <div className={styles.title}>
-          <img className={styles.images} src={`${logo}`} alt="logo" />
+          {logoIcon(logo)}
           <h1>London Properties</h1>
         </div>
         <div className={styles.links}>
