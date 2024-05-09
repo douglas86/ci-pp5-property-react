@@ -1,19 +1,15 @@
 // 3rd party libraries
 import { useEffect } from "react";
-
 // components
 import LinksMolecule from "../molecule/LinksMolecule";
 import MenuMolecule from "../molecule/MenuMolecule";
-
+import { logoIcon } from "../atom/Icons/logoIcon";
 // custom hooks
 import useAppContext from "../../hooks/useAppContext";
-
 // assets
 import logo from "../../assets/images/house.png";
-
 // styling
 import styles from "../../styles/organism/HeaderOrganism.module.css";
-import { logoIcon } from "../atom/Icons/logoIcon";
 
 const HeaderOrganism = () => {
   const { state, dispatch } = useAppContext();
