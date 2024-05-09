@@ -1,17 +1,16 @@
 // 3rd party libraries
-import axios from "axios";
-import { useEffect, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 // components
 import HeaderOrganism from "../organism/HeaderOrganism";
 import FooterOrganism from "../organism/FooterOrganism";
 
 // utilities
-import { axiosReq, axiosRes } from "../../utils/axiosDefaults";
+import { axiosRes } from "../../utils/axiosDefaults";
 
 // custom hooks
 import useAppContext from "../../hooks/useAppContext";
+import useRefreshToken from "../../hooks/useRefreshToken";
 
 // styling
 import styles from "../../styles/templates/Layout.module.css";
@@ -23,12 +22,8 @@ import styles from "../../styles/templates/Layout.module.css";
  * @constructor
  */
 const LayoutTemplate = ({ children }) => {
-  // declare variables
-  const history = useNavigate();
-
   // state destructuring
-  const { state, dispatch } = useAppContext();
-  const { userReducers } = state;
+  const { dispatch } = useAppContext();
 
   useEffect(() => {
     const handleMount = async () => {
@@ -43,43 +38,8 @@ const LayoutTemplate = ({ children }) => {
       });
   }, [dispatch]);
 
-  useMemo(() => {
-    axiosReq.interceptors.response.use(
-      async (config) => {
-        try {
-          await axios.post("/dj-rest-auth/token/refresh/");
-        } catch (err) {
-          if (userReducers === "None") {
-            history("/sign-in");
-          }
-          return config;
-        }
-        return config;
-      },
-      (err) => {
-        return Promise.reject(err);
-      },
-    );
-
-    axiosRes.interceptors.response.use(
-      (response) => response,
-      async (err) => {
-        if (err.response?.status === 401) {
-          try {
-            await axios.post("/dj-rest-auth/token/refresh/");
-          } catch (error) {
-            if (userReducers === "None") {
-              history("/sign-in");
-            }
-            return null;
-          }
-
-          return axios(err.config);
-        }
-        return Promise.reject(err);
-      },
-    );
-  }, [history, userReducers]);
+  // refreshes the user data tokens
+  useRefreshToken();
 
   return (
     <>
