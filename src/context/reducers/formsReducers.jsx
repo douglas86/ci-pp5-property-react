@@ -15,6 +15,8 @@ export const formsReducers = (state, action) => {
   // formData: this is used for what fields you want in the form
   // this is so that I can update form dynamically from the state store
   // url: this is were the data will be sent to
+  // redirectURL: this is used on a successful post to the API
+  // it will redirect to the url in question
 
   switch (type) {
     // Populate the form fields on the register page
@@ -33,6 +35,7 @@ export const formsReducers = (state, action) => {
         formLoading: "sign in",
         formData: payload,
         url: "dj-rest-auth/login/",
+        redirectURL: "/",
       };
     case "POPULATE SIGN OUT PAGE":
       return {
