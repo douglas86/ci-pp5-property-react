@@ -9,7 +9,9 @@ export const userReducers = (state, action) => {
 
   switch (type) {
     case "UPDATE USER DATA":
-      return { ...state, user: payload };
+      return { user: payload };
+    case "USER DATA ERROR":
+      return payload;
     default:
       return state;
   }
