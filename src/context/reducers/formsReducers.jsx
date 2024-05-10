@@ -91,7 +91,7 @@ export const formsReducers = (state, action) => {
     case "FORM VALIDATION ERRORS":
       return { ...state, errors: payload };
     case "HIDE MODAL":
-      return { ...state, showModal: payload };
+      return { ...state, showModal: false };
     // return the state if no case has been met
     default:
       return state;

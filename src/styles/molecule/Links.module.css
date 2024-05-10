@@ -23,6 +23,12 @@
   font-weight: bold;
 }
 
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+}
+
 /*set the width of ul element when width greater than tablet*/
 @media screen and (min-width: 768px) {
   .ul {

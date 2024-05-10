@@ -9,7 +9,7 @@ import styles from "../../styles/molecule/Links.module.css";
 import { Modal } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { submitButton } from "../atom/elements";
+import { buttonClick, submitButton } from "../atom/elements";
 
 const MyVerticallyCenteredModal = (props) => {
   const { state, dispatch } = useAppContext();
@@ -64,12 +64,16 @@ const MyVerticallyCenteredModal = (props) => {
             </Form.Group>
           ))}
 
-          {submitButton("primary")}
+          <div className={styles.buttonGroup}>
+            {submitButton("primary")}
+            {buttonClick(
+              () => dispatch({ type: "HIDE MODAL" }),
+              "Close",
+              "warning",
+            )}
+          </div>
         </Form>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
     </Modal>
   );
 };
