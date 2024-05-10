@@ -7,19 +7,31 @@ import { router } from "../../utils";
 // styling
 import styles from "../../styles/molecule/Links.module.css";
 import { Modal } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { buttonClick, submitButton } from "../atom/elements";
+import { buttonClick, displayErrors, submitButton } from "../atom/elements";
+import axios from "axios";
 
 const MyVerticallyCenteredModal = (props) => {
   const { state, dispatch } = useAppContext();
   const { formsReducers } = state;
-  const { formHeading, populateForm } = formsReducers;
+  const { formHeading, populateForm, submitData, errors, forms } =
+    formsReducers;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Form was submitted");
+    await axios
+      .post(submitData, forms)
+      .then((response) => {
+        dispatch({ type: "HIDE MODAL" });
+        console.log("data", response);
+      })
+      .catch((err) => {
+        dispatch({
+          type: "FORM VALIDATION ERRORS",
+          payload: err.response.data,
+        });
+      });
   };
 
   const handleChange = (e) => {
@@ -61,6 +73,7 @@ const MyVerticallyCenteredModal = (props) => {
                 name={name}
                 onChange={handleChange}
               />
+              {displayErrors(errors, name)}
             </Form.Group>
           ))}
 
@@ -87,7 +100,7 @@ const LinksMolecule = () => {
   // destructuring state from state store
   const { state, dispatch } = useAppContext();
   const { userReducers, formsReducers } = state;
-  const { showModal } = formsReducers;
+  const { showModal, populateForm } = formsReducers;
 
   // filters and returns the correct routers
   const handleRouter = router.filter((items) => {
@@ -138,10 +151,12 @@ const LinksMolecule = () => {
           </button>
         </li>
       )}
-      <MyVerticallyCenteredModal
-        show={showModal}
-        onHide={() => dispatch({ type: "HIDE MODAL", payload: false })}
-      />
+      {populateForm.length > 0 && (
+        <MyVerticallyCenteredModal
+          show={showModal}
+          onHide={() => dispatch({ type: "HIDE MODAL", payload: false })}
+        />
+      )}
     </ul>
   );
 };

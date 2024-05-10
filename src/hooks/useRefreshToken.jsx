@@ -1,7 +1,6 @@
 // 3rd party library
 import axios from "axios";
 import { useMemo } from "react";
-import { useNavigate } from "react-router-dom";
 
 // utilities
 import { axiosReq, axiosRes } from "../utils/axiosDefaults";
@@ -14,7 +13,7 @@ import useAppContext from "./useAppContext";
  */
 const useRefreshToken = () => {
   // declare variables
-  const history = useNavigate(); // redirect to specific url
+  // const history = useNavigate(); // redirect to specific url
 
   // state destructuring
   const { state } = useAppContext();
@@ -27,7 +26,7 @@ const useRefreshToken = () => {
           await axios.post("/dj-rest-auth/token/refresh/");
         } catch (err) {
           if (userReducers === "None") {
-            history("/sign-in");
+            // history("/sign-in");
           }
           return config;
         }
@@ -46,7 +45,7 @@ const useRefreshToken = () => {
             await axios.post("/dj-rest-auth/token/refresh/");
           } catch (error) {
             if (userReducers === "None") {
-              history("/sign-in");
+              // history("/sign-in");
             }
             return null;
           }
@@ -56,7 +55,7 @@ const useRefreshToken = () => {
         return Promise.reject(err);
       },
     );
-  }, [history, userReducers]);
+  }, [userReducers]);
 };
 
 export default useRefreshToken;
