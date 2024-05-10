@@ -8,60 +8,32 @@ import { router } from "../../utils";
 import styles from "../../styles/molecule/Links.module.css";
 import { Modal } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import { submitButton } from "../atom/elements";
 
-// function MyVerticallyCenteredModal(props) {
-//   const { state, dispatch } = useAppContext();
-//   const { formsReducers } = state;
-//   const { modalHeading, text, url, forms, redirectURL } = formsReducers;
-//
-//   const navigate = useNavigate();
-//
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
-//
-//     // TODO: data ready for API
-//
-//     try {
-//       const { data } = await axiosRes.post(url, forms);
-//
-//       navigate(redirectURL);
-//       console.log("data", data);
-//     } catch (e) {
-//       dispatch({ type: "FORM VALIDATION ERRORS", payload: e.response.data });
-//     }
-//   };
-//
-//   return (
-//     <Modal
-//       {...props}
-//       size="lg"
-//       aria-labelledby="contained-modal-title-vcenter"
-//       centered
-//     >
-//       <Modal.Header closeButton>
-//         <Modal.Title id="contained-modal-title-vcenter">
-//           {modalHeading}
-//         </Modal.Title>
-//       </Modal.Header>
-//       <Modal.Body>{text}</Modal.Body>
-//       <Modal.Footer>
-//         <form onSubmit={handleSubmit}>
-//           <Button onClick={props.onHide}>Close</Button>
-//           <Button
-//             type="submit"
-//             onClick={() =>
-//               dispatch({ type: "TOGGLE SHOWING OF MODAL", payload: false })
-//             }
-//           >
-//             OK
-//           </Button>
-//         </form>
-//       </Modal.Footer>
-//     </Modal>
-//   );
-// }
+const MyVerticallyCenteredModal = (props) => {
+  const { state, dispatch } = useAppContext();
+  const { formsReducers } = state;
+  const { formHeading, populateForm } = formsReducers;
 
-function MyVerticallyCenteredModal(props) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("Form was submitted");
+  };
+
+  const handleChange = (e) => {
+    e.preventDefault();
+
+    const { name, value } = e.target;
+
+    const payload = {
+      [name]: value,
+    };
+
+    dispatch({ type: "UPDATE FORM STATE", payload });
+  };
+
   return (
     <Modal
       {...props}
@@ -71,23 +43,36 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
+          {formHeading}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+        <Form onSubmit={handleSubmit}>
+          {populateForm.map(({ label, type, placeholder, name }, index) => (
+            <Form.Group
+              key={index}
+              className="mb-3"
+              controlId={`formBasic${label}`}
+            >
+              <Form.Label>{label}</Form.Label>
+              <Form.Control
+                type={type}
+                placeholder={placeholder}
+                name={name}
+                onChange={handleChange}
+              />
+            </Form.Group>
+          ))}
+
+          {submitButton("primary")}
+        </Form>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
-}
+};
 
 /**
  * This molecule if to deal with the links on the navbar for the different pages

@@ -6,6 +6,7 @@ const initialState = {
   dataReducers: {},
   formsReducers: {
     showModal: false,
+    populateForm: [],
   },
   stateReducers: {
     MenuOpen: false,
