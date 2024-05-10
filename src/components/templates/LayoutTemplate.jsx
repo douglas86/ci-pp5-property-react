@@ -23,23 +23,23 @@ import styles from "../../styles/templates/Layout.module.css";
  */
 const LayoutTemplate = ({ children }) => {
   // state destructuring
-  const { dispatch } = useAppContext();
+  // const { dispatch } = useAppContext();
 
-  useEffect(() => {
-    const handleMount = async () => {
-      const { data } = await axiosRes.get("dj-rest-auth/user/");
-      return data;
-    };
-
-    handleMount()
-      .then((data) => dispatch({ type: "UPDATE USER DATA", payload: data }))
-      .catch((err) => {
-        dispatch({ type: "USER DATA ERROR", payload: "None", error: err });
-      });
-  }, [dispatch]);
+  // useEffect(() => {
+  //   const handleMount = async () => {
+  //     const { data } = await axiosRes.get("dj-rest-auth/user/");
+  //     return data;
+  //   };
+  //
+  //   handleMount()
+  //     .then((data) => dispatch({ type: "UPDATE USER DATA", payload: data }))
+  //     .catch((err) => {
+  //       dispatch({ type: "USER DATA ERROR", payload: "None", error: err });
+  //     });
+  // }, [dispatch]);
 
   // refreshes the user data tokens
-  useRefreshToken();
+  // useRefreshToken();
 
   return (
     <>

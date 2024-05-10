@@ -7,6 +7,8 @@
 export const formsReducers = (state, action) => {
   const { type, payload } = action;
 
+  let populateForm = [];
+
   // Description of an object used in this store
 
   // forms: state used for data entered into the input box
@@ -30,29 +32,65 @@ export const formsReducers = (state, action) => {
       };
     // Populate the form fields on the sign-in page
     case "POPULATE SIGN IN PAGE":
+      // return {
+      //   ...state,
+      //   formLoading: "sign in",
+      //   formData: payload,
+      //   url: "dj-rest-auth/login/",
+      //   redirectURL: "/",
+      // };
+      populateForm = [
+        {
+          label: "Username",
+          type: "text",
+          placeholder: "Enter your username",
+          name: "username",
+        },
+        {
+          label: "Password",
+          type: "password",
+          placeholder: "Please provide a valid password",
+          name: "password",
+        },
+      ];
+
       return {
         ...state,
-        formLoading: "sign in",
-        formData: payload,
-        url: "dj-rest-auth/login/",
-        redirectURL: "/",
+        showModal: true,
+        formHeading: "Sign In",
+        submitData: "dj-rest-auth/login/",
+        populateForm,
       };
     case "POPULATE SIGN OUT PAGE":
+      // return {
+      //   ...state,
+      //   formLoading: "sign out",
+      //   modalHeading: "Sign Out Form",
+      //   text: "Are you sure that you want to Logout?",
+      //   url: "/dj-rest-auth/logout/",
+      //   redirectURL: "/",
+      //   modalShow: payload,
+      // };
+
+      populateForm = [
+        {
+          label: "Are you sure you want to logout?",
+        },
+      ];
+
       return {
         ...state,
-        formLoading: "sign out",
-        modalHeading: "Sign Out Form",
-        text: "Are you sure that you want to Logout?",
-        url: "/dj-rest-auth/logout/",
-        redirectURL: "/",
-        modalShow: payload,
+        showModal: true,
+        formHeading: "Sign Out",
+        submitData: "/dj-rest-auth/logout/",
+        populateForm,
       };
     // Update the state of the forms from the text that was entered
     case "UPDATE FORM STATE":
       return { ...state, forms: { ...state.forms, ...payload } };
     case "FORM VALIDATION ERRORS":
       return { ...state, errors: payload };
-    case "TOGGLE SHOWING OF MODAL":
+    case "HIDE MODAL":
       return { ...state, showModal: payload };
     // return the state if no case has been met
     default:

@@ -5,7 +5,7 @@ const initialState = {
   userReducers: "None",
   dataReducers: {},
   formsReducers: {
-    modalShow: false,
+    showModal: false,
   },
   stateReducers: {
     MenuOpen: false,

@@ -6,6 +6,8 @@ import { router } from "../../utils";
 
 // styling
 import styles from "../../styles/molecule/Links.module.css";
+import { Modal } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 // function MyVerticallyCenteredModal(props) {
 //   const { state, dispatch } = useAppContext();
@@ -59,6 +61,34 @@ import styles from "../../styles/molecule/Links.module.css";
 //   );
 // }
 
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Modal heading
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Centered Modal</h4>
+        <p>
+          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+          consectetur ac, vestibulum at eros.
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
 /**
  * This molecule if to deal with the links on the navbar for the different pages
  * @returns {JSX.Element}
@@ -66,9 +96,9 @@ import styles from "../../styles/molecule/Links.module.css";
  */
 const LinksMolecule = () => {
   // destructuring state from state store
-  const { state } = useAppContext();
+  const { state, dispatch } = useAppContext();
   const { userReducers, formsReducers } = state;
-  const { url } = formsReducers;
+  const { showModal } = formsReducers;
 
   // filters and returns the correct routers
   const handleRouter = router.filter((items) => {
@@ -81,6 +111,8 @@ const LinksMolecule = () => {
 
   const handleAuth = userReducers === "None";
 
+  console.log("formsReducers", formsReducers);
+
   return (
     <ul className={styles.ul}>
       {handleRouter.map(({ title, path }) => (
@@ -92,17 +124,35 @@ const LinksMolecule = () => {
       ))}
       {handleAuth ? (
         <li className={styles.li}>
-          <a href={url} className={styles.a}>
+          <button
+            className={styles.button}
+            onClick={() =>
+              dispatch({
+                type: "POPULATE SIGN IN PAGE",
+              })
+            }
+          >
             Sign In
-          </a>
+          </button>
         </li>
       ) : (
         <li className={styles.li}>
-          <a href={url} className={styles.a}>
+          <button
+            className={styles.button}
+            onClick={() =>
+              dispatch({
+                type: "POPULATE SIGN OUT PAGE",
+              })
+            }
+          >
             Sign Out
-          </a>
+          </button>
         </li>
       )}
+      <MyVerticallyCenteredModal
+        show={showModal}
+        onHide={() => dispatch({ type: "HIDE MODAL", payload: false })}
+      />
     </ul>
   );
 };

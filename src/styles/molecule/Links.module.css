@@ -15,6 +15,14 @@
   font-weight: bold;
 }
 
+.button {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  color: #2f301d;
+  font-weight: bold;
+}
+
 /*set the width of ul element when width greater than tablet*/
 @media screen and (min-width: 768px) {
   .ul {
