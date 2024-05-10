@@ -6,36 +6,58 @@ import { router } from "../../utils";
 
 // styling
 import styles from "../../styles/molecule/Links.module.css";
-import Button from "react-bootstrap/Button";
-import { Modal } from "react-bootstrap";
 
-function MyVerticallyCenteredModal(props) {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
-  );
-}
+// function MyVerticallyCenteredModal(props) {
+//   const { state, dispatch } = useAppContext();
+//   const { formsReducers } = state;
+//   const { modalHeading, text, url, forms, redirectURL } = formsReducers;
+//
+//   const navigate = useNavigate();
+//
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+//
+//     // TODO: data ready for API
+//
+//     try {
+//       const { data } = await axiosRes.post(url, forms);
+//
+//       navigate(redirectURL);
+//       console.log("data", data);
+//     } catch (e) {
+//       dispatch({ type: "FORM VALIDATION ERRORS", payload: e.response.data });
+//     }
+//   };
+//
+//   return (
+//     <Modal
+//       {...props}
+//       size="lg"
+//       aria-labelledby="contained-modal-title-vcenter"
+//       centered
+//     >
+//       <Modal.Header closeButton>
+//         <Modal.Title id="contained-modal-title-vcenter">
+//           {modalHeading}
+//         </Modal.Title>
+//       </Modal.Header>
+//       <Modal.Body>{text}</Modal.Body>
+//       <Modal.Footer>
+//         <form onSubmit={handleSubmit}>
+//           <Button onClick={props.onHide}>Close</Button>
+//           <Button
+//             type="submit"
+//             onClick={() =>
+//               dispatch({ type: "TOGGLE SHOWING OF MODAL", payload: false })
+//             }
+//           >
+//             OK
+//           </Button>
+//         </form>
+//       </Modal.Footer>
+//     </Modal>
+//   );
+// }
 
 /**
  * This molecule if to deal with the links on the navbar for the different pages
@@ -44,9 +66,9 @@ function MyVerticallyCenteredModal(props) {
  */
 const LinksMolecule = () => {
   // destructuring state from state store
-  const { state, dispatch } = useAppContext();
+  const { state } = useAppContext();
   const { userReducers, formsReducers } = state;
-  const { modalShow } = formsReducers;
+  const { url } = formsReducers;
 
   // filters and returns the correct routers
   const handleRouter = router.filter((items) => {
@@ -57,14 +79,7 @@ const LinksMolecule = () => {
     );
   });
 
-  // filters and returns if you can sign in or sign out
-  const handleAuth = router.filter((items) => {
-    return userReducers === "None"
-      ? items.title === "Sign In"
-      : items.title === "Sign Out";
-  });
-
-  console.log("modalShow", modalShow);
+  const handleAuth = userReducers === "None";
 
   return (
     <ul className={styles.ul}>
@@ -75,36 +90,21 @@ const LinksMolecule = () => {
           </a>
         </li>
       ))}
-      {handleAuth.map(({ title, path }) => (
-        <>
-          <Button
-            variant="primary"
-            key={title}
-            onClick={() =>
-              dispatch({ type: "TOGGLE SHOW MODAL", payload: true })
-            }
-          >
-            {title}
-          </Button>
-
-          <MyVerticallyCenteredModal
-            show={modalShow}
-            onHide={() =>
-              dispatch({ type: "TOGGLE SHOW MODAL", payload: false })
-            }
-          />
-        </>
-      ))}
+      {handleAuth ? (
+        <li className={styles.li}>
+          <a href={url} className={styles.a}>
+            Sign In
+          </a>
+        </li>
+      ) : (
+        <li className={styles.li}>
+          <a href={url} className={styles.a}>
+            Sign Out
+          </a>
+        </li>
+      )}
     </ul>
   );
 };
 
 export default LinksMolecule;
-
-// {handleAuth.map(({ title, path }) => (
-//     <li key={title} className={styles.li}>
-//       <a href={path} className={styles.a}>
-//         {title}
-//       </a>
-//     </li>
-// ))}
