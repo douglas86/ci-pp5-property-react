@@ -43,12 +43,16 @@ export const formsReducers = (state, action) => {
         formLoading: "sign out",
         formData: payload,
         url: "/dj-rest-auth/logout/",
+        redirectURL: "/",
       };
     // Update the state of the forms from the text that was entered
     case "UPDATE FORM STATE":
       return { ...state, forms: { ...state.forms, ...payload } };
     case "FORM VALIDATION ERRORS":
       return { ...state, errors: payload };
+    // toggle showing of the modal when clicked
+    case "TOGGLE SHOW MODAL":
+      return { ...state, modalShow: payload };
     // return the state if no case has been met
     default:
       return state;

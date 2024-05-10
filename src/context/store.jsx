@@ -4,7 +4,9 @@ import { rootReducers } from "./rootReducers";
 const initialState = {
   userReducers: "None",
   dataReducers: {},
-  formsReducers: {},
+  formsReducers: {
+    modalShow: false,
+  },
   stateReducers: {
     MenuOpen: false,
     width: window.innerWidth,
