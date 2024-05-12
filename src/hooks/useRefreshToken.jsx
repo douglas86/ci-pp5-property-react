@@ -19,8 +19,33 @@ const useRefreshToken = () => {
   const { state, dispatch } = useAppContext();
   const { userReducers } = state;
 
+  // const handleMount = async () => {
+  //   return await axiosRes.get("dj-rest-auth/user/");
+  // };
+
   const handleMount = async () => {
-    return await axiosRes.get("dj-rest-auth/user/");
+    axiosReq.interceptors.response.use(
+      async (response) => {
+        try {
+          await axios.get("dj-rest-auth/user/");
+        } catch (err) {
+          console.log("error", err);
+        }
+      },
+      (err) => {
+        return Promise.reject(err);
+      },
+    );
+
+    axiosRes.interceptors.response.use(
+      async (response) => response,
+      async (err) => {
+        if (err.response?.status === 401) {
+          console.log("mistake");
+        }
+        return Promise.reject(err);
+      },
+    );
   };
 
   useEffect(() => {
