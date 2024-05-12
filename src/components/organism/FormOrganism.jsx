@@ -34,8 +34,6 @@ const FormOrganism = () => {
     }
   };
 
-  console.log("formsReducers", formsReducers);
-
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroupMolecule />

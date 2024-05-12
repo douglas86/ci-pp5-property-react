@@ -113,8 +113,6 @@ const LinksMolecule = () => {
 
   const handleAuth = userReducers === "None";
 
-  console.log("formsReducers", formsReducers);
-
   return (
     <ul className={styles.ul}>
       {handleRouter.map(({ title, path }) => (
