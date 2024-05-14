@@ -20,14 +20,14 @@ const useRefreshToken = () => {
     try {
       return await axios.get("dj-rest-auth/user/");
     } catch (error) {
-      dispatch({ type: "UPDATE USER DATA", payload: "None" });
+      dispatch({ type: "UPDATE USER DATA", payload: null });
     }
   };
 
   useEffect(() => {
     handleMount()
       .then(({ data }) => dispatch({ type: "UPDATE USER DATA", payload: data }))
-      .catch((err) => dispatch({ type: "UPDATE USER DATA", payload: "None" }));
+      .catch((err) => dispatch({ type: "UPDATE USER DATA", payload: null }));
   }, []);
 
   // declare variables

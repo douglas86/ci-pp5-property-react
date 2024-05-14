@@ -9,7 +9,10 @@ export const userReducers = (state, action) => {
 
   switch (type) {
     case "UPDATE USER DATA":
-      return payload;
+      return {
+        ...state,
+        user: payload,
+      };
     case "STORE TOKENS IN LOCALSTORAGE":
       const accessToken = payload.data.access;
       const refreshToken = payload.data.refresh;

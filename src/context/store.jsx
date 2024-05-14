@@ -2,7 +2,11 @@ import { createContext, useMemo, useReducer } from "react";
 import { rootReducers } from "./rootReducers";
 
 const initialState = {
-  userReducers: "None",
+  userReducers: {
+    user: null,
+    accessToken: null,
+    refreshToken: null,
+  },
   dataReducers: {},
   formsReducers: {
     showModal: false,
