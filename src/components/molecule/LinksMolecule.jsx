@@ -24,7 +24,18 @@ const MyVerticallyCenteredModal = (props) => {
       .post(submitData, forms)
       .then((response) => {
         dispatch({ type: "HIDE MODAL" });
+
         console.log("data", response);
+
+        formHeading === "Sign In"
+          ? dispatch({
+              type: "STORE TOKENS IN LOCALSTORAGE",
+              payload: response,
+            })
+          : dispatch({
+              type: "DELETE TOKENS IN LOCALSTORAGE",
+              payload: response,
+            });
       })
       .catch((err) => {
         dispatch({

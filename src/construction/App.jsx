@@ -16,15 +16,15 @@ import useRefreshToken from "../hooks/useRefreshToken";
 import useAppContext from "../hooks/useAppContext";
 
 const App = () => {
-  const { state } = useAppContext();
-  const { userReducers } = state;
+  // const { state } = useAppContext();
+  // const { userReducers } = state;
 
   useResize();
 
   // refreshes the user data tokens
-  useRefreshToken();
+  // useRefreshToken();
 
-  console.log("state", userReducers);
+  // console.log("userReducers", userReducers);
 
   return (
     <LayoutTemplate>

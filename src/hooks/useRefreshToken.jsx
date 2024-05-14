@@ -30,8 +30,6 @@ const useRefreshToken = () => {
       .catch((err) => dispatch({ type: "UPDATE USER DATA", payload: "None" }));
   }, []);
 
-  console.log("user", userReducers);
-
   // declare variables
   // const history = useNavigate(); // redirect to specific url
 

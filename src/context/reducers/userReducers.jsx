@@ -10,6 +10,17 @@ export const userReducers = (state, action) => {
   switch (type) {
     case "UPDATE USER DATA":
       return payload;
+    case "STORE TOKENS IN LOCALSTORAGE":
+      const accessToken = payload.data.access;
+      const refreshToken = payload.data.refresh;
+
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+      return state;
+    case "DELETE TOKENS IN LOCALSTORAGE":
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+      return state;
     default:
       return state;
   }
