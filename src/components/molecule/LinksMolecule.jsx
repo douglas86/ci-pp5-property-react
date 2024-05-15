@@ -36,7 +36,10 @@ const MyVerticallyCenteredModal = (props) => {
       .then(({ data }) => {
         dispatch({ type: "HIDE MODAL" });
 
-        dispatch({ type: dispatchType, payload: data.user });
+        dispatch({
+          type: dispatchType,
+          payload: !data.detail ? data.user : null,
+        });
         dispatch({ type: tokenType, payload: data });
       })
       .catch((err) => {

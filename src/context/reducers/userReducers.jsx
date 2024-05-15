@@ -17,12 +17,8 @@ export const userReducers = (state, action) => {
       const accessToken = payload.access;
       const refreshToken = payload.refresh;
 
-      // localStorage.setItem("accessToken", accessToken);
-      // localStorage.setItem("refreshToken", refreshToken);
       return { ...state, accessToken, refreshToken };
     case "DELETE TOKENS FROM STATE STORE":
-      // localStorage.removeItem("accessToken");
-      // localStorage.removeItem("refreshToken");
       return { ...state, accessToken: null, refreshToken: null };
     default:
       return state;

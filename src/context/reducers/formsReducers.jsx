@@ -72,6 +72,8 @@ export const formsReducers = (state, action) => {
         formHeading: "Sign Out",
         submitData: "/dj-rest-auth/logout/",
         populateForm,
+        dispatchType: "UPDATE USER DATA",
+        tokenType: "DELETE TOKENS FROM STATE STORE",
       };
     // Update the state of the forms from the text that was entered
     case "UPDATE FORM STATE":
