@@ -1,15 +1,19 @@
-// custom hooks
-import useAppContext from "../../hooks/useAppContext";
+// 3rd party libraries
+import axios from "axios";
+import Form from "react-bootstrap/Form";
+import { Modal } from "react-bootstrap";
+
+// components
+import { buttonClick, displayErrors, submitButton } from "../atom/elements";
 
 // utilities
 import { router } from "../../utils";
 
+// custom hooks
+import useAppContext from "../../hooks/useAppContext";
+
 // styling
 import styles from "../../styles/molecule/Links.module.css";
-import { Modal } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
-import { buttonClick, displayErrors, submitButton } from "../atom/elements";
-import axios from "axios";
 
 const MyVerticallyCenteredModal = (props) => {
   const { state, dispatch } = useAppContext();
