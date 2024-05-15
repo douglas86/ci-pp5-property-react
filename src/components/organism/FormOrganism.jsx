@@ -7,7 +7,7 @@ import FormGroupMolecule from "../molecule/FormGroupMolecule";
 import { submitButton } from "../atom/elements";
 
 // utilities
-import { axiosRes } from "../../utils/axiosDefaults";
+import { axiosRes } from "../../API/axiosDefaults";
 
 // custom hooks
 import useAppContext from "../../hooks/useAppContext";

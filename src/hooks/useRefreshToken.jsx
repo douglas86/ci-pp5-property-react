@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
 
 // utilities
-import { axiosReq, axiosRes } from "../utils/axiosDefaults";
+import { axiosReq, axiosRes } from "../API/axiosDefaults";
 
 // custom hooks
 import useAppContext from "./useAppContext";
