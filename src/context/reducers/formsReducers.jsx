@@ -32,13 +32,6 @@ export const formsReducers = (state, action) => {
       };
     // Populate the form fields on the sign-in page
     case "POPULATE SIGN IN PAGE":
-      // return {
-      //   ...state,
-      //   formLoading: "sign in",
-      //   formData: payload,
-      //   url: "dj-rest-auth/login/",
-      //   redirectURL: "/",
-      // };
       populateForm = [
         {
           label: "Username",
@@ -62,16 +55,6 @@ export const formsReducers = (state, action) => {
         populateForm,
       };
     case "POPULATE SIGN OUT PAGE":
-      // return {
-      //   ...state,
-      //   formLoading: "sign out",
-      //   modalHeading: "Sign Out Form",
-      //   text: "Are you sure that you want to Logout?",
-      //   url: "/dj-rest-auth/logout/",
-      //   redirectURL: "/",
-      //   modalShow: payload,
-      // };
-
       populateForm = [
         {
           label: "Are you sure you want to logout?",
