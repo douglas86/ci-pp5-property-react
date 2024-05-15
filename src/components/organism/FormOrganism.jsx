@@ -22,11 +22,8 @@ const FormOrganism = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // TODO: data ready for API
-
     try {
       const { data } = await axiosRes.post(url, forms);
-
       navigate(redirectURL);
       console.log("data", data);
     } catch (e) {
