@@ -18,15 +18,9 @@ import styles from "../../styles/molecule/Links.module.css";
 const MyVerticallyCenteredModal = (props) => {
   const { state, dispatch } = useAppContext();
   const { formsReducers } = state;
-  const {
-    formHeading,
-    populateForm,
-    submitData,
-    errors,
-    forms,
-    dispatchType,
-    tokenType,
-  } = formsReducers;
+
+  const { formHeading, populateForm, submitData } = formsReducers;
+  const { errors, forms, dispatchType, tokenType } = formsReducers;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -76,20 +70,23 @@ const MyVerticallyCenteredModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
-          {populateForm.map(({ label, type, placeholder, name }, index) => (
+          {populateForm.map((items, index) => (
             <Form.Group
               key={index}
               className="mb-3"
-              controlId={`formBasic${label}`}
+              controlId={`formBasic${items.label}`}
             >
-              <Form.Label>{label}</Form.Label>
-              <Form.Control
-                type={type}
-                placeholder={placeholder}
-                name={name}
-                onChange={handleChange}
-              />
-              {displayErrors(errors, name)}
+              <Form.Label>{items.label}</Form.Label>
+              {items.type && (
+                <Form.Control
+                  type={items.type}
+                  placeholder={items.placeholder}
+                  name={items.name}
+                  onChange={handleChange}
+                />
+              )}
+
+              {displayErrors(errors, items.name)}
             </Form.Group>
           ))}
 
