@@ -4,7 +4,7 @@ import { useEffect } from "react";
 // components
 import LinksMolecule from "../molecule/LinksMolecule";
 import MenuMolecule from "../molecule/MenuMolecule";
-import { logoIcon } from "../atom/Icons/logoIcon";
+import { logoIcon } from "../atom/Icons";
 
 // custom hooks
 import useAppContext from "../../hooks/useAppContext";
