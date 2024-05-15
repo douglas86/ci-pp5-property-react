@@ -29,6 +29,18 @@
   padding: 0.5em;
 }
 
+.buttonDispatch {
+  display: flex;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.p {
+  margin: auto 0;
+}
+
 /*set the width of ul element when width greater than tablet*/
 @media screen and (min-width: 768px) {
   .ul {

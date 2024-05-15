@@ -71,8 +71,8 @@ const MyVerticallyCenteredModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         {dispatched && (
-          <div>
-            <p>{dispatchText}</p>
+          <div className={styles.buttonDispatch}>
+            <p className={styles.p}>{dispatchText}</p>
             {buttonClick(() => dispatch({ type: dispatched }), "here", "link")}
           </div>
         )}
