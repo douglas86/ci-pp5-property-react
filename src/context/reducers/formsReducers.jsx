@@ -53,6 +53,11 @@ export const formsReducers = (state, action) => {
         formHeading: "Sign In",
         submitData: "dj-rest-auth/login/",
         populateForm,
+        // storing data to state store on successful login
+        // this type is from the userReducers function
+        dispatchType: "UPDATE USER DATA",
+        // dispatch that will be called for storing tokens
+        tokenType: "STORE TOKENS IN STATE STORE",
       };
     case "POPULATE SIGN OUT PAGE":
       populateForm = [

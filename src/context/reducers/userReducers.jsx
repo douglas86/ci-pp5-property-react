@@ -13,14 +13,14 @@ export const userReducers = (state, action) => {
         ...state,
         user: payload,
       };
-    case "STORE TOKENS IN LOCALSTORAGE":
-      const accessToken = payload.data.access;
-      const refreshToken = payload.data.refresh;
+    case "STORE TOKENS IN STATE STORE":
+      const accessToken = payload.access;
+      const refreshToken = payload.refresh;
 
       // localStorage.setItem("accessToken", accessToken);
       // localStorage.setItem("refreshToken", refreshToken);
       return { ...state, accessToken, refreshToken };
-    case "DELETE TOKENS IN LOCALSTORAGE":
+    case "DELETE TOKENS FROM STATE STORE":
       // localStorage.removeItem("accessToken");
       // localStorage.removeItem("refreshToken");
       return { ...state, accessToken: null, refreshToken: null };

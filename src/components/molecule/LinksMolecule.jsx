@@ -18,28 +18,26 @@ import styles from "../../styles/molecule/Links.module.css";
 const MyVerticallyCenteredModal = (props) => {
   const { state, dispatch } = useAppContext();
   const { formsReducers } = state;
-  const { formHeading, populateForm, submitData, errors, forms } =
-    formsReducers;
+  const {
+    formHeading,
+    populateForm,
+    submitData,
+    errors,
+    forms,
+    dispatchType,
+    tokenType,
+  } = formsReducers;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     await axios
       .post(submitData, forms)
-      .then((response) => {
+      .then(({ data }) => {
         dispatch({ type: "HIDE MODAL" });
 
-        console.log("data", response);
-
-        formHeading === "Sign In"
-          ? dispatch({
-              type: "STORE TOKENS IN LOCALSTORAGE",
-              payload: response,
-            })
-          : dispatch({
-              type: "DELETE TOKENS IN LOCALSTORAGE",
-              payload: response,
-            });
+        dispatch({ type: dispatchType, payload: data.user });
+        dispatch({ type: tokenType, payload: data });
       })
       .catch((err) => {
         dispatch({
