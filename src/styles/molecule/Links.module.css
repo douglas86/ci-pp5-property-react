@@ -41,6 +41,11 @@
   margin: auto 0;
 }
 
+.non_field {
+  color: red;
+  margin: 0.5em 0;
+}
+
 /*set the width of ul element when width greater than tablet*/
 @media screen and (min-width: 768px) {
   .ul {

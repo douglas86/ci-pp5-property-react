@@ -94,6 +94,9 @@ const MyVerticallyCenteredModal = (props) => {
               )}
 
               {displayErrors(errors, items.name)}
+              {errors && (
+                <p className={styles.non_field}>{errors.non_field_errors}</p>
+              )}
             </Form.Group>
           ))}
 
