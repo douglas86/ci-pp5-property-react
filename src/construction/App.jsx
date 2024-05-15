@@ -12,19 +12,9 @@ import { router } from "../utils";
 
 // styling
 import "bootstrap/dist/css/bootstrap.min.css";
-import useRefreshToken from "../hooks/useRefreshToken";
-import useAppContext from "../hooks/useAppContext";
 
 const App = () => {
-  const { state } = useAppContext();
-  const { userReducers } = state;
-
   useResize();
-
-  // refreshes the user data tokens
-  useRefreshToken();
-
-  console.log("userReducers", userReducers);
 
   return (
     <LayoutTemplate>

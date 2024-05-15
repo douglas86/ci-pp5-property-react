@@ -1,13 +1,6 @@
-// 3rd party libraries
-import { useEffect } from "react";
-
 // components
 import HeaderOrganism from "../organism/HeaderOrganism";
 import FooterOrganism from "../organism/FooterOrganism";
-
-// custom hooks
-import useAppContext from "../../hooks/useAppContext";
-import useRefreshToken from "../../hooks/useRefreshToken";
 
 // styling
 import styles from "../../styles/templates/Layout.module.css";
