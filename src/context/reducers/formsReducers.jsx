@@ -23,12 +23,37 @@ export const formsReducers = (state, action) => {
   switch (type) {
     // Populate the form fields on the register page
     case "POPULATE REGISTER PAGE":
+      populateForm = [
+        {
+          label: "Username",
+          type: "text",
+          placeholder: "Enter your username",
+          name: "username",
+        },
+        {
+          label: "Password",
+          type: "password",
+          placeholder: "Enter your password",
+          name: "password1",
+        },
+        {
+          label: "Re-type password",
+          type: "password",
+          placeholder: "Enter your password",
+          name: "password2",
+        },
+      ];
+
       return {
         ...state,
-        formLoading: "register",
+        showModal: true,
+        formHeading: "Register",
         formData: payload,
-        url: "/dj-rest-auth/registration/",
-        redirectURL: "/sign-in",
+        submitData: "/dj-rest-auth/registration/",
+        populateForm,
+        // dispatched to be called to populate for sign in page
+        dispatched: "POPULATE SIGN IN PAGE",
+        dispatchText: "If you would like to sign in click",
       };
     // Populate the form fields on the sign-in page
     case "POPULATE SIGN IN PAGE":
@@ -53,6 +78,9 @@ export const formsReducers = (state, action) => {
         formHeading: "Sign In",
         submitData: "dj-rest-auth/login/",
         populateForm,
+        // dispatch to be called to populate for registering user
+        dispatched: "POPULATE REGISTER PAGE",
+        dispatchText: "If you would like to register click",
         // storing data to state store on successful login
         // this type is from the userReducers function
         dispatchType: "UPDATE USER DATA",

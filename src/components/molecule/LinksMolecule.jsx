@@ -21,6 +21,7 @@ const MyVerticallyCenteredModal = (props) => {
 
   const { formHeading, populateForm, submitData } = formsReducers;
   const { errors, forms, dispatchType, tokenType } = formsReducers;
+  const { dispatched, dispatchText } = formsReducers;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,6 +70,12 @@ const MyVerticallyCenteredModal = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        {dispatched && (
+          <div>
+            <p>{dispatchText}</p>
+            {buttonClick(() => dispatch({ type: dispatched }), "here", "link")}
+          </div>
+        )}
         <Form onSubmit={handleSubmit}>
           {populateForm.map((items, index) => (
             <Form.Group
