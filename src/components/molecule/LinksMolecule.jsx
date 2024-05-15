@@ -126,7 +126,9 @@ const LinksMolecule = () => {
     );
   });
 
-  const handleAuth = userReducers === "None";
+  const handleAuth = userReducers.user === null;
+
+  console.log("userReducers", userReducers);
 
   return (
     <ul className={styles.ul}>

@@ -12,9 +12,12 @@ import { router } from "../utils";
 
 // styling
 import "bootstrap/dist/css/bootstrap.min.css";
+import useRefreshToken from "../hooks/useRefreshToken";
 
 const App = () => {
   useResize();
+
+  useRefreshToken();
 
   return (
     <LayoutTemplate>

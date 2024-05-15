@@ -17,13 +17,13 @@ export const userReducers = (state, action) => {
       const accessToken = payload.data.access;
       const refreshToken = payload.data.refresh;
 
-      localStorage.setItem("accessToken", accessToken);
-      localStorage.setItem("refreshToken", refreshToken);
-      return state;
+      // localStorage.setItem("accessToken", accessToken);
+      // localStorage.setItem("refreshToken", refreshToken);
+      return { ...state, accessToken, refreshToken };
     case "DELETE TOKENS IN LOCALSTORAGE":
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("refreshToken");
-      return state;
+      // localStorage.removeItem("accessToken");
+      // localStorage.removeItem("refreshToken");
+      return { ...state, accessToken: null, refreshToken: null };
     default:
       return state;
   }
