@@ -21,12 +21,12 @@ import styles from "../../styles/molecule/Links.module.css";
 const ModalMolecule = (props) => {
   // importing the formReducers from state store
   const { state, dispatch } = useAppContext();
-  const { formsReducers } = state;
+  const { formsReducers, dataReducers } = state;
 
   // destructuring objects from formsReducer function
   const { formHeading, populateForm, submitData } = formsReducers;
   const { errors, forms, dispatchType, tokenType } = formsReducers;
-  const { dispatched, dispatchText } = formsReducers;
+  const { dispatched, dispatchText, alertMessage } = formsReducers;
 
   // handling form submission
   const handleSubmit = async (e) => {
@@ -46,6 +46,9 @@ const ModalMolecule = (props) => {
         });
         // saves access and refresh tokens on success
         dispatch({ type: tokenType, payload: data });
+
+        // show an alert message on success
+        dispatch({ type: "SHOW ALERT MESSAGE", payload: alertMessage });
       })
       .catch((err) => {
         dispatch({

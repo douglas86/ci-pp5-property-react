@@ -54,6 +54,8 @@ export const formsReducers = (state, action) => {
         // dispatched to be called to populate for sign in page
         dispatched: "POPULATE SIGN IN PAGE",
         dispatchText: "If you would like to sign in click",
+        // when form has been submitted successfully
+        alertMessage: "You are successfully Registered",
       };
     // Populate the form fields on the sign-in page
     case "POPULATE SIGN IN PAGE":
@@ -86,6 +88,8 @@ export const formsReducers = (state, action) => {
         dispatchType: "UPDATE USER DATA",
         // dispatch that will be called for storing tokens
         tokenType: "STORE TOKENS IN STATE STORE",
+        // when form has been submitted successfully
+        alertMessage: "You have successfully Signed In",
       };
     case "POPULATE SIGN OUT PAGE":
       populateForm = [
@@ -102,6 +106,8 @@ export const formsReducers = (state, action) => {
         populateForm,
         dispatchType: "UPDATE USER DATA",
         tokenType: "DELETE TOKENS FROM STATE STORE",
+        // when form has been submitted successfully
+        alertMessage: "You have successfully Signed Out",
       };
     case "POPULATE CHANGE PASSWORD PAGE":
       populateForm = [
@@ -134,6 +140,8 @@ export const formsReducers = (state, action) => {
         // dispatched to be called to populate for sign in page
         dispatched: "POPULATE SIGN IN PAGE",
         dispatchText: "If you would like to sign in click",
+        // when form has been submitted successfully
+        alertMessage: "You have successfully Changed your password",
       };
     // Update the state of the forms from the text that was entered
     case "UPDATE FORM STATE":

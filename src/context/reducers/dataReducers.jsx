@@ -9,7 +9,7 @@ export const dataReducers = (state, action) => {
 
   switch (type) {
     case "SHOW ALERT MESSAGE":
-      return { ...state, alertMessage: payload, showAlert: true };
+      return { ...state, showMessage: payload, showAlert: true };
     case "HIDE ALERT MESSAGE":
       return { ...state, showAlert: false };
     case "SET_DATA":
