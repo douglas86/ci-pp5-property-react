@@ -21,7 +21,7 @@ import styles from "../../styles/molecule/Links.module.css";
 const ModalMolecule = (props) => {
   // importing the formReducers from state store
   const { state, dispatch } = useAppContext();
-  const { formsReducers, dataReducers } = state;
+  const { formsReducers } = state;
 
   // destructuring objects from formsReducer function
   const { formHeading, populateForm, submitData } = formsReducers;
@@ -131,7 +131,7 @@ const ModalMolecule = (props) => {
         </Form>
         {/*changing of password*/}
         {/*  only show on sign-in and register page*/}
-        {dispatchType && formHeading !== "Change Password" && (
+        {dispatched && formHeading !== "Change Password" && (
           <div className={styles.buttonDispatch}>
             <p className={styles.p}>
               If you would like to change your password click
