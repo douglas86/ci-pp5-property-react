@@ -103,6 +103,38 @@ export const formsReducers = (state, action) => {
         dispatchType: "UPDATE USER DATA",
         tokenType: "DELETE TOKENS FROM STATE STORE",
       };
+    case "POPULATE CHANGE PASSWORD PAGE":
+      populateForm = [
+        {
+          label: "Username",
+          type: "text",
+          placeholder: "Enter your username",
+          name: "username",
+        },
+        {
+          label: "Password",
+          type: "password",
+          placeholder: "Please enter your current password",
+          name: "password1",
+        },
+        {
+          label: "Re-type password",
+          type: "password",
+          placeholder: "Retype your password",
+          name: "password2",
+        },
+      ];
+
+      return {
+        ...state,
+        showModal: true,
+        formHeading: "Change Password",
+        submitData: "/profiles/change-password/",
+        populateForm,
+        // dispatched to be called to populate for sign in page
+        dispatched: "POPULATE SIGN IN PAGE",
+        dispatchText: "If you would like to sign in click",
+      };
     // Update the state of the forms from the text that was entered
     case "UPDATE FORM STATE":
       return { ...state, forms: { ...state.forms, ...payload } };

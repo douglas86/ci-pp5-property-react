@@ -109,6 +109,18 @@ const MyVerticallyCenteredModal = (props) => {
             )}
           </div>
         </Form>
+        {dispatchType && formHeading !== "Change Password" && (
+          <div className={styles.buttonDispatch}>
+            <p className={styles.p}>
+              If you would like to change your password click
+            </p>
+            {buttonClick(
+              () => dispatch({ type: "POPULATE CHANGE PASSWORD PAGE" }),
+              "here",
+              "link",
+            )}
+          </div>
+        )}
       </Modal.Body>
     </Modal>
   );
