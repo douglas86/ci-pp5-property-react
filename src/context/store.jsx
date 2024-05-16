@@ -7,7 +7,9 @@ const initialState = {
     accessToken: null,
     refreshToken: null,
   },
-  dataReducers: {},
+  dataReducers: {
+    showAlert: false,
+  },
   formsReducers: {
     showModal: false,
     populateForm: [],

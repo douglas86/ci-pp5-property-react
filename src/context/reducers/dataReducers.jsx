@@ -8,6 +8,8 @@ export const dataReducers = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    case "TOGGLE ALERT MESSAGE":
+      return { ...state, alertMessage: payload, showAlert: true };
     case "SET_DATA":
       return { ...state, data: payload };
     default:
