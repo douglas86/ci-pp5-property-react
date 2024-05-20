@@ -1,0 +1,14 @@
+/*hamburger menu button*/
+.menu {
+  align-items: center;
+  display: flex;
+  /*justify-content: center;*/
+  /*margin: auto;*/
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  margin: auto;
+}
