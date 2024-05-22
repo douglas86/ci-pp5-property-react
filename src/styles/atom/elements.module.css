@@ -1,0 +1,10 @@
+/*heading atom*/
+.h1 {
+  color: #2f301d;
+  font-weight: bold;
+}
+
+/*subheading atom*/
+.p {
+  color: #bfbfa7;
+}
