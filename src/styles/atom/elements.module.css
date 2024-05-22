@@ -8,6 +8,18 @@
   animation-iteration-count: infinite;
 }
 
+/*heading atom*/
+.h1 {
+  color: #2f301d;
+  font-weight: bold;
+}
+
+/*subheading atom*/
+.p {
+  color: #bfbfa7;
+}
+
+/*animated keyframes for carousel images*/
 @keyframes sliding {
   from {
     margin-left: 80%;
@@ -28,15 +40,4 @@
   to {
     margin-right: 80%;
   }
-}
-
-/*heading atom*/
-.h1 {
-  color: #2f301d;
-  font-weight: bold;
-}
-
-/*subheading atom*/
-.p {
-  color: #bfbfa7;
 }

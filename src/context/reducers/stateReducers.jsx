@@ -12,6 +12,8 @@ export const stateReducers = (state, action) => {
       return { ...state, MenuOpen: payload };
     case "SET WINDOW WIDTH":
       return { ...state, width: payload };
+    case "CHANGE CAROUSEL INDEX":
+      return { ...state, carouselIndex: payload };
     default:
       return state;
   }

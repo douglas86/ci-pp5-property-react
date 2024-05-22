@@ -1,3 +1,13 @@
+// 3rd party libraries
+import { useEffect } from "react";
+
+// components
+import { carouselImage } from "../atom/elements";
+
+// custom hooks
+import useAppContext from "../../hooks/useAppContext";
+
+// assets
 import one from "../../assets/images/carousel/one.jpg";
 import two from "../../assets/images/carousel/two.jpg";
 import three from "../../assets/images/carousel/three.jpg";
@@ -12,10 +22,13 @@ import eleven from "../../assets/images/carousel/eleven.jpg";
 
 // styling
 import styles from "../../styles/organism/Carousel.module.css";
-import { useEffect, useState } from "react";
-import { carouselImage } from "../atom/elements";
 
 const CarouselOrganism = () => {
+  // state store
+  const { state, dispatch } = useAppContext();
+  const { stateReducers } = state;
+  const { carouselIndex } = stateReducers;
+
   const carouselImages = [
     one,
     two,
@@ -31,21 +44,19 @@ const CarouselOrganism = () => {
     ten,
   ];
 
-  const [carouselIndex, setCarouselIndex] = useState(0);
-
   useEffect(() => {
     const timer = setInterval(() => {
       if (carouselIndex === carouselImages.length - 1) {
-        setCarouselIndex(0);
+        // setCarouselIndex(0);
+        dispatch({ type: "CHANGE CAROUSEL INDEX", payload: 0 });
       } else {
-        setCarouselIndex((prev) => prev + 1);
+        // setCarouselIndex((prev) => prev + 1);
+        dispatch({ type: "CHANGE CAROUSEL INDEX", payload: carouselIndex + 1 });
       }
     }, 5000);
 
     return () => clearInterval(timer);
   }, [carouselIndex]);
-
-  console.log("carouselIndex", carouselIndex);
 
   return (
     <div className={styles.container}>
