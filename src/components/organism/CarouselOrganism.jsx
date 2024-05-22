@@ -53,7 +53,7 @@ const CarouselOrganism = () => {
         // setCarouselIndex((prev) => prev + 1);
         dispatch({ type: "CHANGE CAROUSEL INDEX", payload: carouselIndex + 1 });
       }
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(timer);
   }, [carouselIndex]);

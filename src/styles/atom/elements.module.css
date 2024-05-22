@@ -3,7 +3,7 @@
   height: auto;
   width: auto;
   border-radius: 2em;
-  animation-duration: 5s;
+  animation-duration: 10s;
   animation-name: sliding;
   animation-iteration-count: infinite;
 }
@@ -21,7 +21,7 @@
 
 /*animated keyframes for carousel images*/
 @keyframes sliding {
-  from {
+  0% {
     margin-left: 80%;
   }
 
@@ -29,7 +29,15 @@
     margin: 20%;
   }
 
+  40% {
+    margin: 1%;
+  }
+
   50% {
+    margin: 1%;
+  }
+
+  60% {
     margin: 1%;
   }
 
@@ -37,7 +45,7 @@
     margin: 20%;
   }
 
-  to {
+  100% {
     margin-right: 80%;
   }
 }

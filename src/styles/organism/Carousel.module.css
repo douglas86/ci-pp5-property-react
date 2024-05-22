@@ -13,4 +13,6 @@
 
 .carouselBtn {
   display: flex;
+  margin-top: -8em;
+  justify-content: center;
 }
