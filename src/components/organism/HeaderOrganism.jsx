@@ -3,6 +3,11 @@ import logo from "../../assets/images/header/Property.png";
 // styles
 import styles from "../../styles/organism/HeaderOrganism.module.css";
 
+/**
+ * This is a higher order component that is responsible for the header
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const HeaderOrganism = () => {
   return (
     <header className={styles.header}>
