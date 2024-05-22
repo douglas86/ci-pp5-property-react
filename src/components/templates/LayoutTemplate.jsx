@@ -25,7 +25,7 @@ const LayoutTemplate = ({ children }) => {
         {showAlert && <Alert variant="primary">{showMessage}</Alert>}
         {children}
       </main>
-      <FooterOrganism />
+      {/*<FooterOrganism />*/}
     </>
   );
 };
