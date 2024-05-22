@@ -19,6 +19,7 @@ const HeaderOrganism = () => {
   const { menuOpen, width } = stateReducers;
 
   useEffect(() => {
+    // hide the hamburger menu when on devices larger than 768px
     width >= 768 &&
       dispatch({ type: "UPDATE HAMBURGER TOGGLE", payload: false });
   }, [width, dispatch]);
