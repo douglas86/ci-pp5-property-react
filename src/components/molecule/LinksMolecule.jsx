@@ -1,5 +1,6 @@
 // components
 import ModalMolecule from "./ModalMolecule";
+import { buttonClick } from "../atom/elements";
 
 // utilities
 import { router } from "../../utils";
@@ -30,6 +31,7 @@ const LinksMolecule = () => {
     );
   });
 
+  // check if the user is logged in or not
   const handleAuth = userReducers.user === null;
 
   return (
@@ -41,31 +43,22 @@ const LinksMolecule = () => {
           </a>
         </li>
       ))}
+      {/*authentication button*/}
       {handleAuth ? (
         <li className={styles.li}>
-          <button
-            className={styles.button}
-            onClick={() =>
-              dispatch({
-                type: "POPULATE SIGN IN PAGE",
-              })
-            }
-          >
-            Sign In
-          </button>
+          {buttonClick(
+            () => dispatch({ type: "POPULATE SIGN IN PAGE" }),
+            "Login",
+            "dark",
+          )}
         </li>
       ) : (
         <li className={styles.li}>
-          <button
-            className={styles.button}
-            onClick={() =>
-              dispatch({
-                type: "POPULATE SIGN OUT PAGE",
-              })
-            }
-          >
-            Sign Out
-          </button>
+          {buttonClick(
+            () => dispatch({ type: "POPULATE SIGN OUT PAGE" }),
+            "Logout",
+            "dark",
+          )}
         </li>
       )}
       {populateForm.length > 0 && (
