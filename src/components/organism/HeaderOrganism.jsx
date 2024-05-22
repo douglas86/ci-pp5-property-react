@@ -2,6 +2,10 @@ import logo from "../../assets/images/header/Property.png";
 
 // styles
 import styles from "../../styles/organism/HeaderOrganism.module.css";
+import useAppContext from "../../hooks/useAppContext";
+import { useEffect } from "react";
+import LinksMolecule from "../molecule/LinksMolecule";
+import MenuMolecule from "../molecule/MenuMolecule";
 
 /**
  * This is a higher order component that is responsible for the header
@@ -9,13 +13,23 @@ import styles from "../../styles/organism/HeaderOrganism.module.css";
  * @constructor
  */
 const HeaderOrganism = () => {
+  // state store
+  const { state, dispatch } = useAppContext();
+  const { stateReducers } = state;
+  const { menuOpen, width } = stateReducers;
+
+  useEffect(() => {
+    width >= 768 &&
+      dispatch({ type: "UPDATE HAMBURGER TOGGLE", payload: false });
+  }, [width, dispatch]);
+
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
         <img src={`${logo}`} alt="logo" />
       </div>
       <div className={styles.links}>
-        <h1>links</h1>
+        {width >= 768 ? <LinksMolecule /> : <MenuMolecule />}
       </div>
     </header>
   );
