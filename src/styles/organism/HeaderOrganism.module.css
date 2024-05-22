@@ -15,60 +15,9 @@
   margin: auto;
 }
 
-/*.header {*/
-/*  display: flex;*/
-/*  background-color: #bfbfa7;*/
-/*  max-width: 100vw;*/
-/*}*/
-
-/*.nav {*/
-/*  display: flex;*/
-/*  width: 100%;*/
-/*}*/
-
-/*.title {*/
-/*  display: flex;*/
-/*  width: 50%;*/
-/*  justify-content: space-between;*/
-/*  margin: 0.1em;*/
-/*  padding: 0.5rem;*/
-/*}*/
-
-/*.logo {*/
-/*  width: 20%;*/
-/*}*/
-
-/*.h1 {*/
-/*  width: 80%;*/
-/*  text-align: center;*/
-/*}*/
-
-/*.links {*/
-/*  display: flex;*/
-/*  width: 50%;*/
-/*  padding: 0.5rem;*/
-/*  margin: auto;*/
-/*}*/
-
-/*.menu {*/
-/*  display: none;*/
-/*}*/
-
-/*@media screen and (max-width: 768px) {*/
-/*  .header {*/
-/*    display: block;*/
-/*  }*/
-/*  .title {*/
-/*    width: 80%;*/
-/*    margin: auto;*/
-/*  }*/
-/*  .links {*/
-/*    width: 20%;*/
-/*    margin: auto;*/
-/*    justify-content: center;*/
-/*  }*/
-/*  .menu {*/
-/*    display: block;*/
-/*    width: 100%;*/
-/*  }*/
-/*}*/
+@media screen and (max-width: 768px) {
+  .links {
+    position: relative;
+    float: right;
+  }
+}
