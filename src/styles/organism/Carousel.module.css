@@ -1,9 +1,16 @@
 .container {
+  display: block;
+}
+.carousel {
   display: flex;
   flex-direction: column;
-  width: 50em;
-  height: 50em;
+  width: 40em;
+  height: 40em;
   margin: auto;
   padding: 2em;
   overflow: hidden;
+}
+
+.carouselBtn {
+  display: flex;
 }

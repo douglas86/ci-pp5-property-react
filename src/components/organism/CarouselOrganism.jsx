@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 
 // components
-import { carouselImage } from "../atom/elements";
+import { buttonClick, carouselImage } from "../atom/elements";
 
 // custom hooks
 import useAppContext from "../../hooks/useAppContext";
@@ -60,7 +60,20 @@ const CarouselOrganism = () => {
 
   return (
     <div className={styles.container}>
-      {carouselImage(carouselImages[carouselIndex])}
+      <div className={styles.carousel}>
+        {carouselImage(carouselImages[carouselIndex])}
+      </div>
+      <div className={styles.carouselBtn}>
+        {carouselImages.map((item, index) => (
+          <div key={index}>
+            {buttonClick(
+              () => console.log(`index: ${index}`),
+              "",
+              index === carouselIndex ? "primary" : "dark",
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
