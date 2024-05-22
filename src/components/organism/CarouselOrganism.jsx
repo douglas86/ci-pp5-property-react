@@ -39,7 +39,7 @@ const CarouselOrganism = () => {
       } else {
         setCarouselIndex((prev) => prev + 1);
       }
-    }, 2000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [carouselIndex]);

@@ -1,9 +1,28 @@
 .container {
   display: flex;
+  width: 100vw;
+  margin: 0 auto;
   padding: 2em;
 }
 
 .image {
-  width: 70%;
-  margin: auto;
+  margin: 4em auto;
+  border-radius: 2em;
+  animation-duration: 5s;
+  animation-name: sliding;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sliding {
+  from {
+    width: 40%;
+  }
+
+  50% {
+    width: 50%;
+  }
+
+  to {
+    width: 40%;
+  }
 }
