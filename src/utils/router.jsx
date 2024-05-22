@@ -1,5 +1,5 @@
 // pages
-import HomePage from "../components/pages/HomePage";
+import LandingPage from "../components/pages/LandingPage";
 import AboutPage from "../components/pages/AboutPage";
 import DashboardPage from "../components/pages/DashboardPage";
 import NotFoundPage from "../components/pages/NotFoundPage";
@@ -16,7 +16,7 @@ export const router = [
   {
     title: "Home",
     icon: fontawesomeIcon(Home),
-    component: <HomePage />,
+    component: <LandingPage />,
     path: "/",
   },
   {
