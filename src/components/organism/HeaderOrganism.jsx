@@ -1,8 +1,18 @@
+import logo from "../../assets/images/header/Property.png";
+
+// styles
+import styles from "../../styles/organism/HeaderOrganism.module.css";
+
 const HeaderOrganism = () => {
   return (
-    <div>
-      <h1>header</h1>
-    </div>
+    <header className={styles.header}>
+      <div className={styles.logo}>
+        <img src={`${logo}`} alt="logo" />
+      </div>
+      <div className={styles.links}>
+        <h1>links</h1>
+      </div>
+    </header>
   );
 };
 
