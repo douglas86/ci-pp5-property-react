@@ -1,12 +1,16 @@
+// components
 import { buttonClick } from "../atom/elements";
+import { heading } from "../atom/elements/heading";
+import { subheading } from "../atom/elements/subheading";
 
+// styling
 import styles from "../../styles/molecule/Title.module.css";
 
 const PageTitleMolecule = () => {
   return (
     <div className={styles.container}>
-      <h1 className={styles.h1}>London Properties</h1>
-      <p className={styles.p}>Welcome to the best property site in London</p>
+      {heading}
+      {subheading}
       {buttonClick(() => console.log("clicked"), "Search Properties", "dark")}
     </div>
   );
