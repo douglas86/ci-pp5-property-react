@@ -16,7 +16,7 @@ const HeaderOrganism = () => {
   // state store
   const { state, dispatch } = useAppContext();
   const { stateReducers } = state;
-  const { menuOpen, width } = stateReducers;
+  const { MenuOpen, width } = stateReducers;
 
   useEffect(() => {
     // hide the hamburger menu when on devices larger than 768px
@@ -26,12 +26,15 @@ const HeaderOrganism = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
-        <img src={`${logo}`} alt="logo" />
-      </div>
-      <div className={styles.links}>
-        {width >= 768 ? <LinksMolecule /> : <MenuMolecule />}
-      </div>
+      <nav className={styles.nav}>
+        <div className={styles.logo}>
+          <img src={`${logo}`} alt="logo" />
+        </div>
+        <div className={styles.links}>
+          {width >= 768 ? <LinksMolecule /> : <MenuMolecule />}
+        </div>
+      </nav>
+      <div>{MenuOpen && <LinksMolecule />}</div>
     </header>
   );
 };

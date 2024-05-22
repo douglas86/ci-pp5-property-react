@@ -1,7 +1,11 @@
 .header {
-  display: flex;
+  display: block;
   margin: 2em;
   max-width: 100vw;
+}
+
+.nav {
+  display: flex;
 }
 
 .logo {
