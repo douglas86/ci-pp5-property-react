@@ -7,34 +7,3 @@
   padding: 2em;
   overflow: hidden;
 }
-
-.image {
-  height: auto;
-  width: auto;
-  border-radius: 2em;
-  animation-duration: 5s;
-  animation-name: sliding;
-  animation-iteration-count: infinite;
-}
-
-@keyframes sliding {
-  from {
-    margin-left: 80%;
-  }
-
-  30% {
-    margin: 20%;
-  }
-
-  50% {
-    margin: 1%;
-  }
-
-  70% {
-    margin: 20%;
-  }
-
-  to {
-    margin-right: 80%;
-  }
-}

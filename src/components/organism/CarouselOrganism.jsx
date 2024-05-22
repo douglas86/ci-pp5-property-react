@@ -13,6 +13,7 @@ import eleven from "../../assets/images/carousel/eleven.jpg";
 // styling
 import styles from "../../styles/organism/Carousel.module.css";
 import { useEffect, useState } from "react";
+import { carouselImage } from "../atom/elements";
 
 const CarouselOrganism = () => {
   const carouselImages = [
@@ -48,11 +49,7 @@ const CarouselOrganism = () => {
 
   return (
     <div className={styles.container}>
-      <img
-        className={styles.image}
-        src={`${carouselImages[carouselIndex]}`}
-        alt="carousel"
-      />
+      {carouselImage(carouselImages[carouselIndex])}
     </div>
   );
 };
