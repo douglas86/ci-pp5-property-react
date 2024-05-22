@@ -27,7 +27,7 @@ const CarouselOrganism = () => {
   // state store
   const { state, dispatch } = useAppContext();
   const { stateReducers } = state;
-  const { carouselIndex } = stateReducers;
+  const { timer, carouselIndex } = stateReducers;
 
   const carouselImages = [
     one,
@@ -45,18 +45,23 @@ const CarouselOrganism = () => {
   ];
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (carouselIndex === carouselImages.length - 1) {
-        // setCarouselIndex(0);
-        dispatch({ type: "CHANGE CAROUSEL INDEX", payload: 0 });
-      } else {
-        // setCarouselIndex((prev) => prev + 1);
-        dispatch({ type: "CHANGE CAROUSEL INDEX", payload: carouselIndex + 1 });
-      }
-    }, 10000);
+    const handleChange = () => {
+      carouselIndex === carouselImages.length - 1
+        ? dispatch({ type: "CHANGE CAROUSEL INDEX", payload: 0 })
+        : dispatch({
+            type: "CHANGE CAROUSEL INDEX",
+            payload: carouselIndex + 1,
+          });
+    };
 
-    return () => clearInterval(timer);
-  }, [carouselIndex]);
+    timer === 8 && handleChange();
+
+    const time = setInterval(() => {
+      dispatch({ type: "COUNT TIMER SECONDS", payload: timer + 1 });
+    }, 1000);
+
+    return () => clearInterval(time);
+  }, [timer, dispatch]);
 
   return (
     <div className={styles.container}>
