@@ -51,6 +51,13 @@ const CarouselOrganism = () => {
     ten,
   ];
 
+  // reset animation on button click
+  const handleClick = (index) => {
+    setResetAnimation(true); // change animation flag to true to reset keyframes
+    dispatch({ type: "COUNT TIMER SECONDS", payload: 0 }); // reset timer to zero
+    dispatch({ type: "CHANGE CAROUSEL INDEX", payload: index }); // change carousel image on index number
+  };
+
   useEffect(() => {
     // change carousel image on timer, when timer is at 8 seconds
     const handleChange = () => {
@@ -65,6 +72,8 @@ const CarouselOrganism = () => {
     // logic to change the image on timer
     timer === 8 && handleChange();
 
+    width === 768 && handleClick(carouselIndex);
+
     // change the timer value every 1 second
     const time = setInterval(() => {
       dispatch({ type: "COUNT TIMER SECONDS", payload: timer + 1 });
@@ -76,18 +85,11 @@ const CarouselOrganism = () => {
     }
 
     return () => clearInterval(time);
-  }, [timer, dispatch, resetAnimation]);
-
-  // reset animation on button click
-  const handleClick = (index) => {
-    setResetAnimation(true); // change animation flag to true to reset keyframes
-    dispatch({ type: "COUNT TIMER SECONDS", payload: 0 }); // reset timer to zero
-    dispatch({ type: "CHANGE CAROUSEL INDEX", payload: index }); // change carousel image on index number
-  };
+  }, [timer, dispatch, resetAnimation, width]);
 
   return (
     <div className={styles.container}>
-      {width > 768 ? (
+      {width >= 768 ? (
         <>
           <div className={styles.carousel}>
             {carouselImage(carouselImages[carouselIndex], resetAnimation)}
