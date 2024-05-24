@@ -16,3 +16,9 @@
   margin-top: -8em;
   justify-content: center;
 }
+
+.image {
+  width: 100%;
+  padding: 1em;
+  border-radius: 2em;
+}
