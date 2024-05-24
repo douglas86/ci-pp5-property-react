@@ -23,6 +23,11 @@ import eleven from "../../assets/images/carousel/eleven.jpg";
 // styling
 import styles from "../../styles/organism/Carousel.module.css";
 
+/**
+ * Carousel component used to display and animate the carousel
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const CarouselOrganism = () => {
   // state store
   const { state, dispatch } = useAppContext();
@@ -46,9 +51,8 @@ const CarouselOrganism = () => {
     ten,
   ];
 
-  // console.log("carouselIndex", carouselIndex);
-
   useEffect(() => {
+    // change carousel image on timer, when timer is at 8 seconds
     const handleChange = () => {
       carouselIndex === carouselImages.length - 1
         ? dispatch({ type: "CHANGE CAROUSEL INDEX", payload: 0 })
@@ -58,12 +62,15 @@ const CarouselOrganism = () => {
           });
     };
 
+    // logic to change the image on timer
     timer === 8 && handleChange();
 
+    // change the timer value every 1 second
     const time = setInterval(() => {
       dispatch({ type: "COUNT TIMER SECONDS", payload: timer + 1 });
     }, 1000);
 
+    // reset an animation flag to false when it becomes true
     if (resetAnimation) {
       setResetAnimation(false);
     }
@@ -71,12 +78,11 @@ const CarouselOrganism = () => {
     return () => clearInterval(time);
   }, [timer, dispatch, resetAnimation]);
 
-  // console.log("timer", timer);
-
+  // reset animation on button click
   const handleClick = (index) => {
-    setResetAnimation(true);
-    dispatch({ type: "COUNT TIMER SECONDS", payload: 0 });
-    dispatch({ type: "CHANGE CAROUSEL INDEX", payload: index });
+    setResetAnimation(true); // change animation flag to true to reset keyframes
+    dispatch({ type: "COUNT TIMER SECONDS", payload: 0 }); // reset timer to zero
+    dispatch({ type: "CHANGE CAROUSEL INDEX", payload: index }); // change carousel image on index number
   };
 
   return (
@@ -90,7 +96,7 @@ const CarouselOrganism = () => {
             {buttonClick(
               () => handleClick(index),
               "",
-              index === carouselIndex ? "primary" : "dark",
+              index === carouselIndex ? "primary" : "dark", // change the color of the button based on index number
             )}
           </div>
         ))}
