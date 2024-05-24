@@ -1,9 +1,7 @@
+import { heading } from "../atom/elements";
+
 const TestimonialsOrganism = () => {
-  return (
-    <div>
-      <h1>Test</h1>
-    </div>
-  );
+  return <div>{heading("Testimonials")}</div>;
 };
 
 export default TestimonialsOrganism;
