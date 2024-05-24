@@ -109,6 +109,23 @@ const CarouselOrganism = () => {
           <div className={styles.carousel}>
             {image(carouselImages[carouselIndex], "carousel")}
           </div>
+          <div className={styles.carouselBtn}>
+            {buttonClick(
+              () =>
+                handleClick(
+                  carouselIndex === 0
+                    ? carouselImages.length - 1
+                    : carouselIndex - 1,
+                ),
+              "<",
+              "dark",
+            )}
+            {buttonClick(
+              () => handleClick(carouselIndex === 10 ? 0 : carouselIndex + 1),
+              ">",
+              "dark",
+            )}
+          </div>
         </>
       )}
     </div>
