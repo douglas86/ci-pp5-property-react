@@ -12,6 +12,10 @@ export const stateReducers = (state, action) => {
       return { ...state, MenuOpen: payload };
     case "SET WINDOW WIDTH":
       return { ...state, width: payload };
+    case "CHANGE CAROUSEL INDEX":
+      return { ...state, carouselIndex: payload };
+    case "COUNT TIMER SECONDS":
+      return { ...state, timer: payload === 10 ? 0 : payload };
     default:
       return state;
   }
