@@ -1,5 +1,5 @@
 // 3rd party libraries
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // components
 import { buttonClick, carouselImage } from "../atom/elements";
@@ -29,6 +29,8 @@ const CarouselOrganism = () => {
   const { stateReducers } = state;
   const { timer, carouselIndex } = stateReducers;
 
+  const [resetAnimation, setResetAnimation] = useState(false);
+
   const carouselImages = [
     one,
     two,
@@ -43,6 +45,8 @@ const CarouselOrganism = () => {
     eleven,
     ten,
   ];
+
+  // console.log("carouselIndex", carouselIndex);
 
   useEffect(() => {
     const handleChange = () => {
@@ -60,19 +64,31 @@ const CarouselOrganism = () => {
       dispatch({ type: "COUNT TIMER SECONDS", payload: timer + 1 });
     }, 1000);
 
+    if (resetAnimation) {
+      setResetAnimation(false);
+    }
+
     return () => clearInterval(time);
-  }, [timer, dispatch]);
+  }, [timer, dispatch, resetAnimation]);
+
+  // console.log("timer", timer);
+
+  const handleClick = (index) => {
+    setResetAnimation(true);
+    dispatch({ type: "COUNT TIMER SECONDS", payload: 0 });
+    dispatch({ type: "CHANGE CAROUSEL INDEX", payload: index });
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.carousel}>
-        {carouselImage(carouselImages[carouselIndex])}
+        {carouselImage(carouselImages[carouselIndex], resetAnimation)}
       </div>
       <div className={styles.carouselBtn}>
         {carouselImages.map((item, index) => (
           <div key={index}>
             {buttonClick(
-              () => console.log(`index: ${index}`),
+              () => handleClick(index),
               "",
               index === carouselIndex ? "primary" : "dark",
             )}

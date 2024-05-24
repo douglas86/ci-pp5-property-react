@@ -3,6 +3,12 @@
   height: auto;
   width: auto;
   border-radius: 2em;
+  /*animation-duration: 10s;*/
+  /*animation-name: sliding;*/
+  /*animation-iteration-count: infinite;*/
+}
+
+.animation {
   animation-duration: 10s;
   animation-name: sliding;
   animation-iteration-count: infinite;
