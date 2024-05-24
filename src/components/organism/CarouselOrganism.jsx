@@ -32,7 +32,7 @@ const CarouselOrganism = () => {
   // state store
   const { state, dispatch } = useAppContext();
   const { stateReducers } = state;
-  const { timer, carouselIndex } = stateReducers;
+  const { timer, carouselIndex, width } = stateReducers;
 
   const [resetAnimation, setResetAnimation] = useState(false);
 
@@ -87,20 +87,28 @@ const CarouselOrganism = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.carousel}>
-        {carouselImage(carouselImages[carouselIndex], resetAnimation)}
-      </div>
-      <div className={styles.carouselBtn}>
-        {carouselImages.map((item, index) => (
-          <div key={index}>
-            {buttonClick(
-              () => handleClick(index),
-              "",
-              index === carouselIndex ? "primary" : "dark", // change the color of the button based on index number
-            )}
+      {width > 768 ? (
+        <>
+          <div className={styles.carousel}>
+            {carouselImage(carouselImages[carouselIndex], resetAnimation)}
           </div>
-        ))}
-      </div>
+          <div className={styles.carouselBtn}>
+            {carouselImages.map((item, index) => (
+              <div key={index}>
+                {buttonClick(
+                  () => handleClick(index),
+                  "",
+                  index === carouselIndex ? "primary" : "dark", // change the color of the button based on index number
+                )}
+              </div>
+            ))}
+          </div>
+        </>
+      ) : (
+        <>
+          <h1>Carousel</h1>
+        </>
+      )}
     </div>
   );
 };
