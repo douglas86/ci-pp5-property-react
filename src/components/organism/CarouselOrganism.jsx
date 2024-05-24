@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 // components
-import { buttonClick, carouselImage } from "../atom/elements";
+import { buttonClick, carouselImage, image } from "../atom/elements";
 
 // custom hooks
 import useAppContext from "../../hooks/useAppContext";
@@ -107,11 +107,7 @@ const CarouselOrganism = () => {
       ) : (
         <>
           <div className={styles.carousel}>
-            <img
-              className={styles.image}
-              src={`${carouselImages[carouselIndex]}`}
-              alt="carousel"
-            />
+            {image(carouselImages[carouselIndex], "carousel")}
           </div>
         </>
       )}

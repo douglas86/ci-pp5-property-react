@@ -9,7 +9,9 @@ import styles from "../../../styles/atom/elements.module.css";
  */
 export const carouselImage = (image, resetAnimation) => (
   <img
-    className={resetAnimation ? "" : `${styles.image} ${styles.animation}`}
+    className={
+      resetAnimation ? "" : `${styles.carouselImage} ${styles.animation}`
+    }
     src={`${image}`}
     alt="carousel"
   />

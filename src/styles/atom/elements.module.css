@@ -1,5 +1,14 @@
-/*carouselImage atom*/
+/*image atom*/
 .image {
+  width: 100%;
+  height: 20em;
+  padding: 1em;
+  border-radius: 2em;
+  object-fit: cover;
+}
+
+/*carouselImage atom*/
+.carouselImage {
   height: auto;
   width: auto;
   border-radius: 2em;

@@ -2,13 +2,13 @@
   margin: auto;
 }
 
-.image {
-  width: 100%;
-  height: 20em;
-  padding: 1em;
-  border-radius: 2em;
-  object-fit: cover;
-}
+/*.image {*/
+/*  width: 100%;*/
+/*  height: 20em;*/
+/*  padding: 1em;*/
+/*  border-radius: 2em;*/
+/*  object-fit: cover;*/
+/*}*/
 
 @media screen and (min-width: 768px) {
   .container {
