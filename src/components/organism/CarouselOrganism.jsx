@@ -106,11 +106,13 @@ const CarouselOrganism = () => {
         </>
       ) : (
         <>
-          <img
-            className={styles.image}
-            src={`${carouselImages[carouselIndex]}`}
-            alt="carousel"
-          />
+          <div className={styles.carousel}>
+            <img
+              className={styles.image}
+              src={`${carouselImages[carouselIndex]}`}
+              alt="carousel"
+            />
+          </div>
         </>
       )}
     </div>
