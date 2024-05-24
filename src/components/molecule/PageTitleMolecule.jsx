@@ -10,7 +10,7 @@ const PageTitleMolecule = () => {
   return (
     <div className={styles.container}>
       {title}
-      {subheading}
+      {subheading("Welcome to the best property site in London")}
       {buttonClick(() => console.log("clicked"), "Search Properties", "dark")}
     </div>
   );
