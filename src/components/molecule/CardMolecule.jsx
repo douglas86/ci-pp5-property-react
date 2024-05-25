@@ -9,16 +9,44 @@ import styles from "../../styles/molecule/Card.module.css";
 
 const CardMolecule = () => {
   return (
-    <div className={styles.card}>
-      <div className={styles.cardSubheading}>
-        {subheading('"A terrific praise"')}
-      </div>
-      <div className={styles.cardText}>
-        <div className={styles.thumbnail}>
-          <img src={`${avatar}`} alt="avatar" />
+    <div className={styles.cardDeck}>
+      <div className={styles.card}>
+        <div className={styles.cardSubheading}>
+          {subheading('"A terrific praise"')}
         </div>
-        <div className={styles.description}>
-          <h4>Douglas Maxton</h4>
+        <div className={styles.cardText}>
+          <div className={styles.thumbnail}>
+            <img src={`${avatar}`} alt="avatar" />
+          </div>
+          <div className={styles.description}>
+            <h4>Douglas Maxton</h4>
+          </div>
+        </div>
+      </div>
+      <div className={styles.card}>
+        <div className={styles.cardSubheading}>
+          {subheading('"A terrific praise"')}
+        </div>
+        <div className={styles.cardText}>
+          <div className={styles.thumbnail}>
+            <img src={`${avatar}`} alt="avatar" />
+          </div>
+          <div className={styles.description}>
+            <h4>Douglas Maxton</h4>
+          </div>
+        </div>
+      </div>
+      <div className={styles.card}>
+        <div className={styles.cardSubheading}>
+          {subheading('"A terrific praise"')}
+        </div>
+        <div className={styles.cardText}>
+          <div className={styles.thumbnail}>
+            <img src={`${avatar}`} alt="avatar" />
+          </div>
+          <div className={styles.description}>
+            <h4>Douglas Maxton</h4>
+          </div>
         </div>
       </div>
     </div>
