@@ -7,6 +7,14 @@
   object-fit: cover;
 }
 
+/*heading atom*/
+.h2 {
+  width: 100%;
+  text-align: center;
+  color: #2f301d;
+  padding: 2em;
+}
+
 /*carouselImage atom*/
 .carouselImage {
   height: auto;
@@ -20,7 +28,7 @@
   animation-iteration-count: infinite;
 }
 
-/*heading atom*/
+/*title atom*/
 .h1 {
   color: #2f301d;
   font-weight: bold;
@@ -29,6 +37,7 @@
 /*subheading atom*/
 .p {
   color: #bfbfa7;
+  text-align: center;
 }
 
 /*animated keyframes for carousel images*/

@@ -1,0 +1,36 @@
+.cardDeck {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  padding: 3em;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card {
+  width: 18em;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.75);
+  border-radius: 1em;
+  margin: 1em auto;
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardSubheading {
+  width: 100%;
+}
+
+.cardText {
+  display: flex;
+}
+
+.thumbnail {
+  width: 30%;
+}
+
+.description {
+  width: 70%;
+  display: block;
+}
