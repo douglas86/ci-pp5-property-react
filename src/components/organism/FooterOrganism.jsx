@@ -13,8 +13,12 @@ const FooterOrganism = () => {
       <div className={styles.socialLinks}>
         {h4Heading("London Properties")}
         <div className={styles.thumbnails}>
-          {thumbnail(githubIcon, "github icon")}
-          {thumbnail(LinkedinIcon, "linkedin icon")}
+          <div className={styles.thumbnail}>
+            {thumbnail(githubIcon, "github icon")}
+          </div>
+          <div className={styles.thumbnail}>
+            {thumbnail(LinkedinIcon, "linkedin icon")}
+          </div>
         </div>
       </div>
       <div className={styles.contactInformation}>
