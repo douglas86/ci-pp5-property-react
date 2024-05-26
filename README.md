@@ -97,6 +97,8 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 
 - Iteration over function with the state store [here](https://stackoverflow.com/questions/59200785/react-usereducer-how-to-combine-multiple-reducers)
 - Assisted in helping me get the state store correct [here](https://ricostacruz.com/til/state-management-with-react-hooks)
+- Article that assisted in iterating over [reducer](https://stackoverflow.com/questions/59200785/react-usereducer-how-to-combine-multiple-reducers) functions
+- Article that helps get the [state store](https://ricostacruz.com/til/state-management-with-react-hooks) up and running
 
 ---
 
