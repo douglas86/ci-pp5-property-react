@@ -4,4 +4,5 @@ export * from "./displayErrors";
 export * from "./heading";
 export * from "./image";
 export * from "./submitButton";
+export * from "./thumbnail";
 export * from "./title";
