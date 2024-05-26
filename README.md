@@ -39,6 +39,7 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 
 - [Planning](#planning)
   - [Wireframes](#wireframes)
+  - [UX/UI Designs on figma](#uxui-designs-on-figma)
   - [User Stories using MOSCOW Prioritization techniques](#user-stories-using-moscow-prioritization-techniques)
   - [Proper Description of the Technologies used in the Project](#proper-description-of-the-technologies-used-in-the-project)
 - [Features](#features)
@@ -54,6 +55,38 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 ### [Planning](#table-of-content)
 
 #### [Wireframes](#table-of-content)
+
+- Landing Page (HomePage)
+
+![Landing Page - desktop.png](src/assets/docs/planning/wireframes/Landing_Page_desktop.png)
+
+![Landing Page - mobile.png](src/assets/docs/planning/wireframes/Landing_Page_mobile.png)
+
+- About Page
+
+![About Page - Desktop.png](src/assets/docs/planning/wireframes/About_Page_Desktop.png)
+
+![About Page - mobile.png](src/assets/docs/planning/wireframes/About_Page_mobile.png)
+
+- Admin Dashboard Page—Profiles of the users using the site
+
+![Admin_Dashboard_properties_desktop.png](src/assets/docs/planning/wireframes/Admin_Dashboard_properties_desktop.png)
+
+![Admin_Dashboard_property_mobile.png](src/assets/docs/planning/wireframes/Admin_Dashboard_property_mobile.png)
+
+- Admin Dashboard Page - displaying of the users
+
+![Admin_Dashboard_user_desktop.png](src/assets/docs/planning/wireframes/Admin_Dashboard_user_desktop.png)
+
+![Admin_Dashboard_user_mobile.png](src/assets/docs/planning/wireframes/Admin_Dashboard_user_mobile.png)
+
+- User Dashboard Page
+
+![User_Dashboard_desktop.png](src/assets/docs/planning/wireframes/User_Dashboard_desktop.png)
+
+![User_Dashboard_mobile.png](src/assets/docs/planning/wireframes/User_Dashboard_mobile.png)
+
+#### [UX/UI Designs on figma](#table-of-content)
 
 #### [User Stories using MOSCOW Prioritization techniques](#table-of-content)
 
