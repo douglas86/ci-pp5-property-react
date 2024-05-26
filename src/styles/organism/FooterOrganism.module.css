@@ -4,8 +4,14 @@
   bottom: 0;
 }
 
+.socialLinks {
+  display: block;
+  width: 50%;
+}
+
 .contactInformation {
   display: block;
+  width: 50%;
 }
 
 .section {

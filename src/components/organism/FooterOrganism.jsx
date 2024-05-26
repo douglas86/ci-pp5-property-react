@@ -8,6 +8,7 @@ import androidIcon from "../../assets/images/footer/Android Phone.png";
 const FooterOrganism = () => {
   return (
     <footer className={styles.footer}>
+      <div className={styles.socialLinks}></div>
       <div className={styles.contactInformation}>
         <div className={styles.section}>
           {thumbnail(emailIcon, "email icon")}
