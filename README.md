@@ -45,6 +45,7 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
   - [State Store](#state-store)
 - [Testing](#testing)
 - [Bugs](#bugs)
+  - [401 Error](#401-error)
 - [Credits](#credits)
 ---
 
@@ -74,6 +75,21 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 ---
 
 ### [Bugs](#table-of-content)
+
+#### [401 Error](#table-of-content)
+
+##### Problem?
+
+- 401 get request unauthorized error in console
+- this error only happens when I am not logged in
+- when it is trying to make a get request to the API
+
+![401 get error.png](src/assets/docs/bugs/401_get_error.png)
+
+##### Solution?
+
+- The solution to this problem would be so that the console doesn't show any error message
+- I have not quite been able to get this right yet
 
 ---
 
