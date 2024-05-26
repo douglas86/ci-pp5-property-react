@@ -185,6 +185,34 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 
 ### [Testing](#table-of-content)
 
+#### [Automatic testing using cypress](#table-of-content)
+
+##### Brief Description of Automated testing
+
+- To run cypress, make sure that react is still running
+- This testing framework gives my a user interface to test
+- It runs automatically on file save
+- Open up a new terminal and run npx cypress open
+- This will then open up a browser with cypress running
+
+##### Authentication testing
+
+###### Failing test?
+
+- tested against the incorrect login credentials
+- username: admin
+- password: admin
+
+![fail.png](src/assets/docs/testing/authentication/fail.png)
+
+###### Passing the test?
+
+- tested against the correct login credentials
+- username: douglas
+- password: IAMininGLOrN
+
+![pass.png](src/assets/docs/testing/authentication/pass.png)
+
 ---
 
 ### [Bugs](#table-of-content)
