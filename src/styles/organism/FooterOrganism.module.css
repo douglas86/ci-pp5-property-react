@@ -1,4 +1,13 @@
 .footer {
-  position: absolute;
+  display: flex;
+  padding: 3em;
   bottom: 0;
+}
+
+.contactInformation {
+  display: block;
+}
+
+.section {
+  display: flex;
 }
