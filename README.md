@@ -99,9 +99,18 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 
 #### [State Store](#table-of-content)
 
-- I have written a state store for this Project
-- Using useMemo, useContext and useReducer
-- To improve the performance of this app
+- I have implemented a state store to reduce Prop drilling
+- Prop drilling is when you keep on pass props down then up to many levels
+- The state store was implemented with the help of useMemo, useReducer and useContext
+- useMemo was used to stop unnecessary re-renders
+- useReducer was used to keep track of state logic
+- useContext was used to share state across the entire app
+- I have also written a simple useAppContext hook to make it easier to call state when needed
+- useAppContext hook returns two variable state and dispatch
+- state is used to see what data is in your state store
+- dispatch is used to update the state store passing it type and payload
+- type is the reducer function that you are wanting to use
+- payload is the data that you are wanting to send to the state store
 - If you are wanting to see how it was done, click [here](https://docs.google.com/document/d/1IHX350WfSIrXJzxKs8IBurmX-wX1dtBG1-rPXqmIB6c/edit#heading=h.1tzm0g2fdwbe)
 
 ---
