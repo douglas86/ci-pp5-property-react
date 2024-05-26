@@ -42,6 +42,7 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
   - [User Stories using MOSCOW Prioritization techniques](#user-stories-using-moscow-prioritization-techniques)
   - [Proper Description of the Technologies used in the Project](#proper-description-of-the-technologies-used-in-the-project)
 - [Features](#features)
+  - [Atomic Design](#atomic-design) 
   - [State Store](#state-store)
 - [Testing](#testing)
 - [Bugs](#bugs)
@@ -60,6 +61,23 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 ---
 
 ### [Features](#table-of-content)
+
+#### [Atomic Design](#table-of-content)
+
+![atomic_design.png](src/assets/docs/features/atomic_design.png)
+
+##### Brief Description
+
+- The atomic design is broken down into atoms, molecules, organisms, templates and pages
+- Using this approach, I can make components as re-usable as possible
+- atoms form the basic building block of all life, in this case something like a button or an element like h1 tags and so on
+- molecules are the next step-up it can be something like a bootstrap card, a group of atoms together to form a bigger picture or a way of mapping over items from an array
+- organisms this is where the design will take shape it forms part of the higher order component, consisting of molecules and atoms or even other organisms
+- templates this is normally a component that will be used on most of your pages, like a header or footer, or a layout component
+- pages this will be were all your pages take shape
+
+If you want a better explanation,
+take a look at this [article](https://andela.com/blog-posts/structuring-your-react-application-atomic-design-principles)
 
 #### [State Store](#table-of-content)
 
