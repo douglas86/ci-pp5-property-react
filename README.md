@@ -88,6 +88,36 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 
 #### [UX/UI Designs on figma](#table-of-content)
 
+- Landing Page (HomePage)
+
+![Landing_Page_Desktop.png](src/assets/docs/planning/design/Landing_Page_Desktop.png)
+
+![Landing_Page_mobile.png](src/assets/docs/planning/design/Landing_Page_mobile.png)
+
+- About Page
+
+![About_Page_desktop.png](src/assets/docs/planning/design/About_Page_desktop.png)
+
+![About_Page_mobile.png](src/assets/docs/planning/design/About_Page_mobile.png)
+
+- Admin Dashboard Page—Profiles of the users using the site
+
+![Admin_Dashboard_property_desktop.png](src/assets/docs/planning/design/Admin_Dashboard_property_desktop.png)
+
+![Admin_Dashboard_property_mobile.png](src/assets/docs/planning/design/Admin_Dashboard_property_mobile.png)
+
+- Admin Dashboard Page - displaying of the users
+
+![Admin_Dashboard_user_desktop.png](src/assets/docs/planning/design/Admin_Dashboard_user_desktop.png)
+
+![Admin_Dashboard_user_mobile.png](src/assets/docs/planning/design/Admin_Dashboard_user_mobile.png)
+
+- User Dashboard Page
+
+![User_Dashboard_desktop.png](src/assets/docs/planning/design/User_Dashboard_desktop.png)
+
+![User_Dashboard_mobile.png](src/assets/docs/planning/design/User_Dashboard_mobile.png)
+
 #### [User Stories using MOSCOW Prioritization techniques](#table-of-content)
 
 #### [Proper Description of the Technologies used in the Project](#table-of-content)
