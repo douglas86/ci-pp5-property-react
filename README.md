@@ -40,6 +40,7 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 - [Planning](#planning)
   - [Wireframes](#wireframes)
   - [UX/UI Designs on figma](#uxui-designs-on-figma)
+  - [Color pallet](#color-pallet)
   - [User Stories using MOSCOW Prioritization techniques](#user-stories-using-moscow-prioritization-techniques)
   - [Proper Description of the Technologies used in the Project](#proper-description-of-the-technologies-used-in-the-project)
 - [Features](#features)
@@ -117,6 +118,10 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 ![User_Dashboard_desktop.png](src/assets/docs/planning/design/User_Dashboard_desktop.png)
 
 ![User_Dashboard_mobile.png](src/assets/docs/planning/design/User_Dashboard_mobile.png)
+
+#### [Color pallet](#table-of-content)
+
+![color_pallet.png](src/assets/docs/planning/color_pallet.png)
 
 #### [User Stories using MOSCOW Prioritization techniques](#table-of-content)
 
