@@ -1,12 +1,17 @@
 .footer {
-  padding: 1em;
+  display: flex;
+  padding: 3em;
   bottom: 0;
 }
 
 .contactInformation {
+  display: block;
+}
+
+.section {
   display: flex;
 }
 
 .h4 {
-  vertical-align: middle;
+  margin: auto 1em;
 }
