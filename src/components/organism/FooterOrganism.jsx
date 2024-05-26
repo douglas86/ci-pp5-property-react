@@ -11,7 +11,7 @@ const FooterOrganism = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.socialLinks}>
-        {h4Heading("London Properties")}
+        <div className={styles.heading}>{h4Heading("London Properties")}</div>
         <div className={styles.thumbnails}>
           <div className={styles.thumbnail}>
             {thumbnail(githubIcon, "github icon")}
