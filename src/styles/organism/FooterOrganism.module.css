@@ -46,6 +46,7 @@
   }
   .section {
     margin: auto 5em;
+    justify-content: left;
   }
 }
 
