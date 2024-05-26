@@ -42,7 +42,8 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
   - [User Stories using MOSCOW Prioritization techniques](#user-stories-using-moscow-prioritization-techniques)
   - [Proper Description of the Technologies used in the Project](#proper-description-of-the-technologies-used-in-the-project)
 - [Features](#features)
-  - [Atomic Design](#atomic-design) 
+  - [Atomic Design](#atomic-design)
+  - [Header](#header)
   - [State Store](#state-store)
 - [Testing](#testing)
 - [Bugs](#bugs)
@@ -78,6 +79,23 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 
 If you want a better explanation,
 take a look at this [article](https://andela.com/blog-posts/structuring-your-react-application-atomic-design-principles)
+
+#### [Header](#table-of-content)
+
+##### Brief Description
+
+- When the page is on larger devices, there will be links on the right and the logo on the left
+
+![header - desktop.png](src/assets/docs/features/header_desktop.png)
+
+- When on a device table or smaller the links become a hamburger menu
+- This is when the hamburger menu is closed
+
+![header_hamburger_menu.png](src/assets/docs/features/header_hamburger_menu.png)
+
+- When the hamburger menu icon is opened with the links below
+
+![header_hamburger_menu_closed.png](src/assets/docs/features/header_hamburger_menu_closed.png)
 
 #### [State Store](#table-of-content)
 
