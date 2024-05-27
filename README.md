@@ -50,6 +50,7 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 - [Testing](#testing)
 - [Bugs](#bugs)
   - [401 Error](#401-error)
+  - [Carousel](#carousel)
 - [Credits](#credits)
 ---
 
@@ -231,6 +232,28 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 
 - The solution to this problem would be so that the console doesn't show any error message
 - I have not quite been able to get this right yet
+
+#### [Carousel](#table-of-content)
+
+##### Problem?
+
+- The carousel is not changing correctly when adjusting the screen width
+- It should be changing from animated design to standing carousel
+
+![first.png](src/assets/docs/bugs/carousel/first.png)
+
+- When the width gets adjusted, it also doesn't want to resize the image correctly
+
+![second.png](src/assets/docs/bugs/carousel/second.png)
+
+- when it is rotating and enlarging the images, it seems to shrink and enlarge the hole page
+- normally just a refresh does this
+
+![third.png](src/assets/docs/bugs/carousel/third.png)
+
+##### Solution?
+
+- Still to come
 
 ---
 
