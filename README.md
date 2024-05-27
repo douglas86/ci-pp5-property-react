@@ -47,9 +47,12 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
   - [Atomic Design](#atomic-design)
   - [Header](#header)
   - [State Store](#state-store)
+  - [Special features on the about page](#special-features-on-the-about-page)
 - [Testing](#testing)
 - [Bugs](#bugs)
   - [401 Error](#401-error)
+  - [Carousel](#carousel)
+  - [Footer](#footer)
 - [Credits](#credits)
 ---
 
@@ -125,6 +128,30 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 
 #### [User Stories using MOSCOW Prioritization techniques](#table-of-content)
 
+##### Description
+
+- I tried my best to follow the Agile methodology
+- Starting with the completion of the landing page
+- Once that was completed, then move on to the next section
+- Creating this project page by page
+- I first start with creating all the issues needed for the Landing Page
+- GitHub bot would move that to backlog and I would move it to Ready
+- Then, before I started the cards for the Landing Page, I would create cards for the About Page
+- Trying to always have something in the Backlog section of the Kanban board
+
+![kanban.png](src/assets/docs/planning/milestones/kanban.png)
+
+##### Milestones
+
+Landing Page
+
+- The percentage of milestones completed
+- 66% complete
+- Open 5
+- Ten closed
+
+![landing_page.png](src/assets/docs/planning/milestones/landing_page.png)
+
 #### [Proper Description of the Technologies used in the Project](#table-of-content)
 
 ---
@@ -181,6 +208,14 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 - payload is the data that you are wanting to send to the state store
 - If you are wanting to see how it was done, click [here](https://docs.google.com/document/d/1IHX350WfSIrXJzxKs8IBurmX-wX1dtBG1-rPXqmIB6c/edit#heading=h.1tzm0g2fdwbe)
 
+#### [Special features on the about page](#table-of-content)
+
+- Added About us, mission and commitment to our customers
+
+![about.png](src/assets/docs/features/about/about.png)
+
+![mission.png](src/assets/docs/features/about/mission.png)
+
 ---
 
 ### [Testing](#table-of-content)
@@ -231,6 +266,41 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 
 - The solution to this problem would be so that the console doesn't show any error message
 - I have not quite been able to get this right yet
+
+#### [Carousel](#table-of-content)
+
+##### Problem?
+
+- The carousel is not changing correctly when adjusting the screen width
+- It should be changing from animated design to standing carousel
+
+![first.png](src/assets/docs/bugs/carousel/first.png)
+
+- When the width gets adjusted, it also doesn't want to resize the image correctly
+
+![second.png](src/assets/docs/bugs/carousel/second.png)
+
+- when it is rotating and enlarging the images, it seems to shrink and enlarge the hole page
+- normally just a refresh does this
+
+![third.png](src/assets/docs/bugs/carousel/third.png)
+
+##### Solution?
+
+- Still to come
+
+#### [Footer](#table-of-content)
+
+##### Problem?
+
+- When scaling down, the image is slightly off
+- This is just above 300 pixels
+
+![email.png](src/assets/docs/bugs/email.png)
+
+##### Solution?
+
+- This has not been solved yet
 
 ---
 
