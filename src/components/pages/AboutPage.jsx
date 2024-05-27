@@ -1,10 +1,12 @@
 // components
 import PageTitleMolecule from "../molecule/PageTitleMolecule";
-
-import styles from "../../styles/pages/about.module.css";
-
-import house from "../../assets/images/about page/house.png";
 import StatementMolecule from "../molecule/StatementMolecule";
+
+// assets
+import house from "../../assets/images/about page/house.png";
+
+// styling
+import styles from "../../styles/pages/about.module.css";
 
 const AboutPage = () => {
   const missionCommitment = [
