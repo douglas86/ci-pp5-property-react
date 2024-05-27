@@ -11,7 +11,7 @@ const AboutPage = () => {
   return (
     <div className={styles.container}>
       <PageTitleMolecule />
-      <div className={styles.description}>
+      <div className={styles.section}>
         <div className={styles.about}>
           {heading("About Us")}
           {subheading(
@@ -25,7 +25,7 @@ const AboutPage = () => {
         </div>
         <img className={styles.image} src={`${house}`} alt="house" />{" "}
       </div>
-      <div className={styles.description}>
+      <div className={styles.section}>
         <div className={styles.about}>
           {heading("Our Mission")}
           <p>

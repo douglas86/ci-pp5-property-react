@@ -2,7 +2,7 @@
   padding: 0.5em;
 }
 
-.description {
+.section {
   display: block;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@
     padding: 1em;
   }
 
-  .description {
+  .section {
     display: flex;
   }
 
