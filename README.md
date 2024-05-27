@@ -128,6 +128,30 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 
 #### [User Stories using MOSCOW Prioritization techniques](#table-of-content)
 
+##### Description
+
+- I tried my best to follow the Agile methodology
+- Starting with the completion of the landing page
+- Once that was completed, then move on to the next section
+- Creating this project page by page
+- I first start with creating all the issues needed for the Landing Page
+- GitHub bot would move that to backlog and I would move it to Ready
+- Then, before I started the cards for the Landing Page, I would create cards for the About Page
+- Trying to always have something in the Backlog section of the Kanban board
+
+![kanban.png](src/assets/docs/planning/milestones/kanban.png)
+
+##### Milestones
+
+Landing Page
+
+- The percentage of milestones completed
+- 66% complete
+- Open 5
+- Ten closed
+
+![landing_page.png](src/assets/docs/planning/milestones/landing_page.png)
+
 #### [Proper Description of the Technologies used in the Project](#table-of-content)
 
 ---
