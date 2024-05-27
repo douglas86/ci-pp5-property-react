@@ -1,7 +1,8 @@
-import { heading } from "../atom/elements";
+// components
+import { heading, subheading } from "../atom/elements";
 
+// styling
 import styles from "../../styles/molecule/Statement.module.css";
-import { subheading } from "../atom/elements/subheading";
 
 const StatementMolecule = ({ title, subHead, paragraph }) => {
   return (
