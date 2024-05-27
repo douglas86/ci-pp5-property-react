@@ -1,0 +1,40 @@
+.container {
+  padding: 0.5em;
+}
+
+.description {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+
+.about {
+  width: 100%;
+  margin: auto;
+}
+
+.image {
+  width: 100%;
+  margin: auto;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    padding: 1em;
+  }
+
+  .description {
+    display: flex;
+  }
+
+  .about {
+    display: block;
+    width: 50%;
+  }
+
+  .image {
+    width: 50%;
+  }
+}
