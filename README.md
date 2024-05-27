@@ -51,6 +51,7 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 - [Bugs](#bugs)
   - [401 Error](#401-error)
   - [Carousel](#carousel)
+  - [Footer](#footer)
 - [Credits](#credits)
 ---
 
@@ -254,6 +255,19 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 ##### Solution?
 
 - Still to come
+
+#### [Footer](#table-of-content)
+
+##### Problem?
+
+- When scaling down, the image is slightly off
+- This is just above 300 pixels
+
+![email.png](src/assets/docs/bugs/email.png)
+
+##### Solution?
+
+- This has not been solved yet
 
 ---
 
