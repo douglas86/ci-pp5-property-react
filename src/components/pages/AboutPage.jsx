@@ -25,6 +25,16 @@ const AboutPage = () => {
         </div>
         <img className={styles.image} src={`${house}`} alt="house" />{" "}
       </div>
+      <div className={styles.description}>
+        <div className={styles.about}>
+          {heading("Our Mission")}
+          <p>
+            Our mission is to help empower you with the tools, information and
+            support that you need to help you with achieving your vision to
+            obtain your next property.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
