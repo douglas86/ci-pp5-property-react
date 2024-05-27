@@ -47,6 +47,7 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
   - [Atomic Design](#atomic-design)
   - [Header](#header)
   - [State Store](#state-store)
+  - [Special features on the about page](#special-features-on-the-about-page)
 - [Testing](#testing)
 - [Bugs](#bugs)
   - [401 Error](#401-error)
@@ -182,6 +183,14 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 - type is the reducer function that you are wanting to use
 - payload is the data that you are wanting to send to the state store
 - If you are wanting to see how it was done, click [here](https://docs.google.com/document/d/1IHX350WfSIrXJzxKs8IBurmX-wX1dtBG1-rPXqmIB6c/edit#heading=h.1tzm0g2fdwbe)
+
+#### [Special features on the about page](#table-of-content)
+
+- Added About us, mission and commitment to our customers
+
+![about.png](src/assets/docs/features/about/about.png)
+
+![mission.png](src/assets/docs/features/about/mission.png)
 
 ---
 
