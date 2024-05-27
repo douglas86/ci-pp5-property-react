@@ -34,6 +34,14 @@ const AboutPage = () => {
             obtain your next property.
           </p>
         </div>
+        <div className={styles.about}>
+          {heading("Our Commitment")}
+          <p>
+            We are committed to transparency, integrity and honesty in
+            everything we do. Our goal is to build long lasting relationships
+            with our clients. Your satisfaction is our number 1 priority
+          </p>
+        </div>
       </div>
     </div>
   );
