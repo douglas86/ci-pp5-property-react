@@ -19,6 +19,11 @@ import ten from "../../assets/images/carousel/ten.png";
 // styling
 import styles from "../../styles/organism/Carousel.module.css";
 
+/**
+ * Organism used for running and displaying the carousel
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const CarouselOrganism = () => {
   // state
   const [count, setCount] = useState(0);
