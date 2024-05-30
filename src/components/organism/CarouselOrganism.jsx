@@ -1,6 +1,8 @@
+// 3rd party packages
 import { useEffect, useState } from "react";
 
-import styles from "../../styles/organism/Carousel.module.css";
+// components
+import { buttonClick, image } from "../atom/elements";
 
 // assets
 import one from "../../assets/images/carousel/one.jpg";
@@ -14,11 +16,14 @@ import eight from "../../assets/images/carousel/eight.jpg";
 import nine from "../../assets/images/carousel/nine.png";
 import ten from "../../assets/images/carousel/ten.png";
 import eleven from "../../assets/images/carousel/eleven.jpg";
-import { buttonClick, image } from "../atom/elements";
+
+// styling
+import styles from "../../styles/organism/Carousel.module.css";
 
 const CarouselOrganism = () => {
   // state
   const [count, setCount] = useState(0);
+  const [time, setTime] = useState(0);
 
   const carouselImages = [
     one,
@@ -37,17 +42,24 @@ const CarouselOrganism = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      count === 10 ? setCount(0) : setCount((prevCount) => prevCount + 1);
-    }, 10000);
+      time === 10
+        ? setTime(0) || count === 10
+          ? setCount(0)
+          : setCount((prevCount) => prevCount + 1)
+        : setTime((prevTime) => prevTime + 1);
+    }, 1000);
 
     return () => clearInterval(timer);
-  }, [count]);
+  }, [count, time]);
 
-  const handleClick = () => {
-    console.log("I was clicked");
+  const handleClick = (countValue) => {
+    setTime(0);
+    setCount(countValue);
+    console.log("countValue", countValue);
   };
 
   console.log("counter", count);
+  console.log("time", time);
 
   return (
     <div className="carousel">
