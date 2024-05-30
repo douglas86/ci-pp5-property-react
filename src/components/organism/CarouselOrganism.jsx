@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import styles from "../../styles/organism/Carousel.module.css";
+
 // assets
 import one from "../../assets/images/carousel/one.jpg";
 import two from "../../assets/images/carousel/two.jpg";
@@ -12,6 +14,7 @@ import eight from "../../assets/images/carousel/eight.jpg";
 import nine from "../../assets/images/carousel/nine.png";
 import ten from "../../assets/images/carousel/ten.png";
 import eleven from "../../assets/images/carousel/eleven.jpg";
+import { buttonClick, image } from "../atom/elements";
 
 const CarouselOrganism = () => {
   // state
@@ -35,16 +38,35 @@ const CarouselOrganism = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       count === 10 ? setCount(0) : setCount((prevCount) => prevCount + 1);
-    }, 1000);
+    }, 10000);
 
     return () => clearInterval(timer);
   }, [count]);
+
+  const handleClick = () => {
+    console.log("I was clicked");
+  };
 
   console.log("counter", count);
 
   return (
     <div className="carousel">
-      <h1>Carousel</h1>
+      <div className={styles.carousel}>
+        {image(carouselImages[count], "carousel")}
+      </div>
+      <div className={styles.carouselBtn}>
+        {buttonClick(
+          () =>
+            handleClick(count === 0 ? carouselImages.length - 1 : count - 1),
+          "<",
+          "dark",
+        )}
+        {buttonClick(
+          () => handleClick(count === 10 ? 0 : count + 1),
+          ">",
+          "dark",
+        )}
+      </div>
     </div>
   );
 };
