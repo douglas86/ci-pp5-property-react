@@ -17,8 +17,6 @@ const initialState = {
   stateReducers: {
     MenuOpen: false,
     width: window.innerWidth,
-    carouselIndex: 0,
-    timer: 0,
   },
 };
 

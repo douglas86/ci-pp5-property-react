@@ -3,7 +3,7 @@
 }
 .carousel {
   width: 100%;
-  margin: auto;
+  margin: 1em auto;
 }
 
 .carouselBtn {
@@ -18,17 +18,13 @@
     display: block;
   }
   .carousel {
-    display: flex;
-    flex-direction: column;
-    width: 40em;
-    height: 40em;
+    height: auto;
     margin: auto;
-    padding: 2em;
-    overflow: hidden;
+    padding: 1em;
   }
   .carouselBtn {
     display: flex;
-    margin-top: -8em;
-    justify-content: center;
+    margin: 0.5em auto;
+    justify-content: space-between;
   }
 }
