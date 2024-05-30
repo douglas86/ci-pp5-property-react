@@ -20,19 +20,6 @@
   padding: 2em;
 }
 
-/*carouselImage atom*/
-.carouselImage {
-  height: auto;
-  width: auto;
-  border-radius: 2em;
-}
-
-.animation {
-  animation-duration: 10s;
-  animation-name: sliding;
-  animation-iteration-count: infinite;
-}
-
 /*title atom*/
 .h1 {
   color: #2f301d;
