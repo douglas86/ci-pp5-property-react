@@ -40,7 +40,7 @@ const CarouselOrganism = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       time === 10
-        ? setTime(0) || count > 9
+        ? setTime(0) || count === 9
           ? setCount(0)
           : setCount((prevCount) => prevCount + 1)
         : setTime((prevTime) => prevTime + 1);
