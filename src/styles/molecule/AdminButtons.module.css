@@ -24,4 +24,7 @@
     width: 100%;
     justify-content: center;
   }
+  .sections:last-child {
+    justify-content: center;
+  }
 }
