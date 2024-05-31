@@ -55,9 +55,9 @@ export const router = [
     title: "None",
     icon: "",
     component: <AdminPropertyPage />,
-    path: "/dashboard/adin/properties",
+    path: "/dashboard/admin/properties",
   },
-  // path not found
+  // page not found
   {
     title: "None",
     icon: "",
