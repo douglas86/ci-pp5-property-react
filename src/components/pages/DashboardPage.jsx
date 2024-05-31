@@ -1,8 +1,20 @@
+import { buttonClick } from "../atom/elements";
+
 const DashboardPage = () => {
   return (
-    <div>
-      <h1>Explore Page</h1>
-    </div>
+    <>
+      {buttonClick(() => console.log("user button clicked"), "Users", "dark")}
+      {buttonClick(
+        () => console.log("property button clicked"),
+        "Property",
+        "dark",
+      )}
+      {buttonClick(
+        () => console.log("Add New Property"),
+        "Add new Property",
+        "success",
+      )}
+    </>
   );
 };
 
