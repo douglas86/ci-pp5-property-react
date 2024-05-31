@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+}
+
+.pages {
+  display: flex;
+  width: 50%;
+}
+
+.modal {
+}
+
+.buttons {
+  margin: 1em;
+}
