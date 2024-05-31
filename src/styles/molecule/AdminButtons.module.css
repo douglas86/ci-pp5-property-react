@@ -2,14 +2,26 @@
   display: flex;
 }
 
-.pages {
+.sections {
   display: flex;
   width: 50%;
 }
 
-.modal {
+.sections:last-child {
+  justify-content: flex-end;
 }
 
 .buttons {
   margin: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: block;
+    margin: auto;
+  }
+  .sections {
+    width: 100%;
+    justify-content: center;
+  }
 }

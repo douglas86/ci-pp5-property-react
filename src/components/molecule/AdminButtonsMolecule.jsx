@@ -6,7 +6,7 @@ import styles from "../../styles/molecule/AdminButtons.module.css";
 const AdminButtonsMolecule = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.pages}>
+      <div className={styles.sections}>
         <div className={styles.buttons}>
           {buttonClick(
             () => console.log("user button clicked"),
@@ -22,7 +22,7 @@ const AdminButtonsMolecule = () => {
           )}
         </div>
       </div>
-      <div className={styles.modal}>
+      <div className={styles.sections}>
         <div className={styles.buttons}>
           {buttonClick(
             () => console.log("Add New Property"),
