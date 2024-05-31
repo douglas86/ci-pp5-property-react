@@ -1,0 +1,19 @@
+.section {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.hidden {
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    margin: 1em;
+    width: 60%;
+  }
+  .hidden {
+    display: none;
+  }
+}
