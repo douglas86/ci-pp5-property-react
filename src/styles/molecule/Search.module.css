@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  width: 100%;
+  margin: 1em auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  justify-content: center;
+  padding: 0.5em;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .input {
+    padding: 0.2em;
+  }
+}
