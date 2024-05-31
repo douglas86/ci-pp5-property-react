@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  width: 100%;
+  margin: 1em auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+}
