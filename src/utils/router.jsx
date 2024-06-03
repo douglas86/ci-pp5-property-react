@@ -2,9 +2,10 @@
 import LandingPage from "../components/pages/LandingPage";
 import AboutPage from "../components/pages/AboutPage";
 import DashboardPage from "../components/pages/DashboardPage";
-import NotFoundPage from "../components/pages/NotFoundPage";
 import AdminUsersPages from "../components/pages/dashboard/AdminUsersPages";
 import AdminPropertyPage from "../components/pages/dashboard/AdminPropertyPage";
+import AdminAddPropertyPage from "../components/pages/dashboard/AdminAddPropertyPage";
+import NotFoundPage from "../components/pages/NotFoundPage";
 
 // components
 import { fontawesomeIcon } from "../components/atom/Icons";
@@ -13,7 +14,6 @@ import { fontawesomeIcon } from "../components/atom/Icons";
 import Home from "../assets/images/Home.png";
 import Dashboard from "../assets/images/Dashboard.png";
 import Info from "../assets/images/Info.png";
-import AdminAddPropertyPage from "../components/pages/dashboard/AdminAddPropertyPage";
 
 // description of the keys within the object
 // title - this is the name on the navbar header
