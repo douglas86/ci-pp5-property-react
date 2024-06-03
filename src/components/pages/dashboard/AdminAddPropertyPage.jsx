@@ -1,5 +1,5 @@
 import AdminButtonsMolecule from "../../molecule/AdminButtonsMolecule";
-import Form from "react-bootstrap/Form";
+import FormOrganism from "../../organism/FormOrganism";
 
 const AdminAddPropertyPage = () => {
   const data = [
@@ -35,42 +35,10 @@ const AdminAddPropertyPage = () => {
     },
   ];
 
-  const handleChange = (e) => {
-    e.preventDefault();
-
-    console.log("e", e);
-  };
-
   return (
     <>
       <AdminButtonsMolecule />
-      <Form>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="file"
-            placeholder="Email"
-            name="email"
-            onChange={(e) => handleChange(e)}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
-          <Form.Label>Property Address</Form.Label>
-          <Form.Control type="text" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput3">
-          <Form.Label>Property Area</Form.Label>
-          <Form.Control type="text" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput4">
-          <Form.Label>Area Code</Form.Label>
-          <Form.Control type="text" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput5">
-          <Form.Label>Rent</Form.Label>
-          <Form.Control type="number" />
-        </Form.Group>
-      </Form>
+      <FormOrganism data={data} />
     </>
   );
 };
