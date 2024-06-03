@@ -13,6 +13,7 @@ import { fontawesomeIcon } from "../components/atom/Icons";
 import Home from "../assets/images/Home.png";
 import Dashboard from "../assets/images/Dashboard.png";
 import Info from "../assets/images/Info.png";
+import AdminAddPropertyPage from "../components/pages/dashboard/AdminAddPropertyPage";
 
 // description of the keys within the object
 // title - this is the name on the navbar header
@@ -56,6 +57,12 @@ export const router = [
     icon: "",
     component: <AdminPropertyPage />,
     path: "/dashboard/admin/properties",
+  },
+  {
+    title: "None",
+    icon: "",
+    component: <AdminAddPropertyPage />,
+    path: "/dashboard/admin/add-new-property",
   },
   // page not found
   {
