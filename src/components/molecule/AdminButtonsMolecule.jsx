@@ -31,7 +31,7 @@ const AdminButtonsMolecule = () => {
       <div className={styles.sections}>
         <div className={styles.buttons}>
           {buttonClick(
-            () => console.log("Add New Property"),
+            () => navigate("/dashboard/admin/add-new-property"),
             "Add new Property",
             "success",
           )}
