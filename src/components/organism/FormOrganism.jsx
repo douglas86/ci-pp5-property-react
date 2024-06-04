@@ -7,12 +7,14 @@ import { buttonClick } from "../atom/elements";
 
 // styling
 import styles from "../../styles/organism/Form.module.css";
+import { axiosRes } from "../../API/axiosDefaults";
 
 const FormOrganism = ({ data }) => {
   const [state, setState] = useState({
     file: null,
     base64URL: "",
   });
+  const [d, setD] = useState(null);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -25,10 +27,21 @@ const FormOrganism = ({ data }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("e", e);
+    try {
+      const { data } = await axiosRes.post("/stocks/create", state);
+      console.log("data", data);
+      setD((prevD) => ({
+        ...prevD,
+        results: prevD.results.map((item) => {
+          console.log("item", item);
+        }),
+      }));
+    } catch (err) {
+      console.log("error", err);
+    }
   };
 
   const getBase64 = (file) => {
@@ -68,8 +81,6 @@ const FormOrganism = ({ data }) => {
       file: e.target.files[0],
     });
   };
-
-  console.log("state", state);
 
   return (
     <Form className={styles.container}>
