@@ -1,5 +1,6 @@
-import AdminButtonsMolecule from "../../molecule/AdminButtonsMolecule";
+// components
 import FormOrganism from "../../organism/FormOrganism";
+import AdminButtonsMolecule from "../../molecule/AdminButtonsMolecule";
 
 const AdminAddPropertyPage = () => {
   const data = [
