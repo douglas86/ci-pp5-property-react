@@ -13,6 +13,8 @@ export const userReducers = (state, action) => {
         ...state,
         user: payload,
       };
+    case "ERROR UPDATING USER DATA":
+      return { ...state, error: payload };
     case "STORE TOKENS IN STATE STORE":
       const accessToken = payload.access;
       const refreshToken = payload.refresh;
