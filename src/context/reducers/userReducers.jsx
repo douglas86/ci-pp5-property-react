@@ -13,6 +13,11 @@ export const userReducers = (state, action) => {
         ...state,
         user: payload,
       };
+    case "UPDATE PROFILE DATA":
+      return {
+        ...state,
+        profile: payload,
+      };
     case "ERROR UPDATING USER DATA":
       return { ...state, error: payload };
     case "STORE TOKENS IN STATE STORE":

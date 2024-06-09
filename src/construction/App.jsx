@@ -55,7 +55,7 @@ const App = () => {
   return (
     <LayoutTemplate>
       <Routes>
-        {router.map(({ path, component }, index) => (
+        {router.map(({ path, component, permission }, index) => (
           <Route key={index} path={path} element={component} />
         ))}
       </Routes>

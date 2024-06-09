@@ -20,6 +20,10 @@ import Info from "../assets/images/Info.png";
 // icon - the icon to be seen on the navbar - not in use yet
 // component - the pages that I want to load
 // path - of were the route will go
+// permissions - the permission allowed to access page
+//   null - no permission needed
+//   admin - only admin user can access
+//   user - only normally users can access
 
 /**
  * This helper file is used for all page routes
@@ -32,18 +36,21 @@ export const router = [
     icon: fontawesomeIcon(Home),
     component: <LandingPage />,
     path: "/",
+    permissions: null,
   },
   {
     title: "Dashboard",
     icon: fontawesomeIcon(Dashboard),
     component: <DashboardPage />,
     path: "/dashboard",
+    permissions: null,
   },
   {
     title: "About",
     icon: fontawesomeIcon(Info),
     component: <AboutPage />,
     path: "/about",
+    permissions: null,
   },
   // admin dashboard pages
   {
@@ -51,18 +58,21 @@ export const router = [
     icon: "",
     component: <AdminUsersPages />,
     path: "/dashboard/admin/users",
+    permissions: "admin",
   },
   {
     title: "None",
     icon: "",
     component: <AdminPropertyPage />,
     path: "/dashboard/admin/properties",
+    permissions: "admin",
   },
   {
     title: "None",
     icon: "",
     component: <AdminAddPropertyPage />,
     path: "/dashboard/admin/add-new-property",
+    permissions: "admin",
   },
   // page not found
   {
@@ -70,5 +80,6 @@ export const router = [
     icon: "",
     component: <NotFoundPage />,
     path: "*",
+    permissions: null,
   },
 ];
