@@ -7,7 +7,7 @@ import { buttonClick } from "../atom/elements";
 
 // styling
 import styles from "../../styles/organism/Form.module.css";
-import { axiosRes } from "../../API/axiosDefaults";
+import axiosDefaults, { axiosRes } from "../../API/axiosDefaults";
 
 const FormOrganism = ({ data }) => {
   const [state, setState] = useState({
@@ -31,7 +31,7 @@ const FormOrganism = ({ data }) => {
     e.preventDefault();
 
     try {
-      const { data } = await axiosRes.post("/stocks/create", state);
+      const { data } = await axiosDefaults.post("/stocks/create", state);
       console.log("data", data);
       setD((prevD) => ({
         ...prevD,

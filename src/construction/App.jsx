@@ -16,6 +16,7 @@ import { router } from "../utils";
 import "bootstrap/dist/css/bootstrap.min.css";
 import useAppContext from "../hooks/useAppContext";
 import { useEffect } from "react";
+import AxiosDefaults from "../API/axiosDefaults";
 
 const App = () => {
   const { state, dispatch } = useAppContext();
@@ -36,21 +37,39 @@ const App = () => {
       }, 5000);
   }, [showAlert]);
 
+  // useEffect(() => {
+  //   axios
+  //     .get("dj-rest-auth/user")
+  //     .then(async (res) => {
+  //       await dispatch({ type: "UPDATE USER DATA", payload: res.data });
+  //     })
+  //     .catch((err) => {
+  //       dispatch({
+  //         type: "ERROR UPDATING USER DATA",
+  //         payload: err.response.data,
+  //       });
+  //     });
+  // }, []);
+
   useEffect(() => {
-    axios
-      .get("dj-rest-auth/user")
-      .then(async (res) => {
-        await dispatch({ type: "UPDATE USER DATA", payload: res.data });
+    AxiosDefaults.post("dj-rest-auth/login/", {
+      username: "dou",
+      password: "IAMininGLOrN",
+    })
+      .then((res) => {
+        console.log("res", res);
+        AxiosDefaults.get("profiles/")
+          .then((res) => {
+            console.log("res1", res);
+          })
+          .catch((err) => {
+            console.log("err1", err);
+          });
       })
       .catch((err) => {
-        dispatch({
-          type: "ERROR UPDATING USER DATA",
-          payload: err.response.data,
-        });
+        console.log("err", err);
       });
   }, []);
-
-  console.log("userReducers", userReducers);
 
   return (
     <LayoutTemplate>
