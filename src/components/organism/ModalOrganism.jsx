@@ -6,9 +6,6 @@ import FormOrganism from "./FormOrganism";
 import { heading } from "../atom/elements";
 
 import styles from "../../styles/organism/Modal.module.css";
-import { signIn } from "../../utils/formContent/auth/signin";
-import { useState } from "react";
-import { signOut } from "../../utils/formContent/auth/signout";
 
 const ModalOrganism = (props) => {
   return (
@@ -24,7 +21,7 @@ const ModalOrganism = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <FormOrganism form={signIn} />
+        <FormOrganism />
       </Modal.Body>
     </Modal>
   );

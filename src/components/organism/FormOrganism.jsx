@@ -12,21 +12,21 @@ import useAppContext from "../../hooks/useAppContext";
  * @returns {JSX.Element}
  * @constructor
  */
-const FormOrganism = ({ form }) => {
-  const { dispatch } = useAppContext();
+const FormOrganism = () => {
+  const { state, dispatch } = useAppContext();
+  const { formsReducers } = state;
+  const { form } = formsReducers;
 
-  const [state, setState] = useState({});
+  const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
-
-  const { SubmitURL, buttonText, subheadingText, populateForm } = form;
 
   const handleChange = (e) => {
     e.preventDefault();
 
     const { name, value } = e.target;
 
-    setState({
-      ...state,
+    setFormData({
+      ...formData,
       [name]: value,
     });
   };
@@ -34,7 +34,7 @@ const FormOrganism = ({ form }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await AxiosDefaults.post(SubmitURL, state)
+    await AxiosDefaults.post(form.SubmitURL, state)
       .then((res) => {
         console.log("res", res);
         // dispatch({ type: "SHOW ALERT MESSAGE", payload: res.data });
@@ -49,12 +49,12 @@ const FormOrganism = ({ form }) => {
     console.log("cancel was clicked");
   };
 
-  console.log("state", state);
+  console.log("form", form);
 
   return (
     <Form className={styles.container}>
-      {subheading(subheadingText)}
-      {populateForm.map(({ index, label, type, placeholder, name }) => (
+      {subheading(form.subheadingText)}
+      {form.populateForm.map(({ index, label, type, placeholder, name }) => (
         <Form.Group className="mb-3" controlId={`${name}${index}`} key={index}>
           <Form.Label>{label}</Form.Label>
           <Form.Control
@@ -66,8 +66,12 @@ const FormOrganism = ({ form }) => {
         </Form.Group>
       ))}
       <div className={styles.buttons}>
-        {buttonClick((e) => handleSubmit(e), buttonText, "success")}
-        {buttonClick(() => handleCancel(), "Cancel", "primary")}
+        {buttonClick((e) => handleSubmit(e), form.buttonText, "success")}
+        {buttonClick(
+          () => dispatch({ type: "TOGGLE HIDE MODAL" }),
+          "Cancel",
+          "primary",
+        )}
       </div>
     </Form>
   );

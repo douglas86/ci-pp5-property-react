@@ -49,7 +49,10 @@ const LinksMolecule = () => {
       {handleAuth ? (
         <li className={styles.li}>
           {buttonClick(
-            () => dispatch({ type: "TOGGLE SHOW MODAL", payload: true }),
+            () => {
+              dispatch({ type: "SIGN IN FORM" });
+              dispatch({ type: "TOGGLE SHOW MODAL" });
+            },
             "Login",
             "dark",
           )}
@@ -63,7 +66,10 @@ const LinksMolecule = () => {
           )}
         </li>
       )}
-      <ModalOrganism show={showModal} />
+      <ModalOrganism
+        show={showModal}
+        onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}
+      />
       {/*{populateForm.length > 0 && (*/}
       {/*  <ModalMolecule*/}
       {/*    show={showModal}*/}
