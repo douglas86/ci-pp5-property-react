@@ -38,7 +38,6 @@ const FormOrganism = () => {
 
     await AxiosDefaults.post(form.SubmitURL, formData)
       .then((res) => {
-        console.log("res", res);
         dispatch({
           type: form.Success.update_user,
           payload: form.Success.payload ? res.data : null,
@@ -47,7 +46,7 @@ const FormOrganism = () => {
       })
       .catch((err) => {
         // dispatch({ type: "SHOW ALERT MESSAGE", payload: err.message });
-        console.log("err", err);
+        dispatch({ type: "ERROR UPDATING USER DATA", payload: err.message });
       });
   };
 

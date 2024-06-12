@@ -33,20 +33,14 @@ export const userReducers = (state, action) => {
       return {
         ...state,
         access: null,
+        access_expiration: null,
         refresh: null,
+        refresh_expiration: null,
         user: null,
         profile: null,
       };
     case "ERROR UPDATING USER DATA":
       return { ...state, error: payload };
-    case "DELETE TOKENS FROM STATE STORE":
-      return {
-        ...state,
-        access: null,
-        access_expiration: null,
-        refresh: null,
-        refresh_expiration: null,
-      };
     default:
       return state;
   }
