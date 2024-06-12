@@ -20,8 +20,9 @@ import ModalOrganism from "../organism/ModalOrganism";
 const LinksMolecule = () => {
   // destructuring state from state store
   const { state, dispatch } = useAppContext();
-  const { userReducers, formsReducers } = state;
-  const { showModal, populateForm } = formsReducers;
+  const { userReducers, formsReducers, modalReducers } = state;
+  const { populateForm } = formsReducers;
+  const { showModal } = modalReducers;
 
   // filters and returns the correct routers
   const handleRouter = router.filter((items) => {
@@ -48,7 +49,7 @@ const LinksMolecule = () => {
       {handleAuth ? (
         <li className={styles.li}>
           {buttonClick(
-            () => dispatch({ type: "POPULATE SIGN IN PAGE" }),
+            () => dispatch({ type: "TOGGLE SHOW MODAL", payload: true }),
             "Login",
             "dark",
           )}
@@ -62,7 +63,7 @@ const LinksMolecule = () => {
           )}
         </li>
       )}
-      <ModalOrganism show={true} />
+      <ModalOrganism show={showModal} />
       {/*{populateForm.length > 0 && (*/}
       {/*  <ModalMolecule*/}
       {/*    show={showModal}*/}

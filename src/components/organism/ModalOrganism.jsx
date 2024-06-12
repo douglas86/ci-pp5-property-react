@@ -3,7 +3,7 @@ import { Modal } from "react-bootstrap";
 
 // components
 import FormOrganism from "./FormOrganism";
-import { heading, subheading } from "../atom/elements";
+import { heading } from "../atom/elements";
 
 import styles from "../../styles/organism/Modal.module.css";
 import { signIn } from "../../utils/formContent/auth/signin";
@@ -24,7 +24,7 @@ const ModalOrganism = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <FormOrganism form={signOut} />
+        <FormOrganism form={signIn} />
       </Modal.Body>
     </Modal>
   );

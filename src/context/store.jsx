@@ -13,8 +13,10 @@ const initialState = {
     showAlert: false,
   },
   formsReducers: {
+    form: null,
+  },
+  modalReducers: {
     showModal: false,
-    populateForm: [],
   },
   stateReducers: {
     MenuOpen: false,
@@ -26,12 +28,13 @@ export const Context = createContext(initialState);
 
 const init = (initialState) => {
   const { userReducers, dataReducers, formsReducers } = initialState;
-  const { stateReducers } = initialState;
+  const { stateReducers, modalReducers } = initialState;
 
   return {
     userReducers,
     dataReducers,
     formsReducers,
+    modalReducers,
     stateReducers,
   };
 };
