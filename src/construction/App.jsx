@@ -1,5 +1,6 @@
 // 3rd party npm packages
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 
 // components
 import LayoutTemplate from "../components/templates/LayoutTemplate";
@@ -7,38 +8,21 @@ import LayoutTemplate from "../components/templates/LayoutTemplate";
 // custom hooks
 import useResize from "../hooks/useResize";
 import useRefreshToken from "../hooks/useRefreshToken";
-
-import axios from "axios";
+import useAppContext from "../hooks/useAppContext";
 
 // utilities
 import { router } from "../utils";
 
 // styling
 import "bootstrap/dist/css/bootstrap.min.css";
-import useAppContext from "../hooks/useAppContext";
-import { useEffect } from "react";
-import AxiosDefaults from "../API/axiosDefaults";
 
 const App = () => {
   const { state, dispatch } = useAppContext();
-  const { dataReducers, userReducers } = state;
+  const { dataReducers } = state;
   const { showAlert } = dataReducers;
 
   // custom hook that detects page width
   useResize();
-
-  useEffect(() => {
-    AxiosDefaults.post("dj-rest-auth/login/", {
-      username: "dou",
-      password: "IAMininGLOrN",
-    })
-      .then((res) => {
-        console.log("res", res);
-      })
-      .catch((err) => {
-        console.log("err", err);
-      });
-  }, []);
 
   // custom hook that refreshes the auth tokens
   useRefreshToken();
@@ -50,42 +34,6 @@ const App = () => {
         dispatch({ type: "HIDE ALERT MESSAGE" });
       }, 5000);
   }, [showAlert]);
-
-  // useEffect(() => {
-  //   axios
-  //     .get("dj-rest-auth/user")
-  //     .then(async (res) => {
-  //       await dispatch({ type: "UPDATE USER DATA", payload: res.data });
-  //     })
-  //     .catch((err) => {
-  //       dispatch({
-  //         type: "ERROR UPDATING USER DATA",
-  //         payload: err.response.data,
-  //       });
-  //     });
-  // }, []);
-
-  // This useEffect works
-
-  // useEffect(() => {
-  //   AxiosDefaults.post("dj-rest-auth/login/", {
-  //     username: "dou",
-  //     password: "IAMininGLOrN",
-  //   })
-  //     .then((res) => {
-  //       console.log("res", res);
-  //       AxiosDefaults.get("profiles/")
-  //         .then((res) => {
-  //           console.log("res1", res);
-  //         })
-  //         .catch((err) => {
-  //           console.log("err1", err);
-  //         });
-  //     })
-  //     .catch((err) => {
-  //       console.log("err", err);
-  //     });
-  // }, []);
 
   return (
     <LayoutTemplate>

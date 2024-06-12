@@ -22,11 +22,25 @@ export const userReducers = (state, action) => {
       return { ...state, error: payload };
     case "STORE TOKENS IN STATE STORE":
       const accessToken = payload.access;
+      const accessExpiration = payload.access_expiration;
       const refreshToken = payload.refresh;
+      const refreshExpiration = payload.refresh_expiration;
 
-      return { ...state, accessToken, refreshToken };
+      return {
+        ...state,
+        accessToken,
+        accessExpiration,
+        refreshToken,
+        refreshExpiration,
+      };
     case "DELETE TOKENS FROM STATE STORE":
-      return { ...state, accessToken: null, refreshToken: null };
+      return {
+        ...state,
+        accessToken: null,
+        accessExpiration: null,
+        refreshToken: null,
+        refreshExpiration: null,
+      };
     default:
       return state;
   }

@@ -5,7 +5,9 @@ const initialState = {
   userReducers: {
     user: null,
     accessToken: null,
+    accessExpiration: null,
     refreshToken: null,
+    refreshExpiration: null,
   },
   dataReducers: {
     showAlert: false,
