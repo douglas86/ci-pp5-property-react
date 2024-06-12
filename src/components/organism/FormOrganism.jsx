@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import styles from "../../styles/organism/Form.module.css";
 import { buttonClick } from "../atom/elements";
+import AxiosDefaults from "../../API/axiosDefaults";
 
 /**
  * Organism to display forms
@@ -12,6 +13,9 @@ import { buttonClick } from "../atom/elements";
  */
 const FormOrganism = ({ form }) => {
   const [state, setState] = useState({});
+  const [errors, setErrors] = useState({});
+
+  const { SubmitURL, buttonText, populateForm } = form;
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -24,10 +28,16 @@ const FormOrganism = ({ form }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("e", e);
+    await AxiosDefaults.post(SubmitURL, state)
+      .then((res) => {
+        console.log("res", res);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
   };
 
   const handleCancel = () => {
@@ -38,25 +48,20 @@ const FormOrganism = ({ form }) => {
 
   return (
     <Form className={styles.container}>
-      <Form.Group className="mb-3" controlId="ControledInput1">
-        <Form.Control
-          type="text"
-          placeholder="username"
-          name="username"
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="ControledInput2">
-        <Form.Control
-          type="password"
-          placeholder="password"
-          name="password"
-          onChange={handleChange}
-        />
-      </Form.Group>
+      {populateForm.map(({ index, label, type, placeholder, name }) => (
+        <Form.Group className="mb-3" controlId={`${name}${index}`} key={index}>
+          <Form.Label>{label}</Form.Label>
+          <Form.Control
+            type={type}
+            placeholder={placeholder}
+            name={name}
+            onChange={handleChange}
+          />
+        </Form.Group>
+      ))}
       <div className={styles.buttons}>
-        {buttonClick((e) => handleSubmit(e), "Save", "primary")}
-        {buttonClick(() => handleCancel(), "Cancel", "warning")}
+        {buttonClick((e) => handleSubmit(e), buttonText, "success")}
+        {buttonClick(() => handleCancel(), "Cancel", "primary")}
       </div>
     </Form>
   );

@@ -3,12 +3,14 @@ export const signIn = {
   buttonText: "Login",
   populateForm: [
     {
+      index: 1,
       label: "Username",
       type: "text",
       placeholder: "Enter your username",
-      name: "password",
+      name: "username",
     },
     {
+      index: 2,
       label: "Password",
       type: "password",
       placeholder: "Please provide a valid password",
