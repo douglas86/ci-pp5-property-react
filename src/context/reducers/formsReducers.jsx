@@ -1,4 +1,4 @@
-import { signIn, signOut } from "../../utils/formContent/auth";
+import { register, signIn, signOut } from "../../utils/formContent/auth";
 
 export const formsReducers = (state, action) => {
   const { type } = action;
@@ -8,6 +8,8 @@ export const formsReducers = (state, action) => {
       return { ...state, form: signIn };
     case "SIGN OUT FORM":
       return { ...state, form: signOut };
+    case "REGISTER FORM":
+      return { ...state, form: register };
     default:
       return state;
   }

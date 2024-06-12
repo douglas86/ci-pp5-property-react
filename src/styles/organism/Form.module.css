@@ -4,6 +4,18 @@
   margin: auto 1em;
 }
 
+.subheading {
+  display: flex;
+}
+
+.subheading p {
+  margin: auto 0;
+}
+
+.subheading button {
+  padding: 0.5em !important;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     width: 50%;

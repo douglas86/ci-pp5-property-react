@@ -6,8 +6,13 @@ import FormOrganism from "./FormOrganism";
 import { heading } from "../atom/elements";
 
 import styles from "../../styles/organism/Modal.module.css";
+import useAppContext from "../../hooks/useAppContext";
 
 const ModalOrganism = (props) => {
+  const { state } = useAppContext();
+  const { formsReducers } = state;
+  const { form } = formsReducers;
+
   return (
     <Modal
       {...props}
@@ -17,7 +22,7 @@ const ModalOrganism = (props) => {
     >
       <Modal.Header className={styles.header} closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          {heading("Sign In")}
+          {form && heading(form.buttonText)}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
