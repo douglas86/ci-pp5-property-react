@@ -2,8 +2,9 @@ import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
 import styles from "../../styles/organism/Form.module.css";
-import { buttonClick } from "../atom/elements";
+import { buttonClick, subheading } from "../atom/elements";
 import AxiosDefaults from "../../API/axiosDefaults";
+import useAppContext from "../../hooks/useAppContext";
 
 /**
  * Organism to display forms
@@ -12,10 +13,12 @@ import AxiosDefaults from "../../API/axiosDefaults";
  * @constructor
  */
 const FormOrganism = ({ form }) => {
+  const { dispatch } = useAppContext();
+
   const [state, setState] = useState({});
   const [errors, setErrors] = useState({});
 
-  const { SubmitURL, buttonText, populateForm } = form;
+  const { SubmitURL, buttonText, subheadingText, populateForm } = form;
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -34,8 +37,10 @@ const FormOrganism = ({ form }) => {
     await AxiosDefaults.post(SubmitURL, state)
       .then((res) => {
         console.log("res", res);
+        // dispatch({ type: "SHOW ALERT MESSAGE", payload: res.data });
       })
       .catch((err) => {
+        // dispatch({ type: "SHOW ALERT MESSAGE", payload: err.message });
         console.log("err", err);
       });
   };
@@ -48,6 +53,7 @@ const FormOrganism = ({ form }) => {
 
   return (
     <Form className={styles.container}>
+      {subheading(subheadingText)}
       {populateForm.map(({ index, label, type, placeholder, name }) => (
         <Form.Group className="mb-3" controlId={`${name}${index}`} key={index}>
           <Form.Label>{label}</Form.Label>

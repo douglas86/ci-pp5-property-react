@@ -1,6 +1,7 @@
 export const signIn = {
-  SubmitURL: "dj-rest/auth/login/",
+  SubmitURL: "dj-rest-auth/login/",
   buttonText: "Login",
+  subheadingText: "If you have not registered yet please click here?",
   populateForm: [
     {
       index: 1,

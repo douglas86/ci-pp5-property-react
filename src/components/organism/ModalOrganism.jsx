@@ -8,6 +8,7 @@ import { heading, subheading } from "../atom/elements";
 import styles from "../../styles/organism/Modal.module.css";
 import { signIn } from "../../utils/formContent/auth/signin";
 import { useState } from "react";
+import { signOut } from "../../utils/formContent/auth/signout";
 
 const ModalOrganism = (props) => {
   return (
@@ -23,8 +24,7 @@ const ModalOrganism = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {subheading("If you have not registered yet please click here?")}
-        <FormOrganism form={signIn} />
+        <FormOrganism form={signOut} />
       </Modal.Body>
     </Modal>
   );
