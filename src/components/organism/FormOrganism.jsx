@@ -4,7 +4,13 @@ import { useState } from "react";
 import styles from "../../styles/organism/Form.module.css";
 import { buttonClick } from "../atom/elements";
 
-const FormOrganism = () => {
+/**
+ * Organism to display forms
+ * @param form - parameter to pass in what form you want to use
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const FormOrganism = ({ form }) => {
   const [state, setState] = useState({});
 
   const handleChange = (e) => {
