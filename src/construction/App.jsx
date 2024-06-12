@@ -6,6 +6,7 @@ import LayoutTemplate from "../components/templates/LayoutTemplate";
 
 // custom hooks
 import useResize from "../hooks/useResize";
+import useRefreshToken from "../hooks/useRefreshToken";
 
 import axios from "axios";
 
@@ -26,8 +27,21 @@ const App = () => {
   // custom hook that detects page width
   useResize();
 
+  useEffect(() => {
+    AxiosDefaults.post("dj-rest-auth/login/", {
+      username: "dou",
+      password: "IAMininGLOrN",
+    })
+      .then((res) => {
+        console.log("res", res);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  }, []);
+
   // custom hook that refreshes the auth tokens
-  // useRefreshToken();
+  useRefreshToken();
 
   // useEffect hook to hide the show alert message after 5 seconds
   useEffect(() => {
@@ -51,25 +65,27 @@ const App = () => {
   //     });
   // }, []);
 
-  useEffect(() => {
-    AxiosDefaults.post("dj-rest-auth/login/", {
-      username: "dou",
-      password: "IAMininGLOrN",
-    })
-      .then((res) => {
-        console.log("res", res);
-        AxiosDefaults.get("profiles/")
-          .then((res) => {
-            console.log("res1", res);
-          })
-          .catch((err) => {
-            console.log("err1", err);
-          });
-      })
-      .catch((err) => {
-        console.log("err", err);
-      });
-  }, []);
+  // This useEffect works
+
+  // useEffect(() => {
+  //   AxiosDefaults.post("dj-rest-auth/login/", {
+  //     username: "dou",
+  //     password: "IAMininGLOrN",
+  //   })
+  //     .then((res) => {
+  //       console.log("res", res);
+  //       AxiosDefaults.get("profiles/")
+  //         .then((res) => {
+  //           console.log("res1", res);
+  //         })
+  //         .catch((err) => {
+  //           console.log("err1", err);
+  //         });
+  //     })
+  //     .catch((err) => {
+  //       console.log("err", err);
+  //     });
+  // }, []);
 
   return (
     <LayoutTemplate>
