@@ -7,8 +7,7 @@ import AxiosDefaults from "../../API/axiosDefaults";
 import useAppContext from "../../hooks/useAppContext";
 
 /**
- * Organism to display forms
- * @param form - parameter to pass in what form you want to use
+ * Displaying of form data based on state store
  * @returns {JSX.Element}
  * @constructor
  */
@@ -18,7 +17,6 @@ const FormOrganism = () => {
   const { form } = formsReducers;
 
   const [formData, setFormData] = useState({});
-  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -42,10 +40,8 @@ const FormOrganism = () => {
           type: form.Success.update_user,
           payload: form.Success.payload ? res.data : null,
         });
-        // dispatch({ type: "SHOW ALERT MESSAGE", payload: res.data });
       })
       .catch((err) => {
-        // dispatch({ type: "SHOW ALERT MESSAGE", payload: err.message });
         dispatch({ type: "ERROR UPDATING USER DATA", payload: err.message });
       });
   };
