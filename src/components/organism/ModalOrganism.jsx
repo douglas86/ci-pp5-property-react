@@ -1,5 +1,11 @@
+// 3rd party libraries
 import { Modal } from "react-bootstrap";
+
+// components
+import FormOrganism from "./FormOrganism";
 import { heading, subheading } from "../atom/elements";
+
+import styles from "../../styles/organism/Modal.module.css";
 
 const ModalOrganism = (props) => {
   return (
@@ -9,8 +15,15 @@ const ModalOrganism = (props) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      {heading("Sign In")}
-      {subheading("If you have not registered yet please click here?")}
+      <Modal.Header className={styles.header} closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          {heading("Sign In")}
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {subheading("If you have not registered yet please click here?")}
+        <FormOrganism />
+      </Modal.Body>
     </Modal>
   );
 };
