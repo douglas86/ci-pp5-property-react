@@ -60,7 +60,10 @@ const LinksMolecule = () => {
       ) : (
         <li className={styles.li}>
           {buttonClick(
-            () => dispatch({ type: "POPULATE SIGN OUT PAGE" }),
+            () => {
+              dispatch({ type: "SIGN OUT FORM" });
+              dispatch({ type: "TOGGLE SHOW MODAL" });
+            },
             "Logout",
             "dark",
           )}

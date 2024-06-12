@@ -1,5 +1,5 @@
 export const signIn = {
-  SubmitURL: "dj-rest-auth/login/",
+  SubmitURL: "/dj-rest-auth/login/",
   buttonText: "Login",
   subheadingText: "If you have not registered yet please click here?",
   populateForm: [
@@ -18,4 +18,9 @@ export const signIn = {
       name: "password",
     },
   ],
+  Success: {
+    update_user: "LOGIN USER",
+    update_profile: "UPDATE PROFILE DATA",
+    payload: true,
+  },
 };

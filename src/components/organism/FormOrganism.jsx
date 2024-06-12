@@ -34,9 +34,15 @@ const FormOrganism = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await AxiosDefaults.post(form.SubmitURL, state)
+    dispatch({ type: "TOGGLE HIDE MODAL" });
+
+    await AxiosDefaults.post(form.SubmitURL, formData)
       .then((res) => {
         console.log("res", res);
+        dispatch({
+          type: form.Success.update_user,
+          payload: form.Success.payload ? res.data : null,
+        });
         // dispatch({ type: "SHOW ALERT MESSAGE", payload: res.data });
       })
       .catch((err) => {
@@ -44,12 +50,6 @@ const FormOrganism = () => {
         console.log("err", err);
       });
   };
-
-  const handleCancel = () => {
-    console.log("cancel was clicked");
-  };
-
-  console.log("form", form);
 
   return (
     <Form className={styles.container}>

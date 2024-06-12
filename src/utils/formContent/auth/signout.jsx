@@ -3,4 +3,8 @@ export const signOut = {
   buttonText: "Logout",
   subheadingText: "Are you sure you want to Logout?",
   populateForm: [],
+  Success: {
+    update_user: "LOGOUT USER",
+    payload: false,
+  },
 };

@@ -41,7 +41,7 @@ const useRefreshToken = () => {
             const results = await res.data;
 
             // store refresh token data to state store
-            dispatch({ type: "STORE TOKENS IN STATE STORE", payload: results });
+            dispatch({ type: "LOGIN USER", payload: results });
           })
           .catch((err) => {
             dispatch({ type: "ERROR UPDATING USER DATA", payload: err });

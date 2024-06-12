@@ -18,7 +18,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   const { state, dispatch } = useAppContext();
-  const { dataReducers } = state;
+  const { dataReducers, userReducers } = state;
   const { showAlert } = dataReducers;
 
   // custom hook that detects page width
@@ -34,6 +34,8 @@ const App = () => {
         dispatch({ type: "HIDE ALERT MESSAGE" });
       }, 5000);
   }, [showAlert]);
+
+  console.log("userReducers", userReducers);
 
   return (
     <LayoutTemplate>
