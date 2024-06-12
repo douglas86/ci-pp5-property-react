@@ -10,6 +10,7 @@ import useAppContext from "../../hooks/useAppContext";
 
 // styling
 import styles from "../../styles/molecule/Links.module.css";
+import ModalOrganism from "../organism/ModalOrganism";
 
 /**
  * This molecule if to deal with the links on the navbar for the different pages
@@ -61,12 +62,13 @@ const LinksMolecule = () => {
           )}
         </li>
       )}
-      {populateForm.length > 0 && (
-        <ModalMolecule
-          show={showModal}
-          onHide={() => dispatch({ type: "HIDE MODAL", payload: false })}
-        />
-      )}
+      <ModalOrganism show={true} />
+      {/*{populateForm.length > 0 && (*/}
+      {/*  <ModalMolecule*/}
+      {/*    show={showModal}*/}
+      {/*    onHide={() => dispatch({ type: "HIDE MODAL", payload: false })}*/}
+      {/*  />*/}
+      {/*)}*/}
     </ul>
   );
 };
