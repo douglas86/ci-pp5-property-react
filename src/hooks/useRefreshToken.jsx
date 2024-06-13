@@ -40,8 +40,6 @@ const useRefreshToken = () => {
           .then(async (res) => {
             const results = await res.data;
 
-            console.log("results", results);
-
             // store refresh token data to state store
             dispatch({ type: "LOGIN USER", payload: results });
           })

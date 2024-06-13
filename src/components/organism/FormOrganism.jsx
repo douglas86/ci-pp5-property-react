@@ -46,8 +46,6 @@ const FormOrganism = () => {
       });
   };
 
-  console.log("form", form);
-
   return (
     <Form className={styles.container}>
       <div className={styles.subheading}>
