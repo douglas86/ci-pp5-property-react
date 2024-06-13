@@ -15,7 +15,7 @@ const useRefreshToken = () => {
 
   useEffect(() => {
     // fetch users data
-    AxiosDefaults.get("dj-rest-auth/user/")
+    AxiosDefaults.get("/dj-rest-auth/user/")
       // if a user is logged in
       .then(async (res) => {
         const results = await res.data;
@@ -24,7 +24,7 @@ const useRefreshToken = () => {
         dispatch({ type: "UPDATE USER DATA", payload: results });
 
         // fetch users profile data
-        AxiosDefaults.get(`profiles/${results.pk}/`)
+        AxiosDefaults.get(`/profiles/${results.pk}/`)
           .then(async (res) => {
             const data = await res.data[0];
 
@@ -36,9 +36,11 @@ const useRefreshToken = () => {
           });
 
         // refresh user token
-        AxiosDefaults.post("dj-rest-auth/token/refresh/")
+        AxiosDefaults.post("/dj-rest-auth/token/refresh/")
           .then(async (res) => {
             const results = await res.data;
+
+            console.log("results", results);
 
             // store refresh token data to state store
             dispatch({ type: "LOGIN USER", payload: results });

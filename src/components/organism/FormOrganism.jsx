@@ -46,11 +46,23 @@ const FormOrganism = () => {
       });
   };
 
+  console.log("form", form);
+
   return (
     <Form className={styles.container}>
       <div className={styles.subheading}>
-        {subheading(form.subheadingText)}
-        {buttonClick(() => dispatch({ type: form.loadForm }), "here?", "link")}
+        {form.loadForm ? (
+          <>
+            {subheading(form.subheadingText)}
+            {buttonClick(
+              () => dispatch({ type: form.loadForm }),
+              "here?",
+              "link",
+            )}
+          </>
+        ) : (
+          <>{subheading(form.subheadingText)}</>
+        )}
       </div>
       {form.populateForm.map(({ index, label, type, placeholder, name }) => (
         <Form.Group className="mb-3" controlId={`${name}${index}`} key={index}>

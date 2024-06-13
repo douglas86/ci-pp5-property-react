@@ -27,7 +27,7 @@ export const userReducers = (state, action) => {
         access_expiration,
         refresh,
         refresh_expiration,
-        user,
+        user: user === undefined ? state.user : user,
       };
     case "LOGOUT USER":
       return {
