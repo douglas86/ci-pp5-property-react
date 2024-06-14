@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 
 // components
-import LinksMolecule from "../molecule/LinksMolecule";
+import LinksOrganism from "./LinksOrganism";
 import MenuMolecule from "../molecule/MenuMolecule";
 
 // custom hooks
@@ -38,10 +38,10 @@ const HeaderOrganism = () => {
           <img src={`${logo}`} alt="logo" />
         </div>
         <div className={styles.links}>
-          {width >= 768 ? <LinksMolecule /> : <MenuMolecule />}
+          {width >= 768 ? <LinksOrganism /> : <MenuMolecule />}
         </div>
       </nav>
-      <div>{MenuOpen && <LinksMolecule />}</div>
+      <div>{MenuOpen && <LinksOrganism />}</div>
     </header>
   );
 };

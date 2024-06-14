@@ -1,5 +1,4 @@
 // components
-import ModalMolecule from "./ModalMolecule";
 import { buttonClick } from "../atom/elements";
 
 // utilities
@@ -10,18 +9,17 @@ import useAppContext from "../../hooks/useAppContext";
 
 // styling
 import styles from "../../styles/molecule/Links.module.css";
-import ModalOrganism from "../organism/ModalOrganism";
+import ModalOrganism from "./ModalOrganism";
 
 /**
  * This molecule if to deal with the links on the navbar for the different pages
  * @returns {JSX.Element}
  * @constructor
  */
-const LinksMolecule = () => {
+const LinksOrganism = () => {
   // destructuring state from state store
   const { state, dispatch } = useAppContext();
-  const { userReducers, formsReducers, modalReducers } = state;
-  const { populateForm } = formsReducers;
+  const { userReducers, modalReducers } = state;
   const { showModal } = modalReducers;
 
   // filters and returns the correct routers
@@ -73,14 +71,8 @@ const LinksMolecule = () => {
         show={showModal}
         onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}
       />
-      {/*{populateForm.length > 0 && (*/}
-      {/*  <ModalMolecule*/}
-      {/*    show={showModal}*/}
-      {/*    onHide={() => dispatch({ type: "HIDE MODAL", payload: false })}*/}
-      {/*  />*/}
-      {/*)}*/}
     </ul>
   );
 };
 
-export default LinksMolecule;
+export default LinksOrganism;
