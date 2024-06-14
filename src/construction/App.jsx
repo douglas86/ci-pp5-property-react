@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import LayoutTemplate from "../components/templates/LayoutTemplate";
 
 // custom hooks
-import useResize from "../hooks/useResize";
 import useRefreshToken from "../hooks/useRefreshToken";
 import useAppContext from "../hooks/useAppContext";
 
@@ -18,11 +17,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   const { state, dispatch } = useAppContext();
-  const { dataReducers, userReducers } = state;
+  const { dataReducers } = state;
   const { showAlert } = dataReducers;
-
-  // custom hook that detects page width
-  useResize();
 
   // custom hook that refreshes the auth tokens
   useRefreshToken();
@@ -34,8 +30,6 @@ const App = () => {
         dispatch({ type: "HIDE ALERT MESSAGE" });
       }, 5000);
   }, [showAlert]);
-
-  console.log("userReducers", userReducers);
 
   return (
     <LayoutTemplate>

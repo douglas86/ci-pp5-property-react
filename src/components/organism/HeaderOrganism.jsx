@@ -7,6 +7,7 @@ import MenuMolecule from "../molecule/MenuMolecule";
 
 // custom hooks
 import useAppContext from "../../hooks/useAppContext";
+import useResize from "../../hooks/useResize";
 
 // assets
 import logo from "../../assets/images/header/Property.png";
@@ -23,7 +24,9 @@ const HeaderOrganism = () => {
   // state store
   const { state, dispatch } = useAppContext();
   const { stateReducers } = state;
-  const { MenuOpen, width } = stateReducers;
+  const { MenuOpen } = stateReducers;
+
+  const width = useResize();
 
   useEffect(() => {
     // hide the hamburger menu when on devices larger than 768px
