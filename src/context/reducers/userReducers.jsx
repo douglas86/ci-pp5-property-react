@@ -19,14 +19,11 @@ export const userReducers = (state, action) => {
         profile: payload,
       };
     case "LOGIN USER":
-      const { access, access_expiration, refresh, refresh_expiration, user } =
-        payload;
+      const { access, access_expiration, user } = payload;
       return {
         ...state,
         access,
         access_expiration,
-        refresh,
-        refresh_expiration,
         user: user === undefined ? state.user : user,
       };
     case "LOGOUT USER":
@@ -34,8 +31,6 @@ export const userReducers = (state, action) => {
         ...state,
         access: null,
         access_expiration: null,
-        refresh: null,
-        refresh_expiration: null,
         user: null,
         profile: null,
       };

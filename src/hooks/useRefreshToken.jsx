@@ -19,7 +19,6 @@ const useRefreshToken = () => {
       // if a user is logged in
       .then(async (res) => {
         const results = await res.data;
-
         // store user data to state store
         dispatch({ type: "UPDATE USER DATA", payload: results });
 
@@ -27,7 +26,6 @@ const useRefreshToken = () => {
         AxiosDefaults.get(`/profiles/${results.pk}/`)
           .then(async (res) => {
             const data = await res.data[0];
-
             // store profile data to state store
             dispatch({ type: "UPDATE PROFILE DATA", payload: data });
           })
@@ -35,19 +33,29 @@ const useRefreshToken = () => {
             dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
           });
 
-        // refresh user token
-        AxiosDefaults.post("/dj-rest-auth/token/refresh/")
-          .then(async (res) => {
-            const results = await res.data;
-
-            // store refresh token data to state store
-            dispatch({ type: "LOGIN USER", payload: results });
-          })
-          .catch((err) => {
-            dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
-          });
+        //   // refresh user token
+        //   AxiosDefaults.post("/dj-rest-auth/token/refresh/")
+        //     .then(async (res) => {
+        //       const results = await res.data;
+        //
+        //       // store refresh token data to state store
+        //       dispatch({ type: "LOGIN USER", payload: results });
+        //     })
+        //     .catch((err) => {
+        //       dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
+        //     });
       })
       // if a user is not logged in
+      .catch((err) => {
+        dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
+      });
+
+    AxiosDefaults.post("dj-rest-auth/token/refresh/")
+      .then(async (res) => {
+        const results = await res.data;
+        console.log("results", results);
+        dispatch({ type: "LOGIN USER", payload: results });
+      })
       .catch((err) => {
         dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
       });

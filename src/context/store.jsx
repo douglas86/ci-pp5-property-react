@@ -6,8 +6,6 @@ const initialState = {
     user: null,
     access: null,
     access_expiration: null,
-    refresh: null,
-    refresh_expiration: null,
   },
   dataReducers: {
     showAlert: false,
