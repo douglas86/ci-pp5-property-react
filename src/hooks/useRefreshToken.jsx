@@ -19,11 +19,12 @@ const useRefreshToken = () => {
       // if a user is logged in
       .then(async (res) => {
         const results = await res.data;
+        const { pk } = results;
         // store user data to state store
         dispatch({ type: "UPDATE USER DATA", payload: results });
 
         // fetch users profile data
-        AxiosDefaults.get(`/profiles/${results.pk}/`)
+        AxiosDefaults.get(`/profiles/${pk}/`)
           .then(async (res) => {
             const data = await res.data[0];
             // store profile data to state store
