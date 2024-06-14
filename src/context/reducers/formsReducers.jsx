@@ -1,4 +1,4 @@
-import { register, signIn, signOut } from "../../utils/formContent/auth";
+import { register, signIn, signOut } from "../../utils/formContent";
 
 export const formsReducers = (state, action) => {
   const { type } = action;
