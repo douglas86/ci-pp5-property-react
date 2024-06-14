@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import styles from "../../styles/organism/Form.module.css";
 import { buttonClick, subheading } from "../atom/elements";
-import AxiosDefaults from "../../API/axiosDefaults";
+import AxiosInstance from "../../API/AxiosInstance";
 import useAppContext from "../../hooks/useAppContext";
 
 /**
@@ -34,7 +34,7 @@ const FormOrganism = () => {
 
     dispatch({ type: "TOGGLE HIDE MODAL" });
 
-    await AxiosDefaults.post(form.SubmitURL, formData)
+    await AxiosInstance.post(form.SubmitURL, formData)
       .then((res) => {
         dispatch({
           type: form.Success.update_user,

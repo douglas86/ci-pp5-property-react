@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 
 // API defaults
-import AxiosDefaults from "../API/axiosDefaults";
+import AxiosInstance from "../API/AxiosInstance";
 
 // custom hooks
 import useAppContext from "./useAppContext";
@@ -15,7 +15,7 @@ const useRefreshToken = () => {
 
   useEffect(() => {
     // fetch users data
-    AxiosDefaults.get("/dj-rest-auth/user/")
+    AxiosInstance.get("/dj-rest-auth/user/")
       // if a user is logged in
       .then(async (res) => {
         const results = await res.data;
@@ -24,7 +24,7 @@ const useRefreshToken = () => {
         dispatch({ type: "UPDATE USER DATA", payload: results });
 
         // fetch users profile data
-        AxiosDefaults.get(`/profiles/${pk}/`)
+        AxiosInstance.get(`/profiles/${pk}/`)
           .then(async (res) => {
             const data = await res.data[0];
             // store profile data to state store
@@ -40,7 +40,7 @@ const useRefreshToken = () => {
       });
 
     // refresh user token
-    AxiosDefaults.post("dj-rest-auth/token/refresh/")
+    AxiosInstance.post("dj-rest-auth/token/refresh/")
       .then(async (res) => {
         const results = await res.data;
         dispatch({ type: "LOGIN USER", payload: results });

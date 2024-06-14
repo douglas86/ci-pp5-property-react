@@ -5,7 +5,7 @@ const localhost = "http://localhost:8000";
 const heroku = "https://ci-pp5-property-api-d3a66dbd3b1c.herokuapp.com";
 const access = Cookies.get("auth-token");
 
-const AxiosDefaults = axios.create({
+const AxiosInstance = axios.create({
   baseURL: localhost,
   withCredentials: true,
   headers: {
@@ -13,4 +13,4 @@ const AxiosDefaults = axios.create({
   },
 });
 
-export default AxiosDefaults;
+export default AxiosInstance;
