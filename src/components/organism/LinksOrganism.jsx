@@ -1,15 +1,15 @@
 // components
+import ModalOrganism from "./ModalOrganism";
 import { buttonClick } from "../atom/elements";
-
-// utilities
-import { router } from "../../utils";
 
 // custom hooks
 import useAppContext from "../../hooks/useAppContext";
 
+// utilities
+import { router } from "../../utils";
+
 // styling
-import styles from "../../styles/molecule/Links.module.css";
-import ModalOrganism from "./ModalOrganism";
+import styles from "../../styles/organism/Links.module.css";
 
 /**
  * This molecule if to deal with the links on the navbar for the different pages

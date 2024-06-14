@@ -5,8 +5,11 @@ import { Modal } from "react-bootstrap";
 import FormOrganism from "./FormOrganism";
 import { heading } from "../atom/elements";
 
-import styles from "../../styles/organism/Modal.module.css";
+// custom hooks
 import useAppContext from "../../hooks/useAppContext";
+
+// styling
+import styles from "../../styles/organism/Modal.module.css";
 
 const ModalOrganism = (props) => {
   const { state } = useAppContext();
