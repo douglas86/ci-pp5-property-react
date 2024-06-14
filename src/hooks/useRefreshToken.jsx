@@ -32,28 +32,16 @@ const useRefreshToken = () => {
           .catch((err) => {
             dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
           });
-
-        //   // refresh user token
-        //   AxiosDefaults.post("/dj-rest-auth/token/refresh/")
-        //     .then(async (res) => {
-        //       const results = await res.data;
-        //
-        //       // store refresh token data to state store
-        //       dispatch({ type: "LOGIN USER", payload: results });
-        //     })
-        //     .catch((err) => {
-        //       dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
-        //     });
       })
       // if a user is not logged in
       .catch((err) => {
         dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
       });
 
+    // refresh user token
     AxiosDefaults.post("dj-rest-auth/token/refresh/")
       .then(async (res) => {
         const results = await res.data;
-        console.log("results", results);
         dispatch({ type: "LOGIN USER", payload: results });
       })
       .catch((err) => {
