@@ -1,6 +1,6 @@
 import { heading } from "../atom/elements";
 import CardMolecule from "../molecule/CardMolecule";
-import { subheading } from "../atom/elements/subheading";
+import { subheading } from "../atom/elements";
 
 const TestimonialsOrganism = () => {
   return (

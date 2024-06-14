@@ -41,7 +41,7 @@ const AboutPage = () => {
       </div>
       <div className={styles.section}>
         {missionCommitment.map(({ title, paragraph }) => (
-          <StatementMolecule title={title} paragraph={paragraph} />
+          <StatementMolecule title={title} paragraph={paragraph} key={title} />
         ))}
       </div>
     </div>

@@ -1,11 +1,14 @@
-// styling
-import styles from "../../styles/organism/FooterOrganism.module.css";
+// components
 import { h4Heading, thumbnail } from "../atom/elements";
 
+// assets
 import emailIcon from "../../assets/images/footer/Email.png";
 import androidIcon from "../../assets/images/footer/Android Phone.png";
 import githubIcon from "../../assets/images/footer/GitHub.png";
 import LinkedinIcon from "../../assets/images/footer/LinkedIn Circled.png";
+
+// styling
+import styles from "../../styles/organism/FooterOrganism.module.css";
 
 const FooterOrganism = () => {
   return (

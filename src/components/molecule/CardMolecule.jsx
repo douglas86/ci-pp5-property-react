@@ -1,5 +1,5 @@
 // components
-import { subheading } from "../atom/elements/subheading";
+import { subheading } from "../atom/elements";
 
 // assets
 import avatar from "../../assets/images/avatar/Avatar.png";
