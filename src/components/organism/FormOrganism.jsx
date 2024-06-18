@@ -44,6 +44,7 @@ const FormOrganism = () => {
         dispatch({ type: "SHOW ALERT MESSAGE", payload: form.Success.message });
       })
       .catch((err) => {
+        console.log("err", err);
         dispatch({ type: "ERROR UPDATING USER DATA", payload: err.message });
       });
   };

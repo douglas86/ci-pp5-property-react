@@ -30,5 +30,7 @@ export const register = {
     update_user: "LOGIN USER",
     update_profile: "UPDATE PROFILE DATA",
     payload: true,
+    message:
+      "You have successfully registered and we have already logged you in",
   },
 };
