@@ -36,13 +36,14 @@ const FormOrganism = () => {
 
     await AxiosInstance.post(form.SubmitURL, formData)
       .then((res) => {
+        console.log("res", res);
         dispatch({
           type: form.Success.update_user,
           payload: form.Success.payload ? res.data : null,
         });
+        dispatch({ type: "SHOW ALERT MESSAGE", payload: form.Success.message });
       })
       .catch((err) => {
-        console.log("err", err);
         dispatch({ type: "ERROR UPDATING USER DATA", payload: err.message });
       });
   };

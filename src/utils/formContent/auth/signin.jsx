@@ -23,5 +23,6 @@ export const signIn = {
     update_user: "LOGIN USER",
     update_profile: "UPDATE PROFILE DATA",
     payload: true,
+    message: "You have successfully logged in.",
   },
 };

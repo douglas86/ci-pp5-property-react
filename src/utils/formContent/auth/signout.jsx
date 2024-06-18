@@ -8,5 +8,6 @@ export const signOut = {
   Success: {
     update_user: "LOGOUT USER",
     payload: false,
+    message: "You have successfully logged out",
   },
 };
