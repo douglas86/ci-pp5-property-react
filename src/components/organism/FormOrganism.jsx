@@ -42,6 +42,7 @@ const FormOrganism = () => {
         });
       })
       .catch((err) => {
+        console.log("err", err);
         dispatch({ type: "ERROR UPDATING USER DATA", payload: err.message });
       });
   };
