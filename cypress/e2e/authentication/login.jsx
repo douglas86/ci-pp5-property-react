@@ -4,17 +4,18 @@ export const login = () =>
   it("should be able to login", () => {
     cy.visit(`${local}`);
 
+    const username = "douglas";
+    const password = "IAMininGLOrN";
+
     cy.get(".btn")
       .contains("Login")
       .click()
       .then(() => {
-        const username = "douglas";
-        const password = "IAMininGLOrN";
-
         cy.get(".modal").should("be.visible");
         cy.get(".modal").within(() => {
           cy.get("input[name='username']").type(username);
           cy.get("input[name='password']").type(password);
+
           cy.get("button[type='button']")
             .contains("Login")
             .click({ force: true })
@@ -22,13 +23,13 @@ export const login = () =>
               cy.request({
                 method: "POST",
                 url: `${server}/dj-rest-auth/login/`,
-                body: {
-                  username,
-                  password,
-                },
+                body: { username, password },
                 failOnStatusCode: false,
-              }).then((response) => {
-                expect(response.status).to.equal(200);
+              }).as("login");
+
+              cy.get("@login").then((resp) => {
+                const user = resp.body.user.username;
+                expect(user).to.equal(username);
               });
             });
         });
