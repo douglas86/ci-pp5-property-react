@@ -19,11 +19,16 @@ export const login = () =>
             .contains("Login")
             .click({ force: true })
             .then(() => {
-              cy.request("POST", `${server}/dj-rest-auth/login/`, {
-                username: username,
-                password: password,
+              cy.request({
+                method: "POST",
+                url: `${server}/dj-rest-auth/login/`,
+                body: {
+                  username,
+                  password,
+                },
+                failOnStatusCode: false,
               }).then((response) => {
-                expect(response.status).to.eq(200);
+                expect(response.status).to.equal(200);
               });
             });
         });
