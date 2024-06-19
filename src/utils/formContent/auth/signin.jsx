@@ -3,6 +3,8 @@ export const signIn = {
   buttonText: "Login",
   subheadingText: "If you have not registered yet please click",
   loadForm: "REGISTER FORM",
+  aboveBtnText: "To change password, please click",
+  aboveBtnForm: "CHANGE PASSWORD",
   populateForm: [
     {
       index: 1,

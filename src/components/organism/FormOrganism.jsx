@@ -76,6 +76,18 @@ const FormOrganism = () => {
           />
         </Form.Group>
       ))}
+      <div className={styles.subheading}>
+        {form.aboveBtnForm ? (
+          <>
+            {subheading(form.aboveBtnText)}
+            {buttonClick(
+              () => dispatch({ type: form.aboveBtnForm }),
+              "here?",
+              "link",
+            )}
+          </>
+        ) : null}
+      </div>
       <div className={styles.buttons}>
         {buttonClick((e) => handleSubmit(e), form.buttonText, "success")}
         {buttonClick(
