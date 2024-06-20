@@ -25,9 +25,7 @@ export const login = () =>
                 url: `${server}/dj-rest-auth/login/`,
                 body: { username, password },
                 failOnStatusCode: false,
-              }).as("login");
-
-              cy.get("@login").then((resp) => {
+              }).then((resp) => {
                 const user = resp.body.user.username;
                 expect(user).to.equal(username);
               });
