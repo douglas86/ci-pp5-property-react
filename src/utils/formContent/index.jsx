@@ -13,7 +13,11 @@
 //         if false no data is needed for state store
 //         message: message to be displayed in alert box on successfully request to API
 
+// authentication
 export * from "./auth/changePassword";
 export * from "./auth/register";
 export * from "./auth/signin";
 export * from "./auth/signout";
+
+// admin
+export * from "./admin/addProperty";

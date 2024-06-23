@@ -16,6 +16,8 @@ const FormOrganism = () => {
   const { formsReducers } = state;
   const { form } = formsReducers;
 
+  console.log("form", form);
+
   const [formData, setFormData] = useState({});
 
   const handleChange = (e) => {
@@ -49,54 +51,66 @@ const FormOrganism = () => {
       });
   };
 
+  console.log("formData", formData);
+
   return (
-    <Form className={styles.container}>
-      <div className={styles.subheading}>
-        {form.loadForm ? (
-          <>
-            {subheading(form.subheadingText)}
-            {buttonClick(
-              () => dispatch({ type: form.loadForm }),
-              "here?",
-              "link",
+    <>
+      {form ? (
+        <Form className={styles.container}>
+          <div className={styles.subheading}>
+            {form.loadForm ? (
+              <>
+                {subheading(form.subheadingText)}
+                {buttonClick(
+                  () => dispatch({ type: form.loadForm }),
+                  "here?",
+                  "link",
+                )}
+              </>
+            ) : (
+              <>{subheading(form.subheadingText)}</>
             )}
-          </>
-        ) : (
-          <>{subheading(form.subheadingText)}</>
-        )}
-      </div>
-      {form.populateForm.map(({ index, label, type, placeholder, name }) => (
-        <Form.Group className="mb-3" controlId={`${name}${index}`} key={index}>
-          <Form.Label>{label}</Form.Label>
-          <Form.Control
-            type={type}
-            placeholder={placeholder}
-            name={name}
-            onChange={handleChange}
-          />
-        </Form.Group>
-      ))}
-      <div className={styles.subheading}>
-        {form.aboveBtnForm ? (
-          <>
-            {subheading(form.aboveBtnText)}
+          </div>
+          {form.populateForm.map(
+            ({ index, label, type, placeholder, name }) => (
+              <Form.Group
+                className="mb-3"
+                controlId={`${name}${index}`}
+                key={index}
+              >
+                <Form.Label>{label}</Form.Label>
+                <Form.Control
+                  type={type}
+                  placeholder={placeholder}
+                  name={name}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+            ),
+          )}
+          <div className={styles.subheading}>
+            {form.aboveBtnForm ? (
+              <>
+                {subheading(form.aboveBtnText)}
+                {buttonClick(
+                  () => dispatch({ type: form.aboveBtnForm }),
+                  "here?",
+                  "link",
+                )}
+              </>
+            ) : null}
+          </div>
+          <div className={styles.buttons}>
+            {buttonClick((e) => handleSubmit(e), form.buttonText, "success")}
             {buttonClick(
-              () => dispatch({ type: form.aboveBtnForm }),
-              "here?",
-              "link",
+              () => dispatch({ type: "TOGGLE HIDE MODAL" }),
+              "Cancel",
+              "primary",
             )}
-          </>
-        ) : null}
-      </div>
-      <div className={styles.buttons}>
-        {buttonClick((e) => handleSubmit(e), form.buttonText, "success")}
-        {buttonClick(
-          () => dispatch({ type: "TOGGLE HIDE MODAL" }),
-          "Cancel",
-          "primary",
-        )}
-      </div>
-    </Form>
+          </div>
+        </Form>
+      ) : null}
+    </>
   );
 };
 

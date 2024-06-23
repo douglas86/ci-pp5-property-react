@@ -1,5 +1,5 @@
 import { register, signIn, signOut } from "../../utils/formContent";
-import { changePassword } from "../../utils/formContent";
+import { changePassword, addProperty } from "../../utils/formContent";
 
 export const formsReducers = (state, action) => {
   const { type } = action;
@@ -13,6 +13,8 @@ export const formsReducers = (state, action) => {
       return { ...state, form: register };
     case "CHANGE PASSWORD":
       return { ...state, form: changePassword };
+    case "ADD PROPERTY":
+      return { ...state, form: addProperty };
     default:
       return state;
   }
