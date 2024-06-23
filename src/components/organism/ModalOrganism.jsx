@@ -29,7 +29,7 @@ const ModalOrganism = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <FormOrganism />
+        <FormOrganism auth />
       </Modal.Body>
     </Modal>
   );

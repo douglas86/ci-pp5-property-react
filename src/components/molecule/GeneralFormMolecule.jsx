@@ -12,22 +12,6 @@ const GeneralFormMolecule = () => {
 
   const [formData, setFormData] = useState({});
 
-  const submission = (event) => {
-    dispatch({ type: "TOGGLE HIDE MODAL" });
-
-    handleSubmit(event, form, formData)
-      .then((res) => {
-        dispatch({
-          type: form.Success.update_user,
-          payload: form.Success.payload ? res : null,
-        });
-        dispatch({ type: "SHOW ALERT MESSAGE", payload: form.Success.message });
-      })
-      .catch((err) => {
-        dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
-      });
-  };
-
   return (
     <>
       {form ? (
@@ -80,7 +64,11 @@ const GeneralFormMolecule = () => {
             ) : null}
           </div>
           <div className={styles.buttons}>
-            {buttonClick((e) => submission(e), form.buttonText, "success")}
+            {buttonClick(
+              (event) => handleSubmit(event, dispatch, form, formData),
+              form.buttonText,
+              "success",
+            )}
             {buttonClick(
               () => dispatch({ type: "TOGGLE HIDE MODAL" }),
               "Cancel",

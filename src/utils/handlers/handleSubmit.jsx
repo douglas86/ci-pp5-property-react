@@ -1,13 +1,23 @@
 import AxiosInstance from "../../API/AxiosInstance";
 
-export const handleSubmit = async (event, form, data) => {
+export const handleSubmit = (event, dispatch, form, data) => {
   event.preventDefault();
 
-  await AxiosInstance.post(form.SubmitURL, data, {
-    headers: {
-      "content-type": "multipart/form-data",
-    },
-  })
-    .then((res) => res.data)
-    .catch((err) => err.message);
+  dispatch({ type: "TOGGLE HIDE MODAL" });
+
+  const submission = async () => {
+    await AxiosInstance.post(form.SubmitURL, data)
+      .then((res) => {
+        dispatch({
+          type: form.Success.update_user,
+          payload: form.Success.payload ? res.data : null,
+        });
+        dispatch({ type: "SHOW ALERT MESSAGE", payload: form.Success.message });
+      })
+      .catch((err) => {
+        dispatch({ type: "ERROR UPDATING USER DATA", payload: err.message });
+      });
+  };
+
+  return submission();
 };

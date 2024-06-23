@@ -11,6 +11,7 @@ const initialState = {
     showAlert: false,
   },
   formsReducers: {
+    authForm: null,
     form: null,
   },
   modalReducers: {
