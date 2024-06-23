@@ -31,12 +31,34 @@ const FormOrganism = () => {
     });
   };
 
+  // const handleImage = (e) => {
+  //   e.preventDefault();
+  //
+  //   setFormData({
+  //     ...formData,
+  //     property_image: e.target.files,
+  //   });
+  // };
+
+  // const handleImage = (e) => {
+  //   let form = new FormData();
+  //
+  //   if (e.image_url) {
+  //     form.append("image_url", e.image_url);
+  //     e.image_url.name;
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     dispatch({ type: "TOGGLE HIDE MODAL" });
 
-    await AxiosInstance.post(form.SubmitURL, formData)
+    await AxiosInstance.post(form.SubmitURL, formData, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    })
       .then((res) => {
         console.log("res", res);
         dispatch({
@@ -50,6 +72,68 @@ const FormOrganism = () => {
         dispatch({ type: "ERROR UPDATING USER DATA", payload: err.message });
       });
   };
+
+  const getBase64 = (file) => {
+    return new Promise((resolve) => {
+      let baseURL = "";
+
+      let reader = new FileReader();
+
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        baseURL = reader.result;
+        resolve(baseURL);
+      };
+    });
+  };
+
+  const handleImage = (e) => {
+    let { file } = state;
+    file = e.target.files[0];
+
+    getBase64(file)
+      .then((result) => {
+        file["base64"] = result;
+        setFormData({
+          ...formData,
+          base64Url: result,
+          file,
+        });
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+
+    setFormData({
+      ...state,
+      file: e.target.files[0],
+    });
+  };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //
+  //   let form_data = new FormData();
+  //   form_data.append("property_area", formData.property_area);
+  //   form_data.append("property_address", formData.property_address);
+  //   form_data.append("area_code", formData.area_code);
+  //   form_data.append("rent", formData.rent);
+  //   form_data.append("property_image", formData.base64Url);
+  //   let url = "/stocks/create/";
+  //
+  //   AxiosInstance.post(url, form_data, {
+  //     headers: {
+  //       "Content-Type": "multipart/form-data",
+  //     },
+  //   })
+  //     .then((res) => {
+  //       console.log("response", res);
+  //     })
+  //     .catch((err) => {
+  //       console.log("error", err);
+  //     });
+  // };
 
   console.log("formData", formData);
 
@@ -83,7 +167,7 @@ const FormOrganism = () => {
                   type={type}
                   placeholder={placeholder}
                   name={name}
-                  onChange={handleChange}
+                  onChange={type === "file" ? handleImage : handleChange}
                 />
               </Form.Group>
             ),

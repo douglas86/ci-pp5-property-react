@@ -26,6 +26,13 @@ export const addProperty = {
     },
     {
       index: 4,
+      label: "Rent",
+      type: "number",
+      placeholder: "Enter your rent",
+      name: "rent",
+    },
+    {
+      index: 5,
       label: "Property Photo",
       type: "file",
       placeholder: "Enter your property photo",
