@@ -1,7 +1,11 @@
-// components
-import AdminButtonsMolecule from "../../molecule/AdminButtonsMolecule";
-import FormOrganism from "../../organism/FormOrganism";
+// 3rd parties
 import { useEffect } from "react";
+
+// components
+import FormOrganism from "../../organism/FormOrganism";
+import AdminButtonsMolecule from "../../molecule/AdminButtonsMolecule";
+
+// custom hooks
 import useAppContext from "../../../hooks/useAppContext";
 
 const AdminAddPropertyPage = () => {
@@ -14,7 +18,6 @@ const AdminAddPropertyPage = () => {
   return (
     <>
       <AdminButtonsMolecule />
-      <h1>Add a new Property</h1>
       <FormOrganism />
     </>
   );
