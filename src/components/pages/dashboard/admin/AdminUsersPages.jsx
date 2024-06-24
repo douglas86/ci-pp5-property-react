@@ -1,10 +1,10 @@
 // components
-import AdminButtonsMolecule from "../../molecule/AdminButtonsMolecule";
-import { heading } from "../../atom/elements";
+import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
+import { heading } from "../../../atom/elements";
 
 // styling
-import styles from "../../../styles/pages/admin.module.css";
-import IsAdmin from "../../templates/Authentication/IsAdmin";
+import styles from "../../../../styles/pages/admin.module.css";
+import IsAdmin from "../../../templates/Authentication/IsAdmin";
 
 const AdminUsersPages = () => {
   return (

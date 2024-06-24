@@ -2,10 +2,11 @@
 import LandingPage from "../components/pages/LandingPage";
 import AboutPage from "../components/pages/AboutPage";
 import DashboardPage from "../components/pages/DashboardPage";
-import AdminUsersPages from "../components/pages/dashboard/AdminUsersPages";
-import AdminPropertyPage from "../components/pages/dashboard/AdminPropertyPage";
-import AdminAddPropertyPage from "../components/pages/dashboard/AdminAddPropertyPage";
+import AdminUsersPages from "../components/pages/dashboard/admin/AdminUsersPages";
+import AdminPropertyPage from "../components/pages/dashboard/admin/AdminPropertyPage";
+import AdminAddPropertyPage from "../components/pages/dashboard/admin/AdminAddPropertyPage";
 import NotFoundPage from "../components/pages/NotFoundPage";
+import DisplayProfilePage from "../components/pages/dashboard/user/DisplayProfilePage";
 
 // description of the keys within the object
 // title - this is the name on the navbar header
@@ -59,6 +60,13 @@ export const router = [
     component: <AdminAddPropertyPage />,
     path: "/dashboard/admin/add-new-property",
     permissions: "admin",
+  },
+  // user dashboard pages
+  {
+    title: "None",
+    component: <DisplayProfilePage />,
+    path: "/dashboard/user/display-profile",
+    permissions: "user",
   },
   // page not found
   {
