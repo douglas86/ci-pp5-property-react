@@ -31,8 +31,6 @@ const App = () => {
       }, 5000);
   }, [showAlert, dispatch]);
 
-  console.log("userReducers", userReducers);
-
   return (
     <LayoutTemplate>
       <Routes>

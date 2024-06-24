@@ -7,6 +7,7 @@ import useAppContext from "../../hooks/useAppContext";
 
 // utilities
 import { router } from "../../utils";
+import { handleAuth, handleUserRole } from "../../utils/handlers";
 
 // styling
 import styles from "../../styles/organism/Links.module.css";
@@ -31,20 +32,31 @@ const LinksOrganism = () => {
     );
   });
 
-  // check if the user is logged in or not
-  const handleAuth = userReducers.user === null;
+  const handlePath = (title, path, IsAdmin, IsUser) =>
+    title === "Dashboard"
+      ? handleUserRole(userReducers.profile)
+        ? IsAdmin
+        : IsUser
+      : path;
 
   return (
     <ul className={styles.ul}>
-      {handleRouter.map(({ title, path }) => (
+      {handleRouter.map(({ title, path, IsAdmin, IsUser }) => (
         <li key={title} className={styles.li}>
-          <a href={path} className={styles.a}>
-            {title}
+          <a
+            href={`${handlePath(title, path, IsAdmin, IsUser)}`}
+            className={styles.a}
+          >
+            {title === "Dashboard"
+              ? handleAuth(userReducers.user)
+                ? null
+                : title
+              : title}
           </a>
         </li>
       ))}
       {/*authentication button*/}
-      {handleAuth ? (
+      {handleAuth(userReducers.user) ? (
         <li className={styles.li}>
           {buttonClick(
             () => {
