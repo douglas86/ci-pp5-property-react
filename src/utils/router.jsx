@@ -32,7 +32,9 @@ export const router = [
     title: "Dashboard",
     component: <DashboardPage />,
     path: "/dashboard",
-    permissions: null,
+    permissions: "login",
+    IsAdmin: "/dashboard/admin/users",
+    IsUser: "",
   },
   {
     title: "About",
