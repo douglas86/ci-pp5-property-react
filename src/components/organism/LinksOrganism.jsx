@@ -10,7 +10,6 @@ import { router } from "../../utils";
 
 // styling
 import styles from "../../styles/organism/Links.module.css";
-import { renderIntoDocument } from "react-dom/test-utils";
 
 /**
  * This molecule if to deal with the links on the navbar for the different pages
@@ -22,14 +21,6 @@ const LinksOrganism = () => {
   const { state, dispatch } = useAppContext();
   const { userReducers, modalReducers } = state;
   const { showModal } = modalReducers;
-
-  // TODO: add permissions to the routes
-  // TODO: first check - if the user is logged in
-  // TODO: only show dashboard on Navbar to logged in users
-  // TODO: second check - only admin users can access admin pages
-  // TODO: if not admin display not found page or a 404 error page
-  // TODO: third check - only users can access users pages
-  // TODO: if not a user display not found page or a 404 error page
 
   // filters and returns the correct routers
   const handleRouter = router.filter((items) => {
@@ -45,15 +36,14 @@ const LinksOrganism = () => {
   const handleUserRole = !!(
     userReducers.profile && userReducers.profile.role === "admin"
   );
-
-  console.log("handleUserRole", handleUserRole);
-  console.log("handleAuth", handleAuth);
+  const handlePath = (path, IsAdmin, IsUser) =>
+    path === "/dashboard" ? (handleUserRole ? IsAdmin : IsUser) : path;
 
   return (
     <ul className={styles.ul}>
       {handleRouter.map(({ title, path, IsAdmin, IsUser }) => (
         <li key={title} className={styles.li}>
-          <a href={path} className={styles.a}>
+          <a href={`${handlePath(path, IsAdmin, IsUser)}`} className={styles.a}>
             {title === "Dashboard" ? (handleAuth ? null : title) : title}
           </a>
         </li>

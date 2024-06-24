@@ -34,7 +34,7 @@ export const router = [
     path: "/dashboard",
     permissions: "login",
     IsAdmin: "/dashboard/admin/users",
-    IsUser: "",
+    IsUser: "/dashboard/user",
   },
   {
     title: "About",
