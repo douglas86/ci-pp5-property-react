@@ -36,14 +36,17 @@ const LinksOrganism = () => {
   const handleUserRole = !!(
     userReducers.profile && userReducers.profile.role === "admin"
   );
-  const handlePath = (path, IsAdmin, IsUser) =>
-    path === "/dashboard" ? (handleUserRole ? IsAdmin : IsUser) : path;
+  const handlePath = (title, path, IsAdmin, IsUser) =>
+    title === "Dashboard" ? (handleUserRole ? IsAdmin : IsUser) : path;
 
   return (
     <ul className={styles.ul}>
       {handleRouter.map(({ title, path, IsAdmin, IsUser }) => (
         <li key={title} className={styles.li}>
-          <a href={`${handlePath(path, IsAdmin, IsUser)}`} className={styles.a}>
+          <a
+            href={`${handlePath(title, path, IsAdmin, IsUser)}`}
+            className={styles.a}
+          >
             {title === "Dashboard" ? (handleAuth ? null : title) : title}
           </a>
         </li>
