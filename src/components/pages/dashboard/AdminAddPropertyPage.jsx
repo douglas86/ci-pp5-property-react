@@ -1,45 +1,24 @@
+// 3rd parties
+import { useEffect } from "react";
+
 // components
 import FormOrganism from "../../organism/FormOrganism";
 import AdminButtonsMolecule from "../../molecule/AdminButtonsMolecule";
 
+// custom hooks
+import useAppContext from "../../../hooks/useAppContext";
+
 const AdminAddPropertyPage = () => {
-  const data = [
-    {
-      label: "Property Address",
-      type: "text",
-      placeholder: "Add new address here",
-      name: "property_address",
-    },
-    {
-      label: "Property Area",
-      type: "text",
-      placeholder: "Add property area",
-      name: "property_area",
-    },
-    {
-      label: "Postcode",
-      type: "text",
-      placeholder: "Add property postcode",
-      name: "area_code",
-    },
-    {
-      label: "Monthly Rent",
-      type: "number",
-      placeholder: "Add property monthly rent",
-      name: "rent",
-    },
-    {
-      label: "Property Image",
-      type: "file",
-      placeholder: "Add property image",
-      name: "property_image",
-    },
-  ];
+  const { dispatch } = useAppContext();
+
+  useEffect(() => {
+    dispatch({ type: "ADD PROPERTY" });
+  }, [dispatch]);
 
   return (
     <>
       <AdminButtonsMolecule />
-      <FormOrganism data={data} />
+      <FormOrganism />
     </>
   );
 };

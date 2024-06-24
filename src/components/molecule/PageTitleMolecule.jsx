@@ -1,7 +1,7 @@
 // components
 import { buttonClick } from "../atom/elements";
 import { title } from "../atom/elements";
-import { subheading } from "../atom/elements/subheading";
+import { subheading } from "../atom/elements";
 
 // styling
 import styles from "../../styles/molecule/Title.module.css";

@@ -2,11 +2,12 @@
 import { useEffect } from "react";
 
 // components
-import LinksMolecule from "../molecule/LinksMolecule";
+import LinksOrganism from "./LinksOrganism";
 import MenuMolecule from "../molecule/MenuMolecule";
 
 // custom hooks
 import useAppContext from "../../hooks/useAppContext";
+import useResize from "../../hooks/useResize";
 
 // assets
 import logo from "../../assets/images/header/Property.png";
@@ -23,7 +24,9 @@ const HeaderOrganism = () => {
   // state store
   const { state, dispatch } = useAppContext();
   const { stateReducers } = state;
-  const { MenuOpen, width } = stateReducers;
+  const { MenuOpen } = stateReducers;
+
+  const width = useResize();
 
   useEffect(() => {
     // hide the hamburger menu when on devices larger than 768px
@@ -38,10 +41,10 @@ const HeaderOrganism = () => {
           <img src={`${logo}`} alt="logo" />
         </div>
         <div className={styles.links}>
-          {width >= 768 ? <LinksMolecule /> : <MenuMolecule />}
+          {width >= 768 ? <LinksOrganism /> : <MenuMolecule />}
         </div>
       </nav>
-      <div>{MenuOpen && <LinksMolecule />}</div>
+      <div>{MenuOpen && <LinksOrganism />}</div>
     </header>
   );
 };

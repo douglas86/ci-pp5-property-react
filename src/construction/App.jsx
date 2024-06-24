@@ -1,28 +1,24 @@
 // 3rd party npm packages
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 
 // components
 import LayoutTemplate from "../components/templates/LayoutTemplate";
 
 // custom hooks
-import useResize from "../hooks/useResize";
+import useRefreshToken from "../hooks/useRefreshToken";
+import useAppContext from "../hooks/useAppContext";
 
 // utilities
 import { router } from "../utils";
 
 // styling
 import "bootstrap/dist/css/bootstrap.min.css";
-import useRefreshToken from "../hooks/useRefreshToken";
-import useAppContext from "../hooks/useAppContext";
-import { useEffect } from "react";
 
 const App = () => {
   const { state, dispatch } = useAppContext();
-  const { dataReducers } = state;
+  const { dataReducers, userReducers } = state;
   const { showAlert } = dataReducers;
-
-  // custom hook that detects page width
-  useResize();
 
   // custom hook that refreshes the auth tokens
   useRefreshToken();
@@ -33,12 +29,14 @@ const App = () => {
       setTimeout(() => {
         dispatch({ type: "HIDE ALERT MESSAGE" });
       }, 5000);
-  }, [showAlert]);
+  }, [showAlert, dispatch]);
+
+  console.log("userReducers", userReducers);
 
   return (
     <LayoutTemplate>
       <Routes>
-        {router.map(({ path, component }, index) => (
+        {router.map(({ path, component, permission }, index) => (
           <Route key={index} path={path} element={component} />
         ))}
       </Routes>

@@ -1,13 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import useAppContext from "./useAppContext";
-
+/**
+ * Custom hook to measure the width of the window
+ */
 const useResize = () => {
-  const { dispatch } = useAppContext();
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
-      dispatch({ type: "SET WINDOW WIDTH", payload: window.innerWidth });
+      setWidth(window.innerWidth);
     };
 
     window.addEventListener("resize", handleResize);
@@ -15,7 +16,9 @@ const useResize = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [dispatch]);
+  }, [window.innerWidth]);
+
+  return width;
 };
 
 export default useResize;

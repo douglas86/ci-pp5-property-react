@@ -1,26 +1,26 @@
 // components
-import ModalMolecule from "./ModalMolecule";
+import ModalOrganism from "./ModalOrganism";
 import { buttonClick } from "../atom/elements";
-
-// utilities
-import { router } from "../../utils";
 
 // custom hooks
 import useAppContext from "../../hooks/useAppContext";
 
+// utilities
+import { router } from "../../utils";
+
 // styling
-import styles from "../../styles/molecule/Links.module.css";
+import styles from "../../styles/organism/Links.module.css";
 
 /**
  * This molecule if to deal with the links on the navbar for the different pages
  * @returns {JSX.Element}
  * @constructor
  */
-const LinksMolecule = () => {
+const LinksOrganism = () => {
   // destructuring state from state store
   const { state, dispatch } = useAppContext();
-  const { userReducers, formsReducers } = state;
-  const { showModal, populateForm } = formsReducers;
+  const { userReducers, modalReducers } = state;
+  const { showModal } = modalReducers;
 
   // filters and returns the correct routers
   const handleRouter = router.filter((items) => {
@@ -47,7 +47,10 @@ const LinksMolecule = () => {
       {handleAuth ? (
         <li className={styles.li}>
           {buttonClick(
-            () => dispatch({ type: "POPULATE SIGN IN PAGE" }),
+            () => {
+              dispatch({ type: "SIGN IN FORM" });
+              dispatch({ type: "TOGGLE SHOW MODAL" });
+            },
             "Login",
             "dark",
           )}
@@ -55,20 +58,21 @@ const LinksMolecule = () => {
       ) : (
         <li className={styles.li}>
           {buttonClick(
-            () => dispatch({ type: "POPULATE SIGN OUT PAGE" }),
+            () => {
+              dispatch({ type: "SIGN OUT FORM" });
+              dispatch({ type: "TOGGLE SHOW MODAL" });
+            },
             "Logout",
             "dark",
           )}
         </li>
       )}
-      {populateForm.length > 0 && (
-        <ModalMolecule
-          show={showModal}
-          onHide={() => dispatch({ type: "HIDE MODAL", payload: false })}
-        />
-      )}
+      <ModalOrganism
+        show={showModal}
+        onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}
+      />
     </ul>
   );
 };
 
-export default LinksMolecule;
+export default LinksOrganism;

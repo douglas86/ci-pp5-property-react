@@ -4,19 +4,21 @@ import { rootReducers } from "./rootReducers";
 const initialState = {
   userReducers: {
     user: null,
-    accessToken: null,
-    refreshToken: null,
+    access: null,
+    access_expiration: null,
   },
   dataReducers: {
     showAlert: false,
   },
   formsReducers: {
+    authForm: null,
+    form: null,
+  },
+  modalReducers: {
     showModal: false,
-    populateForm: [],
   },
   stateReducers: {
     MenuOpen: false,
-    width: window.innerWidth,
   },
 };
 
@@ -24,12 +26,13 @@ export const Context = createContext(initialState);
 
 const init = (initialState) => {
   const { userReducers, dataReducers, formsReducers } = initialState;
-  const { stateReducers } = initialState;
+  const { stateReducers, modalReducers } = initialState;
 
   return {
     userReducers,
     dataReducers,
     formsReducers,
+    modalReducers,
     stateReducers,
   };
 };

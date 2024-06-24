@@ -13,13 +13,29 @@ export const userReducers = (state, action) => {
         ...state,
         user: payload,
       };
-    case "STORE TOKENS IN STATE STORE":
-      const accessToken = payload.access;
-      const refreshToken = payload.refresh;
-
-      return { ...state, accessToken, refreshToken };
-    case "DELETE TOKENS FROM STATE STORE":
-      return { ...state, accessToken: null, refreshToken: null };
+    case "UPDATE PROFILE DATA":
+      return {
+        ...state,
+        profile: payload,
+      };
+    case "LOGIN USER":
+      const { access, access_expiration, user } = payload;
+      return {
+        ...state,
+        access,
+        access_expiration,
+        user: user === undefined ? state.user : user,
+      };
+    case "LOGOUT USER":
+      return {
+        ...state,
+        access: null,
+        access_expiration: null,
+        user: null,
+        profile: null,
+      };
+    case "ERROR UPDATING USER DATA":
+      return { ...state, error: payload };
     default:
       return state;
   }
