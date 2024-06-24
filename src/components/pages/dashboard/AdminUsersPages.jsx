@@ -4,10 +4,11 @@ import { heading } from "../../atom/elements";
 
 // styling
 import styles from "../../../styles/pages/admin.module.css";
+import IsAdmin from "../../templates/Authentication/IsAdmin";
 
 const AdminUsersPages = () => {
   return (
-    <div>
+    <IsAdmin>
       <AdminButtonsMolecule />
       {heading("Registered Users")}
       <div className={styles.section}>
@@ -17,7 +18,7 @@ const AdminUsersPages = () => {
         <p className={styles.hidden}>Role</p>
         <p>Rent</p>
       </div>
-    </div>
+    </IsAdmin>
   );
 };
 

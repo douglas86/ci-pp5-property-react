@@ -7,6 +7,7 @@ import AdminButtonsMolecule from "../../molecule/AdminButtonsMolecule";
 
 // custom hooks
 import useAppContext from "../../../hooks/useAppContext";
+import IsAdmin from "../../templates/Authentication/IsAdmin";
 
 const AdminAddPropertyPage = () => {
   const { dispatch } = useAppContext();
@@ -17,8 +18,10 @@ const AdminAddPropertyPage = () => {
 
   return (
     <>
-      <AdminButtonsMolecule />
-      <FormOrganism />
+      <IsAdmin>
+        <AdminButtonsMolecule />
+        <FormOrganism />
+      </IsAdmin>
     </>
   );
 };
