@@ -7,7 +7,7 @@ import useAppContext from "../../hooks/useAppContext";
 
 // utilities
 import { router } from "../../utils";
-import { handleAuth } from "../../utils/handlers";
+import { handleAuth, handleUserRole } from "../../utils/handlers";
 
 // styling
 import styles from "../../styles/organism/Links.module.css";
@@ -32,11 +32,12 @@ const LinksOrganism = () => {
     );
   });
 
-  const handleUserRole = !!(
-    userReducers.profile && userReducers.profile.role === "admin"
-  );
   const handlePath = (title, path, IsAdmin, IsUser) =>
-    title === "Dashboard" ? (handleUserRole ? IsAdmin : IsUser) : path;
+    title === "Dashboard"
+      ? handleUserRole(userReducers.profile)
+        ? IsAdmin
+        : IsUser
+      : path;
 
   return (
     <ul className={styles.ul}>
