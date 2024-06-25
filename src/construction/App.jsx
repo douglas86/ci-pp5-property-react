@@ -17,7 +17,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   const { state, dispatch } = useAppContext();
-  const { dataReducers, userReducers } = state;
+  const { dataReducers } = state;
   const { showAlert } = dataReducers;
 
   // custom hook that refreshes the auth tokens

@@ -2,7 +2,7 @@
 import LandingPage from "../components/pages/LandingPage";
 import AboutPage from "../components/pages/AboutPage";
 import DashboardPage from "../components/pages/DashboardPage";
-import AdminUsersPages from "../components/pages/dashboard/admin/AdminUsersPages";
+import UsersPage from "../components/pages/dashboard/admin/UsersPage";
 import AdminPropertyPage from "../components/pages/dashboard/admin/AdminPropertyPage";
 import AdminAddPropertyPage from "../components/pages/dashboard/admin/AdminAddPropertyPage";
 import NotFoundPage from "../components/pages/NotFoundPage";
@@ -45,7 +45,7 @@ export const router = [
   // admin dashboard pages
   {
     title: "None",
-    component: <AdminUsersPages />,
+    component: <UsersPage />,
     path: "/dashboard/admin/users",
     permissions: "admin",
   },
