@@ -17,8 +17,11 @@ const UsersPage = () => {
     "Name",
     "Address",
     "Postcode",
-    "Role in Organization",
+    "Role",
     "Rent",
+    "View",
+    "Update",
+    "Delete",
   ];
 
   useEffect(() => {
