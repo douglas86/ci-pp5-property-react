@@ -1,50 +1,20 @@
-import { buttonClick, thumbnail } from "../atom/elements";
+import TableCardMolecule from "../molecule/TableCardMolecule";
 
 import styles from "../../styles/organism/Table.module.css";
 
-const TableOrganism = ({ headers, data }) => {
+const TableOrganism = ({ headers, body }) => {
   return (
     <div>
       <table className={styles.table}>
         <thead>
-          <tr>{headers && headers.map((header) => <th>{header}</th>)}</tr>
+          <tr className={styles.tr}>
+            {headers && headers.map((header) => <th key={header}>{header}</th>)}
+          </tr>
         </thead>
         <tbody>
-          {data.profile.map(
-            ({ profile_picture, user, address, area_code, role, rent }) => (
-              <tr className={styles.tr}>
-                <td className={`${styles.thumbnail} ${styles.td}`}>
-                  {thumbnail(`${profile_picture}`, "logo")}
-                </td>
-                <td className={styles.td}>{user}</td>
-                <td className={styles.td}>{address}</td>
-                <td className={styles.td}>{area_code}</td>
-                <td className={styles.td}>{role}</td>
-                <td className={styles.td}>{rent}</td>
-                <td className={styles.td}>
-                  {buttonClick(
-                    () => console.log("view clicked"),
-                    "View",
-                    "outline-info",
-                  )}
-                </td>
-                <td className={styles.td}>
-                  {buttonClick(
-                    () => console.log("update clicked"),
-                    "Update",
-                    "outline-success",
-                  )}
-                </td>
-                <td>
-                  {buttonClick(
-                    () => console.log("delete button"),
-                    "Delete",
-                    "outline-danger",
-                  )}
-                </td>
-              </tr>
-            ),
-          )}
+          {Object.entries(body).map(([key, value]) => (
+            <TableCardMolecule key={key} molecule={value} />
+          ))}
         </tbody>
       </table>
     </div>
