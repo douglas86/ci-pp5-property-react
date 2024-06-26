@@ -5,14 +5,14 @@ import styles from "../../styles/organism/Table.module.css";
 const TableOrganism = ({ headers, data }) => {
   return (
     <div>
-      <table style={{ width: "100%" }}>
+      <table className={styles.table}>
         <thead>
           <tr>{headers && headers.map((header) => <th>{header}</th>)}</tr>
         </thead>
         <tbody>
           {data.profile.map(
             ({ profile_picture, user, address, area_code, role, rent }) => (
-              <tr>
+              <tr className={styles.tr}>
                 <td className={`${styles.thumbnail} ${styles.td}`}>
                   {thumbnail(`${profile_picture}`, "logo")}
                 </td>
