@@ -1,6 +1,6 @@
 // components
 import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
-import { heading } from "../../../atom/elements";
+import { heading, spinner } from "../../../atom/elements";
 
 // styling
 import IsAdmin from "../../../templates/Authentication/IsAdmin";
@@ -43,7 +43,7 @@ const UsersPage = () => {
     <IsAdmin>
       <AdminButtonsMolecule />
       {heading("Registered Users")}
-      {data ? <TableOrganism headers={headers} body={body[0]} /> : null}
+      {data ? <TableOrganism headers={headers} body={body[0]} /> : spinner()}
     </IsAdmin>
   );
 };
