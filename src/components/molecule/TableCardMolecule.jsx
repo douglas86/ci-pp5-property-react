@@ -3,8 +3,6 @@ import { thumbnail } from "../atom/elements";
 import styles from "../../styles/molecule/TableRow.module.css";
 
 const TableCardMolecule = ({ molecule }) => {
-  console.log("molecule", molecule);
-
   return (
     <tr className={styles.tr}>
       {Object.entries(molecule).map(([key, value]) => (

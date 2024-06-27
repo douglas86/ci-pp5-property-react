@@ -33,15 +33,11 @@ const UsersPage = () => {
           };
         });
         setBody((prevState) => [...prevState, dict]);
-
-        console.log("profile", profile);
       })
       .catch((err) => {
         setError(err.message);
       });
   }, []);
-
-  console.log("body", body[0]);
 
   return (
     <IsAdmin>
