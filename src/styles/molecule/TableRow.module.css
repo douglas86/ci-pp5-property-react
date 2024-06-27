@@ -1,0 +1,36 @@
+.thumbnail {
+  width: 0.5em;
+  height: 0.5em;
+  padding: 0.2em;
+}
+
+.tr {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.8);
+  border-radius: 0.5em;
+  margin: 3em !important;
+  padding: 1em;
+}
+
+.td {
+  margin: auto;
+  text-align: center;
+}
+
+.a {
+  text-decoration: none;
+}
+
+.view {
+  color: #7e3aab;
+  font-weight: bold;
+}
+
+.update {
+  color: #6aad6d;
+  font-weight: bold;
+}
+
+.delete {
+  color: #d91c2f;
+  font-weight: bold;
+}
