@@ -7,11 +7,15 @@ import IsAdmin from "../../../templates/Authentication/IsAdmin";
 import { useEffect, useState } from "react";
 import AxiosInstance from "../../../../API/AxiosInstance";
 import TableOrganism from "../../../organism/TableOrganism";
+import useResize from "../../../../hooks/useResize";
+import CardDashOrganism from "../../../organism/CardDashOrganism";
 
 const UsersPage = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState({});
   const [body, setBody] = useState([]);
+
+  const width = useResize();
 
   const headers = ["", "Name", "Address", "Postcode", "Role", "Rent"];
 
@@ -43,7 +47,15 @@ const UsersPage = () => {
     <IsAdmin>
       <AdminButtonsMolecule />
       {heading("Registered Users")}
-      {data ? <TableOrganism headers={headers} body={body[0]} /> : spinner()}
+      {data ? (
+        width > 1024 ? (
+          <TableOrganism headers={headers} body={body[0]} />
+        ) : (
+          <CardDashOrganism body={body[0]} />
+        )
+      ) : (
+        spinner()
+      )}
     </IsAdmin>
   );
 };
