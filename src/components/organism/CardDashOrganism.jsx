@@ -27,6 +27,11 @@ const CardDashOrganism = ({ body }) => {
                     Address: {items.address}
                   </Card.Text>
                 ) : null}
+                {items.area ? (
+                  <Card.Text className="text-muted">
+                    Area: {items.area}
+                  </Card.Text>
+                ) : null}
                 {items.postcode ? (
                   <Card.Text className="text-muted">
                     Postcode: {items.postcode}

@@ -1,13 +1,14 @@
 // components
 import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
-import { heading } from "../../../atom/elements";
+import { heading, spinner } from "../../../atom/elements";
 import IsAdmin from "../../../templates/Authentication/IsAdmin";
 
 // styling
-import styles from "../../../../styles/pages/admin.module.css";
 import { useEffect, useState } from "react";
 import useResize from "../../../../hooks/useResize";
 import AxiosInstance from "../../../../API/AxiosInstance";
+import TableOrganism from "../../../organism/TableOrganism";
+import CardDashOrganism from "../../../organism/CardDashOrganism";
 
 const AdminPropertyPage = () => {
   const [data, setData] = useState(null);
@@ -16,15 +17,37 @@ const AdminPropertyPage = () => {
 
   const width = useResize();
 
-  const headers = ["", "Property Owner", "Address", "Postcode", "Role", "Rent"];
+  const headers = [
+    "",
+    "Property Owner",
+    "Address",
+    "Area",
+    "Postcode",
+    "Role",
+    "Rent",
+  ];
 
   useEffect(() => {
     AxiosInstance.get("stocks/")
       .then((res) => {
-        console.log("res", res);
+        const { data } = res.data;
+        setData(data);
+
+        const dict = data.map((item) => {
+          return {
+            id: item.id,
+            image: item.property_image,
+            name: item.owner,
+            address: item.property_address,
+            area: item.property_area,
+            postcode: item.area_code,
+            rent: item.rent,
+          };
+        });
+        setBody(dict);
       })
       .catch((err) => {
-        console.log("err", err);
+        setError(err.message);
       });
   }, []);
 
@@ -32,12 +55,15 @@ const AdminPropertyPage = () => {
     <IsAdmin>
       <AdminButtonsMolecule />
       {heading("Properties")}
-      <div className={styles.section}>
-        <p>address</p>
-        <p className={styles.hidden}>area</p>
-        <p className={styles.hidden}>area code</p>
-        <p>Rent</p>
-      </div>
+      {data ? (
+        width > 1024 ? (
+          <TableOrganism headers={headers} body={body} />
+        ) : (
+          <CardDashOrganism body={body} />
+        )
+      ) : (
+        spinner()
+      )}
     </IsAdmin>
   );
 };
