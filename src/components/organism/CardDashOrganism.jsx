@@ -1,10 +1,15 @@
 import { Card } from "react-bootstrap";
-import { spinner, thumbnail } from "../atom/elements";
+import { buttonClick, spinner, thumbnail } from "../atom/elements";
 
 import styles from "../../styles/organism/CardDash.module.css";
+import useAppContext from "../../hooks/useAppContext";
+import ModalOrganism from "./ModalOrganism";
 
 const CardDashOrganism = ({ body }) => {
-  console.log("body", body);
+  const { state, dispatch } = useAppContext();
+  const { modalReducers } = state;
+  const { showModal } = modalReducers;
+
   return (
     <>
       {body ? (
@@ -52,6 +57,14 @@ const CardDashOrganism = ({ body }) => {
                   <Card.Link className={`${styles.a} ${styles.delete}`}>
                     Delete
                   </Card.Link>
+                  {buttonClick(
+                    () => {
+                      dispatch({ type: "DELETE PROPERTY", payload: items.id });
+                      dispatch({ type: "TOGGLE SHOW MODAL" });
+                    },
+                    "Delete",
+                    "outline-danger",
+                  )}
                 </div>
               </Card.Body>
             </Card>
@@ -60,6 +73,11 @@ const CardDashOrganism = ({ body }) => {
       ) : (
         spinner()
       )}
+      <ModalOrganism
+        show={showModal}
+        onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}
+        auth={false}
+      />
     </>
   );
 };

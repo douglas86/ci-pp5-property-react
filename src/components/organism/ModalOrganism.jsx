@@ -29,7 +29,7 @@ const ModalOrganism = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <FormOrganism auth />
+        <FormOrganism auth={props.auth === undefined} />
       </Modal.Body>
     </Modal>
   );
