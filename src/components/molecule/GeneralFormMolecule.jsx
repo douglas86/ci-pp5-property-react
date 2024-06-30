@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { buttonClick, subheading } from "../atom/elements";
 import { handleChange, handleImage, handleSubmit } from "../../utils/handlers";
@@ -10,7 +10,23 @@ const GeneralFormMolecule = () => {
   const { formsReducers } = state;
   const { form } = formsReducers;
 
+  // const [formData, setFormData] = useState({
+  //   property_address: form.populateForm[0].value,
+  //   property_area: "",
+  //   area_code: "",
+  //   rent: "",
+  // });
+
   const [formData, setFormData] = useState({});
+
+  useEffect(() => {
+    form.populateForm.map(({ name, value }) => {
+      setFormData({ ...formData, [name]: value });
+    });
+  }, []);
+
+  console.log("form", form);
+  console.log("formData", formData);
 
   return (
     <>
@@ -31,7 +47,7 @@ const GeneralFormMolecule = () => {
             )}
           </div>
           {form.populateForm.map(
-            ({ index, label, type, placeholder, name }) => (
+            ({ index, label, type, placeholder, name, value }) => (
               <Form.Group
                 className="mb-3"
                 controlId={`${name}${index}`}
@@ -42,6 +58,7 @@ const GeneralFormMolecule = () => {
                   type={type}
                   placeholder={placeholder}
                   name={name}
+                  value={formData[name]}
                   onChange={
                     type === "file"
                       ? (e) => handleImage(e, formData, setFormData)

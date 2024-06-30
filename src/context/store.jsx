@@ -16,6 +16,8 @@ const initialState = {
   },
   modalReducers: {
     showModal: false,
+    templateModal: false,
+    formComponent: null,
   },
   stateReducers: {
     MenuOpen: false,

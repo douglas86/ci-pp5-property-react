@@ -26,9 +26,15 @@ const TableCardMolecule = ({ molecule }) => {
           </>
         ))}
         <td className={styles.td}>
-          <a href="" className={`${styles.a} ${styles.update}`}>
-            Update
-          </a>
+          {buttonClick(
+            () => {
+              dispatch({ type: "RESET AUTH FORM" });
+              dispatch({ type: "UPDATE PROPERTY", payload: molecule });
+              dispatch({ type: "TOGGLE SHOW MODAL" });
+            },
+            "Update",
+            "outline-success",
+          )}
         </td>
         <td className={styles.td}>
           {buttonClick(

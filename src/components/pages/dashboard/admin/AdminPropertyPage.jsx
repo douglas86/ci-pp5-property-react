@@ -1,23 +1,22 @@
-// components
+import { useEffect, useState } from "react";
+import ModalTemplate from "../../../templates/ModalTemplate";
+import IsAdmin from "../../../templates/Authentication/IsAdmin";
+import TableOrganism from "../../../organism/TableOrganism";
 import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
 import { heading, spinner } from "../../../atom/elements";
-import IsAdmin from "../../../templates/Authentication/IsAdmin";
-
-// styling
-import { useEffect, useState } from "react";
+import useAppContext from "../../../../hooks/useAppContext";
 import useResize from "../../../../hooks/useResize";
 import AxiosInstance from "../../../../API/AxiosInstance";
-import TableOrganism from "../../../organism/TableOrganism";
-import CardDashOrganism from "../../../organism/CardDashOrganism";
 
 const AdminPropertyPage = () => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const [body, setBody] = useState(null);
+  const { state, dispatch } = useAppContext();
+  const { modalReducers } = state;
+  const { templateModal } = modalReducers;
+
+  const [data, setData] = useState({});
 
   const width = useResize();
-
-  const headers = ["", "Property Owner", "Address", "Area", "Postcode", "Rent"];
+  const headers = ["Property Owner", "Address", "Area", "Postcode", "Rent"];
 
   useEffect(() => {
     AxiosInstance.get("stocks/")
@@ -25,22 +24,30 @@ const AdminPropertyPage = () => {
         const { data } = res.data;
         setData(data);
 
-        const dict = data.map((item) => {
-          return {
-            id: item.id,
-            image: item.property_image,
-            name: item.owner,
-            address: item.property_address,
-            area: item.property_area,
-            postcode: item.area_code,
-            rent: item.rent,
-          };
-        });
-        setBody(dict);
+        const dict = data.map(
+          ({
+            area_code,
+            id,
+            owner,
+            property_address,
+            property_area,
+            property_image,
+            rent,
+          }) => {
+            return {
+              id: id,
+              image: property_image,
+              name: owner,
+              address: property_address,
+              area: property_area,
+              postcode: area_code,
+              rent: rent,
+            };
+          },
+        );
+        setData(dict);
       })
-      .catch((err) => {
-        setError(err.message);
-      });
+      .catch((err) => console.log("error", err));
   }, []);
 
   return (
@@ -49,13 +56,15 @@ const AdminPropertyPage = () => {
       {heading("Properties")}
       {data ? (
         width > 1024 ? (
-          <TableOrganism headers={headers} body={body} />
-        ) : (
-          <CardDashOrganism body={body} />
-        )
+          <TableOrganism headers={headers} body={data} />
+        ) : null
       ) : (
-        spinner()
+        spinner
       )}
+      <ModalTemplate
+        show={templateModal}
+        onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}
+      />
     </IsAdmin>
   );
 };

@@ -22,3 +22,4 @@ export * from "./auth/signout";
 // admin
 export * from "./admin/addProperty";
 export * from "./admin/deleteProperty";
+export * from "./admin/updateProperty";
