@@ -26,9 +26,6 @@ const CardDashOrganism = ({ body }) => {
                 <Card.Title>
                   {thumbnail(`${items.image}`, "profile")} {items.name}
                 </Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
-                  Role: {items.role}
-                </Card.Subtitle>
                 {items.address ? (
                   <Card.Text className="text-muted">
                     Address: {items.address}

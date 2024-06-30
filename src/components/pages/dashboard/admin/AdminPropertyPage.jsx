@@ -17,15 +17,7 @@ const AdminPropertyPage = () => {
 
   const width = useResize();
 
-  const headers = [
-    "",
-    "Property Owner",
-    "Address",
-    "Area",
-    "Postcode",
-    "Role",
-    "Rent",
-  ];
+  const headers = ["", "Property Owner", "Address", "Area", "Postcode", "Rent"];
 
   useEffect(() => {
     AxiosInstance.get("stocks/")
