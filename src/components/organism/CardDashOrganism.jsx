@@ -47,9 +47,6 @@ const CardDashOrganism = ({ body }) => {
                   </Card.Text>
                 ) : null}
                 <div className={styles.links}>
-                  <Card.Link className={`${styles.a} ${styles.view}`}>
-                    Info
-                  </Card.Link>
                   <Card.Link className={`${styles.a} ${styles.update}`}>
                     Update
                   </Card.Link>

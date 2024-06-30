@@ -26,11 +26,6 @@ const TableCardMolecule = ({ molecule }) => {
           </>
         ))}
         <td className={styles.td}>
-          <a href="" className={`${styles.a} ${styles.view}`}>
-            View
-          </a>
-        </td>
-        <td className={styles.td}>
           <a href="" className={`${styles.a} ${styles.update}`}>
             Update
           </a>
