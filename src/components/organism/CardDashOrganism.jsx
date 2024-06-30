@@ -7,8 +7,10 @@ import ModalOrganism from "./ModalOrganism";
 
 const CardDashOrganism = ({ body }) => {
   const { state, dispatch } = useAppContext();
-  const { modalReducers } = state;
+  const { modalReducers, formsReducers } = state;
   const { showModal } = modalReducers;
+
+  console.log("forms", formsReducers);
 
   return (
     <>
@@ -54,11 +56,9 @@ const CardDashOrganism = ({ body }) => {
                   <Card.Link className={`${styles.a} ${styles.update}`}>
                     Update
                   </Card.Link>
-                  <Card.Link className={`${styles.a} ${styles.delete}`}>
-                    Delete
-                  </Card.Link>
                   {buttonClick(
                     () => {
+                      dispatch({ type: "RESET AUTH FORM" });
                       dispatch({ type: "DELETE PROPERTY", payload: items.id });
                       dispatch({ type: "TOGGLE SHOW MODAL" });
                     },

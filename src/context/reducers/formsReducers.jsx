@@ -9,6 +9,10 @@ export const formsReducers = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    case "RESET FORM":
+      return { ...state, form: null };
+    case "RESET AUTH FORM":
+      return { ...state, authForm: null };
     case "SIGN IN FORM":
       return { ...state, authForm: signIn };
     case "SIGN OUT FORM":
