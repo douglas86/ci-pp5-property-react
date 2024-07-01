@@ -53,6 +53,7 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
   - [401 Error](#401-error)
   - [Carousel](#carousel)
   - [Footer](#footer)
+  - [JSON data not serializable when sending to React](#json-data-not-serializable-when-sending-to-react)
 - [Credits](#credits)
 ---
 
@@ -302,6 +303,24 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 
 - This has not been solved yet
 
+#### [JSON data not serializable when sending to React](#table-of-content)
+
+##### Problem?
+
+- The data has not be serialized when fetching and sending data
+
+![first.png](src/assets/docs/bugs/json_data/first.png)
+
+##### Solution?
+
+- First thing was to change the view to async and await
+- Second thing that needed to be done was add the Serializer class
+- This was to sterilize the class from raw sql data to json data
+
+![second.png](src/assets/docs/bugs/json_data/second.png)
+
+- The stocks url has been hit with a 200 status code
+
 ---
 
 ### [Credits](#table-of-content)
@@ -310,6 +329,8 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 - Assisted in helping me get the state store correct [here](https://ricostacruz.com/til/state-management-with-react-hooks)
 - Article that assisted in iterating over [reducer](https://stackoverflow.com/questions/59200785/react-usereducer-how-to-combine-multiple-reducers) functions
 - Article that helps get the [state store](https://ricostacruz.com/til/state-management-with-react-hooks) up and running
+- Article for getting superuser right with shell terminal [here](https://stackoverflow.com/questions/11337420/can-i-use-an-existing-user-as-django-admin-when-enabling-admin-for-the-first-tim)
+- Help to get the tokens correct [here](https://medium.com/django-unleashed/securing-django-rest-apis-with-jwt-authentication-using-simple-jwt-a-step-by-step-guide-28efa84666fe)
 
 ---
 
