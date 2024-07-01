@@ -6,9 +6,12 @@ import { useState } from "react";
 import { handleChange, handleImage } from "../../../utils/handlers";
 import AxiosInstance from "../../../API/AxiosInstance";
 import useAppContext from "../../../hooks/useAppContext";
+import { useNavigate } from "react-router-dom";
 
 const UpdatePropertyForm = ({ data }) => {
   const { dispatch } = useAppContext();
+
+  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     id: data.id,
@@ -60,13 +63,14 @@ const UpdatePropertyForm = ({ data }) => {
         {buttonClick(
           () =>
             AxiosInstance.post(`stocks/update/${data.id}/`, form)
-              .then((res) => {
-                const { message } = res.data;
+              .then(async (res) => {
+                const { message } = await res.data;
                 dispatch({ type: "TOGGLE HIDE MODAL" });
                 dispatch({
                   type: "SHOW SUCCESSFULLY ALERT MESSAGE",
                   payload: message,
                 });
+                navigate("/dashboard/admin/properties");
               })
               .catch((err) => {
                 const { message } = err;

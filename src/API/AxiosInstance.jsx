@@ -8,7 +8,7 @@ const csrf = Cookies.get("csrftoken");
 const refresh = Cookies.get("refresh-token");
 
 const AxiosInstance = axios.create({
-  baseURL: heroku,
+  baseURL: localhost,
   withCredentials: true,
   headers: {
     Authorization: `Bearer ${access}`,

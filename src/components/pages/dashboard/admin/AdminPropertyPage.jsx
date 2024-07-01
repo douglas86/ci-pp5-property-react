@@ -19,7 +19,15 @@ const AdminPropertyPage = () => {
   const headers = ["Property Owner", "Address", "Area", "Postcode", "Rent"];
 
   useEffect(() => {
-    AxiosInstance.get("stocks/")
+    const fetchData = async () => {
+      try {
+        return await AxiosInstance.get("stocks/");
+      } catch (e) {
+        return e;
+      }
+    };
+
+    fetchData()
       .then((res) => {
         const { data } = res.data;
         setData(data);
@@ -47,8 +55,15 @@ const AdminPropertyPage = () => {
         );
         setData(dict);
       })
-      .catch((err) => console.log("error", err));
-  }, []);
+      .catch((err) => {
+        const { message } = err;
+        dispatch({ type: "TOGGLE HIDE MODAL" });
+        dispatch({
+          type: "SHOW UNSUCCESSFULLY ALERT MESSAGE",
+          payload: message,
+        });
+      });
+  }, [data, dispatch]);
 
   return (
     <IsAdmin>
