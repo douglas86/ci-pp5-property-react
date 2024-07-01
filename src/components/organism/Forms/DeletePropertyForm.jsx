@@ -14,7 +14,7 @@ const DeletePropertyForm = ({ id }) => {
     <>
       <Form className={styles.container}>
         <div className={styles.subheading}>
-          {subheading("Are you sue that you want to delete this property?")}
+          {subheading("Are you sure that you want to delete this property?")}
         </div>
         <div className={styles.buttons}>
           {buttonClick(
@@ -42,7 +42,10 @@ const DeletePropertyForm = ({ id }) => {
             "danger",
           )}
           {buttonClick(
-            () => console.log("Cancel was clicked"),
+            () => {
+              dispatch({ type: "TOGGLE HIDE MODAL" });
+              navigate("dashboard/admin/users");
+            },
             "Cancel",
             "warning",
           )}

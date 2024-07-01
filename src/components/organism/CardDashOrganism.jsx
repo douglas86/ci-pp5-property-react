@@ -4,13 +4,41 @@ import { buttonClick, spinner, thumbnail } from "../atom/elements";
 import styles from "../../styles/organism/CardDash.module.css";
 import useAppContext from "../../hooks/useAppContext";
 import ModalOrganism from "./ModalOrganism";
+import ModalTemplate from "../templates/ModalTemplate";
 
-const CardDashOrganism = ({ body }) => {
+const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
   const { state, dispatch } = useAppContext();
-  const { modalReducers, formsReducers } = state;
-  const { showModal } = modalReducers;
+  const { modalReducers } = state;
+  const { showModal, templateModal } = modalReducers;
 
-  console.log("forms", formsReducers);
+  const handleButtons = (items) => {
+    return (
+      <>
+        {DeleteComponent ? (
+          <div className={styles.links}>
+            {buttonClick(
+              () => {
+                dispatch({
+                  type: "LOAD MODAL HEADER",
+                  payload: `Do you wish to Delete a ${modalType}?`,
+                });
+                dispatch({
+                  type: "LOAD FORM COMPONENT",
+                  payload: <DeleteComponent id={items.id} />,
+                });
+              },
+              "Delete",
+              "outline-danger",
+            )}
+          </div>
+        ) : null}
+        <ModalTemplate
+          show={templateModal}
+          onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}
+        />
+      </>
+    );
+  };
 
   return (
     <>
@@ -46,20 +74,7 @@ const CardDashOrganism = ({ body }) => {
                     Rent: £ {items.rent}
                   </Card.Text>
                 ) : null}
-                <div className={styles.links}>
-                  <Card.Link className={`${styles.a} ${styles.update}`}>
-                    Update
-                  </Card.Link>
-                  {buttonClick(
-                    () => {
-                      dispatch({ type: "RESET AUTH FORM" });
-                      dispatch({ type: "DELETE PROPERTY", payload: items.id });
-                      dispatch({ type: "TOGGLE SHOW MODAL" });
-                    },
-                    "Delete",
-                    "outline-danger",
-                  )}
-                </div>
+                {handleButtons(items)}
               </Card.Body>
             </Card>
           ))}

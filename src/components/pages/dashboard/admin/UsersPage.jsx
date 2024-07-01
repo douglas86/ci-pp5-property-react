@@ -9,6 +9,8 @@ import useResize from "../../../../hooks/useResize";
 import useAppContext from "../../../../hooks/useAppContext";
 
 import AxiosInstance from "../../../../API/AxiosInstance";
+import CardDashOrganism from "../../../organism/CardDashOrganism";
+import DeleteUsersForm from "../../../organism/Forms/DeleteUsersForm";
 
 const UsersPage = () => {
   const { dispatch } = useAppContext();
@@ -16,7 +18,7 @@ const UsersPage = () => {
   const [data, setData] = useState({});
 
   const width = useResize();
-  const headers = ["Name", "Role", "Rent"];
+  const headers = ["", "Name", "Role"];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,10 +38,9 @@ const UsersPage = () => {
           ({ id, user, profile_picture, role, rent }) => {
             return {
               id,
-              name: user,
               image: profile_picture,
+              name: user,
               role,
-              rent: rent ? rent : 0,
             };
           },
         );
@@ -53,7 +54,7 @@ const UsersPage = () => {
           payload: message,
         });
       });
-  }, []);
+  }, [data, dispatch]);
 
   return (
     <IsAdmin>
@@ -62,7 +63,13 @@ const UsersPage = () => {
       {data ? (
         width > 1024 ? (
           <TableOrganism headers={headers} body={data} />
-        ) : null
+        ) : (
+          <CardDashOrganism
+            body={data}
+            modalType="Users"
+            DeleteComponent={DeleteUsersForm}
+          />
+        )
       ) : (
         spinner
       )}

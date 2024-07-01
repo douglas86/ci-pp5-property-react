@@ -11,6 +11,7 @@ import useAppContext from "../../../../hooks/useAppContext";
 import useResize from "../../../../hooks/useResize";
 
 import AxiosInstance from "../../../../API/AxiosInstance";
+import CardDashOrganism from "../../../organism/CardDashOrganism";
 
 const AdminPropertyPage = () => {
   const { dispatch } = useAppContext();
@@ -80,7 +81,14 @@ const AdminPropertyPage = () => {
             UpdateComponent={UpdatePropertyForm}
             DeleteComponent={DeletePropertyForm}
           />
-        ) : null
+        ) : (
+          <CardDashOrganism
+            body={data}
+            modalType="Property"
+            UpdateComponent={UpdatePropertyForm}
+            DeleteComponent={DeletePropertyForm}
+          />
+        )
       ) : (
         spinner
       )}

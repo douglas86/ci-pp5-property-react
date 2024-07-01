@@ -1,6 +1,7 @@
 import styles from "../../styles/molecule/TableRow.module.css";
 import useAppContext from "../../hooks/useAppContext";
 import ModalTemplate from "../templates/ModalTemplate";
+import { thumbnail } from "../atom/elements";
 
 const TableRowMolecule = ({ value, handleButtons }) => {
   const { state, dispatch } = useAppContext();
@@ -9,10 +10,16 @@ const TableRowMolecule = ({ value, handleButtons }) => {
 
   const handleTable = (item) =>
     Object.entries(item).map(([key, value], id) =>
-      key === "image" || key === "id" ? null : (
-        <td className={styles.td} key={id}>
-          {key === "rent" ? `£ ${value}` : value}
-        </td>
+      key === "id" ? null : (
+        <>
+          {key === "image" ? (
+            <td className={styles.td}>{thumbnail(value, "logo")}</td>
+          ) : (
+            <td className={styles.td} key={id}>
+              {key === "rent" ? `£ ${value}` : value}
+            </td>
+          )}
+        </>
       ),
     );
 
