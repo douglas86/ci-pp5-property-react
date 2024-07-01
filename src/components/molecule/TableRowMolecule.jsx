@@ -1,8 +1,5 @@
 import styles from "../../styles/molecule/TableRow.module.css";
-import { buttonClick } from "../atom/elements";
 import useAppContext from "../../hooks/useAppContext";
-import DeletePropertyForm from "../organism/Forms/DeletePropertyForm";
-import UpdatePropertyForm from "../organism/Forms/UpdatePropertyForm";
 import ModalTemplate from "../templates/ModalTemplate";
 
 const TableRowMolecule = ({ value, handleButtons }) => {

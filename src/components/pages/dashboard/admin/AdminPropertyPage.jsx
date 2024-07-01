@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import ModalTemplate from "../../../templates/ModalTemplate";
 import IsAdmin from "../../../templates/Authentication/IsAdmin";
 import TableOrganism from "../../../organism/TableOrganism";
 import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
@@ -7,11 +6,11 @@ import { heading, spinner } from "../../../atom/elements";
 import useAppContext from "../../../../hooks/useAppContext";
 import useResize from "../../../../hooks/useResize";
 import AxiosInstance from "../../../../API/AxiosInstance";
+import UpdatePropertyForm from "../../../organism/Forms/UpdatePropertyForm";
+import DeletePropertyForm from "../../../organism/Forms/DeletePropertyForm";
 
 const AdminPropertyPage = () => {
-  const { state, dispatch } = useAppContext();
-  const { modalReducers } = state;
-  const { templateModal } = modalReducers;
+  const { dispatch } = useAppContext();
 
   const [data, setData] = useState({});
 
@@ -71,15 +70,17 @@ const AdminPropertyPage = () => {
       {heading("Properties")}
       {data ? (
         width > 1024 ? (
-          <TableOrganism headers={headers} body={data} />
+          <TableOrganism
+            headers={headers}
+            body={data}
+            modalType="Property"
+            UpdateComponent={UpdatePropertyForm}
+            DeleteComponent={DeletePropertyForm}
+          />
         ) : null
       ) : (
         spinner
       )}
-      <ModalTemplate
-        show={templateModal}
-        onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}
-      />
     </IsAdmin>
   );
 };
