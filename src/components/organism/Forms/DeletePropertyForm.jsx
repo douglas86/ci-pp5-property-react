@@ -3,9 +3,12 @@ import styles from "../../../styles/organism/Form.module.css";
 import Form from "react-bootstrap/Form";
 import { buttonClick, subheading } from "../../atom/elements";
 import AxiosInstance from "../../../API/AxiosInstance";
+import { useNavigate } from "react-router-dom";
 
 const DeletePropertyForm = ({ id }) => {
   const { dispatch } = useAppContext();
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -24,6 +27,7 @@ const DeletePropertyForm = ({ id }) => {
                     type: "SHOW SUCCESSFULLY ALERT MESSAGE",
                     payload: message,
                   });
+                  navigate("/dashboard/admin/properties");
                 })
                 .catch((err) => {
                   const { message } = err;
@@ -32,6 +36,7 @@ const DeletePropertyForm = ({ id }) => {
                     type: "SHOW UNSUCCESSFULLY ALERT MESSAGE",
                     payload: message,
                   });
+                  navigate("/dashboard/admin/properties");
                 }),
             "Delete",
             "danger",
