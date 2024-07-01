@@ -1,45 +1,58 @@
-// components
+import { useEffect, useState } from "react";
+
+import IsAdmin from "../../../templates/Authentication/IsAdmin";
+import TableOrganism from "../../../organism/TableOrganism";
+import DeleteUsers from "../../../organism/Forms/DeleteUsers";
 import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
 import { heading, spinner } from "../../../atom/elements";
 
-// styling
-import IsAdmin from "../../../templates/Authentication/IsAdmin";
-import { useEffect, useState } from "react";
-import AxiosInstance from "../../../../API/AxiosInstance";
-import TableOrganism from "../../../organism/TableOrganism";
 import useResize from "../../../../hooks/useResize";
-import CardDashOrganism from "../../../organism/CardDashOrganism";
+import useAppContext from "../../../../hooks/useAppContext";
+
+import AxiosInstance from "../../../../API/AxiosInstance";
 
 const UsersPage = () => {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState({});
-  const [body, setBody] = useState([]);
+  const { dispatch } = useAppContext();
+
+  const [data, setData] = useState({});
 
   const width = useResize();
-
-  const headers = ["", "Name", "Address", "Postcode", "Role", "Rent"];
+  const headers = ["Name", "Role", "Rent"];
 
   useEffect(() => {
-    AxiosInstance.get("profiles/")
+    const fetchData = async () => {
+      try {
+        return await AxiosInstance.get("profiles/");
+      } catch (e) {
+        return e;
+      }
+    };
+
+    fetchData()
       .then((res) => {
         const { profile } = res.data;
-        setData(res.data);
+        setData(profile);
 
-        const dict = profile.map((item) => {
-          return {
-            id: item.id,
-            image: item.profile_picture,
-            name: item.user[0].toUpperCase() + item.user.slice(1),
-            address: item.address,
-            postcode: item.postcode,
-            role: item.role[0].toUpperCase() + item.role.slice(1),
-            rent: item.rent,
-          };
-        });
-        setBody((prevState) => [...prevState, dict]);
+        const dict = profile.map(
+          ({ id, user, profile_picture, role, rent }) => {
+            return {
+              id,
+              name: user,
+              image: profile_picture,
+              role,
+              rent: rent ? rent : 0,
+            };
+          },
+        );
+        setData(dict);
       })
       .catch((err) => {
-        setError(err.message);
+        const { message } = err;
+        dispatch({ type: "TOGGLE HIDE MODAL" });
+        dispatch({
+          type: "SHOW UNSUCCESSFULLY ALERT MESSAGE",
+          payload: message,
+        });
       });
   }, []);
 
@@ -49,12 +62,15 @@ const UsersPage = () => {
       {heading("Registered Users")}
       {data ? (
         width > 1024 ? (
-          <TableOrganism headers={headers} body={body[0]} />
-        ) : (
-          <CardDashOrganism body={body[0]} />
-        )
+          <TableOrganism
+            headers={headers}
+            body={data}
+            modalType="User"
+            DeleteComponent={DeleteUsers}
+          />
+        ) : null
       ) : (
-        spinner()
+        spinner
       )}
     </IsAdmin>
   );

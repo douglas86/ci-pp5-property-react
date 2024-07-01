@@ -3,9 +3,12 @@ import { buttonClick } from "../atom/elements";
 import useAppContext from "../../hooks/useAppContext";
 import DeletePropertyForm from "../organism/Forms/DeletePropertyForm";
 import UpdatePropertyForm from "../organism/Forms/UpdatePropertyForm";
+import ModalTemplate from "../templates/ModalTemplate";
 
-const TableRowMolecule = ({ value }) => {
-  const { dispatch } = useAppContext();
+const TableRowMolecule = ({ value, handleButtons }) => {
+  const { state, dispatch } = useAppContext();
+  const { modalReducers } = state;
+  const { templateModal } = modalReducers;
 
   const handleTable = (item) =>
     Object.entries(item).map(([key, value], id) =>
@@ -16,43 +19,6 @@ const TableRowMolecule = ({ value }) => {
       ),
     );
 
-  const handleButtons = (item) => (
-    <>
-      <td className={styles.td}>
-        {buttonClick(
-          () => {
-            dispatch({
-              type: "LOAD MODAL HEADER",
-              payload: "Update a Property",
-            });
-            dispatch({
-              type: "LOAD FORM COMPONENT",
-              payload: <UpdatePropertyForm data={item} />,
-            });
-          },
-          "Update",
-          "outline-success",
-        )}
-      </td>
-      <td className={styles.td}>
-        {buttonClick(
-          () => {
-            dispatch({
-              type: "LOAD MODAL HEADER",
-              payload: "Delete A Property",
-            });
-            dispatch({
-              type: "LOAD FORM COMPONENT",
-              payload: <DeletePropertyForm id={item.id} />,
-            });
-          },
-          "Delete",
-          "outline-danger",
-        )}
-      </td>
-    </>
-  );
-
   return (
     <>
       {Object.values(value).map((items) => (
@@ -61,6 +27,10 @@ const TableRowMolecule = ({ value }) => {
           {handleButtons(items)}
         </tr>
       ))}
+      <ModalTemplate
+        show={templateModal}
+        onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}
+      />
     </>
   );
 };

@@ -7,3 +7,8 @@
 .tr {
   text-align: center;
 }
+
+.td {
+  margin: auto;
+  text-align: center;
+}

@@ -43,13 +43,13 @@ const AdminPropertyPage = () => {
             rent,
           }) => {
             return {
-              id: id,
+              id,
               image: property_image,
               name: owner,
               address: property_address,
               area: property_area,
               postcode: area_code,
-              rent: rent,
+              rent,
             };
           },
         );
