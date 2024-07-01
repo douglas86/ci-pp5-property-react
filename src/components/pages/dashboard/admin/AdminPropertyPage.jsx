@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
+
 import IsAdmin from "../../../templates/Authentication/IsAdmin";
 import TableOrganism from "../../../organism/TableOrganism";
-import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
-import { heading, spinner } from "../../../atom/elements";
-import useAppContext from "../../../../hooks/useAppContext";
-import useResize from "../../../../hooks/useResize";
-import AxiosInstance from "../../../../API/AxiosInstance";
 import UpdatePropertyForm from "../../../organism/Forms/UpdatePropertyForm";
 import DeletePropertyForm from "../../../organism/Forms/DeletePropertyForm";
+import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
+import { heading, spinner } from "../../../atom/elements";
+
+import useAppContext from "../../../../hooks/useAppContext";
+import useResize from "../../../../hooks/useResize";
+
+import AxiosInstance from "../../../../API/AxiosInstance";
 
 const AdminPropertyPage = () => {
   const { dispatch } = useAppContext();
