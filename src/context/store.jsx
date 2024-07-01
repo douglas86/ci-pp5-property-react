@@ -13,6 +13,7 @@ const initialState = {
   formsReducers: {
     authForm: null,
     form: null,
+    forms: null,
   },
   modalReducers: {
     showModal: false,

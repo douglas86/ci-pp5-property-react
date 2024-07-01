@@ -33,7 +33,7 @@ const TableRowMolecule = ({ value }) => {
             });
             dispatch({
               type: "LOAD FORM COMPONENT",
-              payload: <DeletePropertyForm />,
+              payload: <DeletePropertyForm id={item.id} />,
             });
           },
           "Delete",

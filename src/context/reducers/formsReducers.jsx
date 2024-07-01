@@ -20,8 +20,10 @@ export const formsReducers = (state, action) => {
       return { ...state, authForm: changePassword };
     case "ADD PROPERTY":
       return { ...state, form: addProperty };
+    case "FORM SUBMIT URL":
+      return { ...state, submitURL: payload };
     case "DELETE PROPERTY":
-      return { ...state, form: deleteProperty(payload) };
+      return { ...state, forms: payload };
     case "UPDATE PROPERTY":
       return { ...state, form: updateProperty(payload) };
     default:
