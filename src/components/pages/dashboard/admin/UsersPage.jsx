@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import IsAdmin from "../../../templates/Authentication/IsAdmin";
 import TableOrganism from "../../../organism/TableOrganism";
-import DeleteUsers from "../../../organism/Forms/DeleteUsers";
 import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
 import { heading, spinner } from "../../../atom/elements";
 
@@ -62,12 +61,7 @@ const UsersPage = () => {
       {heading("Registered Users")}
       {data ? (
         width > 1024 ? (
-          <TableOrganism
-            headers={headers}
-            body={data}
-            modalType="User"
-            DeleteComponent={DeleteUsers}
-          />
+          <TableOrganism headers={headers} body={data} />
         ) : null
       ) : (
         spinner
