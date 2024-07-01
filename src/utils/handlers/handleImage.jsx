@@ -22,8 +22,7 @@ export const handleImage = (event, state, setState) => {
       file["base64"] = result;
       setState({
         ...state,
-        base64Url: result,
-        file,
+        image: result,
       });
     })
     .catch((err) => {

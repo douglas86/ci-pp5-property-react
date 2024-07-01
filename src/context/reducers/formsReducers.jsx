@@ -1,6 +1,6 @@
 import { register, signIn, signOut } from "../../utils/formContent";
 import { changePassword, addProperty } from "../../utils/formContent";
-import { deleteProperty, updateProperty } from "../../utils/formContent";
+import { updateProperty } from "../../utils/formContent";
 
 export const formsReducers = (state, action) => {
   const { type, payload } = action;
@@ -20,10 +20,6 @@ export const formsReducers = (state, action) => {
       return { ...state, authForm: changePassword };
     case "ADD PROPERTY":
       return { ...state, form: addProperty };
-    case "FORM SUBMIT URL":
-      return { ...state, submitURL: payload };
-    case "DELETE PROPERTY":
-      return { ...state, forms: payload };
     case "UPDATE PROPERTY":
       return { ...state, form: updateProperty(payload) };
     default:

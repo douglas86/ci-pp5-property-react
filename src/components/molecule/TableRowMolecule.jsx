@@ -2,6 +2,7 @@ import styles from "../../styles/molecule/TableRow.module.css";
 import { buttonClick } from "../atom/elements";
 import useAppContext from "../../hooks/useAppContext";
 import DeletePropertyForm from "../organism/Forms/DeletePropertyForm";
+import UpdatePropertyForm from "../organism/Forms/UpdatePropertyForm";
 
 const TableRowMolecule = ({ value }) => {
   const { dispatch } = useAppContext();
@@ -19,7 +20,16 @@ const TableRowMolecule = ({ value }) => {
     <>
       <td className={styles.td}>
         {buttonClick(
-          () => console.log("Update was clicked"),
+          () => {
+            dispatch({
+              type: "LOAD MODAL HEADER",
+              payload: "Update a Property",
+            });
+            dispatch({
+              type: "LOAD FORM COMPONENT",
+              payload: <UpdatePropertyForm data={item} />,
+            });
+          },
           "Update",
           "outline-success",
         )}
