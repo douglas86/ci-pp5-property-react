@@ -52,8 +52,12 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 - [Bugs](#bugs)
   - [401 Error](#401-error)
   - [Carousel](#carousel)
+  - [Error when sending property data to API](#error-when-sending-property-data-to-api)
+  - [403 forbidden on logout](#403-forbidden-on-logout)
+  - [Map doesn't have its own key](#map-doesnt-have-its-own-key)
+  - [Modal background to dark on Table display](#modal-background-to-dark-on-table-display)
   - [Footer](#footer)
-  - [JSON data not serializable when sending to React](#json-data-not-serializable-when-sending-to-react)
+  - [Footer email address off-screen](#footer-email-address-off-screen)
 - [Credits](#credits)
 ---
 
@@ -127,6 +131,10 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 
 ![color_pallet.png](src/assets/docs/planning/color_pallet.png)
 
+- This color scheme was the original idea
+- But then decided to keep the original pallet
+- But change it to a more minimalistic design
+
 #### [User Stories using MOSCOW Prioritization techniques](#table-of-content)
 
 ##### Description
@@ -152,6 +160,15 @@ Landing Page
 - Ten closed
 
 ![landing_page.png](src/assets/docs/planning/milestones/landing_page.png)
+
+About Page
+
+- The percentages of milestones completed
+- 60% complete
+- Open 9
+- Fourteen closed
+
+![about.png](src/assets/docs/planning/milestones/about.png)
 
 #### [Proper Description of the Technologies used in the Project](#table-of-content)
 
@@ -288,7 +305,62 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 
 ##### Solution?
 
-- Still to come
+- The animated design I took out of my plans
+- Rather have a standing carousel and rotates every 10 seconds
+
+#### [Error when sending property data to API](#table-of-content)
+
+Problem?
+- When I try to send data to API
+- It sends me a 500 error code
+- When it should only send a message
+- This is even if I am logged in
+
+![first.png](src/assets/docs/bugs/sending_property_data/first.png)
+
+Solution?
+- This has not been solved yet?
+
+#### [403 forbidden on logout](#table-of-content)
+
+Problem?
+- When I click on logout
+- It comes with a forbidden error message
+- but if I have to refresh the page then it is fine, and it shows as if I am logged out
+- this error only happens sometimes not all the time
+
+![first.png](src/assets/docs/bugs/403_forbidden_logout/first.png)
+
+Solution?
+- It Has not been solved!!
+
+#### [Map doesn't have its own key](#table-of-content)
+
+Problem?
+- For some reason, the body of the table when mapping
+- I can't seem to add a unique id
+- From what I gather, it is just when I am developing locally
+
+![first.png](src/assets/docs/bugs/map_key/first.png)
+
+Solution?
+- This Problem has not been solved yet
+
+#### [Modal background to dark on Table display](#table-of-content)
+
+Problem?
+- For some reason, the modal is in a very dark background
+- Making it pitch black, so that nothing can be seen in the background
+- This only happens on laptop and larger devices
+
+![First.png](src/assets/docs/bugs/dark_modal_background/First.png)
+
+- This is how it should look
+
+![Second.png](src/assets/docs/bugs/dark_modal_background/Second.png)
+
+Solution?
+- This problem has not been solved yet
 
 #### [Footer](#table-of-content)
 
@@ -303,23 +375,20 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 
 - This has not been solved yet
 
-#### [JSON data not serializable when sending to React](#table-of-content)
+#### [Footer email address off-screen](#table-of-content)
 
-##### Problem?
+Problem?
+- When scaling down between 400pixels and 300 pixels
+- The email address is too long
+- It goes off the screen
 
-- The data has not be serialized when fetching and sending data
+![first.png](src/assets/docs/bugs/footer_email_address/first.png)
 
-![first.png](src/assets/docs/bugs/json_data/first.png)
+Solution?
+- Styled h4 heading and thumbnail to be smaller
+- on smaller devices
 
-##### Solution?
-
-- First thing was to change the view to async and await
-- Second thing that needed to be done was add the Serializer class
-- This was to sterilize the class from raw sql data to json data
-
-![second.png](src/assets/docs/bugs/json_data/second.png)
-
-- The stocks url has been hit with a 200 status code
+![second.png](src/assets/docs/bugs/footer_email_address/second.png)
 
 ---
 
