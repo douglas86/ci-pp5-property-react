@@ -27,6 +27,8 @@ const LogoutForm = () => {
                   type: "SHOW SUCCESSFULLY ALERT MESSAGE",
                   payload: message,
                 });
+                dispatch({ type: "LOGOUT USER" });
+                navigate("/");
               })
               .catch((err) => {
                 const { message } = err;
@@ -35,14 +37,17 @@ const LogoutForm = () => {
                   type: "SHOW UNSUCCESSFULLY ALERT MESSAGE",
                   payload: message,
                 });
+                dispatch({ type: "LOGOUT USER" });
                 navigate("/");
               });
           },
           "Logout",
-          "outline-danger",
+          "danger",
         )}
         {buttonClick(
-          () => console.log("You clicked cancel"),
+          () => {
+            dispatch({ type: "TOGGLE HIDE MODAL" });
+          },
           "Cancel",
           "warning",
         )}

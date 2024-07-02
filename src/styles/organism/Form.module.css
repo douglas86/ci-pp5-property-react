@@ -1,7 +1,6 @@
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  margin: auto 1em;
+.container {
+  width: 100% !important;
+  margin: 0 !important;
 }
 
 .subheading {
@@ -13,7 +12,27 @@
 }
 
 .subheading button {
-  padding: 0.5em !important;
+  padding: 0.5em;
+}
+
+.group {
+  width: 100% !important;
+  padding: 1em;
+}
+.groupItem {
+  padding-top: 1em;
+}
+
+.groupLabel {
+  display: flex;
+  text-align: center !important;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: auto 1em;
 }
 
 @media screen and (min-width: 768px) {

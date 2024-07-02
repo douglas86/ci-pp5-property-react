@@ -1,18 +1,13 @@
-// 3rd party npm packages
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 
-// components
 import LayoutTemplate from "../components/templates/LayoutTemplate";
 
-// custom hooks
 import useRefreshToken from "../hooks/useRefreshToken";
 import useAppContext from "../hooks/useAppContext";
 
-// utilities
 import { router } from "../utils";
 
-// styling
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {

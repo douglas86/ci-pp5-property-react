@@ -14,6 +14,7 @@ import styles from "../../styles/organism/Links.module.css";
 import ModalTemplate from "../templates/ModalTemplate";
 import LogoutForm from "./Forms/LogoutForm";
 import { useNavigate } from "react-router-dom";
+import LoginForm from "./Forms/LoginForm";
 
 /**
  * This molecule if to deal with the links on the navbar for the different pages
@@ -39,7 +40,9 @@ const LinksOrganism = () => {
     title === "Dashboard"
       ? handleUserRole(userReducers.profile)
         ? IsAdmin
-        : IsUser
+        : userReducers.user
+          ? IsUser
+          : false
       : path;
 
   return (
@@ -63,8 +66,10 @@ const LinksOrganism = () => {
         <li className={styles.li}>
           {buttonClick(
             () => {
-              dispatch({ type: "SIGN IN FORM" });
-              dispatch({ type: "TOGGLE SHOW MODAL" });
+              // dispatch({ type: "SIGN IN FORM" });
+              // dispatch({ type: "TOGGLE SHOW MODAL" });
+              dispatch({ type: "LOAD MODAL HEADER", payload: "Login Form" });
+              dispatch({ type: "LOAD FORM COMPONENT", payload: <LoginForm /> });
             },
             "Login",
             "dark",
