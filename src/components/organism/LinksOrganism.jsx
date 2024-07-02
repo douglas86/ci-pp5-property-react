@@ -11,6 +11,9 @@ import { handleAuth, handleUserRole } from "../../utils/handlers";
 
 // styling
 import styles from "../../styles/organism/Links.module.css";
+import ModalTemplate from "../templates/ModalTemplate";
+import LogoutForm from "./Forms/LogoutForm";
+import { useNavigate } from "react-router-dom";
 
 /**
  * This molecule if to deal with the links on the navbar for the different pages
@@ -21,7 +24,7 @@ const LinksOrganism = () => {
   // destructuring state from state store
   const { state, dispatch } = useAppContext();
   const { userReducers, modalReducers } = state;
-  const { showModal } = modalReducers;
+  const { showModal, templateModal } = modalReducers;
 
   // filters and returns the correct routers
   const handleRouter = router.filter((items) => {
@@ -71,18 +74,27 @@ const LinksOrganism = () => {
         <li className={styles.li}>
           {buttonClick(
             () => {
-              dispatch({ type: "SIGN OUT FORM" });
-              dispatch({ type: "TOGGLE SHOW MODAL" });
+              // dispatch({ type: "SIGN OUT FORM" });
+              // dispatch({ type: "TOGGLE SHOW MODAL" });
+              dispatch({ type: "LOAD MODAL HEADER", payload: "Logout Form" });
+              dispatch({
+                type: "LOAD FORM COMPONENT",
+                payload: <LogoutForm />,
+              });
             },
             "Logout",
             "dark",
           )}
         </li>
       )}
-      <ModalOrganism
-        show={showModal}
+      <ModalTemplate
+        show={templateModal}
         onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}
       />
+      {/*<ModalOrganism*/}
+      {/*  show={showModal}*/}
+      {/*  onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}*/}
+      {/*/>*/}
     </ul>
   );
 };

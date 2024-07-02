@@ -54,7 +54,9 @@ const UsersPage = () => {
           payload: message,
         });
       });
-  }, [data, dispatch]);
+  }, [dispatch]);
+
+  console.log("data", data);
 
   return (
     <IsAdmin>
