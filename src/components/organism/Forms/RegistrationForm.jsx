@@ -1,15 +1,15 @@
 import useAppContext from "../../../hooks/useAppContext";
+import { useState } from "react";
 
 import styles from "../../../styles/organism/Form.module.css";
 import Form from "react-bootstrap/Form";
 import { buttonClick, subheading } from "../../atom/elements";
-import { useState } from "react";
+import LoginForm from "./LoginForm";
 import { handleChange } from "../../../utils/handlers";
 import AxiosInstance from "../../../API/AxiosInstance";
-import RegistrationForm from "./RegistrationForm";
 import { getProfileData } from "../../../utils";
 
-const LoginForm = () => {
+const RegistrationForm = () => {
   const { dispatch } = useAppContext();
 
   const [form, setForm] = useState({});
@@ -17,16 +17,16 @@ const LoginForm = () => {
   return (
     <Form className={styles.container}>
       <div className={styles.subheading}>
-        {subheading("If you have not yet registered please register")}
+        {subheading("If you have already registered please click")}
         {buttonClick(
           () => {
             dispatch({
               type: "LOAD MODAL HEADER",
-              payload: "Registration Form",
+              payload: "Login Form",
             });
             dispatch({
               type: "LOAD FORM COMPONENT",
-              payload: <RegistrationForm />,
+              payload: <LoginForm />,
             });
           },
           "here?",
@@ -51,7 +51,20 @@ const LoginForm = () => {
             <Form.Control
               type="password"
               placeholder="Please enter your password"
-              name="password"
+              name="password1"
+              onChange={(e) => handleChange(e, form, setForm)}
+            />
+          </Form.Group>
+        </div>
+        <div className={styles.groupItem}>
+          <Form.Group>
+            <Form.Label className={styles.groupLabel}>
+              Re-type password
+            </Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Please re-type your password"
+              name="password2"
               onChange={(e) => handleChange(e, form, setForm)}
             />
           </Form.Group>
@@ -60,7 +73,7 @@ const LoginForm = () => {
       <div className={styles.buttons}>
         {buttonClick(
           async () => {
-            await AxiosInstance.post("/dj-rest-auth/login/", form)
+            await AxiosInstance.post("/dj-rest-auth/registration/", form)
               .then(async (res) => {
                 const results = await res.data.user;
                 const { pk } = results;
@@ -70,16 +83,15 @@ const LoginForm = () => {
                 getProfileData(pk, dispatch);
               })
               .catch((err) => {
+                console.log("err", err);
                 dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
               });
           },
-          "Login",
+          "Register",
           "success",
         )}
         {buttonClick(
-          () => {
-            dispatch({ type: "TOGGLE HIDE MODAL" });
-          },
+          () => console.log("You clicked Cancel"),
           "Cancel",
           "warning",
         )}
@@ -88,4 +100,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegistrationForm;
