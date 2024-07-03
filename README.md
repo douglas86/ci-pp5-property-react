@@ -49,6 +49,8 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
   - [State Store](#state-store)
   - [Special features on the about page](#special-features-on-the-about-page)
 - [Testing](#testing)
+  - [Automatic testing using cypress](#automatic-testing-using-cypress)
+  - [Manual testing](#manual-testing)
 - [Bugs](#bugs)
   - [401 Error](#401-error)
   - [Carousel](#carousel)
@@ -58,6 +60,7 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
   - [Modal background to dark on Table display](#modal-background-to-dark-on-table-display)
   - [Footer](#footer)
   - [Footer email address off-screen](#footer-email-address-off-screen)
+  - [does not want to refresh page on delete](#does-not-want-to-refresh-page-on-delete)
 - [Credits](#credits)
 ---
 
@@ -243,7 +246,7 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 ##### Brief Description of Automated testing
 
 - To run cypress, make sure that react is still running
-- This testing framework gives my a user interface to test
+- This testing framework gives me a user interface to test
 - It runs automatically on file save
 - Open up a new terminal and run npx cypress open
 - This will then open up a browser with cypress running
@@ -265,6 +268,22 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 - password: IAMininGLOrN
 
 ![pass.png](src/assets/docs/testing/authentication/pass.png)
+
+![cypress_passing_test.png](src/assets/docs/testing/authentication/cypress_passing_test.png)
+
+##### [Manual Testing](#table-of-content)
+
+Lighthouse testing
+
+![lighthouse.png](src/assets/docs/testing/manual_testing/lighthouse.png)
+
+HTML validation test
+
+![html validator.png](src/assets/docs/testing/manual_testing/html_validator.png)
+
+CSS validation test
+
+![css validator.png](src/assets/docs/testing/manual_testing/css_validator.png)
 
 ---
 
@@ -389,6 +408,18 @@ Solution?
 - on smaller devices
 
 ![second.png](src/assets/docs/bugs/footer_email_address/second.png)
+
+#### [does not want to refresh page on delete](#table-of-content)
+
+Problem?
+- The deleting of the user's profile
+- Will delete but for some reason it does not want to refresh the page
+- If you manually refresh, then it will show
+
+![first.png](src/assets/docs/bugs/refresh_on_delete/first.png)
+
+Solution?
+- This problem has not been solved
 
 ---
 
