@@ -13,9 +13,6 @@ export const getProfileData = (profileID, dispatch) => {
     .then(async (res) => {
       const data = await res.data[0];
 
-      console.log("results", res);
-      console.log("data", data);
-
       dispatch({ type: "UPDATE PROFILE DATA", payload: data });
     })
     .catch((err) => {

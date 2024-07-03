@@ -1,6 +1,5 @@
 import { Card } from "react-bootstrap";
 
-import ModalTemplate from "../templates/ModalTemplate";
 import ModalOrganism from "./ModalOrganism";
 import { buttonClick, spinner, subheading, thumbnail } from "../atom/elements";
 
@@ -11,7 +10,7 @@ import styles from "../../styles/organism/CardDash.module.css";
 const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
   const { state, dispatch } = useAppContext();
   const { modalReducers } = state;
-  const { showModal, templateModal } = modalReducers;
+  const { templateModal } = modalReducers;
 
   const handleButtons = (items) => {
     return (
@@ -34,7 +33,7 @@ const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
             )}
           </div>
         ) : null}
-        <ModalTemplate
+        <ModalOrganism
           show={templateModal}
           onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}
         />
@@ -89,11 +88,6 @@ const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
       ) : (
         spinner()
       )}
-      <ModalOrganism
-        show={showModal}
-        onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}
-        auth={false}
-      />
     </>
   );
 };

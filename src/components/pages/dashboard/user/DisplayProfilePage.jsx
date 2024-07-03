@@ -1,7 +1,6 @@
 import IsUser from "../../../templates/Authentication/IsUser";
 import useAppContext from "../../../../hooks/useAppContext";
 import { Card } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Moment from "react-moment";
 
 const DisplayProfilePage = () => {
