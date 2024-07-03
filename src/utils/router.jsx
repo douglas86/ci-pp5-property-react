@@ -3,8 +3,8 @@ import LandingPage from "../components/pages/LandingPage";
 import AboutPage from "../components/pages/AboutPage";
 import DashboardPage from "../components/pages/DashboardPage";
 import UsersPage from "../components/pages/dashboard/admin/UsersPage";
-import AdminPropertyPage from "../components/pages/dashboard/admin/AdminPropertyPage";
-import AdminAddPropertyPage from "../components/pages/dashboard/admin/AdminAddPropertyPage";
+import PropertyPage from "../components/pages/dashboard/admin/PropertyPage";
+import AddPropertyPage from "../components/pages/dashboard/admin/AddPropertyPage";
 import NotFoundPage from "../components/pages/NotFoundPage";
 import DisplayProfilePage from "../components/pages/dashboard/user/DisplayProfilePage";
 
@@ -51,13 +51,13 @@ export const router = [
   },
   {
     title: "None",
-    component: <AdminPropertyPage />,
+    component: <PropertyPage />,
     path: "/dashboard/admin/properties",
     permissions: "admin",
   },
   {
     title: "None",
-    component: <AdminAddPropertyPage />,
+    component: <AddPropertyPage />,
     path: "/dashboard/admin/add-new-property",
     permissions: "admin",
   },

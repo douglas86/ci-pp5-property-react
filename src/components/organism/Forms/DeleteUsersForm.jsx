@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { buttonClick, subheading } from "../../atom/elements";
 
 import useAppContext from "../../../hooks/useAppContext";
-
 import AxiosInstance from "../../../API/AxiosInstance";
 
 import styles from "../../../styles/organism/Form.module.css";
@@ -30,7 +29,7 @@ const DeleteUsersForm = ({ id }) => {
                   type: "SHOW SUCCESSFULLY ALERT MESSAGE",
                   payload: message,
                 });
-                navigate("/dashboard/admin/users");
+                navigate("/dashboard/admin/users/");
               })
               .catch((err) => {
                 const { message } = err;
@@ -39,7 +38,7 @@ const DeleteUsersForm = ({ id }) => {
                   type: "SHOW UNSUCCESSFULLY ALERT MESSAGE",
                   payload: message,
                 });
-                navigate("/dashboard/admin/users");
+                navigate("/dashboard/admin/users/");
               });
           },
           "Delete",
@@ -48,7 +47,7 @@ const DeleteUsersForm = ({ id }) => {
         {buttonClick(
           () => {
             dispatch({ type: "TOGGLE HIDE MODAL" });
-            navigate("/dashboard/admin/users");
+            navigate("/dashboard/admin/users/");
           },
           "Cancel",
           "warning",

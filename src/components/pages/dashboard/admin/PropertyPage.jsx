@@ -1,25 +1,20 @@
 import { useEffect, useState } from "react";
 
 import IsAdmin from "../../../templates/Authentication/IsAdmin";
-import TableOrganism from "../../../organism/TableOrganism";
 import UpdatePropertyForm from "../../../organism/Forms/UpdatePropertyForm";
 import DeletePropertyForm from "../../../organism/Forms/DeletePropertyForm";
 import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
 import { heading, spinner } from "../../../atom/elements";
 
 import useAppContext from "../../../../hooks/useAppContext";
-import useResize from "../../../../hooks/useResize";
 
 import AxiosInstance from "../../../../API/AxiosInstance";
 import CardDashOrganism from "../../../organism/CardDashOrganism";
 
-const AdminPropertyPage = () => {
+const PropertyPage = () => {
   const { dispatch } = useAppContext();
 
   const [data, setData] = useState({});
-
-  const width = useResize();
-  const headers = ["Property Owner", "Address", "Area", "Postcode", "Rent"];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,29 +61,19 @@ const AdminPropertyPage = () => {
           payload: message,
         });
       });
-  }, [data, dispatch]);
+  }, [dispatch]);
 
   return (
     <IsAdmin>
       <AdminButtonsMolecule />
       {heading("Properties")}
       {data ? (
-        width > 1024 ? (
-          <TableOrganism
-            headers={headers}
-            body={data}
-            modalType="Property"
-            UpdateComponent={UpdatePropertyForm}
-            DeleteComponent={DeletePropertyForm}
-          />
-        ) : (
-          <CardDashOrganism
-            body={data}
-            modalType="Property"
-            UpdateComponent={UpdatePropertyForm}
-            DeleteComponent={DeletePropertyForm}
-          />
-        )
+        <CardDashOrganism
+          body={data}
+          modalType="Property"
+          UpdateComponent={UpdatePropertyForm}
+          DeleteComponent={DeletePropertyForm}
+        />
       ) : (
         spinner
       )}
@@ -96,4 +81,4 @@ const AdminPropertyPage = () => {
   );
 };
 
-export default AdminPropertyPage;
+export default PropertyPage;

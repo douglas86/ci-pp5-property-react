@@ -1,10 +1,12 @@
 import { Card } from "react-bootstrap";
-import { buttonClick, spinner, thumbnail } from "../atom/elements";
+
+import ModalTemplate from "../templates/ModalTemplate";
+import ModalOrganism from "./ModalOrganism";
+import { buttonClick, spinner, subheading, thumbnail } from "../atom/elements";
+
+import useAppContext from "../../hooks/useAppContext";
 
 import styles from "../../styles/organism/CardDash.module.css";
-import useAppContext from "../../hooks/useAppContext";
-import ModalOrganism from "./ModalOrganism";
-import ModalTemplate from "../templates/ModalTemplate";
 
 const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
   const { state, dispatch } = useAppContext();
@@ -20,7 +22,7 @@ const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
               () => {
                 dispatch({
                   type: "LOAD MODAL HEADER",
-                  payload: `Do you wish to Delete a ${modalType}?`,
+                  payload: `Do you wish to Delete ${modalType}?`,
                 });
                 dispatch({
                   type: "LOAD FORM COMPONENT",
@@ -44,7 +46,7 @@ const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
     <>
       {body ? (
         <div className={styles.div}>
-          {body.map((items, index) => (
+          {Object.values(body).map((items, index) => (
             <Card
               style={{ width: "15rem" }}
               key={index}
@@ -54,6 +56,7 @@ const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
                 <Card.Title>
                   {thumbnail(`${items.image}`, "profile")} {items.name}
                 </Card.Title>
+                {items.role ? <Card.Text>Role: {items.role}</Card.Text> : null}
                 {items.address ? (
                   <Card.Text className="text-muted">
                     Address: {items.address}
@@ -74,7 +77,11 @@ const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
                     Rent: £ {items.rent}
                   </Card.Text>
                 ) : null}
-                {handleButtons(items)}
+                {items.role === "user"
+                  ? handleButtons(items)
+                  : modalType !== "Users"
+                    ? handleButtons(items)
+                    : subheading("You can not delete the admin?")}
               </Card.Body>
             </Card>
           ))}
