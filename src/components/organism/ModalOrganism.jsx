@@ -1,36 +1,28 @@
-// 3rd party libraries
 import { Modal } from "react-bootstrap";
-
-// components
-import FormOrganism from "./FormOrganism";
 import { heading } from "../atom/elements";
-
-// custom hooks
+import styles from "../../styles/organism/Modal.module.css";
 import useAppContext from "../../hooks/useAppContext";
 
-// styling
-import styles from "../../styles/organism/Modal.module.css";
-
-const ModalOrganism = (props) => {
+/*
+Template that will be used for displaying the modal
+ */
+const ModalOrganism = ({ show, onHide }) => {
   const { state } = useAppContext();
-  const { formsReducers } = state;
-  const { form } = formsReducers;
+  const { modalReducers } = state;
+  const { formComponent, modalHeader } = modalReducers;
 
   return (
     <Modal
-      {...props}
+      show={show}
+      onHide={onHide}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
       <Modal.Header className={styles.header} closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          {form && heading(form.buttonText)}
-        </Modal.Title>
+        {modalHeader && heading(modalHeader)}
       </Modal.Header>
-      <Modal.Body>
-        <FormOrganism auth />
-      </Modal.Body>
+      <Modal.Body>{formComponent}</Modal.Body>
     </Modal>
   );
 };

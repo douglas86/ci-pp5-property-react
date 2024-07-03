@@ -1,5 +1,4 @@
 // components
-import { buttonClick } from "../atom/elements";
 import { title } from "../atom/elements";
 import { subheading } from "../atom/elements";
 
@@ -11,7 +10,6 @@ const PageTitleMolecule = () => {
     <div className={styles.container}>
       {title}
       {subheading("Welcome to the best property site in London")}
-      {buttonClick(() => console.log("clicked"), "Search Properties", "dark")}
     </div>
   );
 };

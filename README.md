@@ -13,9 +13,11 @@ This forms part of the front end for my fifth project with code institute.
 This application is used to give a nice look and feel for the properties that are being looked at.
 It will have a nicely displayed look and feel with a user Profile were everything can be displayed in one place.
 
-![display.png](src/assets/docs/display.png)
+![img.png](src/assets/docs/display.png)
 
 Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
+
+As far as the coloring of the site goes, I wanted to todo a plan display with a white background
 
 ---
 
@@ -49,10 +51,18 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
   - [State Store](#state-store)
   - [Special features on the about page](#special-features-on-the-about-page)
 - [Testing](#testing)
+  - [Automatic testing using cypress](#automatic-testing-using-cypress)
+  - [Manual testing](#manual-testing)
 - [Bugs](#bugs)
   - [401 Error](#401-error)
   - [Carousel](#carousel)
+  - [Error when sending property data to API](#error-when-sending-property-data-to-api)
+  - [403 forbidden on logout](#403-forbidden-on-logout)
+  - [Map doesn't have its own key](#map-doesnt-have-its-own-key)
+  - [Modal background to dark on Table display](#modal-background-to-dark-on-table-display)
   - [Footer](#footer)
+  - [Footer email address off-screen](#footer-email-address-off-screen)
+  - [does not want to refresh page on delete](#does-not-want-to-refresh-page-on-delete)
 - [Credits](#credits)
 ---
 
@@ -126,6 +136,10 @@ Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 
 ![color_pallet.png](src/assets/docs/planning/color_pallet.png)
 
+- This color scheme was the original idea
+- But then decided to keep the original pallet
+- But change it to a more minimalistic design
+
 #### [User Stories using MOSCOW Prioritization techniques](#table-of-content)
 
 ##### Description
@@ -151,6 +165,15 @@ Landing Page
 - Ten closed
 
 ![landing_page.png](src/assets/docs/planning/milestones/landing_page.png)
+
+About Page
+
+- The percentages of milestones completed
+- 60% complete
+- Open 9
+- Fourteen closed
+
+![about.png](src/assets/docs/planning/milestones/about.png)
 
 #### [Proper Description of the Technologies used in the Project](#table-of-content)
 
@@ -225,7 +248,7 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 ##### Brief Description of Automated testing
 
 - To run cypress, make sure that react is still running
-- This testing framework gives my a user interface to test
+- This testing framework gives me a user interface to test
 - It runs automatically on file save
 - Open up a new terminal and run npx cypress open
 - This will then open up a browser with cypress running
@@ -247,6 +270,22 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 - password: IAMininGLOrN
 
 ![pass.png](src/assets/docs/testing/authentication/pass.png)
+
+![cypress_passing_test.png](src/assets/docs/testing/authentication/cypress_passing_test.png)
+
+##### [Manual Testing](#table-of-content)
+
+Lighthouse testing
+
+![lighthouse.png](src/assets/docs/testing/manual_testing/lighthouse.png)
+
+HTML validation test
+
+![html validator.png](src/assets/docs/testing/manual_testing/html_validator.png)
+
+CSS validation test
+
+![css validator.png](src/assets/docs/testing/manual_testing/css_validator.png)
 
 ---
 
@@ -287,7 +326,62 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 
 ##### Solution?
 
-- Still to come
+- The animated design I took out of my plans
+- Rather have a standing carousel and rotates every 10 seconds
+
+#### [Error when sending property data to API](#table-of-content)
+
+Problem?
+- When I try to send data to API
+- It sends me a 500 error code
+- When it should only send a message
+- This is even if I am logged in
+
+![first.png](src/assets/docs/bugs/sending_property_data/first.png)
+
+Solution?
+- This has not been solved yet?
+
+#### [403 forbidden on logout](#table-of-content)
+
+Problem?
+- When I click on logout
+- It comes with a forbidden error message
+- but if I have to refresh the page then it is fine, and it shows as if I am logged out
+- this error only happens sometimes not all the time
+
+![first.png](src/assets/docs/bugs/403_forbidden_logout/first.png)
+
+Solution?
+- It Has not been solved!!
+
+#### [Map doesn't have its own key](#table-of-content)
+
+Problem?
+- For some reason, the body of the table when mapping
+- I can't seem to add a unique id
+- From what I gather, it is just when I am developing locally
+
+![first.png](src/assets/docs/bugs/map_key/first.png)
+
+Solution?
+- This Problem has not been solved yet
+
+#### [Modal background to dark on Table display](#table-of-content)
+
+Problem?
+- For some reason, the modal is in a very dark background
+- Making it pitch black, so that nothing can be seen in the background
+- This only happens on laptop and larger devices
+
+![First.png](src/assets/docs/bugs/dark_modal_background/First.png)
+
+- This is how it should look
+
+![Second.png](src/assets/docs/bugs/dark_modal_background/Second.png)
+
+Solution?
+- This problem has not been solved yet
 
 #### [Footer](#table-of-content)
 
@@ -302,6 +396,33 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 
 - This has not been solved yet
 
+#### [Footer email address off-screen](#table-of-content)
+
+Problem?
+- When scaling down between 400pixels and 300 pixels
+- The email address is too long
+- It goes off the screen
+
+![first.png](src/assets/docs/bugs/footer_email_address/first.png)
+
+Solution?
+- Styled h4 heading and thumbnail to be smaller
+- on smaller devices
+
+![second.png](src/assets/docs/bugs/footer_email_address/second.png)
+
+#### [does not want to refresh page on delete](#table-of-content)
+
+Problem?
+- The deleting of the user's profile
+- Will delete but for some reason it does not want to refresh the page
+- If you manually refresh, then it will show
+
+![first.png](src/assets/docs/bugs/refresh_on_delete/first.png)
+
+Solution?
+- This problem has not been solved
+
 ---
 
 ### [Credits](#table-of-content)
@@ -310,6 +431,8 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 - Assisted in helping me get the state store correct [here](https://ricostacruz.com/til/state-management-with-react-hooks)
 - Article that assisted in iterating over [reducer](https://stackoverflow.com/questions/59200785/react-usereducer-how-to-combine-multiple-reducers) functions
 - Article that helps get the [state store](https://ricostacruz.com/til/state-management-with-react-hooks) up and running
+- Article for getting superuser right with shell terminal [here](https://stackoverflow.com/questions/11337420/can-i-use-an-existing-user-as-django-admin-when-enabling-admin-for-the-first-tim)
+- Help to get the tokens correct [here](https://medium.com/django-unleashed/securing-django-rest-apis-with-jwt-authentication-using-simple-jwt-a-step-by-step-guide-28efa84666fe)
 
 ---
 

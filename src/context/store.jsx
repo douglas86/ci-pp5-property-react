@@ -10,12 +10,9 @@ const initialState = {
   dataReducers: {
     showAlert: false,
   },
-  formsReducers: {
-    authForm: null,
-    form: null,
-  },
   modalReducers: {
-    showModal: false,
+    templateModal: false,
+    formComponent: null,
   },
   stateReducers: {
     MenuOpen: false,
@@ -25,13 +22,12 @@ const initialState = {
 export const Context = createContext(initialState);
 
 const init = (initialState) => {
-  const { userReducers, dataReducers, formsReducers } = initialState;
+  const { userReducers, dataReducers } = initialState;
   const { stateReducers, modalReducers } = initialState;
 
   return {
     userReducers,
     dataReducers,
-    formsReducers,
     modalReducers,
     stateReducers,
   };

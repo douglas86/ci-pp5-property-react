@@ -6,6 +6,7 @@ import AxiosInstance from "../API/AxiosInstance";
 
 // custom hooks
 import useAppContext from "./useAppContext";
+import { getProfileData } from "../utils";
 
 /**
  * Custom hook to gather users and profile data while refreshing tokens
@@ -27,15 +28,7 @@ const useRefreshToken = () => {
             dispatch({ type: "UPDATE USER DATA", payload: results });
 
             // fetch users profile data
-            AxiosInstance.get(`/profiles/${pk}/`)
-              .then(async (res) => {
-                const data = await res.data[0];
-                // store profile data to state store
-                dispatch({ type: "UPDATE PROFILE DATA", payload: data });
-              })
-              .catch((err) => {
-                dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
-              });
+            getProfileData(pk, dispatch);
           })
           // if a user is not logged in
           .catch((err) => {

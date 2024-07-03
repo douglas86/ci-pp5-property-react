@@ -6,8 +6,12 @@ import { buttonClick } from "../atom/elements";
 
 // styling
 import styles from "../../styles/molecule/AdminButtons.module.css";
+import LoginForm from "../organism/Forms/LoginForm";
+import useAppContext from "../../hooks/useAppContext";
 
 const AdminButtonsMolecule = () => {
+  const { dispatch } = useAppContext();
+
   const navigate = useNavigate();
 
   return (
@@ -31,7 +35,11 @@ const AdminButtonsMolecule = () => {
       <div className={styles.sections}>
         <div className={styles.buttons}>
           {buttonClick(
-            () => navigate("/dashboard/admin/add-new-property"),
+            () => {
+              navigate("/dashboard/admin/add-new-property");
+              dispatch({ type: "LOAD MODAL HEADER", payload: "Login Form" });
+              dispatch({ type: "LOAD FORM COMPONENT", payload: <LoginForm /> });
+            },
             "Add new Property",
             "success",
           )}

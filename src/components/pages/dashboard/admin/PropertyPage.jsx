@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 
 import IsAdmin from "../../../templates/Authentication/IsAdmin";
-import CardDashOrganism from "../../../organism/CardDashOrganism";
-import DeleteUsersForm from "../../../organism/Forms/DeleteUsersForm";
+import UpdatePropertyForm from "../../../organism/Forms/UpdatePropertyForm";
+import DeletePropertyForm from "../../../organism/Forms/DeletePropertyForm";
 import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
 import { heading, spinner } from "../../../atom/elements";
 
 import useAppContext from "../../../../hooks/useAppContext";
 
 import AxiosInstance from "../../../../API/AxiosInstance";
+import CardDashOrganism from "../../../organism/CardDashOrganism";
 
-const UsersPage = () => {
+const PropertyPage = () => {
   const { dispatch } = useAppContext();
 
   const [data, setData] = useState({});
@@ -18,7 +19,7 @@ const UsersPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        return await AxiosInstance.get("profiles/");
+        return await AxiosInstance.get("stocks/");
       } catch (e) {
         return e;
       }
@@ -26,16 +27,30 @@ const UsersPage = () => {
 
     fetchData()
       .then((res) => {
-        const { profile } = res.data;
+        const { data } = res.data;
+        setData(data);
 
-        const dict = profile.map(({ id, user, profile_picture, role }) => {
-          return {
+        const dict = data.map(
+          ({
+            area_code,
             id,
-            image: profile_picture,
-            name: user,
-            role,
-          };
-        });
+            owner,
+            property_address,
+            property_area,
+            property_image,
+            rent,
+          }) => {
+            return {
+              id,
+              image: property_image,
+              name: owner,
+              address: property_address,
+              area: property_area,
+              postcode: area_code,
+              rent,
+            };
+          },
+        );
         setData(dict);
       })
       .catch((err) => {
@@ -51,12 +66,13 @@ const UsersPage = () => {
   return (
     <IsAdmin>
       <AdminButtonsMolecule />
-      {heading("Registered Users")}
-      {data !== {} ? (
+      {heading("Properties")}
+      {data ? (
         <CardDashOrganism
           body={data}
-          modalType="Users"
-          DeleteComponent={DeleteUsersForm}
+          modalType="Property"
+          UpdateComponent={UpdatePropertyForm}
+          DeleteComponent={DeletePropertyForm}
         />
       ) : (
         spinner
@@ -65,4 +81,4 @@ const UsersPage = () => {
   );
 };
 
-export default UsersPage;
+export default PropertyPage;

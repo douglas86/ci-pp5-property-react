@@ -20,13 +20,13 @@ import styles from "../../styles/templates/Layout.module.css";
 const LayoutTemplate = ({ children }) => {
   const { state } = useAppContext();
   const { dataReducers } = state;
-  const { showAlert, showMessage } = dataReducers;
+  const { showAlert, showMessage, alertColor } = dataReducers;
 
   return (
     <>
       <HeaderOrganism />
       <main className={styles.main}>
-        {showAlert && <Alert variant="primary">{showMessage}</Alert>}
+        {showAlert && <Alert variant={alertColor}>{showMessage}</Alert>}
         {children}
       </main>
       <FooterOrganism />

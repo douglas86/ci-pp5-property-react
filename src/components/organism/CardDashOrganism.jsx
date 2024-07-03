@@ -1,15 +1,51 @@
 import { Card } from "react-bootstrap";
-import { spinner, thumbnail } from "../atom/elements";
+
+import ModalOrganism from "./ModalOrganism";
+import { buttonClick, spinner, subheading, thumbnail } from "../atom/elements";
+
+import useAppContext from "../../hooks/useAppContext";
 
 import styles from "../../styles/organism/CardDash.module.css";
 
-const CardDashOrganism = ({ body }) => {
-  console.log("body", body);
+const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
+  const { state, dispatch } = useAppContext();
+  const { modalReducers } = state;
+  const { templateModal } = modalReducers;
+
+  const handleButtons = (items) => {
+    return (
+      <>
+        {DeleteComponent ? (
+          <div className={styles.links}>
+            {buttonClick(
+              () => {
+                dispatch({
+                  type: "LOAD MODAL HEADER",
+                  payload: `Do you wish to Delete ${modalType}?`,
+                });
+                dispatch({
+                  type: "LOAD FORM COMPONENT",
+                  payload: <DeleteComponent id={items.id} />,
+                });
+              },
+              "Delete",
+              "outline-danger",
+            )}
+          </div>
+        ) : null}
+        <ModalOrganism
+          show={templateModal}
+          onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}
+        />
+      </>
+    );
+  };
+
   return (
     <>
       {body ? (
         <div className={styles.div}>
-          {body.map((items, index) => (
+          {Object.values(body).map((items, index) => (
             <Card
               style={{ width: "15rem" }}
               key={index}
@@ -19,12 +55,15 @@ const CardDashOrganism = ({ body }) => {
                 <Card.Title>
                   {thumbnail(`${items.image}`, "profile")} {items.name}
                 </Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
-                  Role: {items.role}
-                </Card.Subtitle>
+                {items.role ? <Card.Text>Role: {items.role}</Card.Text> : null}
                 {items.address ? (
                   <Card.Text className="text-muted">
                     Address: {items.address}
+                  </Card.Text>
+                ) : null}
+                {items.area ? (
+                  <Card.Text className="text-muted">
+                    Area: {items.area}
                   </Card.Text>
                 ) : null}
                 {items.postcode ? (
@@ -37,17 +76,11 @@ const CardDashOrganism = ({ body }) => {
                     Rent: £ {items.rent}
                   </Card.Text>
                 ) : null}
-                <div className={styles.links}>
-                  <Card.Link className={`${styles.a} ${styles.view}`}>
-                    Info
-                  </Card.Link>
-                  <Card.Link className={`${styles.a} ${styles.update}`}>
-                    Update
-                  </Card.Link>
-                  <Card.Link className={`${styles.a} ${styles.delete}`}>
-                    Delete
-                  </Card.Link>
-                </div>
+                {items.role === "user"
+                  ? handleButtons(items)
+                  : modalType !== "Users"
+                    ? handleButtons(items)
+                    : subheading("You can not delete the admin?")}
               </Card.Body>
             </Card>
           ))}

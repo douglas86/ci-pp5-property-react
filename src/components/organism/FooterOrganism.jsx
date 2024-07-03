@@ -2,8 +2,6 @@
 import { h4Heading, thumbnail } from "../atom/elements";
 
 // assets
-import emailIcon from "../../assets/images/footer/Email.png";
-import androidIcon from "../../assets/images/footer/Android Phone.png";
 import githubIcon from "../../assets/images/footer/GitHub.png";
 import LinkedinIcon from "../../assets/images/footer/LinkedIn Circled.png";
 
@@ -26,13 +24,9 @@ const FooterOrganism = () => {
       </div>
       <div className={styles.contactInformation}>
         <div className={styles.section}>
-          {thumbnail(emailIcon, "email icon")}
           {h4Heading("douglasmaxton@gmail.com")}
         </div>
-        <div className={styles.section}>
-          {thumbnail(androidIcon, "android icon")}
-          {h4Heading("074 427 81303")}
-        </div>
+        <div className={styles.section}>{h4Heading("074 427 81303")}</div>
       </div>
     </footer>
   );

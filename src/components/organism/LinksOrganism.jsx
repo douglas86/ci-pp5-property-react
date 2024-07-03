@@ -1,5 +1,4 @@
 // components
-import ModalOrganism from "./ModalOrganism";
 import { buttonClick } from "../atom/elements";
 
 // custom hooks
@@ -11,6 +10,9 @@ import { handleAuth, handleUserRole } from "../../utils/handlers";
 
 // styling
 import styles from "../../styles/organism/Links.module.css";
+import ModalOrganism from "./ModalOrganism";
+import LogoutForm from "./Forms/LogoutForm";
+import LoginForm from "./Forms/LoginForm";
 
 /**
  * This molecule if to deal with the links on the navbar for the different pages
@@ -21,7 +23,7 @@ const LinksOrganism = () => {
   // destructuring state from state store
   const { state, dispatch } = useAppContext();
   const { userReducers, modalReducers } = state;
-  const { showModal } = modalReducers;
+  const { templateModal } = modalReducers;
 
   // filters and returns the correct routers
   const handleRouter = router.filter((items) => {
@@ -36,7 +38,9 @@ const LinksOrganism = () => {
     title === "Dashboard"
       ? handleUserRole(userReducers.profile)
         ? IsAdmin
-        : IsUser
+        : userReducers.user
+          ? IsUser
+          : false
       : path;
 
   return (
@@ -60,8 +64,8 @@ const LinksOrganism = () => {
         <li className={styles.li}>
           {buttonClick(
             () => {
-              dispatch({ type: "SIGN IN FORM" });
-              dispatch({ type: "TOGGLE SHOW MODAL" });
+              dispatch({ type: "LOAD MODAL HEADER", payload: "Login Form" });
+              dispatch({ type: "LOAD FORM COMPONENT", payload: <LoginForm /> });
             },
             "Login",
             "dark",
@@ -71,8 +75,11 @@ const LinksOrganism = () => {
         <li className={styles.li}>
           {buttonClick(
             () => {
-              dispatch({ type: "SIGN OUT FORM" });
-              dispatch({ type: "TOGGLE SHOW MODAL" });
+              dispatch({ type: "LOAD MODAL HEADER", payload: "Logout Form" });
+              dispatch({
+                type: "LOAD FORM COMPONENT",
+                payload: <LogoutForm />,
+              });
             },
             "Logout",
             "dark",
@@ -80,7 +87,7 @@ const LinksOrganism = () => {
         </li>
       )}
       <ModalOrganism
-        show={showModal}
+        show={templateModal}
         onHide={() => dispatch({ type: "TOGGLE HIDE MODAL" })}
       />
     </ul>
