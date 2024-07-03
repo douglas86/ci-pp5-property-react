@@ -65,7 +65,7 @@ export const router = [
   {
     title: "None",
     component: <DisplayProfilePage />,
-    path: "/dashboard/user/display-profile",
+    path: "/dashboard/user",
     permissions: "user",
   },
   // page not found
