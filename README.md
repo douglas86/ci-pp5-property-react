@@ -17,6 +17,8 @@ It will have a nicely displayed look and feel with a user Profile were everythin
 
 Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
 
+As far as the coloring of the site goes, I wanted to todo a plan display with a white background
+
 ---
 
 [//]: # (Badges)
