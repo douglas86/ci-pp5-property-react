@@ -6,6 +6,10 @@ const access = Cookies.get("auth-token");
 const csrf = Cookies.get("csrftoken");
 const refresh = Cookies.get("refresh-token");
 
+export const AxiosRegister = axios.create({
+  baseURL: heroku,
+});
+
 const AxiosInstance = axios.create({
   baseURL: heroku,
   withCredentials: true,

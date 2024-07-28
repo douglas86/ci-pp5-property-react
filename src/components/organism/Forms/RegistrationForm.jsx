@@ -6,8 +6,9 @@ import Form from "react-bootstrap/Form";
 import { buttonClick, subheading } from "../../atom/elements";
 import LoginForm from "./LoginForm";
 import { handleChange } from "../../../utils/handlers";
-import AxiosInstance from "../../../API/AxiosInstance";
+import { AxiosRegister } from "../../../API/AxiosInstance";
 import { getProfileData } from "../../../utils";
+import axios from "axios";
 
 const RegistrationForm = () => {
   const { dispatch } = useAppContext();
@@ -73,19 +74,30 @@ const RegistrationForm = () => {
       <div className={styles.buttons}>
         {buttonClick(
           async () => {
-            await AxiosInstance.post("/dj-rest-auth/registration/", form)
+            await axios
+              .post(
+                "https://ci-pp5-property-api-958077e8a5b4.herokuapp.com/dj-rest-auth/registration/",
+                form,
+              )
               .then(async (res) => {
-                const results = await res.data.user;
-                const { pk } = results;
-                dispatch({ type: "TOGGLE HIDE MODAL" });
-                dispatch({ type: "UPDATE USER DATA", payload: results });
-
-                getProfileData(pk, dispatch);
+                console.log("res", res);
               })
               .catch((err) => {
                 console.log("err", err);
-                dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
               });
+            // await AxiosInstance.post("/dj-rest-auth/registration/", form)
+            //   .then(async (res) => {
+            //     const results = await res.data.user;
+            //     const { pk } = results;
+            //     dispatch({ type: "TOGGLE HIDE MODAL" });
+            //     dispatch({ type: "UPDATE USER DATA", payload: results });
+            //
+            //     getProfileData(pk, dispatch);
+            //   })
+            //   .catch((err) => {
+            //     console.log("err", err);
+            //     dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
+            //   });
           },
           "Register",
           "success",
