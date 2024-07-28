@@ -77,7 +77,13 @@ const RegistrationForm = () => {
             await AxiosRegister.post("/dj-rest-auth/registration/", form)
               .then(async (res) => {
                 const results = await res.data.user;
+                const { access, refresh } = await res.data;
+
+                document.cookie = `auth-token=${access}`;
+                document.cookie = `refresh-token=${refresh}`;
+
                 const { pk } = results;
+
                 dispatch({ type: "TOGGLE HIDE MODAL" });
                 dispatch({ type: "UPDATE USER DATA", payload: results });
 
