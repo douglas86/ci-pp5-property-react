@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 import { buttonClick, subheading } from "../../atom/elements";
 import LoginForm from "./LoginForm";
 import { handleChange } from "../../../utils/handlers";
-import { AxiosRegister } from "../../../API/AxiosInstance";
+import AxiosInstance, { AxiosRegister } from "../../../API/AxiosInstance";
 import { getProfileData } from "../../../utils";
 import axios from "axios";
 
@@ -85,7 +85,7 @@ const RegistrationForm = () => {
             //   .catch((err) => {
             //     console.log("err", err);
             //   });
-            await AxiosRegister.post("/dj-rest-auth/registration/", form)
+            await AxiosInstance.post("/dj-rest-auth/registration/", form)
               .then(async (res) => {
                 const results = await res.data.user;
                 console.log("results", results);
