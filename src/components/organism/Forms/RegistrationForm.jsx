@@ -85,7 +85,7 @@ const RegistrationForm = () => {
             //   .catch((err) => {
             //     console.log("err", err);
             //   });
-            await AxiosInstance.post("/dj-rest-auth/registration/", form)
+            await AxiosRegister.post("/dj-rest-auth/registration/", form)
               .then(async (res) => {
                 const results = await res.data.user;
                 console.log("results", results);
