@@ -85,17 +85,17 @@ const LoginForm = () => {
 
             await AxiosRegister.post("dj-rest-auth/login/", form)
               .then(async (res) => {
-                const results = await res.data.user;
-                const { access, refresh } = await res.data;
+                // const results = await res.data.user;
+                // const { access, refresh } = await res.data;
+                //
+                // document.cookie = `auth-token=${access}`;
+                // document.cookie = `refresh-token=${refresh}`;
+                //
+                // const { pk } = results;
+                // dispatch({ type: "TOGGLE HIDE MODAL" });
+                // dispatch({ type: "UPDATE USER DATA", payload: results });
 
-                document.cookie = `auth-token=${access}`;
-                document.cookie = `refresh-token=${refresh}`;
-
-                const { pk } = results;
-                dispatch({ type: "TOGGLE HIDE MODAL" });
-                dispatch({ type: "UPDATE USER DATA", payload: results });
-
-                getProfileData(pk, dispatch);
+                await getProfileData(res, dispatch);
               })
               .catch((err) => {
                 console.log("err", err);

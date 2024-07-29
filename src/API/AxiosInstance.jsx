@@ -15,9 +15,6 @@ const AxiosInstance = axios.create({
   withCredentials: true,
   headers: {
     Authorization: `Bearer ${access}`,
-    "X-csrftoken": csrf,
-    refresh,
-    access,
   },
 });
 
