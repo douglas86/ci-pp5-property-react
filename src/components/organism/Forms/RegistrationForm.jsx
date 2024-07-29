@@ -6,9 +6,8 @@ import Form from "react-bootstrap/Form";
 import { buttonClick, subheading } from "../../atom/elements";
 import LoginForm from "./LoginForm";
 import { handleChange } from "../../../utils/handlers";
-import AxiosInstance, { AxiosRegister } from "../../../API/AxiosInstance";
+import { AxiosRegister } from "../../../API/AxiosInstance";
 import { getProfileData } from "../../../utils";
-import axios from "axios";
 
 const RegistrationForm = () => {
   const { dispatch } = useAppContext();
