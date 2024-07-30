@@ -59,6 +59,8 @@ const useRefreshToken = () => {
       .then(() => {
         handleUserData()
           .then(async (res) => {
+            const results = await res;
+            console.log("results", results);
             dispatch({ type: "UPDATE USER DATA", payload: res });
             await getProfileData(res, dispatch);
           })
