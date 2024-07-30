@@ -303,8 +303,9 @@ CSS validation test
 
 ##### Solution?
 
-- The solution to this problem would be so that the console doesn't show any error message
-- I have not quite been able to get this right yet
+- I have added login to only send a request is there is a refresh-token in the Cookie store
+
+![cookie_store.png](src/assets/docs/bugs/cookie_store.png)
 
 #### [Carousel](#table-of-content)
 
@@ -353,7 +354,9 @@ Problem?
 ![first.png](src/assets/docs/bugs/403_forbidden_logout/first.png)
 
 Solution?
-- It Has not been solved!!
+- I can now log out with a form box asking for permission first
+
+![second.png](src/assets/docs/bugs/403_forbidden_logout/second.png)
 
 #### [Map doesn't have its own key](#table-of-content)
 
