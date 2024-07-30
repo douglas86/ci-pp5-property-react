@@ -78,25 +78,8 @@ const LoginForm = () => {
       <div className={styles.buttons}>
         {buttonClick(
           async () => {
-            const heroku =
-              "https://ci-pp5-property-api-958077e8a5b4.herokuapp.com";
-
-            // IAMininGLOrN
-
             await AxiosRegister.post("dj-rest-auth/login/", form)
-              .then(async (res) => {
-                // const results = await res.data.user;
-                // const { access, refresh } = await res.data;
-                //
-                // document.cookie = `auth-token=${access}`;
-                // document.cookie = `refresh-token=${refresh}`;
-                //
-                // const { pk } = results;
-                // dispatch({ type: "TOGGLE HIDE MODAL" });
-                // dispatch({ type: "UPDATE USER DATA", payload: results });
-
-                await getProfileData(res, dispatch);
-              })
+              .then(async (res) => await getProfileData(res, dispatch))
               .catch((err) => {
                 console.log("err", err);
                 dispatch({ type: "ERROR UPDATING USER DATA", payload: err });

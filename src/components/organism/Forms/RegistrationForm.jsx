@@ -74,20 +74,7 @@ const RegistrationForm = () => {
         {buttonClick(
           async () => {
             await AxiosRegister.post("/dj-rest-auth/registration/", form)
-              .then(async (res) => {
-                // const results = await res.data.user;
-                // const { access, refresh } = await res.data;
-                //
-                // document.cookie = `auth-token=${access}`;
-                // document.cookie = `refresh-token=${refresh}`;
-                //
-                // const { pk } = results;
-                //
-                // dispatch({ type: "TOGGLE HIDE MODAL" });
-                // dispatch({ type: "UPDATE USER DATA", payload: results });
-
-                await getProfileData(res, dispatch);
-              })
+              .then(async (res) => await getProfileData(res, dispatch))
               .catch((err) => {
                 dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
               });
