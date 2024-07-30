@@ -5,6 +5,7 @@ import styles from "../../../styles/organism/Form.module.css";
 import Form from "react-bootstrap/Form";
 import { buttonClick, subheading } from "../../atom/elements";
 import AxiosInstance from "../../../API/AxiosInstance";
+import Cookies from "js-cookie";
 
 const LogoutForm = () => {
   const { dispatch } = useAppContext();
@@ -22,6 +23,8 @@ const LogoutForm = () => {
             await AxiosInstance.post("profiles/logout/")
               .then((res) => {
                 const { message } = res.data;
+                Cookies.remove("refresh-token");
+                Cookies.remove("auth-token");
                 dispatch({ type: "TOGGLE HIDE MODAL" });
                 dispatch({
                   type: "SHOW SUCCESSFULLY ALERT MESSAGE",
