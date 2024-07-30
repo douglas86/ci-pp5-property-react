@@ -55,22 +55,23 @@ const useRefreshToken = () => {
      * @returns {Promise<Object|Error>} -
      *  A promise used to store Profile data to state store - or error data to state store if needed
      */
-    handleRefreshToken()
-      .then(() => {
-        handleUserData()
-          .then(async (res) => {
-            const results = await res;
-            console.log("results", results);
-            dispatch({ type: "UPDATE USER DATA", payload: res });
-            await getProfileData(res, dispatch);
-          })
-          .catch((err) => {
-            dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
-          });
-      })
-      .catch((error) => {
-        dispatch({ type: "ERROR UPDATING USER DATA", payload: error });
-      });
+    refreshToken &&
+      handleRefreshToken()
+        .then(() => {
+          handleUserData()
+            .then(async (res) => {
+              const results = await res;
+              console.log("results", results);
+              dispatch({ type: "UPDATE USER DATA", payload: res });
+              await getProfileData(res, dispatch);
+            })
+            .catch((err) => {
+              dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
+            });
+        })
+        .catch((error) => {
+          dispatch({ type: "ERROR UPDATING USER DATA", payload: error });
+        });
   }, [dispatch, refreshToken]);
 };
 
