@@ -2,16 +2,16 @@ import AxiosInstance from "../API/AxiosInstance";
 
 export const getProfileData = async (res, dispatch) => {
   const { access, refresh, user } = await res.data;
-  const { pk } = user;
 
-  document.cookie = `auth-token=${access}`;
-  document.cookie = `refresh-token=${refresh}`;
+  access && (document.cookie = `auth-token=${access}`);
+  refresh && (document.cookie = `refresh-token=${refresh}`);
 
   dispatch({ type: "TOGGLE HIDE MODAL" });
   dispatch({ type: "UPDATE USER DATA", payload: user });
 
   const handleProfile = async () => {
     try {
+      const { pk } = user;
       return await AxiosInstance.get(`profiles/${pk}`);
     } catch (error) {
       return error;

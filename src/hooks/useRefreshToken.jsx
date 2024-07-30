@@ -1,14 +1,15 @@
 // 3rd party libraries
 import { useEffect } from "react";
+import Cookies from "js-cookie";
 
 // API defaults
 import AxiosInstance from "../API/AxiosInstance";
 
 // custom hooks
 import useAppContext from "./useAppContext";
+
+// utilities
 import { getProfileData } from "../utils";
-import axios from "axios";
-import Cookies from "js-cookie";
 
 /**
  * Custom hook to gather users and profile data while refreshing tokens
@@ -19,6 +20,13 @@ const useRefreshToken = () => {
   const refreshToken = Cookies.get("refresh-token");
 
   useEffect(() => {
+    /**
+     * Handles refreshing the authentication token using the given `refreshToken`.
+     *
+     * @async
+     * @returns {Promise<Object>} - A Promise that resolves to the refreshed token
+     *                            or rejects with an error if the refresh request fails.
+     */
     const handleRefreshToken = async () => {
       try {
         return await AxiosInstance.post("dj-rest-auth/token/refresh/", {
@@ -29,50 +37,39 @@ const useRefreshToken = () => {
       }
     };
 
+    /**
+     * Retrieves the user data using an Axios instance.
+     * @async
+     * @returns {Promise<Object|Error>} - A promise that resolves with the user data if successful, or rejects with an error.
+     */
+    const handleUserData = async () => {
+      try {
+        return await AxiosInstance.get("dj-rest-auth/user/");
+      } catch (error) {
+        return error;
+      }
+    };
+
+    /**
+     * Promises used to refresh tokens, fetch user and profile data
+     * @returns {Promise<Object|Error>} -
+     *  A promise used to store Profile data to state store - or error data to state store if needed
+     */
     handleRefreshToken()
-      .then((response) => {
-        console.log("response2", response);
+      .then(() => {
+        handleUserData()
+          .then(async (res) => {
+            dispatch({ type: "UPDATE USER DATA", payload: res });
+            await getProfileData(res, dispatch);
+          })
+          .catch((err) => {
+            dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
+          });
       })
       .catch((error) => {
-        console.log("error2", error);
+        dispatch({ type: "ERROR UPDATING USER DATA", payload: error });
       });
   }, [dispatch, refreshToken]);
-
-  // useEffect(() => {
-  //   AxiosInstance.post("dj-rest-auth/token/refresh/")
-  //     .then(async (res) => {
-  //       const results = await res;
-  //       console.log("res", results);
-  //     })
-  //     .catch((err) => {
-  //       console.log("err", err);
-  //     });
-
-  // refresh user token
-  // AxiosInstance.post("dj-rest-auth/token/refresh/")
-  //   .then(() => {
-  //     // fetch users' data
-  //     AxiosInstance.get("/dj-rest-auth/user/")
-  //       // if a user is logged in
-  //       .then(async (res) => {
-  //         const results = await res.data;
-  //         const { pk } = results;
-  //         // store user data to state store
-  //         dispatch({ type: "UPDATE USER DATA", payload: results });
-  //
-  //         // fetch users profile data
-  //         await getProfileData(pk, dispatch);
-  //       })
-  //       // if a user is not logged in
-  //       .catch((err) => {
-  //         dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
-  //       });
-  //   })
-  //   .catch((err) => {
-  //     dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
-  //     dispatch({ type: "LOGOUT USER" });
-  //   });
-  // }, [dispatch]);
 };
 
 export default useRefreshToken;
