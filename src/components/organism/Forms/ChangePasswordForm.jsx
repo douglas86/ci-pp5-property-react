@@ -8,7 +8,7 @@ import useAppContext from "../../../hooks/useAppContext";
 
 import { handleChange } from "../../../utils/handlers";
 
-import AxiosInstance from "../../../API/AxiosInstance";
+import { AxiosRegister } from "../../../API/AxiosInstance";
 
 import styles from "../../../styles/organism/Form.module.css";
 
@@ -76,15 +76,16 @@ const ChangePasswordForm = () => {
       <div className={styles.buttons}>
         {buttonClick(
           async () => {
-            await AxiosInstance.post("profiles/change_password/", form)
+            await AxiosRegister.post("profiles/change_password/", form)
               .then((res) => {
                 const results = res.data;
                 dispatch({ type: "TOGGLE HIDE MODAL" });
                 dispatch({
                   type: "SHOW SUCCESSFULLY ALERT MESSAGE",
-                  payload: results.message,
+                  payload:
+                    results.message +
+                    ". Please login with the changed password",
                 });
-                console.log("res", res);
               })
               .catch((err) => {
                 dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
