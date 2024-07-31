@@ -6,3 +6,4 @@ export * from "./spinner";
 export * from "./subheading";
 export * from "./thumbnail";
 export * from "./title";
+export * from "./error";
