@@ -1,4 +1,4 @@
-import { local, reactHeroku, heroku, server } from "./credentials";
+import { local, reactHeroku, heroku } from "./credentials";
 
 describe("Check if sites are active", () => {
   it("Visits live site on heroku", async () => {
