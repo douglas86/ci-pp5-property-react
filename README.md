@@ -250,7 +250,8 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 - To run cypress, make sure that react is still running
 - This testing framework gives me a user interface to test
 - It runs automatically on file save
-- Open up a new terminal and run npx cypress open
+- Open up a new terminal and run the command $ npm run cypress
+- I have created a script for cypress
 - This will then open up a browser with cypress running
 
 ##### Authentication testing
@@ -266,7 +267,7 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 ###### Passing the test?
 
 - tested against the correct login credentials
-- username: douglas
+- username: test
 - password: IAMininGLOrN
 
 ![pass.png](src/assets/docs/testing/authentication/pass.png)
