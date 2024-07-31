@@ -23,8 +23,6 @@ const ChangePasswordForm = () => {
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState(null);
 
-  console.log("errors", errors);
-
   return (
     <Form className={styles.container}>
       <div className={styles.subheading}>
@@ -88,6 +86,7 @@ const ChangePasswordForm = () => {
             await AxiosRegister.post("profiles/change_password/", form)
               .then((res) => {
                 const results = res.data;
+
                 results.status === 200
                   ? dispatch({ type: "TOGGLE HIDE MODAL" }) &&
                     dispatch({
@@ -99,7 +98,6 @@ const ChangePasswordForm = () => {
                   : setErrors(results.message);
               })
               .catch((err) => {
-                console.log("err", err);
                 setErrors("One or more of your fields are incorrect");
                 dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
               });
