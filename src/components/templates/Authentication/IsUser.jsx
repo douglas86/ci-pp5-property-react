@@ -1,7 +1,26 @@
-import useAppContext from "../../../hooks/useAppContext";
 import { useEffect } from "react";
+
 import NotFoundPage from "../../pages/NotFoundPage";
 
+import useAppContext from "../../../hooks/useAppContext";
+
+/**
+ * IsUser Component.
+ *
+ * A component that checks if the user is authenticated and has the role of "user".
+ * If the user is authenticated and has the role of "user", it renders the provided children.
+ * If the user is not authenticated or has a different role, it renders the NotFoundPage component.
+ *
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {ReactNode} props.children - The components to render if the user is authenticated and has the role of "user".
+ *
+ * @example
+ * return (* <IsUser>
+ *     <DashboardPage />
+ *   </IsUser> *);
+ */
 const IsUser = ({ children }) => {
   const { state, dispatch } = useAppContext();
   const { userReducers } = state;

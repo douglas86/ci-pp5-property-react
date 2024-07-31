@@ -1,10 +1,7 @@
-// 3rd party packages
 import { useEffect, useState } from "react";
 
-// components
 import { buttonClick, image } from "../atom/elements";
 
-// assets
 import one from "../../assets/images/carousel/one.jpg";
 import two from "../../assets/images/carousel/two.jpg";
 import three from "../../assets/images/carousel/three.jpg";
@@ -16,7 +13,6 @@ import eight from "../../assets/images/carousel/eight.jpg";
 import nine from "../../assets/images/carousel/nine.png";
 import ten from "../../assets/images/carousel/ten.png";
 
-// styling
 import styles from "../../styles/organism/Carousel.module.css";
 
 /**

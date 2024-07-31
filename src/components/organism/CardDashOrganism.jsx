@@ -7,6 +7,16 @@ import useAppContext from "../../hooks/useAppContext";
 
 import styles from "../../styles/organism/CardDash.module.css";
 
+/**
+ * Render the CardDashOrganism component.
+ *
+ * @param {Object} props - The component props.
+ * @param {Object} props.body - The body object containing data for each card.
+ * @param {string} props.modalType - The type of modal.
+ * @param {React.Component} props.DeleteComponent - The component to be rendered when delete button is clicked.
+ *
+ * @returns {React.Component} The rendered CardDashOrganism component.
+ */
 const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
   const { state, dispatch } = useAppContext();
   const { modalReducers } = state;

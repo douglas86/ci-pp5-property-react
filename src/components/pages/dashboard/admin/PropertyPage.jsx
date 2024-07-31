@@ -3,14 +3,19 @@ import { useEffect, useState } from "react";
 import IsAdmin from "../../../templates/Authentication/IsAdmin";
 import UpdatePropertyForm from "../../../organism/Forms/UpdatePropertyForm";
 import DeletePropertyForm from "../../../organism/Forms/DeletePropertyForm";
+import CardDashOrganism from "../../../organism/CardDashOrganism";
 import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
 import { heading, spinner } from "../../../atom/elements";
 
 import useAppContext from "../../../../hooks/useAppContext";
 
 import AxiosInstance from "../../../../API/AxiosInstance";
-import CardDashOrganism from "../../../organism/CardDashOrganism";
 
+/**
+ * PropertyPage component.
+ *
+ * @returns {JSX.Element} The rendered PropertyPage component.
+ */
 const PropertyPage = () => {
   const { dispatch } = useAppContext();
 

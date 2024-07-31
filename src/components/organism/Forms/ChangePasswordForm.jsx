@@ -2,20 +2,26 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 
 import LoginForm from "./LoginForm";
-import { buttonClick, subheading } from "../../atom/elements";
+import { buttonClick, error, subheading } from "../../atom/elements";
 
 import useAppContext from "../../../hooks/useAppContext";
 
 import { handleChange } from "../../../utils/handlers";
 
-import AxiosInstance from "../../../API/AxiosInstance";
+import { AxiosRegister } from "../../../API/AxiosInstance";
 
 import styles from "../../../styles/organism/Form.module.css";
 
+/**
+ * Represents a form for changing password.
+ * @constructor
+ * @returns {ReactElement} JSX for the ChangePasswordForm
+ */
 const ChangePasswordForm = () => {
   const { dispatch } = useAppContext();
 
   const [form, setForm] = useState({});
+  const [errors, setErrors] = useState(null);
 
   return (
     <Form className={styles.container}>
@@ -71,22 +77,28 @@ const ChangePasswordForm = () => {
               onChange={(e) => handleChange(e, form, setForm)}
             />
           </Form.Group>
+          {errors && error(errors)}
         </div>
       </div>
       <div className={styles.buttons}>
         {buttonClick(
           async () => {
-            await AxiosInstance.post("profiles/change_password/", form)
+            await AxiosRegister.post("profiles/change_password/", form)
               .then((res) => {
                 const results = res.data;
-                dispatch({ type: "TOGGLE HIDE MODAL" });
-                dispatch({
-                  type: "SHOW SUCCESSFULLY ALERT MESSAGE",
-                  payload: results.message,
-                });
-                console.log("res", res);
+
+                results.status === 200
+                  ? dispatch({ type: "TOGGLE HIDE MODAL" }) &&
+                    dispatch({
+                      type: "SHOW SUCCESSFULLY ALERT MESSAGE",
+                      payload:
+                        results.message +
+                        ". Please login with the changed password",
+                    })
+                  : setErrors(results.message);
               })
               .catch((err) => {
+                setErrors("One or more of your fields are incorrect");
                 dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
               });
           },

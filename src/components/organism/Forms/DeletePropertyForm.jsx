@@ -1,10 +1,21 @@
-import useAppContext from "../../../hooks/useAppContext";
-import styles from "../../../styles/organism/Form.module.css";
 import Form from "react-bootstrap/Form";
-import { buttonClick, subheading } from "../../atom/elements";
-import AxiosInstance from "../../../API/AxiosInstance";
 import { useNavigate } from "react-router-dom";
 
+import { buttonClick, subheading } from "../../atom/elements";
+
+import useAppContext from "../../../hooks/useAppContext";
+import AxiosInstance from "../../../API/AxiosInstance";
+
+import styles from "../../../styles/organism/Form.module.css";
+
+/**
+ * DeletePropertyForm component displays a form for deleting a property.
+ *
+ * @param {Object} props - The prop object.
+ * @param {string} props.id - The ID of the property to be deleted.
+ *
+ * @returns {JSX.Element} The rendered component.
+ */
 const DeletePropertyForm = ({ id }) => {
   const { dispatch } = useAppContext();
 

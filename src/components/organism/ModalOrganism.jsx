@@ -1,10 +1,16 @@
 import { Modal } from "react-bootstrap";
+
 import { heading } from "../atom/elements";
-import styles from "../../styles/organism/Modal.module.css";
+
 import useAppContext from "../../hooks/useAppContext";
 
-/*
-Template that will be used for displaying the modal
+import styles from "../../styles/organism/Modal.module.css";
+
+/**
+ * Represents a modal organism component.
+ *
+ * @param {Object} props - The prop object containing the show and onHide properties.
+ * @returns {React.Element} - The rendered modal component.
  */
 const ModalOrganism = ({ show, onHide }) => {
   const { state } = useAppContext();

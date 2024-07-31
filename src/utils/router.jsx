@@ -1,4 +1,3 @@
-// pages
 import LandingPage from "../components/pages/LandingPage";
 import AboutPage from "../components/pages/AboutPage";
 import DashboardPage from "../components/pages/DashboardPage";
@@ -8,18 +7,18 @@ import AddPropertyPage from "../components/pages/dashboard/admin/AddPropertyPage
 import NotFoundPage from "../components/pages/NotFoundPage";
 import DisplayProfilePage from "../components/pages/dashboard/user/DisplayProfilePage";
 
-// description of the keys within the object
-// title - this is the name on the navbar header
-// component - the pages that I want to load
-// path - of were the route will go
-// permissions - the permission allowed to access page
-//   null - no permission needed
-//   admin - only admin user can access
-//   user - only normally users can access
-
 /**
- * This helper file is used for all page routes
- * @type {[{path: string, component: JSX.Element, permissions: null, title: string},{path: string, component: JSX.Element, permissions: null, title: string},{path: string, component: JSX.Element, permissions: null, title: string},{path: string, component: JSX.Element, permissions: string, title: string},{path: string, component: JSX.Element, permissions: string, title: string},null,null]}
+ * An array of objects representing routes in the application.
+ *
+ * Each object in the array represents a specific route and contains the following properties:
+ *
+ * @typedef {Object} Route
+ * @property {string} title - The title of the route shown in the navigation bar.
+ * @property {ReactComponent} component - The component to render when the route is active.
+ * @property {string} path - The path of the route.
+ * @property {string|null} permissions - The required permissions to access the route. Can be null if no permissions are required.
+ * @property {string|null} IsAdmin - The path to the route when the user has admin permissions. Can be null if the route is not specific to admins.
+ * @property {string|null} IsUser - The path to the route when the user has user permissions. Can be null if the route is not specific to users.
  */
 export const router = [
   // links on Navbar

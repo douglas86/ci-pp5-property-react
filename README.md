@@ -250,7 +250,8 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 - To run cypress, make sure that react is still running
 - This testing framework gives me a user interface to test
 - It runs automatically on file save
-- Open up a new terminal and run npx cypress open
+- Open up a new terminal and run the command $ npm run cypress
+- I have created a script for cypress
 - This will then open up a browser with cypress running
 
 ##### Authentication testing
@@ -266,7 +267,7 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 ###### Passing the test?
 
 - tested against the correct login credentials
-- username: douglas
+- username: test
 - password: IAMininGLOrN
 
 ![pass.png](src/assets/docs/testing/authentication/pass.png)
@@ -303,8 +304,9 @@ CSS validation test
 
 ##### Solution?
 
-- The solution to this problem would be so that the console doesn't show any error message
-- I have not quite been able to get this right yet
+- I have added login to only send a request is there is a refresh-token in the Cookie store
+
+![cookie_store.png](src/assets/docs/bugs/cookie_store.png)
 
 #### [Carousel](#table-of-content)
 
@@ -353,7 +355,9 @@ Problem?
 ![first.png](src/assets/docs/bugs/403_forbidden_logout/first.png)
 
 Solution?
-- It Has not been solved!!
+- I can now log out with a form box asking for permission first
+
+![second.png](src/assets/docs/bugs/403_forbidden_logout/second.png)
 
 #### [Map doesn't have its own key](#table-of-content)
 

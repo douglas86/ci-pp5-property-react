@@ -1,11 +1,19 @@
-import useAppContext from "../../../hooks/useAppContext";
 import { useNavigate } from "react-router-dom";
-
-import styles from "../../../styles/organism/Form.module.css";
 import Form from "react-bootstrap/Form";
+import Cookies from "js-cookie";
+
 import { buttonClick, subheading } from "../../atom/elements";
+
+import useAppContext from "../../../hooks/useAppContext";
 import AxiosInstance from "../../../API/AxiosInstance";
 
+import styles from "../../../styles/organism/Form.module.css";
+
+/**
+ * Represents a Logout Form component.
+ *
+ * @returns {JSX.Element} The rendered Logout Form component.
+ */
 const LogoutForm = () => {
   const { dispatch } = useAppContext();
 
@@ -22,6 +30,8 @@ const LogoutForm = () => {
             await AxiosInstance.post("profiles/logout/")
               .then((res) => {
                 const { message } = res.data;
+                Cookies.remove("refresh-token");
+                Cookies.remove("auth-token");
                 dispatch({ type: "TOGGLE HIDE MODAL" });
                 dispatch({
                   type: "SHOW SUCCESSFULLY ALERT MESSAGE",

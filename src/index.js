@@ -1,13 +1,10 @@
-// 3rd party libraries
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
-// constructors
 import App from "./construction/App";
 import reportWebVitals from "./construction/reportWebVitals";
 
-// context
 import { Provider } from "./context/store";
 
 import "./styles/general/index.css";

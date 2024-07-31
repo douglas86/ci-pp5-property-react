@@ -1,18 +1,23 @@
-import useAppContext from "../../../hooks/useAppContext";
 import { useState } from "react";
+import Form from "react-bootstrap/Form";
+
+import LoginForm from "./LoginForm";
+import { buttonClick, error, subheading } from "../../atom/elements";
+
+import useAppContext from "../../../hooks/useAppContext";
+import { handleChange } from "../../../utils/handlers";
+import { AxiosRegister } from "../../../API/AxiosInstance";
+import { getProfileData } from "../../../utils";
 
 import styles from "../../../styles/organism/Form.module.css";
-import Form from "react-bootstrap/Form";
-import { buttonClick, subheading } from "../../atom/elements";
-import LoginForm from "./LoginForm";
-import { handleChange } from "../../../utils/handlers";
-import AxiosInstance from "../../../API/AxiosInstance";
-import { getProfileData } from "../../../utils";
 
 const RegistrationForm = () => {
   const { dispatch } = useAppContext();
 
   const [form, setForm] = useState({});
+  const [errors, setErrors] = useState({});
+
+  console.log("errors", errors);
 
   return (
     <Form className={styles.container}>
@@ -44,6 +49,7 @@ const RegistrationForm = () => {
               onChange={(e) => handleChange(e, form, setForm)}
             />
           </Form.Group>
+          {errors?.username && error(errors.username)}
         </div>
         <div className={styles.groupItem}>
           <Form.Group>
@@ -55,6 +61,7 @@ const RegistrationForm = () => {
               onChange={(e) => handleChange(e, form, setForm)}
             />
           </Form.Group>
+          {errors?.password1 && error(errors.password1)}
         </div>
         <div className={styles.groupItem}>
           <Form.Group>
@@ -68,22 +75,19 @@ const RegistrationForm = () => {
               onChange={(e) => handleChange(e, form, setForm)}
             />
           </Form.Group>
+          {errors?.password2 && error(errors.password2)}
+          {errors?.non_field_errors && error(errors.non_field_errors)}
         </div>
       </div>
       <div className={styles.buttons}>
         {buttonClick(
           async () => {
-            await AxiosInstance.post("/dj-rest-auth/registration/", form)
-              .then(async (res) => {
-                const results = await res.data.user;
-                const { pk } = results;
-                dispatch({ type: "TOGGLE HIDE MODAL" });
-                dispatch({ type: "UPDATE USER DATA", payload: results });
-
-                getProfileData(pk, dispatch);
-              })
+            await AxiosRegister.post("/dj-rest-auth/registration/", form)
+              .then(async (res) => await getProfileData(res, dispatch))
               .catch((err) => {
-                console.log("err", err);
+                const { data } = err.response;
+                console.log("err1", err);
+                setErrors(data);
                 dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
               });
           },

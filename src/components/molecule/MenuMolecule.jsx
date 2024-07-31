@@ -1,12 +1,14 @@
-// utilities
 import { menuToggle } from "../../utils";
 
-// custom hooks
 import useAppContext from "../../hooks/useAppContext";
 
-// styling
 import styles from "../../styles/molecule/Menu.module.css";
 
+/**
+ * Represents a menu molecule component that handles menu state and toggle functionality.
+ *
+ * @returns {JSX} The rendered menu molecule component.
+ */
 const MenuMolecule = () => {
   const { state, dispatch } = useAppContext();
   const { stateReducers } = state;

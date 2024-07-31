@@ -1,19 +1,27 @@
+import Form from "react-bootstrap/Form";
+import { useState } from "react";
+
+import RegistrationForm from "./RegistrationForm";
+import ChangePasswordForm from "./ChangePasswordForm";
+import { buttonClick, error, subheading } from "../../atom/elements";
+
 import useAppContext from "../../../hooks/useAppContext";
 
-import styles from "../../../styles/organism/Form.module.css";
-import Form from "react-bootstrap/Form";
-import { buttonClick, subheading } from "../../atom/elements";
-import { useState } from "react";
 import { handleChange } from "../../../utils/handlers";
-import AxiosInstance from "../../../API/AxiosInstance";
-import RegistrationForm from "./RegistrationForm";
+import { AxiosRegister } from "../../../API/AxiosInstance";
 import { getProfileData } from "../../../utils";
-import ChangePasswordForm from "./ChangePasswordForm";
 
+import styles from "../../../styles/organism/Form.module.css";
+
+/**
+ * Represents a login form component.
+ * @constructor
+ */
 const LoginForm = () => {
   const { dispatch } = useAppContext();
 
   const [form, setForm] = useState({});
+  const [errors, setErrors] = useState({});
 
   return (
     <Form className={styles.container}>
@@ -56,6 +64,9 @@ const LoginForm = () => {
               onChange={(e) => handleChange(e, form, setForm)}
             />
           </Form.Group>
+          {errors &&
+            Object.keys(errors).length > 0 &&
+            Object.values(errors).map((e, i) => <div key={i}>{error(e)}</div>)}
         </div>
       </div>
       <div className={styles.subheading}>
@@ -78,16 +89,12 @@ const LoginForm = () => {
       <div className={styles.buttons}>
         {buttonClick(
           async () => {
-            await AxiosInstance.post("/dj-rest-auth/login/", form)
-              .then(async (res) => {
-                const results = await res.data.user;
-                const { pk } = results;
-                dispatch({ type: "TOGGLE HIDE MODAL" });
-                dispatch({ type: "UPDATE USER DATA", payload: results });
-
-                getProfileData(pk, dispatch);
-              })
+            await AxiosRegister.post("dj-rest-auth/login/", form)
+              .then(async (res) => await getProfileData(res, dispatch))
               .catch((err) => {
+                const { data } = err.response;
+                console.log("err1", err);
+                setErrors(data);
                 dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
               });
           },

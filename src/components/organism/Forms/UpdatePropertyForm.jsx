@@ -1,13 +1,22 @@
-import Form from "react-bootstrap/Form";
-
-import styles from "../../../styles/organism/Form.module.css";
-import { buttonClick, subheading } from "../../atom/elements";
 import { useState } from "react";
+import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
+
+import { buttonClick, subheading } from "../../atom/elements";
+
 import { handleChange, handleImage } from "../../../utils/handlers";
 import AxiosInstance from "../../../API/AxiosInstance";
 import useAppContext from "../../../hooks/useAppContext";
-import { useNavigate } from "react-router-dom";
 
+import styles from "../../../styles/organism/Form.module.css";
+
+/**
+ * Form component for updating property data.
+ *
+ * @component
+ * @param {Object} data - The initial data for the property.
+ * @returns {JSX.Element} - The rendered form component.
+ */
 const UpdatePropertyForm = ({ data }) => {
   const { dispatch } = useAppContext();
 

@@ -1,13 +1,15 @@
-// components
 import PageTitleMolecule from "../molecule/PageTitleMolecule";
 import StatementMolecule from "../molecule/StatementMolecule";
 
-// assets
 import house from "../../assets/images/about page/house.png";
 
-// styling
 import styles from "../../styles/pages/about.module.css";
 
+/**
+ * Represents the About Page component.
+ *
+ * @returns {JSX.Element} The About Page component.
+ */
 const AboutPage = () => {
   const missionCommitment = [
     {

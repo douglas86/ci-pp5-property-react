@@ -1,14 +1,19 @@
-// 3rd party libraries
 import { useNavigate } from "react-router-dom";
 
-// components
 import { buttonClick } from "../atom/elements";
-
-// styling
-import styles from "../../styles/molecule/AdminButtons.module.css";
 import LoginForm from "../organism/Forms/LoginForm";
+
 import useAppContext from "../../hooks/useAppContext";
 
+import styles from "../../styles/molecule/AdminButtons.module.css";
+
+/**
+ * Component representing admin buttons molecule.
+ * This molecule is used to display admin buttons for navigating between different admin pages.
+ *
+ * @function AdminButtonsMolecule
+ * @returns {JSX.Element} - The rendered component
+ */
 const AdminButtonsMolecule = () => {
   const { dispatch } = useAppContext();
 

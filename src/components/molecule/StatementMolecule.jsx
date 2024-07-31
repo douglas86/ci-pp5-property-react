@@ -1,7 +1,5 @@
-// components
 import { heading, subheading } from "../atom/elements";
 
-// styling
 import styles from "../../styles/molecule/Statement.module.css";
 
 /**

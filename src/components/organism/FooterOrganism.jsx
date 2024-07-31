@@ -1,13 +1,16 @@
-// components
 import { h4Heading, thumbnail } from "../atom/elements";
 
-// assets
 import githubIcon from "../../assets/images/footer/GitHub.png";
 import LinkedinIcon from "../../assets/images/footer/LinkedIn Circled.png";
 
-// styling
 import styles from "../../styles/organism/FooterOrganism.module.css";
 
+/**
+ * FooterOrganism is a functional component that represents the footer section of a web page.
+ * It displays social links and contact information.
+ *
+ * @returns {JSX.Element} The JSX element representing the footer.
+ */
 const FooterOrganism = () => {
   return (
     <footer className={styles.footer}>
