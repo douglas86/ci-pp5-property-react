@@ -1,10 +1,6 @@
-import { login, refreshTokenFail, refreshTokenPass } from "./authentication";
 import { local, reactHeroku, heroku, server } from "./credentials";
 
 describe("Check if sites are active", () => {
-  // refreshTokenFail();
-  // login();
-  // refreshTokenPass();
   it("Visits live site on heroku", async () => {
     cy.visit(`${reactHeroku}`);
   });
