@@ -1,12 +1,19 @@
-import useAppContext from "../../../hooks/useAppContext";
 import { useNavigate } from "react-router-dom";
-
-import styles from "../../../styles/organism/Form.module.css";
 import Form from "react-bootstrap/Form";
-import { buttonClick, subheading } from "../../atom/elements";
-import AxiosInstance from "../../../API/AxiosInstance";
 import Cookies from "js-cookie";
 
+import { buttonClick, subheading } from "../../atom/elements";
+
+import useAppContext from "../../../hooks/useAppContext";
+import AxiosInstance from "../../../API/AxiosInstance";
+
+import styles from "../../../styles/organism/Form.module.css";
+
+/**
+ * Represents a Logout Form component.
+ *
+ * @returns {JSX.Element} The rendered Logout Form component.
+ */
 const LogoutForm = () => {
   const { dispatch } = useAppContext();
 

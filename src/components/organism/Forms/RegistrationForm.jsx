@@ -1,13 +1,15 @@
-import useAppContext from "../../../hooks/useAppContext";
 import { useState } from "react";
-
-import styles from "../../../styles/organism/Form.module.css";
 import Form from "react-bootstrap/Form";
-import { buttonClick, subheading } from "../../atom/elements";
+
 import LoginForm from "./LoginForm";
+import { buttonClick, subheading } from "../../atom/elements";
+
+import useAppContext from "../../../hooks/useAppContext";
 import { handleChange } from "../../../utils/handlers";
 import { AxiosRegister } from "../../../API/AxiosInstance";
 import { getProfileData } from "../../../utils";
+
+import styles from "../../../styles/organism/Form.module.css";
 
 const RegistrationForm = () => {
   const { dispatch } = useAppContext();

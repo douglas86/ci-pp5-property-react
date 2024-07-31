@@ -1,15 +1,22 @@
+import Form from "react-bootstrap/Form";
+import { useState } from "react";
+
+import RegistrationForm from "./RegistrationForm";
+import ChangePasswordForm from "./ChangePasswordForm";
+import { buttonClick, subheading } from "../../atom/elements";
+
 import useAppContext from "../../../hooks/useAppContext";
 
-import styles from "../../../styles/organism/Form.module.css";
-import Form from "react-bootstrap/Form";
-import { buttonClick, subheading } from "../../atom/elements";
-import { useState } from "react";
 import { handleChange } from "../../../utils/handlers";
 import { AxiosRegister } from "../../../API/AxiosInstance";
-import RegistrationForm from "./RegistrationForm";
 import { getProfileData } from "../../../utils";
-import ChangePasswordForm from "./ChangePasswordForm";
 
+import styles from "../../../styles/organism/Form.module.css";
+
+/**
+ * Represents a login form component.
+ * @constructor
+ */
 const LoginForm = () => {
   const { dispatch } = useAppContext();
 

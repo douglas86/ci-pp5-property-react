@@ -10,6 +10,14 @@ import useAppContext from "../../../../hooks/useAppContext";
 
 import AxiosInstance from "../../../../API/AxiosInstance";
 
+/**
+ * Represents a component for managing registered users.
+ *
+ * @constructor
+ *
+ * @example
+ * const usersPage = UsersPage();
+ */
 const UsersPage = () => {
   const { dispatch } = useAppContext();
 

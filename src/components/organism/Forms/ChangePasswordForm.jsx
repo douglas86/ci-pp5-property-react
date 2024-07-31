@@ -12,6 +12,11 @@ import { AxiosRegister } from "../../../API/AxiosInstance";
 
 import styles from "../../../styles/organism/Form.module.css";
 
+/**
+ * Represents a form for changing password.
+ * @constructor
+ * @returns {ReactElement} JSX for the ChangePasswordForm
+ */
 const ChangePasswordForm = () => {
   const { dispatch } = useAppContext();
 

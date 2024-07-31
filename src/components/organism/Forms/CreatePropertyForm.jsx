@@ -10,6 +10,10 @@ import AxiosInstance from "../../../API/AxiosInstance";
 
 import styles from "../../../styles/organism/Form.module.css";
 
+/**
+ * A form component for creating a new property.
+ * @return {JSX.Element} The create property form.
+ */
 const CreatePropertyForm = () => {
   const { dispatch } = useAppContext();
 

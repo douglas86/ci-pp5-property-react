@@ -1,18 +1,19 @@
-// 3rd party libraries
 import { useEffect } from "react";
 import Cookies from "js-cookie";
 
-// API defaults
 import AxiosInstance from "../API/AxiosInstance";
 
-// custom hooks
 import useAppContext from "./useAppContext";
 
-// utilities
 import { getProfileData } from "../utils";
 
 /**
- * Custom hook to gather users and profile data while refreshing tokens
+ * Refreshes the authentication token and retrieves user data using the given `refreshToken`.
+ *
+ * @function
+ * @name useRefreshToken
+ *
+ * @returns {void}
  */
 const useRefreshToken = () => {
   const { dispatch } = useAppContext();

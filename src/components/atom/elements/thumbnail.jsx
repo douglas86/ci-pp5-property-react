@@ -1,4 +1,3 @@
-// styling
 import styles from "../../../styles/atom/elements.module.css";
 
 /**

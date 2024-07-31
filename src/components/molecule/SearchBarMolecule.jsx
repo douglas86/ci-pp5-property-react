@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-// styling
 import styles from "../../styles/molecule/Search.module.css";
 
 /**
@@ -12,6 +11,12 @@ import styles from "../../styles/molecule/Search.module.css";
 const SearchBarMolecule = ({ placeholder }) => {
   const [search, setSearch] = useState("");
 
+  /**
+   * Function to handle key press event.
+   *
+   * @param {KeyboardEvent} e - The event object of the key press event.
+   * @returns {void}
+   */
   const handleKeyPress = (e) => {
     // keycode 13 is for the enter key
     e.keyCode === 13 ? console.log("Enter") : console.log("search", search);

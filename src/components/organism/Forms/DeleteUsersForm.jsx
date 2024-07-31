@@ -8,6 +8,14 @@ import AxiosInstance from "../../../API/AxiosInstance";
 
 import styles from "../../../styles/organism/Form.module.css";
 
+/**
+ * DeleteUsersForm component deletes a user when confirmed and cancels the deletion when canceled.
+ *
+ * @param {Object} props - The props object containing the following property:
+ *   - id: The ID of the user to be deleted.
+ *
+ * @returns {JSX.Element} The DeleteUsersForm component.
+ */
 const DeleteUsersForm = ({ id }) => {
   const { dispatch } = useAppContext();
 

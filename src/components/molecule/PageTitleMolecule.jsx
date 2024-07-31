@@ -1,10 +1,12 @@
-// components
-import { title } from "../atom/elements";
-import { subheading } from "../atom/elements";
+import { title, subheading } from "../atom/elements";
 
-// styling
 import styles from "../../styles/molecule/Title.module.css";
 
+/**
+ * Represents a molecule component for the page title.
+ *
+ * @returns {JSX.Element} The rendered page title molecule component.
+ */
 const PageTitleMolecule = () => {
   return (
     <div className={styles.container}>

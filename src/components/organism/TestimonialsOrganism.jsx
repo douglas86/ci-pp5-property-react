@@ -1,7 +1,12 @@
-import { heading } from "../atom/elements";
 import CardMolecule from "../molecule/CardMolecule";
-import { subheading } from "../atom/elements";
 
+import { heading, subheading } from "../atom/elements";
+
+/**
+ * TestimonialsOrganism is a functional component that displays testimonials.
+ *
+ * @returns {ReactElement} The TestimonialsOrganism component
+ */
 const TestimonialsOrganism = () => {
   return (
     <div>

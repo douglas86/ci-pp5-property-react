@@ -10,6 +10,12 @@ import { router } from "../utils";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
+/**
+ * Represents the main application part.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered application UI.
+ */
 const App = () => {
   const { state, dispatch } = useAppContext();
   const { dataReducers } = state;

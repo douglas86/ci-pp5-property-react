@@ -1,14 +1,10 @@
-// 3rd party libraries
 import { Alert } from "react-bootstrap";
 
-// components
 import HeaderOrganism from "../organism/HeaderOrganism";
 import FooterOrganism from "../organism/FooterOrganism";
 
-// custom hooks
 import useAppContext from "../../hooks/useAppContext";
 
-// styling
 import styles from "../../styles/templates/Layout.module.css";
 
 /**

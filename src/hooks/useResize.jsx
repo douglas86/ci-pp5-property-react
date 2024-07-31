@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
 /**
- * Custom hook to measure the width of the window
+ * A custom React hook that returns the width of the window and updates it whenever the window is resized.
+ *
+ * @returns {number} The width of the window.
  */
 const useResize = () => {
   const [width, setWidth] = useState(window.innerWidth);
