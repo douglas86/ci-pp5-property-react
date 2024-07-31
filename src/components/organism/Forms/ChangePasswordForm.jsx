@@ -2,7 +2,7 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 
 import LoginForm from "./LoginForm";
-import { buttonClick, subheading } from "../../atom/elements";
+import { buttonClick, error, subheading } from "../../atom/elements";
 
 import useAppContext from "../../../hooks/useAppContext";
 
@@ -21,6 +21,9 @@ const ChangePasswordForm = () => {
   const { dispatch } = useAppContext();
 
   const [form, setForm] = useState({});
+  const [errors, setErrors] = useState(null);
+
+  console.log("errors", errors);
 
   return (
     <Form className={styles.container}>
@@ -76,6 +79,7 @@ const ChangePasswordForm = () => {
               onChange={(e) => handleChange(e, form, setForm)}
             />
           </Form.Group>
+          {errors && error(errors)}
         </div>
       </div>
       <div className={styles.buttons}>
@@ -84,15 +88,19 @@ const ChangePasswordForm = () => {
             await AxiosRegister.post("profiles/change_password/", form)
               .then((res) => {
                 const results = res.data;
-                dispatch({ type: "TOGGLE HIDE MODAL" });
-                dispatch({
-                  type: "SHOW SUCCESSFULLY ALERT MESSAGE",
-                  payload:
-                    results.message +
-                    ". Please login with the changed password",
-                });
+                results.status === 200
+                  ? dispatch({ type: "TOGGLE HIDE MODAL" }) &&
+                    dispatch({
+                      type: "SHOW SUCCESSFULLY ALERT MESSAGE",
+                      payload:
+                        results.message +
+                        ". Please login with the changed password",
+                    })
+                  : setErrors(results.message);
               })
               .catch((err) => {
+                console.log("err", err);
+                setErrors("One or more of your fields are incorrect");
                 dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
               });
           },
