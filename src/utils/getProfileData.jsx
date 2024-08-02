@@ -32,6 +32,8 @@ export const getProfileData = async (res, dispatch) => {
       const results = await response;
       const data = await results.data[0];
 
+      console.log("data", data);
+
       dispatch({ type: "UPDATE PROFILE DATA", payload: data });
     })
     .catch((error) => {

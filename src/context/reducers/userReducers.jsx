@@ -11,12 +11,12 @@ export const userReducers = (state, action) => {
     case "UPDATE USER DATA":
       return {
         ...state,
-        user: payload,
+        user: { ...state.user, ...payload },
       };
     case "UPDATE PROFILE DATA":
       return {
         ...state,
-        profile: payload,
+        profile: { ...state.profile, ...payload },
       };
     case "LOGIN USER":
       const { access, access_expiration, user } = payload;
