@@ -20,8 +20,8 @@ export const getProfileData = async (res, dispatch) => {
 
   const handleProfile = async () => {
     try {
-      const { pk } = user;
-      return await AxiosInstance.get(`profiles/${pk}`);
+      const pk = user === undefined ? res.data.pk : user.pk;
+      return await AxiosInstance.get(`profiles/${pk}/`);
     } catch (error) {
       return error;
     }
@@ -29,14 +29,12 @@ export const getProfileData = async (res, dispatch) => {
 
   handleProfile()
     .then(async (response) => {
-      const results = await response;
-      const data = await results.data[0];
+      const results = await response.data[0];
 
-      console.log("data", data);
-
-      dispatch({ type: "UPDATE PROFILE DATA", payload: data });
+      dispatch({ type: "UPDATE PROFILE DATA", payload: results });
     })
     .catch((error) => {
+      console.log("error", error);
       dispatch({ type: "ERROR UPDATING USER DATA", payload: error });
     });
 };

@@ -10,7 +10,7 @@ import useAppContext from "../../../../hooks/useAppContext";
  *
  * A component that displays the profile page of a user.
  *
- * @returns {React.Element} The profile page component.
+ * @returns {JSX.Element} The profile page component.
  */
 const DisplayProfilePage = () => {
   const { state } = useAppContext();
