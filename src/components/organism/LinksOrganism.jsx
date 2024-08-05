@@ -3,7 +3,7 @@ import ModalOrganism from "./ModalOrganism";
 import LogoutForm from "./Forms/LogoutForm";
 import LoginForm from "./Forms/LoginForm";
 
-import useAppContext from "../../hooks/useAppContext";
+import { useAppDispatch, useAppState } from "../../hooks/useAppContext";
 import { router } from "../../utils";
 import { handleAuth, handleUserRole } from "../../utils/handlers";
 
@@ -15,7 +15,8 @@ import styles from "../../styles/organism/Links.module.css";
  * @constructor
  */
 const LinksOrganism = () => {
-  const { state, dispatch } = useAppContext();
+  const state = useAppState();
+  const dispatch = useAppDispatch();
   const { userReducers, modalReducers } = state;
   const { templateModal } = modalReducers;
 

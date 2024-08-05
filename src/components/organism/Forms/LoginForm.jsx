@@ -5,7 +5,7 @@ import RegistrationForm from "./RegistrationForm";
 import ChangePasswordForm from "./ChangePasswordForm";
 import { buttonClick, error, subheading } from "../../atom/elements";
 
-import useAppContext from "../../../hooks/useAppContext";
+import { useAppDispatch } from "../../../hooks/useAppContext";
 
 import { handleChange } from "../../../utils/handlers";
 import { AxiosRegister } from "../../../API/AxiosInstance";
@@ -18,7 +18,7 @@ import styles from "../../../styles/organism/Form.module.css";
  * @constructor
  */
 const LoginForm = () => {
-  const { dispatch } = useAppContext();
+  const dispatch = useAppDispatch();
 
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});

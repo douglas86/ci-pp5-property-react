@@ -7,7 +7,7 @@ import CardDashOrganism from "../../../organism/CardDashOrganism";
 import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
 import { heading, spinner } from "../../../atom/elements";
 
-import useAppContext from "../../../../hooks/useAppContext";
+import { useAppDispatch } from "../../../../hooks/useAppContext";
 
 import AxiosInstance from "../../../../API/AxiosInstance";
 
@@ -17,7 +17,7 @@ import AxiosInstance from "../../../../API/AxiosInstance";
  * @returns {JSX.Element} The rendered PropertyPage component.
  */
 const PropertyPage = () => {
-  const { dispatch } = useAppContext();
+  const dispatch = useAppDispatch();
 
   const [data, setData] = useState({});
 

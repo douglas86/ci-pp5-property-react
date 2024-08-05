@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { buttonClick } from "../atom/elements";
 import LoginForm from "../organism/Forms/LoginForm";
 
-import useAppContext from "../../hooks/useAppContext";
+import { useAppDispatch } from "../../hooks/useAppContext";
 
 import styles from "../../styles/molecule/AdminButtons.module.css";
 
@@ -15,7 +15,7 @@ import styles from "../../styles/molecule/AdminButtons.module.css";
  * @returns {JSX.Element} - The rendered component
  */
 const AdminButtonsMolecule = () => {
-  const { dispatch } = useAppContext();
+  const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
 

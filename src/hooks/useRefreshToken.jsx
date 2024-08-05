@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 import AxiosInstance from "../API/AxiosInstance";
 
-import useAppContext from "./useAppContext";
+import { useAppDispatch } from "./useAppContext";
 
 import { getProfileData } from "../utils";
 
@@ -16,7 +16,7 @@ import { getProfileData } from "../utils";
  * @returns {void}
  */
 const useRefreshToken = () => {
-  const { dispatch } = useAppContext();
+  const dispatch = useAppDispatch();
 
   const refreshToken = Cookies.get("refresh-token");
 

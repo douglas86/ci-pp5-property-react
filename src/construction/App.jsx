@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import LayoutTemplate from "../components/templates/LayoutTemplate";
 
 import useRefreshToken from "../hooks/useRefreshToken";
-import useAppContext from "../hooks/useAppContext";
+import { useAppDispatch, useAppState } from "../hooks/useAppContext";
 
 import { router } from "../utils";
 
@@ -17,7 +17,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
  * @returns {JSX.Element} The rendered application UI.
  */
 const App = () => {
-  const { state, dispatch } = useAppContext();
+  const state = useAppState();
+  const dispatch = useAppDispatch();
   const { dataReducers, userReducers } = state;
   const { showAlert } = dataReducers;
 
@@ -31,6 +32,8 @@ const App = () => {
         dispatch({ type: "HIDE ALERT MESSAGE" });
       }, 5000);
   }, [showAlert, dispatch]);
+
+  console.log("userReducers", userReducers);
 
   return (
     <LayoutTemplate>

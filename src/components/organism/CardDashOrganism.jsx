@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import ModalOrganism from "./ModalOrganism";
 import { buttonClick, spinner, subheading, thumbnail } from "../atom/elements";
 
-import useAppContext from "../../hooks/useAppContext";
+import { useAppDispatch, useAppState } from "../../hooks/useAppContext";
 
 import styles from "../../styles/organism/CardDash.module.css";
 
@@ -18,7 +18,8 @@ import styles from "../../styles/organism/CardDash.module.css";
  * @returns {React.Component} The rendered CardDashOrganism component.
  */
 const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
-  const { state, dispatch } = useAppContext();
+  const state = useAppState();
+  const dispatch = useAppDispatch();
   const { modalReducers } = state;
   const { templateModal } = modalReducers;
 

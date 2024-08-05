@@ -1,6 +1,6 @@
 import { menuToggle } from "../../utils";
 
-import useAppContext from "../../hooks/useAppContext";
+import { useAppDispatch, useAppState } from "../../hooks/useAppContext";
 
 import styles from "../../styles/molecule/Menu.module.css";
 
@@ -10,7 +10,8 @@ import styles from "../../styles/molecule/Menu.module.css";
  * @returns {JSX} The rendered menu molecule component.
  */
 const MenuMolecule = () => {
-  const { state, dispatch } = useAppContext();
+  const state = useAppState();
+  const dispatch = useAppDispatch();
   const { stateReducers } = state;
   const { MenuOpen } = stateReducers;
 

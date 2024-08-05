@@ -1,4 +1,4 @@
-import { createContext, useMemo, useReducer } from "react";
+import { createContext, useEffect, useMemo, useReducer } from "react";
 import { rootReducers } from "./rootReducers";
 
 /**
@@ -20,22 +20,29 @@ import { rootReducers } from "./rootReducers";
  *
  * @property {boolean} stateReducers.MenuOpen - Represents whether the menu is open or not.
  */
-const initialState = {
-  userReducers: {
-    user: null,
-    access: null,
-    access_expiration: null,
-  },
-  dataReducers: {
-    showAlert: false,
-  },
-  modalReducers: {
-    templateModal: false,
-    formComponent: null,
-  },
-  stateReducers: {
-    MenuOpen: false,
-  },
+// const initialState = {
+//   userReducers: {
+//     user: null,
+//     access: null,
+//     access_expiration: null,
+//   },
+//   dataReducers: {
+//     showAlert: false,
+//   },
+//   modalReducers: {
+//     templateModal: false,
+//     formComponent: null,
+//   },
+//   stateReducers: {
+//     MenuOpen: false,
+//   },
+// };
+
+const initialState = JSON.parse(sessionStorage.getItem("appState")) || {
+  userReducers: {},
+  dataReducers: {},
+  modalReducers: {},
+  stateReducers: {},
 };
 
 /**
@@ -44,7 +51,9 @@ const initialState = {
  * @param {Object} initialState - The initial state for the context object.
  * @returns {Object} - The created context object.
  */
-export const Context = createContext(initialState);
+// export const Context = createContext(initialState);
+export const StateContext = createContext(initialState);
+export const DispatchContext = createContext(initialState);
 
 /**
  * Initializes the application state with the given initial state.
@@ -74,12 +83,30 @@ const init = (initialState) => {
  * @param {ReactNode} props.children - The children components to be wrapped inside the provider.
  * @returns {ReactNode} The rendered component.
  */
-export const Provider = ({ children }) => {
+// export const Provider = ({ children }) => {
+//   const [state, dispatch] = useReducer(rootReducers, initialState, init);
+//
+//   const contextValue = useMemo(() => {
+//     return { state, dispatch };
+//   }, [state, dispatch]);
+//
+//   return <Context.Provider value={contextValue}>{children}</Context.Provider>;
+// };
+export const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(rootReducers, initialState, init);
 
-  const contextValue = useMemo(() => {
-    return { state, dispatch };
-  }, [state, dispatch]);
+  useEffect(() => {
+    sessionStorage.setItem("appState", JSON.stringify(state));
+  }, []);
 
-  return <Context.Provider value={contextValue}>{children}</Context.Provider>;
+  const stateValue = useMemo(() => ({ state }), [state]);
+  const dispatchValue = useMemo(() => ({ dispatch }), [dispatch]);
+
+  return (
+    <StateContext.Provider value={stateValue}>
+      <DispatchContext.Provider value={dispatchValue}>
+        {children}
+      </DispatchContext.Provider>
+    </StateContext.Provider>
+  );
 };

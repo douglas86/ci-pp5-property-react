@@ -3,7 +3,7 @@ import Moment from "react-moment";
 
 import IsUser from "../../../templates/Authentication/IsUser";
 
-import useAppContext from "../../../../hooks/useAppContext";
+import { useAppState } from "../../../../hooks/useAppContext";
 
 /**
  * DisplayProfilePage Component
@@ -13,7 +13,7 @@ import useAppContext from "../../../../hooks/useAppContext";
  * @returns {JSX.Element} The profile page component.
  */
 const DisplayProfilePage = () => {
-  const { state } = useAppContext();
+  const state = useAppState();
   const { userReducers } = state;
   const { profile } = userReducers;
 

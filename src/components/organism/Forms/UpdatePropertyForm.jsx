@@ -6,7 +6,7 @@ import { buttonClick, subheading } from "../../atom/elements";
 
 import { handleChange, handleImage } from "../../../utils/handlers";
 import AxiosInstance from "../../../API/AxiosInstance";
-import useAppContext from "../../../hooks/useAppContext";
+import { useAppDispatch } from "../../../hooks/useAppContext";
 
 import styles from "../../../styles/organism/Form.module.css";
 
@@ -18,7 +18,7 @@ import styles from "../../../styles/organism/Form.module.css";
  * @returns {JSX.Element} - The rendered form component.
  */
 const UpdatePropertyForm = ({ data }) => {
-  const { dispatch } = useAppContext();
+  const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
 

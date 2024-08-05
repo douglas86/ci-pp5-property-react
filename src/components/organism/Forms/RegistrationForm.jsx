@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import LoginForm from "./LoginForm";
 import { buttonClick, error, subheading } from "../../atom/elements";
 
-import useAppContext from "../../../hooks/useAppContext";
+import { useAppDispatch } from "../../../hooks/useAppContext";
 import { handleChange } from "../../../utils/handlers";
 import { AxiosRegister } from "../../../API/AxiosInstance";
 import { getProfileData } from "../../../utils";
@@ -12,7 +12,7 @@ import { getProfileData } from "../../../utils";
 import styles from "../../../styles/organism/Form.module.css";
 
 const RegistrationForm = () => {
-  const { dispatch } = useAppContext();
+  const dispatch = useAppDispatch();
 
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
