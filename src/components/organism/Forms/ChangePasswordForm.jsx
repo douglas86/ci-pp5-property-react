@@ -87,7 +87,15 @@ const ChangePasswordForm = () => {
               .then((res) => {
                 const results = res.data;
 
-                results.status === 200
+                console.log("res2", res);
+
+                console.log("status", results.status);
+
+                // results.status === 200
+                //   ? results.message
+                //   : setErrors(results.message);
+
+                res.status === 200
                   ? dispatch({ type: "TOGGLE HIDE MODAL" }) &&
                     dispatch({
                       type: "SHOW SUCCESSFULLY ALERT MESSAGE",
