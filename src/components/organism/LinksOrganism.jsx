@@ -5,7 +5,7 @@ import LoginForm from "./Forms/LoginForm";
 
 import { useAppDispatch, useAppState } from "../../hooks/useAppContext";
 import { router } from "../../utils";
-import { handleAuth, handleUserRole } from "../../utils/handlers";
+import { handleUserRole } from "../../utils/handlers";
 
 import styles from "../../styles/organism/Links.module.css";
 
@@ -60,11 +60,7 @@ const LinksOrganism = () => {
             href={`${handlePath(title, path, IsAdmin, IsUser)}`}
             className={styles.a}
           >
-            {title === "Dashboard"
-              ? handleAuth(userReducers.user)
-                ? null
-                : title
-              : title}
+            {title === "Dashboard" ? (userReducers.user ? title : null) : title}
           </a>
         </li>
       ))}
