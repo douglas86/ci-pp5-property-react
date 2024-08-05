@@ -69,18 +69,7 @@ const LinksOrganism = () => {
         </li>
       ))}
       {/*authentication button*/}
-      {handleAuth(userReducers.user) ? (
-        <li className={styles.li}>
-          {buttonClick(
-            () => {
-              dispatch({ type: "LOAD MODAL HEADER", payload: "Login Form" });
-              dispatch({ type: "LOAD FORM COMPONENT", payload: <LoginForm /> });
-            },
-            "Login",
-            "dark",
-          )}
-        </li>
-      ) : (
+      {userReducers.user ? (
         <li className={styles.li}>
           {buttonClick(
             () => {
@@ -91,6 +80,17 @@ const LinksOrganism = () => {
               });
             },
             "Logout",
+            "dark",
+          )}
+        </li>
+      ) : (
+        <li className={styles.li}>
+          {buttonClick(
+            () => {
+              dispatch({ type: "LOAD MODAL HEADER", payload: "Login Form" });
+              dispatch({ type: "LOAD FORM COMPONENT", payload: <LoginForm /> });
+            },
+            "Login",
             "dark",
           )}
         </li>

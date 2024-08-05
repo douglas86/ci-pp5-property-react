@@ -90,7 +90,10 @@ const LoginForm = () => {
         {buttonClick(
           async () => {
             await AxiosRegister.post("dj-rest-auth/login/", form)
-              .then(async (res) => await getProfileData(res, dispatch))
+              .then(async (res) => {
+                console.log("res1", res);
+                await getProfileData(res, dispatch);
+              })
               .catch((err) => {
                 const { data } = err.response;
                 console.log("err1", err);

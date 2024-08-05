@@ -11,7 +11,6 @@ import { rootReducers } from "./rootReducers";
  *
  * @property {Object|null} userReducers.user - Represents the user data.
  * @property {Object|null} userReducers.access - Represents the user access data.
- * @property {Object|null} userReducers.access_expiration - Represents the expiration time for user access.
  *
  * @property {boolean} dataReducers.showAlert - Represents whether to show an alert or not.
  *
@@ -97,7 +96,7 @@ export const StateProvider = ({ children }) => {
 
   useEffect(() => {
     sessionStorage.setItem("appState", JSON.stringify(state));
-  }, []);
+  }, [state]);
 
   const stateValue = useMemo(() => ({ state }), [state]);
   const dispatchValue = useMemo(() => ({ dispatch }), [dispatch]);
