@@ -2,7 +2,7 @@ import { Modal } from "react-bootstrap";
 
 import { heading } from "../atom/elements";
 
-import useAppContext from "../../hooks/useAppContext";
+import { useAppState } from "../../hooks/useAppContext";
 
 import styles from "../../styles/organism/Modal.module.css";
 
@@ -13,7 +13,7 @@ import styles from "../../styles/organism/Modal.module.css";
  * @returns {React.Element} - The rendered modal component.
  */
 const ModalOrganism = ({ show, onHide }) => {
-  const { state } = useAppContext();
+  const state = useAppState();
   const { modalReducers } = state;
   const { formComponent, modalHeader } = modalReducers;
 

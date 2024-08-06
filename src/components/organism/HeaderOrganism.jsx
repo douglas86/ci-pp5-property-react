@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import LinksOrganism from "./LinksOrganism";
 import MenuMolecule from "../molecule/MenuMolecule";
 
-import useAppContext from "../../hooks/useAppContext";
+import { useAppDispatch, useAppState } from "../../hooks/useAppContext";
 import useResize from "../../hooks/useResize";
 
 import logo from "../../assets/images/header/Property.png";
@@ -16,7 +16,8 @@ import styles from "../../styles/organism/HeaderOrganism.module.css";
  * @constructor
  */
 const HeaderOrganism = () => {
-  const { state, dispatch } = useAppContext();
+  const state = useAppState();
+  const dispatch = useAppDispatch();
   const { stateReducers } = state;
   const { MenuOpen } = stateReducers;
 

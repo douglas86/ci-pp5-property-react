@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import NotFoundPage from "../../pages/NotFoundPage";
 
-import useAppContext from "../../../hooks/useAppContext";
+import { useAppDispatch, useAppState } from "../../../hooks/useAppContext";
 
 /**
  * Checks if the current user is an admin and renders the corresponding component or a NotFoundPage.
@@ -12,7 +12,8 @@ import useAppContext from "../../../hooks/useAppContext";
  * @returns {JSX.Element} - The rendered component or NotFoundPage.
  */
 const IsAdmin = ({ children }) => {
-  const { state, dispatch } = useAppContext();
+  const state = useAppState();
+  const dispatch = useAppDispatch();
   const { userReducers } = state;
 
   useEffect(() => {

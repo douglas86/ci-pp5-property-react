@@ -1,13 +1,20 @@
 import { useContext } from "react";
-import { Context } from "../context/store";
+import { DispatchContext, StateContext } from "../context/store";
 
-/**
- * Retrieves the application context.
- *
- * @returns {Object} The application context object.
- */
-const useAppContext = () => {
-  return useContext(Context);
+export const useAppState = () => {
+  const context = useContext(StateContext);
+
+  if (context === undefined) {
+    throw new Error("useAppContext must be used within useAppState");
+  }
+  return context.state;
 };
 
-export default useAppContext;
+export const useAppDispatch = () => {
+  const context = useContext(DispatchContext);
+
+  if (context === undefined) {
+    throw new Error("useAppContext must be used within useAppState");
+  }
+  return context.dispatch;
+};

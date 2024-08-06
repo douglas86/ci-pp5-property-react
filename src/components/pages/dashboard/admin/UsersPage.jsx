@@ -6,7 +6,7 @@ import DeleteUsersForm from "../../../organism/Forms/DeleteUsersForm";
 import AdminButtonsMolecule from "../../../molecule/AdminButtonsMolecule";
 import { heading, spinner } from "../../../atom/elements";
 
-import useAppContext from "../../../../hooks/useAppContext";
+import { useAppDispatch } from "../../../../hooks/useAppContext";
 
 import AxiosInstance from "../../../../API/AxiosInstance";
 
@@ -19,7 +19,7 @@ import AxiosInstance from "../../../../API/AxiosInstance";
  * const usersPage = UsersPage();
  */
 const UsersPage = () => {
-  const { dispatch } = useAppContext();
+  const dispatch = useAppDispatch();
 
   const [data, setData] = useState({});
 

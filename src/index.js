@@ -5,18 +5,18 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./construction/App";
 import reportWebVitals from "./construction/reportWebVitals";
 
-import { Provider } from "./context/store";
+import { StateProvider } from "./context/store";
 
 import "./styles/general/index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider>
+    <StateProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </Provider>
+    </StateProvider>
   </React.StrictMode>,
 );
 

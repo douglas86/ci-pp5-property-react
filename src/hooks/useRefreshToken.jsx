@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 import AxiosInstance from "../API/AxiosInstance";
 
-import useAppContext from "./useAppContext";
+import { useAppDispatch, useAppState } from "./useAppContext";
 
 import { getProfileData } from "../utils";
 
@@ -16,7 +16,10 @@ import { getProfileData } from "../utils";
  * @returns {void}
  */
 const useRefreshToken = () => {
-  const { dispatch } = useAppContext();
+  const state = useAppState();
+  const dispatch = useAppDispatch();
+
+  const { userReducers } = state;
 
   const refreshToken = Cookies.get("refresh-token");
 
@@ -59,21 +62,21 @@ const useRefreshToken = () => {
     refreshToken &&
       handleRefreshToken()
         .then(() => {
-          handleUserData()
-            .then(async (res) => {
-              const results = await res.data;
-              console.log("results", results);
-              dispatch({ type: "UPDATE USER DATA", payload: results });
-              await getProfileData(res, dispatch);
-            })
-            .catch((err) => {
-              dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
-            });
+          userReducers === {} &&
+            handleUserData()
+              .then(async (res) => {
+                const results = await res.data;
+                dispatch({ type: "UPDATE USER DATA", payload: results });
+                await getProfileData(res, dispatch);
+              })
+              .catch((err) => {
+                dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
+              });
         })
         .catch((error) => {
           dispatch({ type: "ERROR UPDATING USER DATA", payload: error });
         });
-  }, [dispatch, refreshToken]);
+  }, [dispatch, refreshToken, userReducers]);
 };
 
 export default useRefreshToken;

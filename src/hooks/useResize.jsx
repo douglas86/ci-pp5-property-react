@@ -18,7 +18,7 @@ const useResize = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [window.innerWidth]);
+  }, [width]);
 
   return width;
 };

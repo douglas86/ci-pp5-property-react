@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import LoginForm from "./LoginForm";
 import { buttonClick, error, subheading } from "../../atom/elements";
 
-import useAppContext from "../../../hooks/useAppContext";
+import { useAppDispatch } from "../../../hooks/useAppContext";
 
 import { handleChange } from "../../../utils/handlers";
 
@@ -18,7 +18,7 @@ import styles from "../../../styles/organism/Form.module.css";
  * @returns {ReactElement} JSX for the ChangePasswordForm
  */
 const ChangePasswordForm = () => {
-  const { dispatch } = useAppContext();
+  const dispatch = useAppDispatch();
 
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState(null);
@@ -87,7 +87,15 @@ const ChangePasswordForm = () => {
               .then((res) => {
                 const results = res.data;
 
-                results.status === 200
+                console.log("res2", res);
+
+                console.log("status", results.status);
+
+                // results.status === 200
+                //   ? results.message
+                //   : setErrors(results.message);
+
+                res.status === 200
                   ? dispatch({ type: "TOGGLE HIDE MODAL" }) &&
                     dispatch({
                       type: "SHOW SUCCESSFULLY ALERT MESSAGE",

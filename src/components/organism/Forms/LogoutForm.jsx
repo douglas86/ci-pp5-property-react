@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 
 import { buttonClick, subheading } from "../../atom/elements";
 
-import useAppContext from "../../../hooks/useAppContext";
+import { useAppDispatch } from "../../../hooks/useAppContext";
 import AxiosInstance from "../../../API/AxiosInstance";
 
 import styles from "../../../styles/organism/Form.module.css";
@@ -15,7 +15,7 @@ import styles from "../../../styles/organism/Form.module.css";
  * @returns {JSX.Element} The rendered Logout Form component.
  */
 const LogoutForm = () => {
-  const { dispatch } = useAppContext();
+  const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
 

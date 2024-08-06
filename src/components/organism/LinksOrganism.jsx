@@ -3,9 +3,9 @@ import ModalOrganism from "./ModalOrganism";
 import LogoutForm from "./Forms/LogoutForm";
 import LoginForm from "./Forms/LoginForm";
 
-import useAppContext from "../../hooks/useAppContext";
+import { useAppDispatch, useAppState } from "../../hooks/useAppContext";
 import { router } from "../../utils";
-import { handleAuth, handleUserRole } from "../../utils/handlers";
+import { handleUserRole } from "../../utils/handlers";
 
 import styles from "../../styles/organism/Links.module.css";
 
@@ -15,7 +15,8 @@ import styles from "../../styles/organism/Links.module.css";
  * @constructor
  */
 const LinksOrganism = () => {
-  const { state, dispatch } = useAppContext();
+  const state = useAppState();
+  const dispatch = useAppDispatch();
   const { userReducers, modalReducers } = state;
   const { templateModal } = modalReducers;
 
@@ -59,27 +60,12 @@ const LinksOrganism = () => {
             href={`${handlePath(title, path, IsAdmin, IsUser)}`}
             className={styles.a}
           >
-            {title === "Dashboard"
-              ? handleAuth(userReducers.user)
-                ? null
-                : title
-              : title}
+            {title === "Dashboard" ? (userReducers.user ? title : null) : title}
           </a>
         </li>
       ))}
       {/*authentication button*/}
-      {handleAuth(userReducers.user) ? (
-        <li className={styles.li}>
-          {buttonClick(
-            () => {
-              dispatch({ type: "LOAD MODAL HEADER", payload: "Login Form" });
-              dispatch({ type: "LOAD FORM COMPONENT", payload: <LoginForm /> });
-            },
-            "Login",
-            "dark",
-          )}
-        </li>
-      ) : (
+      {userReducers.user ? (
         <li className={styles.li}>
           {buttonClick(
             () => {
@@ -90,6 +76,17 @@ const LinksOrganism = () => {
               });
             },
             "Logout",
+            "dark",
+          )}
+        </li>
+      ) : (
+        <li className={styles.li}>
+          {buttonClick(
+            () => {
+              dispatch({ type: "LOAD MODAL HEADER", payload: "Login Form" });
+              dispatch({ type: "LOAD FORM COMPONENT", payload: <LoginForm /> });
+            },
+            "Login",
             "dark",
           )}
         </li>

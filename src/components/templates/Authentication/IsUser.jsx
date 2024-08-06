@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import NotFoundPage from "../../pages/NotFoundPage";
 
-import useAppContext from "../../../hooks/useAppContext";
+import { useAppDispatch, useAppState } from "../../../hooks/useAppContext";
 
 /**
  * IsUser Component.
@@ -22,7 +22,8 @@ import useAppContext from "../../../hooks/useAppContext";
  *   </IsUser> *);
  */
 const IsUser = ({ children }) => {
-  const { state, dispatch } = useAppContext();
+  const state = useAppState();
+  const dispatch = useAppDispatch();
   const { userReducers } = state;
 
   useEffect(() => {

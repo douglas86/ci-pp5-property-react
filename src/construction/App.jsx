@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import LayoutTemplate from "../components/templates/LayoutTemplate";
 
 import useRefreshToken from "../hooks/useRefreshToken";
-import useAppContext from "../hooks/useAppContext";
+import { useAppDispatch, useAppState } from "../hooks/useAppContext";
 
 import { router } from "../utils";
 
@@ -17,8 +17,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
  * @returns {JSX.Element} The rendered application UI.
  */
 const App = () => {
-  const { state, dispatch } = useAppContext();
-  const { dataReducers, userReducers } = state;
+  const state = useAppState();
+  const dispatch = useAppDispatch();
+  const { dataReducers } = state;
   const { showAlert } = dataReducers;
 
   // custom hook that refreshes the auth tokens

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { buttonClick, subheading } from "../../atom/elements";
 
-import useAppContext from "../../../hooks/useAppContext";
+import { useAppDispatch } from "../../../hooks/useAppContext";
 import { handleChange, handleImage } from "../../../utils/handlers";
 import AxiosInstance from "../../../API/AxiosInstance";
 
@@ -15,7 +15,7 @@ import styles from "../../../styles/organism/Form.module.css";
  * @return {JSX.Element} The create property form.
  */
 const CreatePropertyForm = () => {
-  const { dispatch } = useAppContext();
+  const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
 

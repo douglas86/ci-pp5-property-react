@@ -16,7 +16,7 @@ export const getProfileData = async (res, dispatch) => {
   refresh && (document.cookie = `refresh-token=${refresh}`);
 
   dispatch({ type: "TOGGLE HIDE MODAL" });
-  dispatch({ type: "UPDATE USER DATA", payload: user });
+  dispatch({ type: "LOGIN USER", payload: user });
 
   const handleProfile = async () => {
     try {
@@ -31,10 +31,13 @@ export const getProfileData = async (res, dispatch) => {
     .then(async (response) => {
       const results = await response.data[0];
 
-      dispatch({ type: "UPDATE PROFILE DATA", payload: results });
+      dispatch({
+        type: "SHOW SUCCESSFULLY ALERT MESSAGE",
+        payload: "You have successfully been logged in",
+      });
+      dispatch({ type: "UPDATE PROFILE", payload: results });
     })
     .catch((error) => {
-      console.log("error", error);
       dispatch({ type: "ERROR UPDATING USER DATA", payload: error });
     });
 };

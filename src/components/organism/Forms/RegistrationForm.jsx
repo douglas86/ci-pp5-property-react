@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import LoginForm from "./LoginForm";
 import { buttonClick, error, subheading } from "../../atom/elements";
 
-import useAppContext from "../../../hooks/useAppContext";
+import { useAppDispatch } from "../../../hooks/useAppContext";
 import { handleChange } from "../../../utils/handlers";
 import { AxiosRegister } from "../../../API/AxiosInstance";
 import { getProfileData } from "../../../utils";
@@ -12,12 +12,10 @@ import { getProfileData } from "../../../utils";
 import styles from "../../../styles/organism/Form.module.css";
 
 const RegistrationForm = () => {
-  const { dispatch } = useAppContext();
+  const dispatch = useAppDispatch();
 
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
-
-  console.log("errors", errors);
 
   return (
     <Form className={styles.container}>
@@ -86,7 +84,6 @@ const RegistrationForm = () => {
               .then(async (res) => await getProfileData(res, dispatch))
               .catch((err) => {
                 const { data } = err.response;
-                console.log("err1", err);
                 setErrors(data);
                 dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
               });
@@ -95,7 +92,7 @@ const RegistrationForm = () => {
           "success",
         )}
         {buttonClick(
-          () => console.log("You clicked Cancel"),
+          () => dispatch({ type: "TOGGLE HIDE MODAL" }),
           "Cancel",
           "warning",
         )}

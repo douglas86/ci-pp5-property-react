@@ -5,7 +5,7 @@ import RegistrationForm from "./RegistrationForm";
 import ChangePasswordForm from "./ChangePasswordForm";
 import { buttonClick, error, subheading } from "../../atom/elements";
 
-import useAppContext from "../../../hooks/useAppContext";
+import { useAppDispatch } from "../../../hooks/useAppContext";
 
 import { handleChange } from "../../../utils/handlers";
 import { AxiosRegister } from "../../../API/AxiosInstance";
@@ -18,7 +18,7 @@ import styles from "../../../styles/organism/Form.module.css";
  * @constructor
  */
 const LoginForm = () => {
-  const { dispatch } = useAppContext();
+  const dispatch = useAppDispatch();
 
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
@@ -90,10 +90,11 @@ const LoginForm = () => {
         {buttonClick(
           async () => {
             await AxiosRegister.post("dj-rest-auth/login/", form)
-              .then(async (res) => await getProfileData(res, dispatch))
+              .then(async (res) => {
+                await getProfileData(res, dispatch);
+              })
               .catch((err) => {
                 const { data } = err.response;
-                console.log("err1", err);
                 setErrors(data);
                 dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
               });
