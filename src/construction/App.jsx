@@ -19,7 +19,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const App = () => {
   const state = useAppState();
   const dispatch = useAppDispatch();
-  const { dataReducers, userReducers } = state;
+  const { dataReducers } = state;
   const { showAlert } = dataReducers;
 
   // custom hook that refreshes the auth tokens
@@ -32,8 +32,6 @@ const App = () => {
         dispatch({ type: "HIDE ALERT MESSAGE" });
       }, 5000);
   }, [showAlert, dispatch]);
-
-  console.log("userReducers", userReducers);
 
   return (
     <LayoutTemplate>
