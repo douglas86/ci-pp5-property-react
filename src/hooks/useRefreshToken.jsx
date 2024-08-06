@@ -76,7 +76,7 @@ const useRefreshToken = () => {
         .catch((error) => {
           dispatch({ type: "ERROR UPDATING USER DATA", payload: error });
         });
-  }, [dispatch, refreshToken]);
+  }, [dispatch, refreshToken, userReducers]);
 };
 
 export default useRefreshToken;
