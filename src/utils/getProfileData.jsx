@@ -31,10 +31,13 @@ export const getProfileData = async (res, dispatch) => {
     .then(async (response) => {
       const results = await response.data[0];
 
+      dispatch({
+        type: "SHOW SUCCESSFULLY ALERT MESSAGE",
+        payload: "You have successfully been logged in",
+      });
       dispatch({ type: "UPDATE PROFILE", payload: results });
     })
     .catch((error) => {
-      console.log("error", error);
       dispatch({ type: "ERROR UPDATING USER DATA", payload: error });
     });
 };
