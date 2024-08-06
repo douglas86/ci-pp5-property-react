@@ -17,8 +17,6 @@ const RegistrationForm = () => {
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
 
-  console.log("errors", errors);
-
   return (
     <Form className={styles.container}>
       <div className={styles.subheading}>
@@ -86,7 +84,6 @@ const RegistrationForm = () => {
               .then(async (res) => await getProfileData(res, dispatch))
               .catch((err) => {
                 const { data } = err.response;
-                console.log("err1", err);
                 setErrors(data);
                 dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
               });
@@ -95,7 +92,7 @@ const RegistrationForm = () => {
           "success",
         )}
         {buttonClick(
-          () => console.log("You clicked Cancel"),
+          () => dispatch({ type: "TOGGLE HIDE MODAL" }),
           "Cancel",
           "warning",
         )}
