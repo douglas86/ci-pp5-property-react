@@ -19,7 +19,7 @@ Live site [here](https://ci-pp5-property-react-1c4b35a4e2b5.herokuapp.com/)
 
 ---
 
-[//]: # (Badges)
+[//]: # "Badges"
 
 ![Pop OS](https://img.shields.io/badge/Pop!_OS-48B9C7?style=for-the-badge&logo=Pop!_OS&logoColor=white)
 ![Axios](https://img.shields.io/badge/axios-671ddf?&style=for-the-badge&logo=axios&logoColor=white)
@@ -131,7 +131,7 @@ Live site [here](https://ci-pp5-property-react-1c4b35a4e2b5.herokuapp.com/)
 
 ![User_Dashboard_mobile.png](src/assets/docs/planning/design/User_Dashboard_mobile.png)
 
-#### [Color pallet](#table-of-content)
+#### [Color Pallet](#table-of-content)
 
 ![color_pallet.png](src/assets/docs/planning/color_pallet.png)
 
@@ -142,7 +142,7 @@ which are essential for a property website.
 
 - Headings, Buttons, Links and Text: Pine Tree Green (#2F301D)—This color was chosen as a way to make certain elements stand out within the page
 - Secondary text: Ash Gray (#BFBFA7) - This color was used as a paragraph text just under the heading to explain what was to come.
-- Background: The soft white provides a clean canvas that enhances readability and focus on content. 
+- Background: The soft white provides a clean canvas that enhances readability and focus on content.
 
 #### [User Stories using MOSCOW Prioritization techniques](#table-of-content)
 
@@ -189,15 +189,34 @@ About Page
 
 ![atomic_design.png](src/assets/docs/features/atomic_design.png)
 
-##### Brief Description
+##### Description
 
-- The atomic design is broken down into atoms, molecules, organisms, templates and pages
-- Using this approach, I can make components as re-usable as possible
-- atoms form the basic building block of all life, in this case something like a button or an element like h1 tags and so on
-- molecules are the next step-up it can be something like a bootstrap card, a group of atoms together to form a bigger picture or a way of mapping over items from an array
-- organisms this is where the design will take shape it forms part of the higher order component, consisting of molecules and atoms or even other organisms
-- templates this is normally a component that will be used on most of your pages, like a header or footer, or a layout component
-- pages this will be were all your pages take shape
+Atomic design, developed by Brad Frost and Dave Olsen,
+is a methodology for crafting design systems with five fundamental building blocks
+which, when combined, promote consistency, modularity and scalability.
+
+The five building blocks are Atoms, Molecules, Organisms, Templates and Pages
+
+##### Atoms
+
+Basic building blocks of matter, such as a button, input and a form label.
+They're not useful on their own.
+
+##### Molecules
+
+Grouping atoms together, such as combining a button, input and form label to build functionality.
+
+##### Organisms
+
+Combining molecules together to form organisms that make up a distict section of an interface (i.e. navigation bar)
+
+##### Templates
+
+Consisting mostly of groups of organisms to form a page - where clients can see a final design in place.
+
+##### Pages
+
+An ecosystem that views different template renders. We can create multiple ecosystems into a single environment - the application.
 
 If you want a better explanation,
 take a look at this [article](https://andela.com/blog-posts/structuring-your-react-application-atomic-design-principles)
@@ -210,30 +229,32 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 
 ![header - desktop.png](src/assets/docs/features/header_desktop.png)
 
-- When on a device table or smaller the links become a hamburger menu
-- This is when the hamburger menu is closed
+- When the responsiveness of the page changes from tablet to smaller the links become a hamburger menu
+- There is also functionality to show if the hamburger menu is open or closed
+- Image below shows that the menu is closed
 
 ![header_hamburger_menu.png](src/assets/docs/features/header_hamburger_menu.png)
 
-- When the hamburger menu icon is opened with the links below
+- Image below shows that the menu is open
 
 ![header_hamburger_menu_closed.png](src/assets/docs/features/header_hamburger_menu_closed.png)
 
 #### [State Store](#table-of-content)
 
-- I have implemented a state store to reduce Prop drilling
-- Prop drilling is when you keep on pass props down then up to many levels
-- The state store was implemented with the help of useMemo, useReducer and useContext
-- useMemo was used to stop unnecessary re-renders
-- useReducer was used to keep track of state logic
-- useContext was used to share state across the entire app
-- I have also written a simple useAppContext hook to make it easier to call state when needed
-- useAppContext hook returns two variable state and dispatch
-- state is used to see what data is in your state store
-- dispatch is used to update the state store passing it type and payload
-- type is the reducer function that you are wanting to use
-- payload is the data that you are wanting to send to the state store
-- If you are wanting to see how it was done, click [here](https://docs.google.com/document/d/1IHX350WfSIrXJzxKs8IBurmX-wX1dtBG1-rPXqmIB6c/edit#heading=h.1tzm0g2fdwbe)
+##### Description
+
+A state store in React refers to a centralized place to manage the state of an application.
+This concept is particularly useful for large applications where multiple components need to share and update the same state.
+Using state store helps to manage and coordinate state changes more efficiently, avoiding issues like prop drilling and inconsistent
+states across components.
+
+- This state store was done as a way of reducing Prop drilling within my application
+- I have also made use of local storage to increase user performance
+- I have used React hooks to store and retrieve state
+- The hooks that I have used are useMemo, useReducer and useContext
+- useMemo - this is used to memorize state, in order to reduce re-renders
+- useReducer - this hook is used to manage complex state within an application, when specific state has to many sub levels
+- useContext - this hook is used to share state accross the application, globally
 
 #### [Special features on the about page](#table-of-content)
 
