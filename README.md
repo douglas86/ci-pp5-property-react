@@ -6,12 +6,12 @@
 
 ---
 
-## Description
+## Overview
 
-This forms part of the front end for my fifth project with code institute.
-
-This application is used to give a nice look and feel for the properties that are being looked at.
-It will have a nicely displayed look and feel with a user Profile were everything can be displayed in one place.
+- This repository is feature rich in functionality for new properties to be displayed.
+- It allows buyers to report Maintenance issues with ease.
+- While seeing all the details on the property that you are renting.
+- This repository allows sellers to upload their property with all the current details on the site.
 
 ![img.png](src/assets/docs/display.png)
 
@@ -21,7 +21,7 @@ As far as the coloring of the site goes, I wanted to todo a plan display with a 
 
 ---
 
-[//]: # (Badges)
+[//]: # "Badges"
 
 ![Pop OS](https://img.shields.io/badge/Pop!_OS-48B9C7?style=for-the-badge&logo=Pop!_OS&logoColor=white)
 ![Axios](https://img.shields.io/badge/axios-671ddf?&style=for-the-badge&logo=axios&logoColor=white)
@@ -64,6 +64,7 @@ As far as the coloring of the site goes, I wanted to todo a plan display with a 
   - [Footer email address off-screen](#footer-email-address-off-screen)
   - [does not want to refresh page on delete](#does-not-want-to-refresh-page-on-delete)
 - [Credits](#credits)
+
 ---
 
 ### [Planning](#table-of-content)
@@ -334,6 +335,7 @@ CSS validation test
 #### [Error when sending property data to API](#table-of-content)
 
 Problem?
+
 - When I try to send data to API
 - It sends me a 500 error code
 - When it should only send a message
@@ -342,11 +344,13 @@ Problem?
 ![first.png](src/assets/docs/bugs/sending_property_data/first.png)
 
 Solution?
+
 - This has not been solved yet?
 
 #### [403 forbidden on logout](#table-of-content)
 
 Problem?
+
 - When I click on logout
 - It comes with a forbidden error message
 - but if I have to refresh the page then it is fine, and it shows as if I am logged out
@@ -355,6 +359,7 @@ Problem?
 ![first.png](src/assets/docs/bugs/403_forbidden_logout/first.png)
 
 Solution?
+
 - I can now log out with a form box asking for permission first
 
 ![second.png](src/assets/docs/bugs/403_forbidden_logout/second.png)
@@ -362,6 +367,7 @@ Solution?
 #### [Map doesn't have its own key](#table-of-content)
 
 Problem?
+
 - For some reason, the body of the table when mapping
 - I can't seem to add a unique id
 - From what I gather, it is just when I am developing locally
@@ -369,11 +375,13 @@ Problem?
 ![first.png](src/assets/docs/bugs/map_key/first.png)
 
 Solution?
+
 - This Problem has not been solved yet
 
 #### [Modal background to dark on Table display](#table-of-content)
 
 Problem?
+
 - For some reason, the modal is in a very dark background
 - Making it pitch black, so that nothing can be seen in the background
 - This only happens on laptop and larger devices
@@ -385,6 +393,7 @@ Problem?
 ![Second.png](src/assets/docs/bugs/dark_modal_background/Second.png)
 
 Solution?
+
 - This problem has not been solved yet
 
 #### [Footer](#table-of-content)
@@ -403,6 +412,7 @@ Solution?
 #### [Footer email address off-screen](#table-of-content)
 
 Problem?
+
 - When scaling down between 400pixels and 300 pixels
 - The email address is too long
 - It goes off the screen
@@ -410,6 +420,7 @@ Problem?
 ![first.png](src/assets/docs/bugs/footer_email_address/first.png)
 
 Solution?
+
 - Styled h4 heading and thumbnail to be smaller
 - on smaller devices
 
@@ -418,6 +429,7 @@ Solution?
 #### [does not want to refresh page on delete](#table-of-content)
 
 Problem?
+
 - The deleting of the user's profile
 - Will delete but for some reason it does not want to refresh the page
 - If you manually refresh, then it will show
@@ -425,6 +437,7 @@ Problem?
 ![first.png](src/assets/docs/bugs/refresh_on_delete/first.png)
 
 Solution?
+
 - This problem has not been solved
 
 ---
@@ -439,29 +452,3 @@ Solution?
 - Help to get the tokens correct [here](https://medium.com/django-unleashed/securing-django-rest-apis-with-jwt-authentication-using-simple-jwt-a-step-by-step-guide-28efa84666fe)
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
