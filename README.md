@@ -38,6 +38,7 @@ Live site [here](https://ci-pp5-property-react-1c4b35a4e2b5.herokuapp.com/)
 ## Table of Content
 
 - [Planning](#planning)
+  - [How to install this project](#how-to-install-this-project)
   - [Wireframes](#wireframes)
   - [UX/UI Designs on figma](#uxui-designs-on-figma)
   - [Color pallet](#color-pallet)
@@ -66,6 +67,26 @@ Live site [here](https://ci-pp5-property-react-1c4b35a4e2b5.herokuapp.com/)
 ---
 
 ### [Planning](#table-of-content)
+
+#### [How to install this project](#table-of-content)
+
+Locally
+
+- To download this repo, install it using git clone or ssh
+- Clicking the Green code button above and selecting your preferred installation method
+- Then run npm install to install all the required React packages
+- Once all required packages are installed, you can run React using the following command
+- $ npm start
+
+Heroku
+
+- This Project is running live on heroku
+- When on the heroku app click the new button to create a new heroku project
+- Under the deploy tab connect Gibhub to this heroku project
+- scroll down until you see manual deploys
+- click the purple button that says Deploy branch
+- just to make sure that it deploys correctly being a first time
+- If everything seems right then you can enable automatic deploys
 
 #### [Wireframes](#table-of-content)
 
@@ -270,14 +291,17 @@ states across components.
 
 #### [Automatic testing using cypress](#table-of-content)
 
-##### Brief Description of Automated testing
+##### Description
 
-- To run cypress, make sure that react is still running
-- This testing framework gives me a user interface to test
-- It runs automatically on file save
-- Open up a new terminal and run the command $ npm run cypress
-- I have created a script for cypress
-- This will then open up a browser with cypress running
+- Cypress is a testing framework for React and other UI libraries
+- It is used as a fully automated system
+- Testing how each component can interact with each other
+- In order to work with cypress, make sure that React is still running
+- Open up a new terminal
+- There is a script that I have created for cypress in package.json
+- run the command $ npm run cypress
+- This will then open up a new browser window inorder to run cypress
+- select the one that says e2e
 
 ##### Authentication testing
 
@@ -329,7 +353,7 @@ CSS validation test
 
 ##### Solution?
 
-- I have added login to only send a request is there is a refresh-token in the Cookie store
+- I have added login to only send a request if there is a refresh-token in the Cookie store
 
 ![cookie_store.png](src/assets/docs/bugs/cookie_store.png)
 
@@ -353,8 +377,9 @@ CSS validation test
 
 ##### Solution?
 
-- The animated design I took out of my plans
-- Rather have a standing carousel and rotates every 10 seconds
+- This animated design seems to be to complecated for my intensions
+- It has since been taken out of my designs
+- Rather have a standing carousel that rotates every 10 seconds
 
 #### [Error when sending property data to API](#table-of-content)
 
