@@ -10,18 +10,16 @@
 
 - This repository is feature rich in functionality for new properties to be displayed.
 - It allows buyers to report Maintenance issues with ease.
-- While seeing all the details on the property that you are renting.
+- While seeing all the details on the property that they are renting.
 - This repository allows sellers to upload their property with all the current details on the site.
 
 ![img.png](src/assets/docs/display.png)
 
-Live site [here](https://ci-pp5-property-api-958077e8a5b4.herokuapp.com/)
-
-As far as the coloring of the site goes, I wanted to todo a plan display with a white background
+Live site [here](https://ci-pp5-property-react-1c4b35a4e2b5.herokuapp.com/)
 
 ---
 
-[//]: # "Badges"
+[//]: # (Badges)
 
 ![Pop OS](https://img.shields.io/badge/Pop!_OS-48B9C7?style=for-the-badge&logo=Pop!_OS&logoColor=white)
 ![Axios](https://img.shields.io/badge/axios-671ddf?&style=for-the-badge&logo=axios&logoColor=white)
@@ -137,9 +135,14 @@ As far as the coloring of the site goes, I wanted to todo a plan display with a 
 
 ![color_pallet.png](src/assets/docs/planning/color_pallet.png)
 
-- This color scheme was the original idea
-- But then decided to keep the original pallet
-- But change it to a more minimalistic design
+Our Website features a modern and elegant color palette designed to create a visually appealing
+and user-friendly experience.
+The colors have been carefully selected to convey professionalism, trust and sophistication,
+which are essential for a property website.
+
+- Headings, Buttons, Links and Text: Pine Tree Green (#2F301D)—This color was chosen as a way to make certain elements stand out within the page
+- Secondary text: Ash Gray (#BFBFA7) - This color was used as a paragraph text just under the heading to explain what was to come.
+- Background: The soft white provides a clean canvas that enhances readability and focus on content. 
 
 #### [User Stories using MOSCOW Prioritization techniques](#table-of-content)
 
