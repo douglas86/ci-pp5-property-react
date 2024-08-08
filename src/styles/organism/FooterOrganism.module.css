@@ -53,8 +53,9 @@
 @media screen and (min-width: 1024px) {
   .footer {
     display: flex;
-    padding: 3em;
+    padding: 1em;
     bottom: 0;
+    width: 100%;
   }
 
   .socialLinks {
@@ -78,11 +79,18 @@
   }
 
   .contactInformation {
-    display: block;
+    display: flex;
     width: 50%;
+    flex-direction: column;
   }
 
+  /*.contactInformation {*/
+  /*  display: block;*/
+  /*  width: 50%;*/
+  /*}*/
+
   .section {
-    display: flex;
+    margin: auto;
+    justify-content: center;
   }
 }
