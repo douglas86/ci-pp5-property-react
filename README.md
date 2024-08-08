@@ -8,8 +8,8 @@
 
 ## Overview
 
-- This repository is feature rich in functionality for new properties to be displayed.
-- It allows buyers to report Maintenance issues with ease.
+- This Project was done as a two-stage application
+- This repository forms the exciting content were it is feature rich in functionality for new properties to be displayed.
 - While seeing all the details on the property that they are renting.
 - This repository allows sellers to upload their property with all the current details on the site.
 
@@ -19,7 +19,7 @@ Live site [here](https://ci-pp5-property-react-1c4b35a4e2b5.herokuapp.com/)
 
 ---
 
-[//]: # "Badges"
+[//]: # (Badges)
 
 ![Pop OS](https://img.shields.io/badge/Pop!_OS-48B9C7?style=for-the-badge&logo=Pop!_OS&logoColor=white)
 ![Axios](https://img.shields.io/badge/axios-671ddf?&style=for-the-badge&logo=axios&logoColor=white)
@@ -44,6 +44,7 @@ Live site [here](https://ci-pp5-property-react-1c4b35a4e2b5.herokuapp.com/)
   - [Color pallet](#color-pallet)
   - [User Stories using MOSCOW Prioritization techniques](#user-stories-using-moscow-prioritization-techniques)
   - [Proper Description of the Technologies used in the Project](#proper-description-of-the-technologies-used-in-the-project)
+- [How to install this project](#how-to-install-this-project) 
 - [Features](#features)
   - [Atomic Design](#atomic-design)
   - [Header](#header)
@@ -68,25 +69,7 @@ Live site [here](https://ci-pp5-property-react-1c4b35a4e2b5.herokuapp.com/)
 
 ### [Planning](#table-of-content)
 
-#### [How to install this project](#table-of-content)
 
-Locally
-
-- To download this repo, install it using git clone or ssh
-- Clicking the Green code button above and selecting your preferred installation method
-- Then run npm install to install all the required React packages
-- Once all required packages are installed, you can run React using the following command
-- $ npm start
-
-Heroku
-
-- This Project is running live on heroku
-- When on the heroku app click the new button to create a new heroku project
-- Under the deploy tab connect Gibhub to this heroku project
-- scroll down until you see manual deploys
-- click the purple button that says Deploy branch
-- just to make sure that it deploys correctly being a first time
-- If everything seems right then you can enable automatic deploys
 
 #### [Wireframes](#table-of-content)
 
@@ -204,6 +187,28 @@ About Page
 
 ---
 
+### [How to install this project](#table-of-content)
+
+Locally
+
+- To download this repo, install it using git clone or ssh
+- Clicking the Green code button above and selecting your preferred installation method
+- Then run npm install to install all the required React packages
+- Once all required packages are installed, you can run React using the following command
+- $ npm start
+
+Heroku
+
+- This Project is running live on heroku
+- When on the heroku app click the new button to create a new heroku project
+- Under the deployment tab, connect GitHub to this heroku project
+- scroll down until you see manual deploys
+- click the purple button that says Deploy branch
+- just to make sure that it deploys correctly being a first time
+- If everything seems right, then you can enable automatic deploys
+
+---
+
 ### [Features](#table-of-content)
 
 #### [Atomic Design](#table-of-content)
@@ -229,15 +234,16 @@ Grouping atoms together, such as combining a button, input and form label to bui
 
 ##### Organisms
 
-Combining molecules together to form organisms that make up a distict section of an interface (i.e. navigation bar)
+Combining molecules to form organisms that make up a district section of an interface (i.e., navigation bar)
 
 ##### Templates
 
-Consisting mostly of groups of organisms to form a page - where clients can see a final design in place.
+Consisting mostly of groups of organisms to form a page—where clients can see a final design in place.
 
 ##### Pages
 
-An ecosystem that views different template renders. We can create multiple ecosystems into a single environment - the application.
+An ecosystem that views different template renders.
+We can create multiple ecosystems into a single environment—the application.
 
 If you want a better explanation,
 take a look at this [article](https://andela.com/blog-posts/structuring-your-react-application-atomic-design-principles)
@@ -250,13 +256,13 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 
 ![header - desktop.png](src/assets/docs/features/header_desktop.png)
 
-- When the responsiveness of the page changes from tablet to smaller the links become a hamburger menu
+- When the responsiveness of the page changes from tablet to smaller, the links become a hamburger menu
 - There is also functionality to show if the hamburger menu is open or closed
-- Image below shows that the menu is closed
+- The image below shows that the menu is closed
 
 ![header_hamburger_menu.png](src/assets/docs/features/header_hamburger_menu.png)
 
-- Image below shows that the menu is open
+- The image below shows that the menu is open
 
 ![header_hamburger_menu_closed.png](src/assets/docs/features/header_hamburger_menu_closed.png)
 
@@ -273,9 +279,9 @@ states across components.
 - I have also made use of local storage to increase user performance
 - I have used React hooks to store and retrieve state
 - The hooks that I have used are useMemo, useReducer and useContext
-- useMemo - this is used to memorize state, in order to reduce re-renders
-- useReducer - this hook is used to manage complex state within an application, when specific state has to many sub levels
-- useContext - this hook is used to share state accross the application, globally
+- useMemo—this is used to memorize state, to reduce re-renders
+- useReducer—this hook is used to manage complex state within an application when a specific state becomes complete
+- useContext—this hook is used to share state across the application, globally
 
 #### [Special features on the about page](#table-of-content)
 
@@ -296,11 +302,11 @@ states across components.
 - Cypress is a testing framework for React and other UI libraries
 - It is used as a fully automated system
 - Testing how each component can interact with each other
-- In order to work with cypress, make sure that React is still running
+- To work with cypress, make sure that React is still running
 - Open up a new terminal
 - There is a script that I have created for cypress in package.json
 - run the command $ npm run cypress
-- This will then open up a new browser window inorder to run cypress
+- This will then open up a new browser window to run cypress
 - select the one that says e2e
 
 ##### Authentication testing
@@ -353,7 +359,7 @@ CSS validation test
 
 ##### Solution?
 
-- I have added login to only send a request if there is a refresh-token in the Cookie store
+- I have added a login to only send a request if there is a refresh-token in the Cookie store
 
 ![cookie_store.png](src/assets/docs/bugs/cookie_store.png)
 
@@ -377,7 +383,7 @@ CSS validation test
 
 ##### Solution?
 
-- This animated design seems to be to complecated for my intensions
+- This animated design seems to be too complicated for my intentions
 - It has since been taken out of my designs
 - Rather have a standing carousel that rotates every 10 seconds
 
@@ -402,7 +408,7 @@ Problem?
 
 - When I click on logout
 - It comes with a forbidden error message
-- but if I have to refresh the page then it is fine, and it shows as if I am logged out
+- but if I have to refresh the page, then it is fine, and it shows as if I am logged out
 - this error only happens sometimes not all the time
 
 ![first.png](src/assets/docs/bugs/403_forbidden_logout/first.png)
