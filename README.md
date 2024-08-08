@@ -6,18 +6,16 @@
 
 ---
 
-## Description
+## Overview
 
-This forms part of the front end for my fifth project with code institute.
-
-This application is used to give a nice look and feel for the properties that are being looked at.
-It will have a nicely displayed look and feel with a user Profile were everything can be displayed in one place.
+- This Project was done as a two-stage application
+- This repository forms the exciting content were it is feature rich in functionality for new properties to be displayed.
+- While seeing all the details on the property that they are renting.
+- This repository allows sellers to upload their property with all the current details on the site.
 
 ![img.png](src/assets/docs/display.png)
 
-Live site [here](https://ci-pps-property-react-e3272eaff8d9.herokuapp.com/)
-
-As far as the coloring of the site goes, I wanted to todo a plan display with a white background
+Live site [here](https://ci-pp5-property-react-1c4b35a4e2b5.herokuapp.com/)
 
 ---
 
@@ -40,11 +38,13 @@ As far as the coloring of the site goes, I wanted to todo a plan display with a 
 ## Table of Content
 
 - [Planning](#planning)
+  - [How to install this project](#how-to-install-this-project)
   - [Wireframes](#wireframes)
   - [UX/UI Designs on figma](#uxui-designs-on-figma)
   - [Color pallet](#color-pallet)
   - [User Stories using MOSCOW Prioritization techniques](#user-stories-using-moscow-prioritization-techniques)
   - [Proper Description of the Technologies used in the Project](#proper-description-of-the-technologies-used-in-the-project)
+- [How to install this project](#how-to-install-this-project) 
 - [Features](#features)
   - [Atomic Design](#atomic-design)
   - [Header](#header)
@@ -64,9 +64,12 @@ As far as the coloring of the site goes, I wanted to todo a plan display with a 
   - [Footer email address off-screen](#footer-email-address-off-screen)
   - [does not want to refresh page on delete](#does-not-want-to-refresh-page-on-delete)
 - [Credits](#credits)
+
 ---
 
 ### [Planning](#table-of-content)
+
+
 
 #### [Wireframes](#table-of-content)
 
@@ -132,13 +135,18 @@ As far as the coloring of the site goes, I wanted to todo a plan display with a 
 
 ![User_Dashboard_mobile.png](src/assets/docs/planning/design/User_Dashboard_mobile.png)
 
-#### [Color pallet](#table-of-content)
+#### [Color Pallet](#table-of-content)
 
 ![color_pallet.png](src/assets/docs/planning/color_pallet.png)
 
-- This color scheme was the original idea
-- But then decided to keep the original pallet
-- But change it to a more minimalistic design
+Our Website features a modern and elegant color palette designed to create a visually appealing
+and user-friendly experience.
+The colors have been carefully selected to convey professionalism, trust and sophistication,
+which are essential for a property website.
+
+- Headings, Buttons, Links and Text: Pine Tree Green (#2F301D)—This color was chosen as a way to make certain elements stand out within the page
+- Secondary text: Ash Gray (#BFBFA7) - This color was used as a paragraph text just under the heading to explain what was to come.
+- Background: The soft white provides a clean canvas that enhances readability and focus on content.
 
 #### [User Stories using MOSCOW Prioritization techniques](#table-of-content)
 
@@ -179,21 +187,63 @@ About Page
 
 ---
 
+### [How to install this project](#table-of-content)
+
+Locally
+
+- To download this repo, install it using git clone or ssh
+- Clicking the Green code button above and selecting your preferred installation method
+- Then run npm install to install all the required React packages
+- Once all required packages are installed, you can run React using the following command
+- $ npm start
+
+Heroku
+
+- This Project is running live on heroku
+- When on the heroku app click the new button to create a new heroku project
+- Under the deployment tab, connect GitHub to this heroku project
+- scroll down until you see manual deploys
+- click the purple button that says Deploy branch
+- just to make sure that it deploys correctly being a first time
+- If everything seems right, then you can enable automatic deploys
+
+---
+
 ### [Features](#table-of-content)
 
 #### [Atomic Design](#table-of-content)
 
 ![atomic_design.png](src/assets/docs/features/atomic_design.png)
 
-##### Brief Description
+##### Description
 
-- The atomic design is broken down into atoms, molecules, organisms, templates and pages
-- Using this approach, I can make components as re-usable as possible
-- atoms form the basic building block of all life, in this case something like a button or an element like h1 tags and so on
-- molecules are the next step-up it can be something like a bootstrap card, a group of atoms together to form a bigger picture or a way of mapping over items from an array
-- organisms this is where the design will take shape it forms part of the higher order component, consisting of molecules and atoms or even other organisms
-- templates this is normally a component that will be used on most of your pages, like a header or footer, or a layout component
-- pages this will be were all your pages take shape
+Atomic design, developed by Brad Frost and Dave Olsen,
+is a methodology for crafting design systems with five fundamental building blocks
+which, when combined, promote consistency, modularity and scalability.
+
+The five building blocks are Atoms, Molecules, Organisms, Templates and Pages
+
+##### Atoms
+
+Basic building blocks of matter, such as a button, input and a form label.
+They're not useful on their own.
+
+##### Molecules
+
+Grouping atoms together, such as combining a button, input and form label to build functionality.
+
+##### Organisms
+
+Combining molecules to form organisms that make up a district section of an interface (i.e., navigation bar)
+
+##### Templates
+
+Consisting mostly of groups of organisms to form a page—where clients can see a final design in place.
+
+##### Pages
+
+An ecosystem that views different template renders.
+We can create multiple ecosystems into a single environment—the application.
 
 If you want a better explanation,
 take a look at this [article](https://andela.com/blog-posts/structuring-your-react-application-atomic-design-principles)
@@ -206,30 +256,32 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 
 ![header - desktop.png](src/assets/docs/features/header_desktop.png)
 
-- When on a device table or smaller the links become a hamburger menu
-- This is when the hamburger menu is closed
+- When the responsiveness of the page changes from tablet to smaller, the links become a hamburger menu
+- There is also functionality to show if the hamburger menu is open or closed
+- The image below shows that the menu is closed
 
 ![header_hamburger_menu.png](src/assets/docs/features/header_hamburger_menu.png)
 
-- When the hamburger menu icon is opened with the links below
+- The image below shows that the menu is open
 
 ![header_hamburger_menu_closed.png](src/assets/docs/features/header_hamburger_menu_closed.png)
 
 #### [State Store](#table-of-content)
 
-- I have implemented a state store to reduce Prop drilling
-- Prop drilling is when you keep on pass props down then up to many levels
-- The state store was implemented with the help of useMemo, useReducer and useContext
-- useMemo was used to stop unnecessary re-renders
-- useReducer was used to keep track of state logic
-- useContext was used to share state across the entire app
-- I have also written a simple useAppContext hook to make it easier to call state when needed
-- useAppContext hook returns two variable state and dispatch
-- state is used to see what data is in your state store
-- dispatch is used to update the state store passing it type and payload
-- type is the reducer function that you are wanting to use
-- payload is the data that you are wanting to send to the state store
-- If you are wanting to see how it was done, click [here](https://docs.google.com/document/d/1IHX350WfSIrXJzxKs8IBurmX-wX1dtBG1-rPXqmIB6c/edit#heading=h.1tzm0g2fdwbe)
+##### Description
+
+A state store in React refers to a centralized place to manage the state of an application.
+This concept is particularly useful for large applications where multiple components need to share and update the same state.
+Using state store helps to manage and coordinate state changes more efficiently, avoiding issues like prop drilling and inconsistent
+states across components.
+
+- This state store was done as a way of reducing Prop drilling within my application
+- I have also made use of local storage to increase user performance
+- I have used React hooks to store and retrieve state
+- The hooks that I have used are useMemo, useReducer and useContext
+- useMemo—this is used to memorize state, to reduce re-renders
+- useReducer—this hook is used to manage complex state within an application when a specific state becomes complete
+- useContext—this hook is used to share state across the application, globally
 
 #### [Special features on the about page](#table-of-content)
 
@@ -245,14 +297,17 @@ take a look at this [article](https://andela.com/blog-posts/structuring-your-rea
 
 #### [Automatic testing using cypress](#table-of-content)
 
-##### Brief Description of Automated testing
+##### Description
 
-- To run cypress, make sure that react is still running
-- This testing framework gives me a user interface to test
-- It runs automatically on file save
-- Open up a new terminal and run the command $ npm run cypress
-- I have created a script for cypress
-- This will then open up a browser with cypress running
+- Cypress is a testing framework for React and other UI libraries
+- It is used as a fully automated system
+- Testing how each component can interact with each other
+- To work with cypress, make sure that React is still running
+- Open up a new terminal
+- There is a script that I have created for cypress in package.json
+- run the command $ npm run cypress
+- This will then open up a new browser window to run cypress
+- select the one that says e2e
 
 ##### Authentication testing
 
@@ -304,7 +359,7 @@ CSS validation test
 
 ##### Solution?
 
-- I have added login to only send a request is there is a refresh-token in the Cookie store
+- I have added a login to only send a request if there is a refresh-token in the Cookie store
 
 ![cookie_store.png](src/assets/docs/bugs/cookie_store.png)
 
@@ -328,12 +383,14 @@ CSS validation test
 
 ##### Solution?
 
-- The animated design I took out of my plans
-- Rather have a standing carousel and rotates every 10 seconds
+- This animated design seems to be too complicated for my intentions
+- It has since been taken out of my designs
+- Rather have a standing carousel that rotates every 10 seconds
 
 #### [Error when sending property data to API](#table-of-content)
 
 Problem?
+
 - When I try to send data to API
 - It sends me a 500 error code
 - When it should only send a message
@@ -342,19 +399,22 @@ Problem?
 ![first.png](src/assets/docs/bugs/sending_property_data/first.png)
 
 Solution?
+
 - This has not been solved yet?
 
 #### [403 forbidden on logout](#table-of-content)
 
 Problem?
+
 - When I click on logout
 - It comes with a forbidden error message
-- but if I have to refresh the page then it is fine, and it shows as if I am logged out
+- but if I have to refresh the page, then it is fine, and it shows as if I am logged out
 - this error only happens sometimes not all the time
 
 ![first.png](src/assets/docs/bugs/403_forbidden_logout/first.png)
 
 Solution?
+
 - I can now log out with a form box asking for permission first
 
 ![second.png](src/assets/docs/bugs/403_forbidden_logout/second.png)
@@ -362,6 +422,7 @@ Solution?
 #### [Map doesn't have its own key](#table-of-content)
 
 Problem?
+
 - For some reason, the body of the table when mapping
 - I can't seem to add a unique id
 - From what I gather, it is just when I am developing locally
@@ -369,11 +430,13 @@ Problem?
 ![first.png](src/assets/docs/bugs/map_key/first.png)
 
 Solution?
+
 - This Problem has not been solved yet
 
 #### [Modal background to dark on Table display](#table-of-content)
 
 Problem?
+
 - For some reason, the modal is in a very dark background
 - Making it pitch black, so that nothing can be seen in the background
 - This only happens on laptop and larger devices
@@ -385,6 +448,7 @@ Problem?
 ![Second.png](src/assets/docs/bugs/dark_modal_background/Second.png)
 
 Solution?
+
 - This problem has not been solved yet
 
 #### [Footer](#table-of-content)
@@ -403,6 +467,7 @@ Solution?
 #### [Footer email address off-screen](#table-of-content)
 
 Problem?
+
 - When scaling down between 400pixels and 300 pixels
 - The email address is too long
 - It goes off the screen
@@ -410,6 +475,7 @@ Problem?
 ![first.png](src/assets/docs/bugs/footer_email_address/first.png)
 
 Solution?
+
 - Styled h4 heading and thumbnail to be smaller
 - on smaller devices
 
@@ -418,6 +484,7 @@ Solution?
 #### [does not want to refresh page on delete](#table-of-content)
 
 Problem?
+
 - The deleting of the user's profile
 - Will delete but for some reason it does not want to refresh the page
 - If you manually refresh, then it will show
@@ -425,6 +492,7 @@ Problem?
 ![first.png](src/assets/docs/bugs/refresh_on_delete/first.png)
 
 Solution?
+
 - This problem has not been solved
 
 ---
@@ -439,29 +507,3 @@ Solution?
 - Help to get the tokens correct [here](https://medium.com/django-unleashed/securing-django-rest-apis-with-jwt-authentication-using-simple-jwt-a-step-by-step-guide-28efa84666fe)
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
