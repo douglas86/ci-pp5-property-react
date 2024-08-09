@@ -38,7 +38,6 @@ Live site [here](https://ci-pp5-property-react-1c4b35a4e2b5.herokuapp.com/)
 ## Table of Content
 
 - [Planning](#planning)
-  - [How to install this project](#how-to-install-this-project)
   - [Wireframes](#wireframes)
   - [UX/UI Designs on figma](#uxui-designs-on-figma)
   - [Color pallet](#color-pallet)
