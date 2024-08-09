@@ -21,7 +21,7 @@ import AxiosInstance from "../../../../API/AxiosInstance";
 const UsersPage = () => {
   const dispatch = useAppDispatch();
 
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,14 +60,14 @@ const UsersPage = () => {
     <IsAdmin>
       <AdminButtonsMolecule />
       {heading("Registered Users")}
-      {data !== {} ? (
+      {data.length === 0 ? (
+        spinner()
+      ) : (
         <CardDashOrganism
           body={data}
           modalType="Users"
           DeleteComponent={DeleteUsersForm}
         />
-      ) : (
-        spinner
       )}
     </IsAdmin>
   );
