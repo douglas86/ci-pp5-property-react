@@ -8,12 +8,6 @@ import { useAppState } from "../../hooks/useAppContext";
  * @returns {JSX.Element} - The rendered landing page component.
  */
 const LandingPage = () => {
-  const state = useAppState();
-
-  const { userReducers } = state;
-
-  console.log("userReducers", userReducers);
-
   return (
     <>
       <PageTitleMolecule />
