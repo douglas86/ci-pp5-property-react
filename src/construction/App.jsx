@@ -20,8 +20,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const App = () => {
   const state = useAppState();
   const dispatch = useAppDispatch();
-  const { dataReducers } = state;
+  const { dataReducers, userReducers } = state;
   const { showAlert } = dataReducers;
+  const { user } = userReducers;
 
   const heroku = "https://ci-pp5-property-api-958077e8a5b4.herokuapp.com";
 
@@ -39,20 +40,21 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        return await axios.get(`${heroku}/profiles/3/`);
+        return await axios.get(`${heroku}/profiles/${user.pk}/`);
       } catch (e) {
         return e;
       }
     };
 
-    fetchData()
-      .then((res) => {
-        console.log("res", res);
-      })
-      .catch((err) => {
-        console.log("error", err);
-      });
-  }, []);
+    user &&
+      fetchData()
+        .then((res) => {
+          console.log("res", res);
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
+  }, [user]);
 
   return (
     <LayoutTemplate>
