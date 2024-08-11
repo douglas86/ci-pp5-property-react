@@ -51,6 +51,7 @@ const App = () => {
       fetchData()
         .then((res) => {
           console.log("res", res);
+          dispatch({ type: "UPDATE PROFILE", payload: res.data[0] });
         })
         .catch((err) => {
           console.log("error", err);
