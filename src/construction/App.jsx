@@ -10,6 +10,7 @@ import { router } from "../utils";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import AxiosInstance from "../API/AxiosInstance";
 
 /**
  * Represents the main application part.
@@ -40,7 +41,7 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        return await axios.get(`${heroku}/profiles/${user.pk}/`);
+        return await AxiosInstance.get(`profiles/${user.pk}/`);
       } catch (e) {
         return e;
       }
