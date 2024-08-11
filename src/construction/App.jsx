@@ -35,6 +35,7 @@ const App = () => {
       }, 5000);
   }, [showAlert, dispatch]);
 
+  // useEffect hook to gather profile data from a database
   useEffect(() => {
     const fetchData = async () => {
       try {

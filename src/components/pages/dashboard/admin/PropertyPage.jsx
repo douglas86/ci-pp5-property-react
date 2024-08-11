@@ -19,7 +19,7 @@ import AxiosInstance from "../../../../API/AxiosInstance";
 const PropertyPage = () => {
   const dispatch = useAppDispatch();
 
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,15 +72,15 @@ const PropertyPage = () => {
     <IsAdmin>
       <AdminButtonsMolecule />
       {heading("Properties")}
-      {data ? (
+      {data.length === 0 ? (
+        spinner()
+      ) : (
         <CardDashOrganism
           body={data}
           modalType="Property"
           UpdateComponent={UpdatePropertyForm}
           DeleteComponent={DeletePropertyForm}
         />
-      ) : (
-        spinner
       )}
     </IsAdmin>
   );
