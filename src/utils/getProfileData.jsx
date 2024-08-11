@@ -31,6 +31,8 @@ export const getProfileData = async (res, dispatch) => {
     .then(async (response) => {
       const results = await response.data[0];
 
+      console.log("response", response);
+
       dispatch({
         type: "SHOW SUCCESSFULLY ALERT MESSAGE",
         payload: "You have successfully been logged in",
