@@ -23,8 +23,6 @@ const useRefreshToken = () => {
 
   const refreshToken = Cookies.get("refresh-token");
 
-  console.log("userReducers", userReducers);
-
   useEffect(() => {
     /**
      * Handles refreshing the authentication token using the given `refreshToken`.
@@ -68,7 +66,6 @@ const useRefreshToken = () => {
             handleUserData()
               .then(async (res) => {
                 const results = await res.data;
-                console.log("results", results);
                 dispatch({ type: "UPDATE USER DATA", payload: results });
                 await getProfileData(res, dispatch);
               })

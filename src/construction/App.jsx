@@ -7,7 +7,6 @@ import useRefreshToken from "../hooks/useRefreshToken";
 import { useAppDispatch, useAppState } from "../hooks/useAppContext";
 
 import { router } from "../utils";
-import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import AxiosInstance from "../API/AxiosInstance";
@@ -24,8 +23,6 @@ const App = () => {
   const { dataReducers, userReducers } = state;
   const { showAlert } = dataReducers;
   const { user } = userReducers;
-
-  const heroku = "https://ci-pp5-property-api-958077e8a5b4.herokuapp.com";
 
   // custom hook that refreshes the auth tokens
   useRefreshToken();
@@ -50,11 +47,10 @@ const App = () => {
     user &&
       fetchData()
         .then((res) => {
-          console.log("res", res);
           dispatch({ type: "UPDATE PROFILE", payload: res.data[0] });
         })
         .catch((err) => {
-          console.log("error", err);
+          dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
         });
   }, [user]);
 
