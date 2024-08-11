@@ -64,7 +64,8 @@ const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
             >
               <Card.Body>
                 <Card.Title>
-                  {thumbnail(`${items.image}`, "profile")} {items.name}
+                  {items.image ? thumbnail(`${items.image}`, "profile") : null}{" "}
+                  Owner: {items.name}
                 </Card.Title>
                 {items.role ? <Card.Text>Role: {items.role}</Card.Text> : null}
                 {items.address ? (

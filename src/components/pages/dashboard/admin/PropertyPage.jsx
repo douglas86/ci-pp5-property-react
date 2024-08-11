@@ -36,18 +36,9 @@ const PropertyPage = () => {
         setData(data);
 
         const dict = data.map(
-          ({
-            area_code,
-            id,
-            owner,
-            property_address,
-            property_area,
-            property_image,
-            rent,
-          }) => {
+          ({ area_code, id, owner, property_address, property_area, rent }) => {
             return {
               id,
-              image: property_image,
               name: owner,
               address: property_address,
               area: property_area,

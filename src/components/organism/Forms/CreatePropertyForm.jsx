@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { buttonClick, subheading } from "../../atom/elements";
 
 import { useAppDispatch } from "../../../hooks/useAppContext";
-import { handleChange, handleImage } from "../../../utils/handlers";
+import { handleChange } from "../../../utils/handlers";
 import AxiosInstance from "../../../API/AxiosInstance";
 
 import styles from "../../../styles/organism/Form.module.css";
@@ -71,17 +71,17 @@ const CreatePropertyForm = () => {
             />
           </Form.Group>
         </div>
-        <div className={styles.groupItem}>
-          <Form.Group>
-            <Form.Label>Property Photo</Form.Label>
-            <Form.Control
-              type="file"
-              placeholder="Please upload a picture"
-              name="property_image"
-              onChange={(e) => handleImage(e, form, setForm)}
-            />
-          </Form.Group>
-        </div>
+        {/*<div className={styles.groupItem}>*/}
+        {/*  <Form.Group>*/}
+        {/*    <Form.Label>Property Photo</Form.Label>*/}
+        {/*    <Form.Control*/}
+        {/*      type="file"*/}
+        {/*      placeholder="Please upload a picture"*/}
+        {/*      name="property_image"*/}
+        {/*      onChange={(e) => handleImage(e, form, setForm)}*/}
+        {/*    />*/}
+        {/*  </Form.Group>*/}
+        {/*</div>*/}
       </div>
       <div className={styles.buttons}>
         {buttonClick(
