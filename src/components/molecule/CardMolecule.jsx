@@ -9,6 +9,7 @@ import styles from "../../styles/molecule/Card.module.css";
  * Each card contains a subheading, avatar, and name.
  */
 const CardMolecule = () => {
+  // Data to display on the card
   const data = [
     {
       subheading: "A terrific praise",

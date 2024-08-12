@@ -10,7 +10,7 @@ import { handleUserRole } from "../../utils/handlers";
 import styles from "../../styles/organism/Links.module.css";
 
 /**
- * This molecule if to deal with the links on the navbar for the different pages
+ * This organism if to deal with the links on the navbar for the different pages
  * @returns {JSX.Element}
  * @constructor
  */
@@ -20,12 +20,7 @@ const LinksOrganism = () => {
   const { userReducers, modalReducers } = state;
   const { templateModal } = modalReducers;
 
-  /**
-   * Filters the items in the router based on specific conditions.
-   *
-   * @param {Array} router - The router to filter.
-   * @returns {Array} - The filtered router items.
-   */
+  // This function will handle the displaying of the titles on the navbar
   const handleRouter = router.filter((items) => {
     return (
       items.title !== "None" &&
@@ -34,15 +29,7 @@ const LinksOrganism = () => {
     );
   });
 
-  /**
-   * Handles the path based on the given conditions.
-   *
-   * @param {string} title - The title of the page.
-   * @param {string} path - The path of the page.
-   * @param {boolean} IsAdmin - Flag indicating if the user is an admin.
-   * @param {boolean} IsUser - Flag indicating if the user is a regular user.
-   * @returns {string} - The resulting path.
-   */
+  // handle displaying of which dashboard between user or admin
   const handlePath = (title, path, IsAdmin, IsUser) =>
     title === "Dashboard"
       ? handleUserRole(userReducers.profile)

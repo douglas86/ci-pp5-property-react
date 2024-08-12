@@ -21,7 +21,6 @@ import styles from "../../styles/organism/Carousel.module.css";
  * @constructor
  */
 const CarouselOrganism = () => {
-  // state
   const [count, setCount] = useState(0);
   const [time, setTime] = useState(0);
 

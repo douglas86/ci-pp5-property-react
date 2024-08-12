@@ -7,10 +7,10 @@ import styles from "../../styles/pages/about.module.css";
 
 /**
  * Represents the About Page component.
- *
  * @returns {JSX.Element} The About Page component.
  */
 const AboutPage = () => {
+  // Array to populate the Statement molecule with data
   const missionCommitment = [
     {
       title: "Our Mission",

@@ -4,7 +4,6 @@ import { heading, subheading } from "../atom/elements";
 
 /**
  * TestimonialsOrganism is a functional component that displays testimonials.
- *
  * @returns {ReactElement} The TestimonialsOrganism component
  */
 const TestimonialsOrganism = () => {
