@@ -5,8 +5,6 @@ import AxiosInstance from "../API/AxiosInstance";
 
 import { useAppDispatch, useAppState } from "./useAppContext";
 
-import { getProfileData } from "../utils";
-
 /**
  * Refreshes the authentication token and retrieves user data using the given `refreshToken`.
  *
@@ -62,12 +60,11 @@ const useRefreshToken = () => {
     refreshToken &&
       handleRefreshToken()
         .then(() => {
-          userReducers === {} &&
+          userReducers.profile &&
             handleUserData()
               .then(async (res) => {
                 const results = await res.data;
                 dispatch({ type: "UPDATE USER DATA", payload: results });
-                await getProfileData(res, dispatch);
               })
               .catch((err) => {
                 dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
@@ -76,7 +73,7 @@ const useRefreshToken = () => {
         .catch((error) => {
           dispatch({ type: "ERROR UPDATING USER DATA", payload: error });
         });
-  }, [dispatch, refreshToken, userReducers]);
+  }, [dispatch, refreshToken]);
 };
 
 export default useRefreshToken;

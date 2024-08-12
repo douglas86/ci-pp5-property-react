@@ -18,10 +18,22 @@ const FooterOrganism = () => {
         <div className={styles.heading}>{h4Heading("London Properties")}</div>
         <div className={styles.thumbnails}>
           <div className={styles.thumbnail}>
-            {thumbnail(githubIcon, "github icon")}
+            <a
+              href="https://github.com/douglas86/ci-pp5-property-react"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {thumbnail(githubIcon, "github icon")}
+            </a>
           </div>
           <div className={styles.thumbnail}>
-            {thumbnail(LinkedinIcon, "linkedin icon")}
+            <a
+              href="https://www.linkedin.com/in/douglas-maxton-58134b170"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {thumbnail(LinkedinIcon, "linkedin icon")}
+            </a>
           </div>
         </div>
       </div>

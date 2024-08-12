@@ -15,7 +15,7 @@ import styles from "../../styles/organism/CardDash.module.css";
  * @param {string} props.modalType - The type of modal.
  * @param {React.Component} props.DeleteComponent - The component to be rendered when delete button is clicked.
  *
- * @returns {React.Component} The rendered CardDashOrganism component.
+ * @returns {JSX.Element} The rendered CardDashOrganism component.
  */
 const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
   const state = useAppState();
@@ -54,7 +54,7 @@ const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
 
   return (
     <>
-      {body ? (
+      {body.length !== 0 ? (
         <div className={styles.div}>
           {Object.values(body).map((items, index) => (
             <Card
@@ -64,7 +64,8 @@ const CardDashOrganism = ({ body, modalType, DeleteComponent }) => {
             >
               <Card.Body>
                 <Card.Title>
-                  {thumbnail(`${items.image}`, "profile")} {items.name}
+                  {items.image ? thumbnail(`${items.image}`, "profile") : null}{" "}
+                  Owner: {items.name}
                 </Card.Title>
                 {items.role ? <Card.Text>Role: {items.role}</Card.Text> : null}
                 {items.address ? (

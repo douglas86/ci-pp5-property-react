@@ -9,6 +9,7 @@ import { useAppDispatch, useAppState } from "../hooks/useAppContext";
 import { router } from "../utils";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import AxiosInstance from "../API/AxiosInstance";
 
 /**
  * Represents the main application part.
@@ -19,8 +20,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const App = () => {
   const state = useAppState();
   const dispatch = useAppDispatch();
-  const { dataReducers } = state;
+  const { dataReducers, userReducers } = state;
   const { showAlert } = dataReducers;
+  const { user } = userReducers;
 
   // custom hook that refreshes the auth tokens
   useRefreshToken();
@@ -32,6 +34,26 @@ const App = () => {
         dispatch({ type: "HIDE ALERT MESSAGE" });
       }, 5000);
   }, [showAlert, dispatch]);
+
+  // useEffect hook to gather profile data from a database
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        return await AxiosInstance.get(`profiles/${user.pk}/`);
+      } catch (e) {
+        return e;
+      }
+    };
+
+    user &&
+      fetchData()
+        .then((res) => {
+          dispatch({ type: "UPDATE PROFILE", payload: res.data[0] });
+        })
+        .catch((err) => {
+          dispatch({ type: "ERROR UPDATING USER DATA", payload: err });
+        });
+  }, [user]);
 
   return (
     <LayoutTemplate>

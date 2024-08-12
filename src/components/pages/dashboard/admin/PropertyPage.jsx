@@ -19,7 +19,7 @@ import AxiosInstance from "../../../../API/AxiosInstance";
 const PropertyPage = () => {
   const dispatch = useAppDispatch();
 
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,18 +36,9 @@ const PropertyPage = () => {
         setData(data);
 
         const dict = data.map(
-          ({
-            area_code,
-            id,
-            owner,
-            property_address,
-            property_area,
-            property_image,
-            rent,
-          }) => {
+          ({ area_code, id, owner, property_address, property_area, rent }) => {
             return {
               id,
-              image: property_image,
               name: owner,
               address: property_address,
               area: property_area,
@@ -72,15 +63,15 @@ const PropertyPage = () => {
     <IsAdmin>
       <AdminButtonsMolecule />
       {heading("Properties")}
-      {data ? (
+      {data.length === 0 ? (
+        spinner()
+      ) : (
         <CardDashOrganism
           body={data}
           modalType="Property"
           UpdateComponent={UpdatePropertyForm}
           DeleteComponent={DeletePropertyForm}
         />
-      ) : (
-        spinner
       )}
     </IsAdmin>
   );

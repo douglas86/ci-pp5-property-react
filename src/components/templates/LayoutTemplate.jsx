@@ -19,14 +19,14 @@ const LayoutTemplate = ({ children }) => {
   const { showAlert, showMessage, alertColor } = dataReducers;
 
   return (
-    <>
+    <div className={styles.layout}>
       <HeaderOrganism />
       <main className={styles.main}>
         {showAlert && <Alert variant={alertColor}>{showMessage}</Alert>}
         {children}
       </main>
       <FooterOrganism />
-    </>
+    </div>
   );
 };
 
