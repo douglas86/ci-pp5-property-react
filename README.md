@@ -43,7 +43,7 @@ Live site [here](https://ci-pp5-property-react-1c4b35a4e2b5.herokuapp.com/)
   - [Color pallet](#color-pallet)
   - [User Stories using MOSCOW Prioritization techniques](#user-stories-using-moscow-prioritization-techniques)
   - [Proper Description of the Technologies used in the Project](#proper-description-of-the-technologies-used-in-the-project)
-- [How to install this project](#how-to-install-this-project) 
+- [How to install this project - Deployment](#how-to-install-this-project---deployment) 
 - [Features](#features)
   - [Atomic Design](#atomic-design)
   - [Header](#header)
@@ -186,7 +186,7 @@ About Page
 
 ---
 
-### [How to install this project](#table-of-content)
+### [How to install this project - Deployment](#table-of-content)
 
 Locally
 
