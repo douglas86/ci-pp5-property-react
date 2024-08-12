@@ -15,16 +15,12 @@ const AboutPage = () => {
     {
       title: "Our Mission",
       paragraph:
-        "Our mission is to help empower you with the tools, information and\n" +
-        "            support that you need to help you with achieving your vision to\n" +
-        "            obtain your next property.",
+        "Our mission is to empower you with the tools, information, and support you need to achieve your vision of obtaining your next property.",
     },
     {
       title: "Our Commitment",
       paragraph:
-        "We are committed to transparency, integrity and honesty in\n" +
-        "            everything we do. Our goal is to build long lasting relationships\n" +
-        "            with our clients. Your satisfaction is our number 1 priority",
+        "We are committed to transparency, integrity, and honesty in everything we do. Our goal is to build long-lasting relationships with our clients, with your satisfaction as our number one priority.",
     },
   ];
 
@@ -35,9 +31,7 @@ const AboutPage = () => {
         <StatementMolecule
           title="About Us"
           subHead="This is just a little detail about the best Properties in London"
-          paragraph="Welcome to London Properties, the best website in the Property
-            sector. Weather you are looking to buy, rent or sell. I am sure that
-            we can find the correct property for you."
+          paragraph="Welcome to London Properties, the premier website in the property sector. Whether you are looking to buy, rent, or sell, we are confident that we can find the perfect property for you."
         />
         <img className={styles.image} src={`${house}`} alt="house" />{" "}
       </div>
