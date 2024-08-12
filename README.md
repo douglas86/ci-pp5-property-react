@@ -42,7 +42,7 @@ Live site [here](https://ci-pp5-property-react-1c4b35a4e2b5.herokuapp.com/)
   - [UX/UI Designs on figma](#uxui-designs-on-figma)
   - [Color pallet](#color-pallet)
   - [User Stories using MOSCOW Prioritization techniques](#user-stories-using-moscow-prioritization-techniques)
-  - [Proper Description of the Technologies used in the Project](#proper-description-of-the-technologies-used-in-the-project)
+  - [Project Description](#project-description)
 - [How to install this project - Deployment](#how-to-install-this-project---deployment) 
 - [Features](#features)
   - [Atomic Design](#atomic-design)
@@ -182,7 +182,11 @@ About Page
 
 ![about.png](src/assets/docs/planning/milestones/about.png)
 
-#### [Proper Description of the Technologies used in the Project](#table-of-content)
+#### [Project Description](#table-of-content)
+
+- This is a full CRUD application
+- The Update part of this project was done with change password
+- All the delete functionality asks you for confirmation before deleting
 
 ---
 
