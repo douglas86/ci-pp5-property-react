@@ -346,6 +346,19 @@ CSS validation test
 
 ![css validator.png](src/assets/docs/testing/manual_testing/css_validator.png)
 
+Manual testing table
+
+| Feature                                       | Expected Outcome                                                          | Testing Performed                                        | Result                                                                                              | Pass/Fail |
+|-----------------------------------------------|---------------------------------------------------------------------------|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------|-----------|
+| Login                                         | Button turns to Logout on User Login credentials correct                  | username and password                                    | Auth button changes from Login to Logout                                                            | Pass      |
+| Logout                                        | Button turns to Login when user Logs out                                  | click logout on Modal popup                              | Display successfully logout message and button changes to Login                                     | Pass      |
+| Registration                                  | Button turns to Logout and a successful message pops up                   | enter username and password and retype password          | Auth button changes from Login to Logout and display successfully message                           | Pass      |
+| Change Password                               | Changes the password in the API                                           | enter username and password                              | There is nothing to display on this, but when you try to login you need to use the changed password | Pass      |
+| Link on Navbar                                | Change page when clicked                                                  | Click on each link to see if it goes to the correct page | It does go to the correct pages on click                                                            | Pass      |
+| Hamburger menu                                | Change to hamburger menu on smaller devices                               | Using responsive design change the screen size           | changes as soon as it hits the screen size                                                          | Pass      |
+| Hamburger menu changes icons on open or close | Menu changes when I click on the hamburger menu to open or close the menu | click menu                                               | When the menu is clicked the menu opens and all links are displayed                                 | Pass      |
+| Social Icons on Footer                        | Open new browser tab to my account on those platforms                     | Click the icon                                           | Browser open in a new tab redirecting to my account on those platforms                              | Pass      |
+
 ---
 
 ### [Bugs](#table-of-content)
