@@ -53,15 +53,16 @@ Live site [here](https://ci-pp5-property-react-1c4b35a4e2b5.herokuapp.com/)
   - [Automatic testing using cypress](#automatic-testing-using-cypress)
   - [Manual testing](#manual-testing)
 - [Bugs](#bugs)
-  - [401 Error](#401-error)
-  - [Carousel](#carousel)
-  - [Error when sending property data to API](#error-when-sending-property-data-to-api)
-  - [403 forbidden on logout](#403-forbidden-on-logout)
-  - [Map doesn't have its own key](#map-doesnt-have-its-own-key)
-  - [Modal background to dark on Table display](#modal-background-to-dark-on-table-display)
-  - [Footer](#footer)
-  - [Footer email address off-screen](#footer-email-address-off-screen)
-  - [does not want to refresh page on delete](#does-not-want-to-refresh-page-on-delete)
+    - [Doesn't want to load profile unless I refresh page](#doesnt-want-to-load-profile-unless-i-refresh-page) 
+    - [401 Error](#401-error)
+    - [Carousel](#carousel)
+    - [Error when sending property data to API](#error-when-sending-property-data-to-api)
+    - [403 forbidden on logout](#403-forbidden-on-logout)
+    - [Map doesn't have its own key](#map-doesnt-have-its-own-key)
+    - [Modal background to dark on Table display](#modal-background-to-dark-on-table-display)
+    - [Footer](#footer)
+    - [Footer email address off-screen](#footer-email-address-off-screen)
+    - [does not want to refresh page on delete](#does-not-want-to-refresh-page-on-delete)
 - [Credits](#credits)
 
 ---
@@ -362,6 +363,36 @@ Manual testing table
 ---
 
 ### [Bugs](#table-of-content)
+
+#### [Doesn't want to load profile unless I refresh page](#table-of-content)
+
+##### Problem?
+
+- The Problem is that when I login it fetches user data from db
+- And place that data into State store
+- but doesn't want to fetch the profile information
+- If I do a refresh, all the data is there
+- Works as normal
+
+This error is in the console on login
+
+![img.png](src/assets/docs/bugs/refresh_page/img.png)
+
+This is what it shows when you login in the state store
+
+![img_1.png](src/assets/docs/bugs/refresh_page/img_1.png)
+
+When I do a refresh, it updates the state store correctly
+
+![img_2.png](src/assets/docs/bugs/refresh_page/img_2.png)
+
+On refresh, there are also no error messages in the console
+
+![img_3.png](src/assets/docs/bugs/refresh_page/img_3.png)
+
+##### Solution?
+
+- This issue has not been solved yet?
 
 #### [401 Error](#table-of-content)
 
