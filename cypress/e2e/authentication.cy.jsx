@@ -14,7 +14,7 @@ describe("Login and Logout user", () => {
   it("Pass refresh token if user is logged in", async () => {
     cy.visit(`${local}`);
 
-    const username = "test";
+    const username = "douglas";
     const password = "IAMininGLOrN";
 
     cy.get(".btn")
