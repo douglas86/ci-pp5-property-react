@@ -4,7 +4,6 @@ import styles from "../../styles/molecule/Title.module.css";
 
 /**
  * Represents a molecule component for the page title.
- *
  * @returns {JSX.Element} The rendered page title molecule component.
  */
 const PageTitleMolecule = () => {

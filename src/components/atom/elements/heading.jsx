@@ -2,7 +2,6 @@ import styles from "../../../styles/atom/elements.module.css";
 
 /**
  * Render a heading with the given title.
- *
  * @param {string} title - The title of the heading.
  * @returns {JSX.Element} The rendered heading component.
  */

@@ -6,8 +6,7 @@ import styles from "../../styles/molecule/Menu.module.css";
 
 /**
  * Represents a menu molecule component that handles menu state and toggle functionality.
- *
- * @returns {JSX} The rendered menu molecule component.
+ * @returns {JSX.Element} The rendered menu molecule component.
  */
 const MenuMolecule = () => {
   const state = useAppState();
